@@ -1,5 +1,17 @@
 <x-guest-layout>
   <!--== Page Title Start ==-->
+  <div class="transition-none">
+      <section class="title-hero-bg parallax-effect" style="background-image: url({{ asset('assets/images/all/header-ad-list.webp') }});">
+          <div class="container">
+              <div class="page-title text-center white-color">
+                  <h1>Default Header</h1>
+                  <h4 class="text-uppercase mt-30">Our Creative Portfolio</h4>
+              </div>
+          </div>
+      </section>
+  </div>
+  <!--== Page Title End ==-->
+  <!--== Page Title Start ==-->
   <section class="default-bg pt-40 pb-40">
   	<div class="container">
     	<div class="row white-color">

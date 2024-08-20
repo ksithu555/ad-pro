@@ -3,7 +3,7 @@
     <section class="pt-0 pb-0 dark-block">
         <div class="service-slider-2 slick height-650px" style="margin-bottom: 0px;">
             <div class="slide">
-                <div class="slide-img height-650px" style="background:url({{ asset('assets/images/all/header-02.webp') }}) center center / cover scroll no-repeat;"></div>
+                <div class="slide-img height-650px" style="background:url({{ asset('assets/images/all/ad_sla01.jpg') }}) center center / cover scroll no-repeat;"></div>
                 <div class="hero-text-wrap height-650px">
                     <div class="hero-text">
                         <div class="container">

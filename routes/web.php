@@ -40,6 +40,7 @@ Route::get('/user/members', [UserController::class, 'getMembers'])->name('user.g
 Route::get('/user/advertisements', [UserController::class, 'getAdvertisements'])->name('user.get.advertisements');
 Route::get('/user/show/advertisement', [UserController::class, 'showAdvertisement'])->name('user.show.advertisement');
 Route::post('/user/store/advertisement', [UserController::class, 'storeAdvertisement'])->name('user.store.advertisement');
+Route::post('/user/update/advertisement', [UserController::class, 'updateAdvertisement'])->name('user.update.advertisement');
 
 // Announcement
 Route::get('/user/announcements', [UserController::class, 'getAnnouncements'])->name('user.get.announcements');

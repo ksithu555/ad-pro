@@ -103,11 +103,22 @@ class UserController extends Controller
 
     public function showAdvertisement() {
         $advertisement = Advertisement::where('user_id', Auth::user()->id)->first();
-        return view('users.show-advertisement', compact('advertisement'));
+        if (!$advertisement) {
+            return view('users.show-advertisement', compact('advertisement'));
+        } else {
+            return view('users.edit-advertisement', compact('advertisement'));
+        }
     }
 
     public function storeAdvertisement(Request $request) {
-        dd($request->all());
+        Advertisement::create([
+            'user_id' => Auth::user()->id,
+            'name' => $request->name,
+            'param_name' => $request->paramName
+        ]);
+
+        Session::flash('success', '広告が正常に追加されました');
+        return redirect()->route('user.show.advertisement');
     }
 
     public function getAnnouncements() {

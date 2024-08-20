@@ -75,6 +75,9 @@ Route::get('/admin/edit/header/{id}', [AdminController::class, 'editHeader'])->n
 Route::post('/admin/update/header', [AdminController::class, 'updateHeader'])->name('admin.update.header');
 Route::get('/admin/delete/header{id}', [AdminController::class, 'deleteHeader'])->name('admin.delete.header');
 
+// members
+Route::get('/admin/members', [AdminController::class, 'getMembers'])->name('admin.get.members');
+
 // advertisement
 Route::get('/admin/advertisements', [AdminController::class, 'getAdvertisements'])->name('admin.get.advertisements');
 

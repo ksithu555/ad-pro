@@ -1,7 +1,7 @@
 	/* ===================================================================
 
 	Author       	: Incognito Themes
-	Template Name	: Torneo - Multi-Purpose HTML5 Theme
+	Template Name	: ADPRO - Multi-Purpose HTML5 Theme
 	Version      	: 1.0
 
 	* ================================================================= */

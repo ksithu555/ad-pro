@@ -3,11 +3,19 @@
     <section>
       <div class="container">
         <div class="row">
+            <div class="col-sm-8 section-heading">
+                <div class="search-box">
+                    <input type="text" placeholder="Search...">
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="row">
           <div class="col-md-12">
             <div class="text-center">
                 <a class="btn btn-md btn-dark-outline btn-square margin-left-auto margin-right-auto display-table-sm"
                     href="{{ route('admin.add.news') }}">
-                    <i class="fa-icon-plus-circle"></i> 新着情報登録
+                    <i class="fa-icon-plus-square"></i> 新着情報登録
                 </a>
             </div>
             <x-message-box></x-message-box>
@@ -19,13 +27,13 @@
               <table class="table table-bordered table-striped table-hover shop-cart">
                 <thead>
                   <tr>
-                    <th><strong>#</strong></th>
-                    <th><strong>タイトル</strong></th>
-                    <th><strong>体</strong></th>
-                    <th><strong>画像</strong></th>
-                    <th><strong>著者名</strong></th>
-                    <th><strong>著者画像</strong></th>
-                    <th><strong>アクション</strong></th>
+                    <th>#</th>
+                    <th>タイトル</th>
+                    <th>体</th>
+                    <th>画像</th>
+                    <th>著者名</th>
+                    <th>著者画像</th>
+                    <th>アクション</th>
                   </tr>
                 </thead>
                 <tbody>

@@ -1,5 +1,5 @@
 /*
-Template: Torneo Creative Agency
+Template: ADPRO Creative Agency
 Author: Incognito Themes
 Version: 1.0
 Designed and Development by: Incognito Themes
@@ -3865,11 +3865,12 @@ transition: transform .8s cubic-bezier(.5,.2,.2,.8),-webkit-transform .8s cubic-
   border-bottom: 1px solid #ececec;
   font-size: 13px;
   font-family: 'Montserrat', sans-serif;
-  color: #212121;
+  color: #fff;
   font-weight: 400;
   padding: 15px 20px;
   text-align: center;
   border: 1px solid #ececec;
+  font-weight: bold;
 }
 .shop-cart > tbody > tr > td {
   padding: 30px 8px;
@@ -4899,3 +4900,231 @@ section.big-block .client-logo {padding:10%;}
 .filter-white.cbp-l-filters-alignCenter .cbp-filter-item:hover {color: #888;}
 .portfolio-layout-slider .item-img{margin: 0 15px;}
 .portfolio-layout-slider .item-img img{box-shadow: 0 10px 30px 0 rgba(31,35,37,.1);}
+
+
+/* Container for the toggle switch */
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 30px;
+}
+
+/* Hide the default checkbox */
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+/* The circle inside the slider */
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+/* When the toggle is checked */
+input:checked + .slider {
+  background-color: #BF0731;
+}
+
+/* Move the circle to the right when checked */
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+/* Add a shadow when hovering over the slider */
+.slider:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Optional: Add some styles for the on/off text */
+.toggle-switch input:checked + .slider:after {
+  content: "ON";
+  color: white;
+  position: absolute;
+  left: 10px;
+  top: 6px;
+  font-size: 12px;
+}
+
+.toggle-switch input:not(:checked) + .slider:after {
+  content: "OFF";
+  color: white;
+  position: absolute;
+  right: 10px;
+  top: 6px;
+  font-size: 12px;
+}
+
+/* Container for the search box */
+.search-box {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+/* Style for the input field */
+.search-box input[type="text"] {
+  width: 100%;
+  padding: 12px 20px;
+  font-size: 16px;
+  border: 2px solid #BF0731;
+  border-radius: 25px;
+  outline: none;
+  transition: 0.3s;
+  color: black;
+}
+
+/* Placeholder color */
+.search-box input[type="text"]::placeholder {
+  color: #BF0731;
+}
+
+/* Style for the search button */
+.search-box button {
+  position: absolute;
+  right: 5px;
+  top: 35%;
+  transform: translateY(-50%);
+  background-color: #BF0731;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Icon inside the button */
+.search-box button i {
+  color: white;
+  font-size: 16px;
+}
+
+/* Hover effect for the button */
+.search-box button:hover {
+  background-color: #ac0e27;
+}
+
+/* Focus effect for the input field */
+.search-box input[type="text"]:focus {
+  border-color: #ac0e27;
+  box-shadow: 0 0 10px rgba(191, 7, 49, 0.5);
+}
+
+/* Style for the table container */
+.table-responsive {
+  margin-top: 20px;
+}
+
+/* Style for the table */
+.table {
+  width: 100%;
+  margin-bottom: 1rem;
+  background-color: transparent;
+  border-collapse: collapse;
+}
+
+/* Style for the table header */
+.table thead th {
+  background-color: #BF0731;
+  color: white;
+  text-align: center;
+  padding: 12px;
+  font-weight: bold;
+}
+
+/* Style for the table body rows */
+.table tbody tr {
+  transition: background-color 0.3s ease;
+}
+
+/* Style for the table body cells */
+.table tbody td {
+  padding: 12px;
+  vertical-align: middle;
+  text-align: center;
+  border: 1px solid #ddd;
+}
+
+/* Add zebra striping to the table */
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: #f9f9f9;
+}
+
+.table-striped tbody tr:nth-of-type(even) {
+  background-color: #fff;
+}
+
+/* Hover effect for table rows */
+.table-hover tbody tr:hover {
+  background-color: rgba(191, 7, 49, 0.1);
+}
+
+/* Style for strong tags in table headers */
+.table thead th strong {
+  font-weight: bold;
+}
+
+/* Style for strong tags in table body */
+.table tbody td strong {
+  font-weight: bold;
+}
+
+/* Style for bordered tables */
+.table-bordered {
+  border: 1px solid #ddd;
+}
+
+/* Style for the toggle-switch inside the table */
+.table .toggle-switch {
+  margin: 0 auto;
+}
+
+/* Media query for responsive adjustments */
+@media (max-width: 768px) {
+  .table thead {
+    display: none;
+  }
+  
+  .table tbody tr {
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  .table tbody td {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border: none;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .table tbody td:before {
+    content: attr(data-label);
+    font-weight: bold;
+    color: #BF0731;
+    flex-basis: 50%;
+  }
+}

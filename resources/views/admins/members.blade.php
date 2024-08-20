@@ -1,4 +1,4 @@
-<x-user-layout>
+<x-admin-layout>
     <!--== Products Start ==-->
     <section>
         <div class="container">
@@ -17,22 +17,29 @@
                             <thead>
                                 <tr>
                                 <th>#</th>
-                                <th>タイトル</th>
-                                <th>日付</th>
+                                <th>名前</th>
+                                <th>メールアドレス</th>
+                                <th>アクション</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($notices as $key => $notice)
+                                @foreach ($users as $key => $user)
                                 <tr>
-                                <td>
-                                    {{ $ttl + 1 - ($notices->firstItem() + $key) }}
-                                </td>
-                                <td>
-                                    {{ nl2br($notice->title) }}
-                                </td>
-                                <td>
-                                    {{ $notice->created_at->format('d/m/Y') }}
-                                </td>
+                                    <td>
+                                        {{ $ttl + 1 - ($users->firstItem() + $key) }}
+                                    </td>
+                                    <td>
+                                        {{ $user->name }}
+                                    </td>
+                                    <td>
+                                        {{ $user->email }}
+                                    </td>
+                                    <td>
+                                        <label class="toggle-switch">
+                                            <input type="checkbox" {{ $user->status == 1 ? 'checked' : '' }}>
+                                            <span class="slider"></span>
+                                        </label>   
+                                    </td>
                                 </tr>
                                 @endforeach
                             </tbody>
@@ -44,4 +51,4 @@
         </div>
       </section>
       <!--== Products End ==-->
-</x-user-layout>
+</x-admin-layout>

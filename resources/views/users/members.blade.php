@@ -4,7 +4,10 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-8 section-heading">
-                    <h4 class="text-uppercase mt-0">会員リスト</h4>
+                    <div class="search-box">
+                        <input type="text" placeholder="Search...">
+                        <button type="submit"><i class="fa fa-search"></i></button>
+                    </div>
                 </div>
             </div>
             <div class="row mt-10">
@@ -13,9 +16,9 @@
                         <table class="table table-bordered table-striped table-hover shop-cart">
                             <thead>
                                 <tr>
-                                <th><strong>#</strong></th>
-                                <th><strong>名前</strong></th>
-                                <th><strong>メールアドレス</strong></th>
+                                <th>#</th>
+                                <th>名前</th>
+                                <th>メールアドレス</th>
                                 </tr>
                             </thead>
                             <tbody>

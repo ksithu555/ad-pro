@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Admin;
 use App\Models\News;
+use App\Models\User;
+use App\Models\Admin;
 use App\Models\Notice;
 use App\Models\TopHeader;
 use Illuminate\Http\Request;
@@ -94,6 +95,14 @@ class AdminController extends Controller
         TopHeader::where('id', $id)->delete();
         Session::flash('success', 'ヘッダが正常に削除されました');
         return redirect()->route('admin.edit.headers');
+    }
+
+    public function getMembers() {
+        $limit = 10;
+        $users = User::paginate($limit);
+        $ttl = $users->total();
+        $ttlpage = ceil($ttl/$limit);
+        return view('admins.members', compact('users', 'ttl', 'ttlpage'));
     }
 
     public function getAdvertisements() {

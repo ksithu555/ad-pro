@@ -5,12 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="author" content="Designsninja">
 <!-- description -->
-<meta name="description" content="Torneo is creative agency, corporate, simple and clean template, Based on Bootstrap responsive multipurpose agency and portfolio HTML5 template with 28 unique home page demos">
+<meta name="description" content="ADPRO is creative agency, corporate, simple and clean template, Based on Bootstrap responsive multipurpose agency and portfolio HTML5 template with 28 unique home page demos">
 <!-- keywords -->
 <meta name="keywords" content="creative, revolution slider, business, photography, portfolio, one page, bootstrap responsive, start-up, ui/ux, html5, css3, studio, branding, creative design, multipurpose, parallax, personal, masonry, grid, coming soon, carousel, career">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>Torneo - Creative Agency, Business Multi-purpose template</title>
-<link rel="shortcut icon" href="{{ asset('assets/images/favicon.ico') }}">
+<title>ADPRO - Creative Agency, Business Multi-purpose template</title>
+<link rel="shortcut icon" href="{{ asset('assets/images/all/adpro_slogo.png') }}">
 
 <!-- Core Style Sheets -->
 <link rel="stylesheet" href="{{ asset('assets/css/master.css') }}">
@@ -107,7 +107,7 @@
       <!--== Start Header Navigation ==-->
       <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu"> <i class="tr-icon ion-android-menu"></i> </button>
-        <div class="logo"> <a href="index.html"><img class="logo logo-scrolled" src="assets/images/logo-black.png" alt=""> </a> </div>
+        <div class="logo"> <a href="index.html"><img class="logo logo-scrolled" src="assets/images/all/adpro2_blogo.png" alt=""> </a> </div>
       </div>
       <!--== End Header Navigation ==-->
 
@@ -515,7 +515,7 @@
         	<div class="product-item tr-products">
         		<div class="product-image tr-product-thumbnail">
         			<a href="shop-product.html">
-       					<img class="img-responsive" src="assets/images/shop/product-01.jpg" alt="torneo-product"/>
+       					<img class="img-responsive" src="assets/images/shop/product-01.jpg" alt="ADPRO-product"/>
 					</a>
        				<div class="product-action">
        					<button class="btn-shopping btn-light btn-md btn-square btn" type="button" value="Add to Cart">
@@ -556,7 +556,7 @@
         	<div class="product-item tr-products">
         		<div class="product-image tr-product-thumbnail">
         			<a href="shop-product.html">
-       					<img class="img-responsive" src="assets/images/shop/product-02.jpg" alt="torneo-product"/>
+       					<img class="img-responsive" src="assets/images/shop/product-02.jpg" alt="ADPRO-product"/>
 					</a>
        				<div class="product-action">
        					<button class="btn-shopping btn-light btn-md btn-square btn" type="button" value="Add to Cart">
@@ -594,7 +594,7 @@
         	<div class="product-item tr-products">
         		<div class="product-image tr-product-thumbnail">
         			<a href="shop-product.html">
-       					<img class="img-responsive" src="assets/images/shop/product-03.jpg" alt="torneo-product"/>
+       					<img class="img-responsive" src="assets/images/shop/product-03.jpg" alt="ADPRO-product"/>
 					</a>
        				<div class="product-action">
        					<button class="btn-shopping btn-light btn-md btn-square btn" type="button" value="Add to Cart">
@@ -629,7 +629,7 @@
         	<div class="product-item tr-products">
         		<div class="product-image tr-product-thumbnail">
         			<a href="shop-product.html">
-       					<img class="img-responsive" src="assets/images/shop/product-04.jpg" alt="torneo-product"/>
+       					<img class="img-responsive" src="assets/images/shop/product-04.jpg" alt="ADPRO-product"/>
 					</a>
        				<div class="product-action">
        					<button class="btn-shopping btn-light btn-md btn-square btn" type="button" value="Add to Cart">
@@ -669,7 +669,7 @@
         	<div class="product-item tr-products">
         		<div class="product-image tr-product-thumbnail">
         			<a href="shop-product.html">
-       					<img class="img-responsive" src="assets/images/shop/product-05.jpg" alt="torneo-product"/>
+       					<img class="img-responsive" src="assets/images/shop/product-05.jpg" alt="ADPRO-product"/>
 					</a>
        				<div class="product-action">
        					<button class="btn-shopping btn-light btn-md btn-square btn" type="button" value="Add to Cart">
@@ -707,7 +707,7 @@
         	<div class="product-item tr-products">
         		<div class="product-image tr-product-thumbnail">
         			<a href="shop-product.html">
-       					<img class="img-responsive" src="assets/images/shop/product-06.jpg" alt="torneo-product"/>
+       					<img class="img-responsive" src="assets/images/shop/product-06.jpg" alt="ADPRO-product"/>
 					</a>
        				<div class="product-action">
        					<button class="btn-shopping btn-light btn-md btn-square btn" type="button" value="Add to Cart">
@@ -742,7 +742,7 @@
         	<div class="product-item tr-products">
         		<div class="product-image tr-product-thumbnail">
         			<a href="shop-product.html">
-       					<img class="img-responsive" src="assets/images/shop/product-07.jpg" alt="torneo-product"/>
+       					<img class="img-responsive" src="assets/images/shop/product-07.jpg" alt="ADPRO-product"/>
 					</a>
        				<div class="product-action">
        					<button class="btn-shopping btn-light btn-md btn-square btn" type="button" value="Add to Cart">
@@ -783,7 +783,7 @@
         	<div class="product-item tr-products">
         		<div class="product-image tr-product-thumbnail">
         			<a href="shop-product.html">
-       					<img class="img-responsive" src="assets/images/shop/product-08.jpg" alt="torneo-product"/>
+       					<img class="img-responsive" src="assets/images/shop/product-08.jpg" alt="ADPRO-product"/>
 					</a>
        				<div class="product-action">
        					<button class="btn-shopping btn-light btn-md btn-square btn" type="button" value="Add to Cart">
@@ -887,11 +887,11 @@
       <div class="container">
         <div class="row">
           <div class="col-sm-4 col-xs-12 display-table" style="height: 40px;">
-            <div class="copy-right text-left v-align">© 2019 <i class="icon icofont icofont-heart-alt"></i> Torneo. All rights reserved</div>
+            <div class="copy-right text-left v-align">© 2019 <i class="icon icofont icofont-heart-alt"></i> ADPRO. All rights reserved</div>
           </div>
           <div class="col-sm-4 col-xs-12">
           	<div class="logo display-block height-auto z-index-1"><a href="index.html">
-          		<img class="logo margin-left-auto margin-right-auto" src="assets/images/logo-footer.png" alt="torneo logo"></a>
+          		<img class="logo margin-left-auto margin-right-auto" src="assets/images/logo-footer.png" alt="ADPRO logo"></a>
           	</div>
           </div>
           <div class="col-sm-4 col-xs-12">

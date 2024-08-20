@@ -5,12 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="author" content="Designsninja">
 <!-- description -->
-<meta name="description" content="Torneo is creative agency, corporate, simple and clean template, Based on Bootstrap responsive multipurpose agency and portfolio HTML5 template with 28 unique home page demos">
+<meta name="description" content="ADPRO is creative agency, corporate, simple and clean template, Based on Bootstrap responsive multipurpose agency and portfolio HTML5 template with 28 unique home page demos">
 <!-- keywords -->
 <meta name="keywords" content="dark header style, fullscreen, business, photography, portfolio, one page, bootstrap responsive, start-up, ui/ux, html5, css3, studio, branding, creative design, multipurpose, parallax, personal, masonry, grid, coming soon, carousel, career">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>Torneo - Creative Agency, Business Multi-purpose template</title>
-<link rel="shortcut icon" href="{{ asset('assets/images/favicon.ico') }}">
+<title>ADPRO - Creative Agency, Business Multi-purpose template</title>
+<link rel="shortcut icon" href="{{ asset('assets/images/all/adpro_slogo.png') }}">
 
 <!-- Core Style Sheets -->
 <link rel="stylesheet" href="{{ asset('assets/css/master.css') }}">
@@ -93,7 +93,9 @@
       <!--== Start Header Navigation ==-->
       <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu"> <i class="tr-icon ion-android-menu"></i> </button>
-        <div class="logo"> <a href="index.html"> <img class="logo logo-display" src="{{ asset('assets/images/logo-black.png') }}" alt=""><img class="logo logo-scrolled" src="{{ asset('assets/images/logo-white.png') }}" alt="">  </a> </div>
+        <div class="logo"> <a href="index.html">
+          <img class="logo logo-display" src="{{ asset('assets/images/all/adpro2_blogo.png') }}" alt="">
+          <img class="logo logo-scrolled" src="{{ asset('assets/images/all/adpro_blogo.png') }}" alt="">  </a> </div>
       </div>
       <!--== End Header Navigation ==-->
 
@@ -154,7 +156,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-6 col-xs-12">
-            <div class="copy-right text-left">© 2019 <i class="icon icofont icofont-heart-alt"></i> Torneo. All rights reserved</div>
+            <div class="copy-right text-left">© 2019 <i class="icon icofont icofont-heart-alt"></i> ADPRO. All rights reserved</div>
           </div>
           <div class="col-md-6 col-xs-12">
             <ul class="social-media">

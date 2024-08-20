@@ -3,16 +3,24 @@
   <section>
     <div class="container">
       <div class="row">
+          <div class="col-sm-8 section-heading">
+              <div class="search-box">
+                  <input type="text" placeholder="Search...">
+                  <button type="submit"><i class="fa fa-search"></i></button>
+              </div>
+          </div>
+      </div>
+      <div class="row">
         <div class="col-md-12">
           <div class="text-center">
             <a class="btn btn-md btn-dark-outline btn-square margin-left-auto margin-right-auto display-table-sm">
-              <i class="fa-icon-plus-circle"></i> Page
+              <i class="fa-icon-plus-square"></i> Page
             </a>
             <a class="btn btn-md btn-dark-outline btn-square margin-left-auto margin-right-auto display-table-sm">
-              <i class="fa-icon-plus-circle"></i> Section
+              <i class="fa-icon-plus-square"></i> Section
             </a>
             <a class="btn btn-md btn-dark-outline btn-square margin-left-auto margin-right-auto display-table-sm">
-              <i class="fa-icon-plus-circle"></i> Story
+              <i class="fa-icon-plus-square"></i> Story
             </a>
           </div>
         </div>
@@ -23,12 +31,12 @@
             <table class="table table-bordered table-striped table-hover shop-cart">
               <thead>
                 <tr>
-                  <th><strong>No</strong></th>
-                  <th><strong>Page</strong></th>
-                  <th><strong>Section</strong></th>
-                  <th><strong>Story</strong></th>
-                  <th><strong>Body</strong></th>
-                  <th><strong>Option</strong></th>
+                  <th>No</th>
+                  <th>Page</th>
+                  <th>Section</th>
+                  <th>Story</th>
+                  <th>Body</th>
+                  <th>Option</th>
                 </tr>
               </thead>
               <tbody>

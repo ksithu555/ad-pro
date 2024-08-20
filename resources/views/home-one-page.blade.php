@@ -5,12 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="author" content="Designsninja">
 <!-- description -->
-<meta name="description" content="Torneo is creative agency, corporate, simple and clean template, Based on Bootstrap responsive multipurpose agency and portfolio HTML5 template with 28 unique home page demos">
+<meta name="description" content="ADPRO is creative agency, corporate, simple and clean template, Based on Bootstrap responsive multipurpose agency and portfolio HTML5 template with 28 unique home page demos">
 <!-- keywords -->
 <meta name="keywords" content="creative, animation, business, photography, portfolio, one page, bootstrap responsive, start-up, ui/ux, html5, css3, studio, branding, creative design, multipurpose, parallax, personal, masonry, grid, coming soon, carousel, career">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>Torneo - Creative Agency, Business Multi-purpose template</title>
-<link rel="shortcut icon" href="{{ asset('assets/images/favicon.ico') }}">
+<title>ADPRO - Creative Agency, Business Multi-purpose template</title>
+<link rel="shortcut icon" href="{{ asset('assets/images/all/adpro_slogo.png') }}">
 
 <!-- Core Style Sheets -->
 <link rel="stylesheet" href="{{ asset('assets/css/master.css') }}">
@@ -75,7 +75,7 @@
       <!--== Start Header Navigation ==-->
       <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu"> <i class="tr-icon ion-android-menu"></i> </button>
-        <div class="logo"> <a href="index.html"> <img class="logo logo-display" src="assets/images/logo-white.png" alt=""> <img class="logo logo-scrolled" src="assets/images/logo-black.png" alt=""> </a> </div>
+        <div class="logo"> <a href="index.html"> <img class="logo logo-display" src="assets/images/all/adpro_blogo.png" alt=""> <img class="logo logo-scrolled" src="assets/images/all/adpro2_blogo.png" alt=""> </a> </div>
       </div>
       <!--== End Header Navigation ==-->
 
@@ -111,7 +111,7 @@
                 <div class="white-color text-center">
                   <span class="font-60px font-700 play-font wow fadeInUp font-italic" data-wow-delay="0.1s">We Design Digital Brand Expericences.</span>
                   <h1 class="white-color font-700 font-120px line-height-120 xs-font-40px xs-line-height-50 sm-font-60px sm-line-height-60 wow fadeInUp" data-wow-delay="0.2s">Design Studio</h1>
-                  <p class="mt-50"><a class="btn btn-lg btn-light-outline btn-square wow fadeInUp" data-wow-delay="0.3s">Purchase Torneo</a></p>
+                  <p class="mt-50"><a class="btn btn-lg btn-light-outline btn-square wow fadeInUp" data-wow-delay="0.3s">Purchase ADPRO</a></p>
                 </div>
               </div>
             </div>
@@ -633,7 +633,7 @@
               data-paddingbottom="[0,0,0,0]"
               data-paddingleft="[30,30,30,20]"
   
-              style="z-index: 13; white-space: nowrap; font-size: 100px; line-height: 100px; font-weight: 600; color: #ffffff; letter-spacing: 30px;font-family:Poppins;">TORNEO </div>
+              style="z-index: 13; white-space: nowrap; font-size: 100px; line-height: 100px; font-weight: 600; color: #ffffff; letter-spacing: 30px;font-family:Poppins;">ADPRO </div>
   
           <!-- LAYER NR. 9 -->
           <div class="tp-caption   tp-resizeme rs-parallaxlevel-2"
@@ -1487,7 +1487,7 @@
                       data-paddingbottom="[0,0,0,0]"
                       data-paddingleft="[0,0,0,0]"
   
-                      style="z-index: 16; white-space: nowrap; font-size: 55px; line-height: 25px; font-weight: 600; color: rgba(255,255,255,100); letter-spacing: ;font-family: 'Montserrat', sans-serif;">Torneo Photography </div>
+                      style="z-index: 16; white-space: nowrap; font-size: 55px; line-height: 25px; font-weight: 600; color: rgba(255,255,255,100); letter-spacing: ;font-family: 'Montserrat', sans-serif;">ADPRO Photography </div>
               </li>
               <!-- SLIDE  -->
               <li data-index="rs-83" data-transition="fade" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="Power4.easeOut" data-easeout="Power4.easeOut" data-masterspeed="1000"  data-thumb="assets/images/slides/home-bg-13-100x50.jpg"  data-rotate="0"  data-saveperformance="off"  data-title="Slide" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="" data-slicey_shadow="0px 0px 50px 0px #1a1336">
@@ -1655,7 +1655,7 @@
                       data-paddingbottom="[0,0,0,0]"
                       data-paddingleft="[0,0,0,0]"
   
-                      style="z-index: 11; white-space: nowrap; font-size: 55px; line-height: 25px; font-weight: 600; color: rgba(255,255,255,100); letter-spacing: ;font-family: 'Montserrat', sans-serif;">Torneo Photography </div>
+                      style="z-index: 11; white-space: nowrap; font-size: 55px; line-height: 25px; font-weight: 600; color: rgba(255,255,255,100); letter-spacing: ;font-family: 'Montserrat', sans-serif;">ADPRO Photography </div>
               </li>
               <!-- SLIDE  -->
               <li data-index="rs-85" data-transition="fade" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="Power4.easeOut" data-easeout="Power4.easeOut" data-masterspeed="1000"  data-thumb="assets/images/slides/home-bg-14-100x50.jpg"  data-rotate="0"  data-saveperformance="off"  data-title="Slide" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="" data-slicey_shadow="0px 0px 50px 0px rgba(0, 0, 0, 0.15)">
@@ -1822,7 +1822,7 @@
                       data-paddingbottom="[0,0,0,0]"
                       data-paddingleft="[0,0,0,0]"
   
-                      style="z-index: 11; white-space: nowrap; font-size: 55px; line-height: 25px; font-weight: 600; color: rgba(255,255,255,100); letter-spacing: ;font-family: 'Montserrat', sans-serif;">Torneo Photography </div>
+                      style="z-index: 11; white-space: nowrap; font-size: 55px; line-height: 25px; font-weight: 600; color: rgba(255,255,255,100); letter-spacing: ;font-family: 'Montserrat', sans-serif;">ADPRO Photography </div>
               </li>
               <!-- SLIDE  -->
               <li data-index="rs-84" data-transition="fade" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="Power4.easeOut" data-easeout="Power4.easeOut" data-masterspeed="1000"  data-thumb="assets/images/slides/home-bg-15-100x50.jpg"  data-rotate="0"  data-saveperformance="off"  data-title="Slide" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="" data-slicey_shadow="0px 0px 50px 0px #373344">
@@ -2013,7 +2013,7 @@
                       data-paddingbottom="[0,0,0,0]"
                       data-paddingleft="[0,0,0,0]"
   
-                      style="z-index: 11; white-space: nowrap; font-size: 55px; line-height: 25px; font-weight: 600; color: rgba(255,255,255,100); letter-spacing: ;font-family: 'Montserrat', sans-serif;">Torneo Photography </div>
+                      style="z-index: 11; white-space: nowrap; font-size: 55px; line-height: 25px; font-weight: 600; color: rgba(255,255,255,100); letter-spacing: ;font-family: 'Montserrat', sans-serif;">ADPRO Photography </div>
               </li>
               <!-- SLIDE  -->
               <li data-index="rs-86" data-transition="fade" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="Power4.easeOut" data-easeout="Power4.easeOut" data-masterspeed="1000"  data-thumb="assets/images/slides/home-bg-16-100x50.jpg"  data-rotate="0"  data-saveperformance="off"  data-title="Slide" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="" data-slicey_shadow="0px 0px 50px 0px transparent">
@@ -2212,7 +2212,7 @@
                       data-paddingbottom="[0,0,0,0]"
                       data-paddingleft="[0,0,0,0]"
   
-                      style="z-index: 11; white-space: nowrap; font-size: 55px; line-height: 25px; font-weight: 600; color: rgba(255,255,255,100); letter-spacing: ;font-family: 'Montserrat', sans-serif;">Torneo Photography </div>
+                      style="z-index: 11; white-space: nowrap; font-size: 55px; line-height: 25px; font-weight: 600; color: rgba(255,255,255,100); letter-spacing: ;font-family: 'Montserrat', sans-serif;">ADPRO Photography </div>
               </li>
           </ul>
           <div class="tp-bannertimer" style="height: 3px; background: rgba(255,255,255,0.25);"></div>	</div>
@@ -2337,7 +2337,7 @@
                       data-paddingleft="[0,0,0,0]"
                       data-blendmode="overlay"
 
-                      style="z-index: 8; min-width: 640px; max-width: 640px; white-space: normal; font-size: 180px; line-height: 180px; font-weight: 400; color: rgba(0, 0, 0, 1.00);font-family: 'Kaushan Script', cursive;letter-spacing:-5px;">Torneo  </div>
+                      style="z-index: 8; min-width: 640px; max-width: 640px; white-space: normal; font-size: 180px; line-height: 180px; font-weight: 400; color: rgba(0, 0, 0, 1.00);font-family: 'Kaushan Script', cursive;letter-spacing:-5px;">ADPRO  </div>
 
                   <!-- LAYER NR. 5 -->
                   <div class="tp-caption  "
@@ -3828,7 +3828,7 @@
             <h5 class="default-color text-uppercase mt-0">What Our Client Say</h5>
             <h2 class="mt-10 font-700">Our Testimonails</h2>
 				    <hr class="dark-bg center_line bold-line">
-            <h4>No Coding required for build your page. Torneo delivers<br> everything you need to create a modern web page. </h4>
+            <h4>No Coding required for build your page. ADPRO delivers<br> everything you need to create a modern web page. </h4>
         </div>
       </div>
       <div class="row">
@@ -4858,11 +4858,11 @@
       <div class="container">
         <div class="row">
           <div class="col-sm-4 col-xs-12 display-table" style="height: 40px;">
-            <div class="copy-right text-left v-align">© 2019 <i class="icon icofont icofont-heart-alt"></i> Torneo. All rights reserved</div>
+            <div class="copy-right text-left v-align">© 2019 <i class="icon icofont icofont-heart-alt"></i> ADPRO. All rights reserved</div>
           </div>
           <div class="col-sm-4 col-xs-12">
           	<div class="logo display-block height-auto"><a href="index.html">
-          		<img class="logo margin-left-auto margin-right-auto" src="assets/images/logo-footer-light.png" alt="torneo logo"></a>
+          		<img class="logo margin-left-auto margin-right-auto" src="assets/images/logo-footer-light.png" alt="ADPRO logo"></a>
           	</div>
           </div>
           <div class="col-sm-4 col-xs-12">
@@ -4910,7 +4910,7 @@
                     <li>57 Patton Street Caulfield East VIC 3145</li>
                     <li>(03) 9414 7288</li>
                     <li>sayhi@gmail.com</li>
-                    <li>www.torneo.com</li>
+                    <li>www.ADPRO.com</li>
                   </ul>
               </div>
             </div>
@@ -4928,7 +4928,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-6 col-xs-12">
-            <div class="copy-right text-left">© 2019 <i class="icon icofont icofont-heart-alt"></i> Torneo. All rights reserved</div>
+            <div class="copy-right text-left">© 2019 <i class="icon icofont icofont-heart-alt"></i> ADPRO. All rights reserved</div>
           </div>
           <div class="col-md-6 col-xs-12">
             <ul class="social-media">

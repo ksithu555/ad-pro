@@ -63,7 +63,7 @@
         <div class="container">
                 <div class="row">
                 <div class="col-md-12 col-sm-12 centerize-col text-center white-color relative">
-                    <span class="sm-mb-30 font-20px display-inline-block mr-30">The URL of your advertising page is ad-pro.site/ad/{{ $advertisement->param_name }}</span>
+                    <span class="sm-mb-30 font-20px display-inline-block mr-30">The URL of your advertising page is ADPRO.site/ad/{{ $advertisement->param_name }}</span>
                     <a class="btn btn-md btn-light-outline btn-square">Click Here</a>
                 </div>
             </div>
@@ -77,7 +77,7 @@
             <div class="row mt-50">
                 <div class="col-lg-8 col-md-8 col-sm-10 col-xs-12 centerize-col text-center white-color">
                     <h5 class="text-uppercase font-600 mb-30 font-40px">No Coding required to build your page. 
-                        Torneo delivers everything.</h5>
+                        ADPRO delivers everything.</h5>
                     <a class="btn btn-md btn-light-outline btn-circle">Start from Now</a>
                 </div>
             </div>

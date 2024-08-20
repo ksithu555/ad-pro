@@ -17,12 +17,12 @@
           <div class="row white-color">
               <div class="col-lg-8 col-md-6 col-sm-6 col-xs-12 display-table" style="height:30px;">
                    <div class="v-align-middle text-left text-xs-center breadcrumb">
-                         <!-- Breadcrumb Start -->
-                             <ul class="text-xs-center white-color">
+                        <!-- Breadcrumb Start -->
+                        <ul class="text-xs-center white-color">
                             <li>ホーム</li>
                             <li>広告一覧</li>
-                          </ul>
-                      <!-- Breadcrumb End -->
+                        </ul>
+                        <!-- Breadcrumb End -->
                   </div>
                </div>
                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 display-table text-right text-xs-left xs-mt-10">

@@ -174,4 +174,63 @@
         </div>
     </section>
     <!--== Tabs Style 03 End ==-->
+    <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
+    <script>
+        $(document).ready(function() {
+            // Listen for tab change event
+            $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+                // Re-initialize the slider for the newly active tab pane
+                testimonialSlider();
+                $('.tab-pane.active .slick').slick('setPosition');
+            });
+        });
+
+        function testimonialSlider(){
+            // Select the testimonial slider in the active tab pane
+            const $testimonial = $('.tab-pane.active .testimonial');
+
+            if ($testimonial.length) {
+                // Destroy the previous Slick instance to prevent reinitialization issues
+                if ($testimonial.hasClass('slick-initialized')) {
+                    $testimonial.slick('unslick');
+                }
+
+                // Initialize the Slick slider
+                $testimonial.slick({
+                    dots: true,
+                    infinite: true,
+                    centerMode: true,
+                    slidesToShow: 3,
+                    slidesToScroll: 3,
+                    centerPadding: '0',
+                    prevArrow: false,
+                    nextArrow: false,
+                    responsive: [
+                        {
+                            breakpoint: 1024,
+                            settings: {
+                                slidesToShow: 3,
+                                slidesToScroll: 3,
+                                infinite: true,
+                            }
+                        },
+                        {
+                            breakpoint: 600,
+                            settings: {
+                                slidesToShow: 2,
+                                slidesToScroll: 2
+                            }
+                        },
+                        {
+                            breakpoint: 480,
+                            settings: {
+                                slidesToShow: 1,
+                                slidesToScroll: 1
+                            }
+                        }
+                    ]
+                });
+            }
+        }
+    </script>
 </x-user-layout>

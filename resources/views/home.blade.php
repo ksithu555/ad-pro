@@ -1,17 +1,23 @@
 <x-guest-layout>
+    <style>
+        .testimonial-item .testimonial-content {
+            padding: 0 !important;
+        }
+    </style>
     <!--== Sliders Style 02 Start ==-->
     <section class="pt-0 pb-0 dark-block">
         <div class="service-slider-2 slick height-650px" style="margin-bottom: 0px;">
+            @foreach ($headers as $header)
             <div class="slide">
-                <div class="slide-img height-650px" style="background:url({{ asset('assets/images/all/ad_sla02.jpg') }}) center center / cover scroll no-repeat;"></div>
+                <div class="slide-img height-650px" style="background:url({{ asset('assets/images/all/' . $header->image) }}) center center / cover scroll no-repeat;"></div>
                 <div class="hero-text-wrap height-650px">
                     <div class="hero-text">
                         <div class="container">
                             <div class="row">
                                 <div class="col-md-8">
                                     <div class="white-color default-bg all-padding-50">
-                                        <h3 class="font-700">We are your billboard.</h3>
-                                        <p class="mt-30"><a class="btn btn-dark btn-lg btn-default">Buy Template</a> </p>
+                                        <h3 class="font-700">{{ $header->title }}</h3>
+                                        {{-- <p class="mt-30"><a class="btn btn-dark btn-lg btn-default">Buy Template</a> </p> --}}
                                     </div>
                                 </div>
                             </div>
@@ -19,23 +25,7 @@
                     </div>
                 </div>
             </div>
-            <div class="slide">
-                <div class="slide-img height-650px" style="background:url({{ asset('assets/images/all/header-01.webp') }}) center center / cover scroll no-repeat;"></div>
-                <div class="hero-text-wrap height-650px">
-                    <div class="hero-text">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-8">
-                                    <div class="white-color default-bg all-padding-50">
-                                        <h3 class="font-700">Creative & innovative digital agency.</h3>
-                                        <p class="mt-30"><a class="btn btn-dark btn-lg btn-default">Buy Template</a> </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </section>
     <!--== Sliders Style 02 End ==-->

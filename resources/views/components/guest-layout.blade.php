@@ -124,7 +124,7 @@
                             </li>
                             <li class="dropdown">
                                 <a href="{{ route('user.show.register') }}" class="dropdown-toggle" data-toggle="dropdown">
-                                    <span class="{{ request()->routeIs('user.show.register') ? 'default-color' : '' }}">登録</span>
+                                    <span class="{{ request()->routeIs('user.show.register') ? 'default-color' : '' }}">会員登録</span>
                                 </a>
                             </li>
                         </ul>

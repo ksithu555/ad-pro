@@ -102,6 +102,15 @@
       <div class="collapse navbar-collapse" id="navbar-menu">
         <ul class="nav navbar-nav navbar-right" data-in="fadeIn" data-out="fadeOut">
           <li class="dropdown">
+            <a href="{{ route('admin.get.home') }}" class="dropdown-toggle" data-toggle="dropdown">
+                <span class="{{ request()->routeIs('admin.get.home') ||
+                request()->routeIs('admin.add.header') ||
+                request()->routeIs('admin.edit.headers') ||
+                request()->routeIs('admin.edit.header')
+                ? 'default-color' : '' }}">ホーム</span>
+            </a>
+          </li>
+          <li class="dropdown">
             <a href="{{ route('admin.get.advertisements') }}" class="dropdown-toggle" data-toggle="dropdown">
                 <span class="{{ request()->routeIs('admin.get.advertisements') ? 'default-color' : '' }}">広告一覧</span>
             </a>

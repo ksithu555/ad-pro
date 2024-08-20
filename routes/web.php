@@ -66,6 +66,15 @@ Route::get('user/plans', [UserController::class, 'getPlans'])->name('user.get.pl
 Route::get('/admin/login', [AdminController::class, 'showLogin'])->name('admin.show.login');
 Route::post('/admin/login', [AdminController::class, 'storeLogin'])->name('admin.store.login');
 
+// home
+Route::get('/admin/home', [AdminController::class, 'getHome'])->name('admin.get.home');
+Route::get('/admin/add/header', [AdminController::class, 'addHeader'])->name('admin.add.header');
+Route::post('/admin/store/header', [AdminController::class, 'storeHeader'])->name('admin.store.header');
+Route::get('/admin/edit/headers', [AdminController::class, 'editHeaders'])->name('admin.edit.headers');
+Route::get('/admin/edit/header/{id}', [AdminController::class, 'editHeader'])->name('admin.edit.header');
+Route::post('/admin/update/header', [AdminController::class, 'updateHeader'])->name('admin.update.header');
+Route::get('/admin/delete/header{id}', [AdminController::class, 'deleteHeader'])->name('admin.delete.header');
+
 // advertisement
 Route::get('/admin/advertisements', [AdminController::class, 'getAdvertisements'])->name('admin.get.advertisements');
 

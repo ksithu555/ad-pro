@@ -124,13 +124,13 @@
                 request()->routeIs('user.add.announcement') ||
                 request()->routeIs('user.show.announcement') ||
                 request()->routeIs('user.edit.announcement')
-                ? 'default-color' : '' }}">ビズ公示</span>
+                ? 'default-color' : '' }}">公示広場</span>
             </a>
           </li>
           <li class="dropdown">
             <a href="{{ route('user.get.messages') }}" class="dropdown-toggle" data-toggle="dropdown">
                 <span class="{{ request()->routeIs('user.get.messages')
-                ? 'default-color' : '' }}">メッセージ</span>
+                ? 'default-color' : '' }}">商談</span>
             </a>
           </li>
           <li class="dropdown">

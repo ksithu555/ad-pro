@@ -3,13 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Models\News;
+use App\Models\TopHeader;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class GuestController extends Controller
 {
     public function home() {
-        return view('home');
+        $headers = TopHeader::all();
+        return view('home', compact('headers'));
     }
     public function onePage() {
         return view('home-one-page');

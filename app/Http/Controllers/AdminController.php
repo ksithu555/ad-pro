@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Admin;
 use App\Models\News;
 use App\Models\Notice;
+use App\Models\TopHeader;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -33,6 +34,66 @@ class AdminController extends Controller
         $request->session()->regenerate();
     
         return redirect()->route('admin.get.advertisements');
+    }
+
+    public function getHome() {
+        $headers = TopHeader::all();
+        return view('admins.home', compact('headers'));
+    }
+
+    public function addHeader() {
+        return view('admins.add-header');
+    }
+
+    public function storeHeader(Request $request) {
+        if (!empty($request->image)) {
+            $imageName = time() . '.' . $request->image->extension();
+            $request->image->move(public_path('assets/images/all'), $imageName);
+        } else {
+            $imageName = '';
+        }
+        TopHeader::create([
+            'title' => $request->title,
+            'image' => $imageName
+        ]);
+
+        Session::flash('success', 'ヘッダが正常に追加されました');
+        return redirect()->route('admin.get.home');
+    }
+
+    public function editHeaders() {
+        $limit = 10;
+        $headers = TopHeader::paginate($limit);
+        $ttl = $headers->total();
+        $ttlpage = (ceil($ttl / $limit));
+        return view('admins.edit-headers', compact('headers', 'ttl', 'ttlpage'));
+    }
+
+    public function editHeader($id) {
+        $header = TopHeader::where('id', $id)->first();
+        return view('admins.edit-header', compact('header'));
+    }
+
+    public function updateHeader(Request $request) {
+        $updateData = [
+            'title' => $request->title,
+        ];
+
+        if (!empty($request->image)) {
+            $imageName = time() . '.' . $request->image->extension();
+            $request->image->move(public_path('assets/images/all'), $imageName);
+            $updateData['image'] = $imageName;
+        }
+
+        TopHeader::where('id', $request->id)->update($updateData);
+        Session::flash('success', 'ヘッダが正常に更新されました');
+        return redirect()->route('admin.get.home');
+    }
+
+    public function deleteHeader($id) {
+        TopHeader::where('id', $id)->delete();
+        Session::flash('success', 'ヘッダが正常に削除されました');
+        return redirect()->route('admin.edit.headers');
     }
 
     public function getAdvertisements() {

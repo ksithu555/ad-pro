@@ -159,9 +159,9 @@
           <div class="col-md-6 col-xs-12">
             <ul class="social-media">
               <li><a href="#" class="icofont icofont-social-facebook"></a></li>
-			  <li><a href="#" class="icofont icofont-social-twitter"></a></li>
-			  <li><a href="#" class="icofont icofont-social-behance"></a></li>
-			  <li><a href="#" class="icofont icofont-social-dribble"></a></li>
+              <li><a href="#" class="icofont icofont-social-twitter"></a></li>
+              <li><a href="#" class="icofont icofont-social-behance"></a></li>
+              <li><a href="#" class="icofont icofont-social-dribble"></a></li>
            	  <li><a href="#" class="icofont icofont-social-linkedin"></a></li>
             </ul>
           </div>

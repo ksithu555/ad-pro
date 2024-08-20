@@ -40,7 +40,7 @@
     </section>
     <!--== Sliders Style 02 End ==-->
     <!--== Boxed Icons Style 04 Start ==-->
-    <section class="white-bg pt-30">
+    <section class="white-bg">
         <div class="container">
             <div class="row">
                 <div class="col-sm-8 section-heading">
@@ -91,7 +91,7 @@
     <!--== Boxed Icons Style 04 End ==-->
 
     <!--== Service Boxes Style 01 Start ==-->
-    <section class="pb-0 pt-30">
+    <section class="pb-0">
         <div class="container">
             <div class="row">
                 <div class="col-sm-8 section-heading">
@@ -126,7 +126,7 @@
     <!--== Service Boxes Style 01 End ==-->
 
     <!--== Testimonails Style 03 Start ==-->
-    <section class="grey-bg pt-30">
+    <section class="grey-bg">
         <div class="container">
             <div class="row">
                 <div class="col-sm-8 section-heading">
@@ -189,7 +189,7 @@
     <!--== Testimonails Style 03 End ==-->
 
     <!--== Accordion Style 01 Start ==-->
-    <section class="pt-30">
+    <section>
         <div class="container">
             <div class="row">
                 <div class="col-sm-8 section-heading">
@@ -263,7 +263,7 @@
     <!--== Accordion Style 01 End ==--> 
 
     <!--== Portfolio Start ==-->
-    <section class="white-bg dark-block pt-30">
+    <section class="white-bg dark-block">
         <div class="container">
             <div class="row">
                 <div class="col-sm-8 section-heading">

@@ -38,7 +38,12 @@
     <!--== Blog Classic Post Start ==-->
     <section class="white-bg">
         <div class="container">
-            <div class="row blog-style-01">
+            <div class="row">
+                <div class="col-sm-8 section-heading">
+                    <h4 class="text-uppercase mt-0">新着情報</h4>
+                </div>
+            </div>
+            <div class="row blog-style-01 mt-50">
                 @foreach ($news as $key => $new)
                 <!--== Post Start ==-->
                 <div class="col-md-4 col-sm-4 col-xs-12 mb-30">

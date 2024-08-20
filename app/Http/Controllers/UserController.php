@@ -121,6 +121,17 @@ class UserController extends Controller
         return redirect()->route('user.show.advertisement');
     }
 
+    public function updateAdvertisement(Request $request) {
+        $updateData = [
+            'name' => $request->name,
+            'param_name' => $request->paramName
+        ];
+
+        Advertisement::where('id', $request->id)->update($updateData);
+        Session::flash('success', '広告が正常に更新されました');
+        return redirect()->route('user.show.advertisement');
+    }
+
     public function getAnnouncements() {
         $announcements = Announcement::where('created_by', '!=', Auth::user()->id)->get();
         $users = User::all();

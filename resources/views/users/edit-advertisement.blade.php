@@ -15,6 +15,7 @@
                         class="contact-form-style-01" enctype="multipart/form-data">
                         @csrf
                         <div class="messages"></div>
+                        <input type="hidden" id="id" name="id" value="{{ $advertisement->id }}">
                         <div class="row">
                             <div class="col-md-12 col-sm-12">
                                 <div class="form-group">
@@ -56,12 +57,27 @@
         <a class="btn btn-lg btn-circle btn-secondary-color popup-modal-close" href="#">No</a>
     </div>
 
+    <!--== Call to Actions Style 02 Start ==-->
+    <section class="parallax-bg fixed-bg pt-80 pb-80" data-parallax-bg-image="{{ asset('assets/images/all/header-01.webp') }}" data-parallax-speed="0.8" data-parallax-direction="up">
+        <div class="parallax-overlay"></div>
+        <div class="container">
+                <div class="row">
+                <div class="col-md-12 col-sm-12 centerize-col text-center white-color relative">
+                    <span class="sm-mb-30 font-20px display-inline-block mr-30">The URL of your advertising page is ad-pro.site/ad/{{ $advertisement->param_name }}</span>
+                    <a class="btn btn-md btn-light-outline btn-square">Click Here</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--== Call to Actions Style 02 End ==-->
+
     <!--== Call to Actions Style 03 Start ==-->
     <section class="default-bg">
         <div class="container">
             <div class="row mt-50">
                 <div class="col-lg-8 col-md-8 col-sm-10 col-xs-12 centerize-col text-center white-color">
-                    <h5 class="text-uppercase font-600 mb-30 font-40px">An Awesome Team For Your Next Project.</h5>
+                    <h5 class="text-uppercase font-600 mb-30 font-40px">No Coding required to build your page. 
+                        Torneo delivers everything.</h5>
                     <a class="btn btn-md btn-light-outline btn-circle">Start from Now</a>
                 </div>
             </div>

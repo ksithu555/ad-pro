@@ -69,12 +69,19 @@ Route::post('/admin/login', [AdminController::class, 'storeLogin'])->name('admin
 
 // home
 Route::get('/admin/home', [AdminController::class, 'getHome'])->name('admin.get.home');
+// header
 Route::get('/admin/add/header', [AdminController::class, 'addHeader'])->name('admin.add.header');
 Route::post('/admin/store/header', [AdminController::class, 'storeHeader'])->name('admin.store.header');
 Route::get('/admin/edit/headers', [AdminController::class, 'editHeaders'])->name('admin.edit.headers');
 Route::get('/admin/edit/header/{id}', [AdminController::class, 'editHeader'])->name('admin.edit.header');
 Route::post('/admin/update/header', [AdminController::class, 'updateHeader'])->name('admin.update.header');
 Route::get('/admin/delete/header{id}', [AdminController::class, 'deleteHeader'])->name('admin.delete.header');
+// footer
+Route::get('/admin/edit/footers', [AdminController::class, 'editFooters'])->name('admin.edit.footers');
+Route::get('/admin/add/footer', [AdminController::class, 'addFooter'])->name('admin.add.footer');
+Route::post('/admin/store/footer', [AdminController::class, 'storeFooter'])->name('admin.store.footer');
+Route::get('/admin/edit/footer/{id}', [AdminController::class, 'editFooter'])->name('admin.edit.footer');
+Route::get('/admin/delete/footer{id}', [AdminController::class, 'deleteFooter'])->name('admin.delete.footer');
 
 // members
 Route::get('/admin/members', [AdminController::class, 'getMembers'])->name('admin.get.members');

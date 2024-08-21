@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\Admin;
 use App\Models\Announcement;
 use App\Models\Notice;
+use App\Models\TopFooter;
 use App\Models\TopHeader;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -96,6 +97,22 @@ class AdminController extends Controller
         TopHeader::where('id', $id)->delete();
         Session::flash('success', 'ヘッダが正常に削除されました');
         return redirect()->route('admin.edit.headers');
+    }
+
+    public function editFooters() {
+        $limit = 10;
+        $footers = TopFooter::paginate($limit);
+        $ttl = $footers->total();
+        $ttlpage = ceil($ttl / $limit);
+        return view('admins.edit-footers', compact('footers', 'ttl', 'ttlpage'));
+    }
+
+    public function addFooter() {
+        return view('admins.add-footer');
+    }
+
+    public function storeFooter(Request $request) {
+        
     }
 
     public function getMembers() {

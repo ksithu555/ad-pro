@@ -153,7 +153,7 @@
   {{ $slot }}
 
   <!--== Footer Start ==-->
-  <footer class="footer dark-block">
+  {{-- <footer class="footer dark-block">
     <div class="footer-copyright">
       <div class="container">
         <div class="row">
@@ -172,7 +172,7 @@
         </div>
       </div>
     </div>
-  </footer>
+  </footer> --}}
   <!--== Footer End ==-->
 
   <!--== Go to Top  ==-->

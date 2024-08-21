@@ -75,9 +75,9 @@
       <!--== Start Atribute Navigation ==-->
       <div class="attr-nav hidden-xs sm-display-none">
         <ul>
-          <li class="search">
+          {{-- <li class="search">
             <a href="#" id="search-button"><i class="icofont icofont-search"></i></a>
-          </li>
+          </li> --}}
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icofont icofont-user-alt-4"></i></a>
             <ul class="dropdown-menu">
@@ -118,6 +118,13 @@
           <li class="dropdown">
             <a href="{{ route('admin.get.advertisements') }}" class="dropdown-toggle" data-toggle="dropdown">
                 <span class="{{ request()->routeIs('admin.get.advertisements') ? 'default-color' : '' }}">広告一覧</span>
+            </a>
+          </li>
+          <li class="dropdown">
+            <a href="{{ route('admin.get.announcements') }}" class="dropdown-toggle" data-toggle="dropdown">
+                <span class="{{ request()->routeIs('admin.get.announcements') ||
+                request()->routeIs('admin.show.announcement')
+                ? 'default-color' : '' }}">公示一覧</span>
             </a>
           </li>
           <li class="dropdown">

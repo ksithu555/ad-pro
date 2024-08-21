@@ -4906,7 +4906,7 @@ section.big-block .client-logo {padding:10%;}
 .toggle-switch {
   position: relative;
   display: inline-block;
-  width: 50px;
+  width: 55px;
   height: 30px;
 }
 
@@ -4936,9 +4936,9 @@ section.big-block .client-logo {padding:10%;}
   content: "";
   height: 26px;
   width: 26px;
-  left: 4px;
-  bottom: 4px;
-  background-color: white;
+  left: 2px;
+  bottom: 2px;
+  background-color: whitesmoke;
   transition: 0.4s;
   border-radius: 50%;
 }
@@ -5127,4 +5127,93 @@ input:checked + .slider:before {
     color: #BF0731;
     flex-basis: 50%;
   }
+}
+
+.tabs-style-03-m .nav-tabs {
+  max-height: 550px; /* Adjust the max-height as needed */
+  overflow-y: auto;
+}
+
+.tab-content-m {
+  max-height: 550px; /* Adjust the max-height as needed */
+  overflow-y: auto;
+  position: relative;
+}
+
+.message-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 100%;
+  overflow-y: auto;
+  padding-bottom: 60px; /* Space for the input box */
+  position: relative; /* Make this relative to position the input box */
+}
+
+.message {
+  display: flex;
+  margin: 10px 0;
+  padding: 10px 15px;
+  border-radius: 5px;
+  max-width: 70%;
+}
+
+.message.received {
+  background-color: white;
+  align-self: flex-start;
+}
+
+.message.received p {
+  color: #000;
+}
+
+.message.sent {
+  background-color: #BF0731;
+  color: white;
+  align-self: flex-end;
+}
+
+.message.sent p {
+  color: #000;
+}
+
+.timestamp {
+  font-size: 0.8em;
+  color: gray;
+  position: sticky;
+  bottom: -18px; /* Adjust as needed */
+  right: 10px; /* Adjust as needed */
+}
+.timestamp.received {
+  text-align: left;
+  padding-left: 10px;
+}
+
+.timestamp.sent {
+  text-align: right;
+  padding-right: 10px;
+}
+
+.message-input {
+  display: flex;
+  position:sticky;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #f8f8f8;
+  padding: 10px 15px;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.message-input textarea {
+  width: 100%;
+  margin: 0 auto;
+  display: block;
+  border-radius: 15px 0 0 15px;
+}
+
+.message-input button {
+  margin: 0 auto;
+  display: block;
+  border-radius: 0 15px 15px 0;
 }

@@ -71,9 +71,11 @@
                 <div class="row lighten-grey-bg">
                     <div class="line-horizontal grey-bg width-100-percent"></div>
                     <div class="col-md-4 col-md-offset-4">
+                      <div class="text-center">
                         <a class="btn btn-lg btn-light btn-circle margin-left-auto margin-right-auto display-table-sm mt-10 mb-10">
                             このビズ公示を申し込む
                         </a>
+                      </div>
                     </div>
                 </div>
 			</div>

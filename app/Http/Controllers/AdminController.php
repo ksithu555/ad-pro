@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\News;
 use App\Models\User;
 use App\Models\Admin;
+use App\Models\Announcement;
 use App\Models\Notice;
 use App\Models\TopHeader;
 use Illuminate\Http\Request;
@@ -107,6 +108,17 @@ class AdminController extends Controller
 
     public function getAdvertisements() {
         return view('admins.advertisements');
+    }
+
+    public function getAnnouncements() {
+        $announcements = Announcement::all();
+        $users = User::all();
+        return view('admins.announcements', compact('announcements', 'users'));
+    }
+
+    public function showAnnouncement($id) {
+        $announcement = Announcement::find($id);
+        return view('admins.show-announcement', compact('announcement'));
     }
 
     public function getNews() {

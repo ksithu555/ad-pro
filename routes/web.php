@@ -55,6 +55,7 @@ Route::get('/user/delete/announcement/{id}', [UserController::class, 'deleteAnno
 // Message
 Route::get('/user/messages', [UserController::class, 'getMessages'])->name('user.get.messages');
 Route::post('/user/messages', [UserController::class, 'sendMessage'])->name('user.send.message');
+Route::post('/user/{id}/seen/message', [UserController::class, 'seenMessage'])->name('user.seen.message');
 
 // Notice
 Route::get('/user/notices', [UserController::class, 'getNotices'])->name('user.get.notices');
@@ -80,6 +81,10 @@ Route::get('/admin/members', [AdminController::class, 'getMembers'])->name('admi
 
 // advertisement
 Route::get('/admin/advertisements', [AdminController::class, 'getAdvertisements'])->name('admin.get.advertisements');
+
+// announcements
+Route::get('/admin/announcements', [AdminController::class, 'getAnnouncements'])->name('admin.get.announcements');
+Route::get('/admin/show/announcement/{id}', [AdminController::class, 'showAnnouncement'])->name('admin.show.announcement');
 
 // news
 Route::get('/admin/news', [AdminController::class, 'getNews'])->name('admin.get.news');

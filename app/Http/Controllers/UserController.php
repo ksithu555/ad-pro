@@ -7,9 +7,10 @@ use App\Models\Alarm;
 use App\Models\Notice;
 use App\Models\Message;
 use App\Mail\VerifyEmail;
-use App\Models\Advertisement;
 use App\Models\Announcement;
 use Illuminate\Http\Request;
+use App\Models\Advertisement;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -208,7 +209,30 @@ class UserController extends Controller
     }
 
     public function getMessages() {
-        $users = User::where('id', '!=', Auth::user()->id)->get();
+        // $users = User::where('id', '!=', Auth::user()->id)->get();
+        // $users = User::where('users.id', '!=', Auth::user()->id)
+        //          ->leftJoin('messages', function($join) {
+        //              $join->on('users.email', '=', 'messages.from_email')
+        //                   ->orOn('users.email', '=', 'messages.to_email');
+        //          })
+        //          ->select('users.*', DB::raw('MAX(messages.created_at) as last_message_time'))
+        //          ->groupBy('users.id')
+        //          ->orderBy('last_message_time', 'desc')
+        //          ->get();
+        $userEmail = Auth::user()->email;
+        $users = User::where('id', '!=', Auth::user()->id)
+            ->with(['sentMessages' => function ($query) use ($userEmail) {
+                $query->where('to_email', $userEmail)
+                    ->orWhere('from_email', $userEmail);
+            }, 'receivedMessages' => function ($query) use ($userEmail) {
+                $query->where('to_email', $userEmail)
+                    ->orWhere('from_email', $userEmail);
+            }])
+            ->get()
+            ->sortByDesc(function($user) {
+                // Combine sent and received messages and get the latest
+                return $user->sentMessages->merge($user->receivedMessages)->max('created_at');
+            });
         $messages = Message::where('from_email', Auth::user()->email)->orWhere('to_email', Auth::user()->email)->get();
         return view('users.messages', compact('users', 'messages'));
     }
@@ -217,8 +241,11 @@ class UserController extends Controller
         $message = Message::create([
             'from_email' => Auth::user()->email,
             'to_email' => $request->toEmail,
-            'message' => $request->message
+            'message' => $request->message,
+            'seen' => 0
         ]);
+
+        Message::where('from_email', $request->toEmail)->where('to_email', Auth::user()->email)->update(['seen' => 1]);
 
         $alarm = Alarm::where('from_email', Auth::user()->email)
                   ->where('to_email', $request->toEmail)
@@ -242,6 +269,12 @@ class UserController extends Controller
         }
 
         return redirect()->route('user.get.messages');
+    }
+
+    public function seenMessage($id) {
+        $user = User::where('id', $id)->first();
+        Message::where('from_email', $user->email)->where('to_email', Auth::user()->email)->update(['seen' => 1]);
+        return response()->json(['status' => 'success']);
     }
 
     public function getNotices() {

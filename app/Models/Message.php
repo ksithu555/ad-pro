@@ -11,6 +11,7 @@ class Message extends Model
         'from_email',
         'to_email',
         'message',
+        'seen'
     ];
 
     /**

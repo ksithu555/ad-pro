@@ -106,7 +106,10 @@
                 <span class="{{ request()->routeIs('admin.get.home') ||
                 request()->routeIs('admin.add.header') ||
                 request()->routeIs('admin.edit.headers') ||
-                request()->routeIs('admin.edit.header')
+                request()->routeIs('admin.edit.header') ||
+                request()->routeIs('admin.add.footer') ||
+                request()->routeIs('admin.edit.footers') ||
+                request()->routeIs('admin.edit.footer')
                 ? 'default-color' : '' }}">ホーム</span>
             </a>
           </li>
@@ -118,6 +121,11 @@
           <li class="dropdown">
             <a href="{{ route('admin.get.advertisements') }}" class="dropdown-toggle" data-toggle="dropdown">
                 <span class="{{ request()->routeIs('admin.get.advertisements') ? 'default-color' : '' }}">広告一覧</span>
+            </a>
+          </li>
+          <li class="dropdown">
+            <a href="{{ route('admin.get.sections') }}" class="dropdown-toggle" data-toggle="dropdown">
+                <span class="{{ request()->routeIs('admin.get.sections') ? 'default-color' : '' }}">セクション一覧</span>
             </a>
           </li>
           <li class="dropdown">

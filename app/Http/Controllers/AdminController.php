@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\Admin;
 use App\Models\Announcement;
 use App\Models\Notice;
+use App\Models\Section;
 use App\Models\TopFooter;
 use App\Models\TopHeader;
 use Illuminate\Http\Request;
@@ -143,7 +144,7 @@ class AdminController extends Controller
             'text' => $text,
         ]);
 
-        Session::flash('success', 'フッターが正常に追加されました');
+        Session::flash('success', 'ヘッダが正常に追加されました');
         return redirect()->route('admin.get.home');
     }
 
@@ -171,13 +172,13 @@ class AdminController extends Controller
         }
 
         TopFooter::where('id', $request->id)->update($updateData);
-        Session::flash('success', 'フッターが正常に更新されました');
+        Session::flash('success', 'ヘッダが正常に更新されました');
         return redirect()->route('admin.edit.footers');
     }
 
     public function deleteFooter($id) {
         TopFooter::where('id', $id)->delete();
-        Session::flash('success', 'フッターが正常に削除されました');
+        Session::flash('success', 'ヘッダが正常に削除されました');
         return redirect()->route('admin.edit.footers');
     }
 
@@ -191,6 +192,68 @@ class AdminController extends Controller
 
     public function getAdvertisements() {
         return view('admins.advertisements');
+    }
+
+    public function getSections() {
+        $limit = 10;
+        $sections = Section::paginate($limit);
+        $ttl = $sections->total();
+        $ttlpage = ceil($ttl / $limit);
+        return view('admins.sections', compact('sections', 'ttl', 'ttlpage'));
+    }
+
+    public function addSection() {
+        return view('admins.add-section');
+    }
+
+    public function storeSection(Request $request) {
+        Section::create([
+            'name' => $request->name,
+            'note' => $request->note,
+            'status' => 0
+        ]);
+
+        Session::flash('success', 'セクションが正常に追加されました');
+        return redirect()->route('admin.get.sections');
+    }
+
+    public function previewSection($id) {
+        $section = Section::where('id', $id)->first();
+        return view('sections.' . $section->name);
+    }
+
+    public function editSection($id) {
+        $section = Section::where('id', $id)->first();
+        return view('admins.edit-section', compact('section'));
+    }
+
+    public function updateSection(Request $request) {
+        $updateData = [
+            'name' => $request->name,
+            'note' => $request->note
+        ];
+
+        Section::where('id', $request->id)->update($updateData);
+        Session::flash('success', 'セクションが正常に更新されました。');
+        return redirect()->route('admin.get.sections');
+    }
+
+    public function deleteSection($id) {
+        Section::where('id', $id)->delete();
+        Session::flash('success', 'セクションが正常に削除されました。');
+        return redirect()->route('admin.get.sections');
+    }
+
+    public function updateSectionStatus(Request $request) {
+        $section = Section::find($request->id);
+        if ($section) {
+            $section->status = $request->status;
+            $section->save();
+            Session::flash('success', 'セクションの状態が正常に更新されました。');
+            return response()->json(['success' => true]);
+        }
+        Session::flash('error', 'セクションステータスの変更に失敗しました。');
+        return response()->json(['success' => false]);
     }
 
     public function getAnnouncements() {
@@ -236,7 +299,7 @@ class AdminController extends Controller
             'author_name' => $request->authorName,
             'author_image' => $authorImageName,
         ]);
-        Session::flash('success', '新着情報が正常に追加されました');
+        Session::flash('success', '新着情報が正常に追加されました。');
         return redirect()->route('admin.get.news');
     }
 
@@ -265,13 +328,13 @@ class AdminController extends Controller
         }
 
         News::where('id', $request->id)->update($updateData);
-        Session::flash('success', '新着情報が正常に更新されました');
+        Session::flash('success', '新着情報が正常に更新されました。');
         return redirect()->route('admin.get.news');
     }
 
     public function deleteNews($id) {
         News::where('id', $id)->delete();
-        Session::flash('success', '新着情報が正常に削除されました');
+        Session::flash('success', '新着情報が正常に削除されました。');
         return redirect()->route('admin.get.news');
     }
 

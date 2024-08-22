@@ -4,7 +4,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-8 section-heading">
-                <h4 class="text-uppercase mt-0">フッター登録</h4>
+                <h4 class="text-uppercase mt-0">ヘッダ登録</h4>
                 </div>
             </div>
             <div class="row mt-50">
@@ -147,8 +147,8 @@
 
     <!-- Modal Popup Message Box -->
     <div id="modal-popup" class="white-bg all-padding-60 mfp-with-anim mfp-hide centerize-col col-lg-4 col-md-6 col-sm-7 col-xs-11 text-center">
-        <span class="text-uppercase font-30px font-600 mb-20 display-block dark-color">フッター登録</span>
-        <p class="mb-20">フッターを登録してもよろしいですか?</p>
+        <span class="text-uppercase font-30px font-600 mb-20 display-block dark-color">ヘッダ登録</span>
+        <p class="mb-20">ヘッダを登録してもよろしいですか?</p>
         <a class="btn btn-lg btn-circle btn-color popup-modal-close" href="#" onclick="submitForm()">Yes</a>
         <a class="btn btn-lg btn-circle btn-secondary-color popup-modal-close" href="#">No</a>
     </div>

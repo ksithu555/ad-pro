@@ -90,6 +90,16 @@ Route::get('/admin/members', [AdminController::class, 'getMembers'])->name('admi
 // advertisement
 Route::get('/admin/advertisements', [AdminController::class, 'getAdvertisements'])->name('admin.get.advertisements');
 
+// section
+Route::get('/admin/sections', [AdminController::class, 'getSections'])->name('admin.get.sections');
+Route::get('/admin/add/section', [AdminController::class, 'addSection'])->name('admin.add.section');
+Route::post('/admin/store/section', [AdminController::class, 'storeSection'])->name('admin.store.section');
+Route::get('/admin/preview/section/{id}', [AdminController::class, 'previewSection'])->name('admin.preview.section');
+Route::get('/admin/edit/section/{id}', [AdminController::class, 'editSection'])->name('admin.edit.section');
+Route::post('/admin/update/section', [AdminController::class, 'updateSection'])->name('admin.update.section');
+Route::get('/admin/delete/section', [AdminController::class, 'deleteSection'])->name('admin.delete.section');
+Route::post('/admin/update/section-status', [AdminController::class, 'updateSectionStatus'])->name('admin.update.section.status');
+
 // announcements
 Route::get('/admin/announcements', [AdminController::class, 'getAnnouncements'])->name('admin.get.announcements');
 Route::get('/admin/show/announcement/{id}', [AdminController::class, 'showAnnouncement'])->name('admin.show.announcement');

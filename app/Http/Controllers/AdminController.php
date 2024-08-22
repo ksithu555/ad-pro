@@ -41,7 +41,8 @@ class AdminController extends Controller
 
     public function getHome() {
         $headers = TopHeader::all();
-        return view('admins.home', compact('headers'));
+        $footers = TopFooter::all();
+        return view('admins.home', compact('headers', 'footers'));
     }
 
     public function addHeader() {
@@ -108,11 +109,76 @@ class AdminController extends Controller
     }
 
     public function addFooter() {
-        return view('admins.add-footer');
+        $footers = TopFooter::all();
+        return view('admins.add-footer', compact('footers'));
     }
 
     public function storeFooter(Request $request) {
-        
+        $name = null;
+        $text = null;
+        if ($request->type == "useful") {
+            $name = $request->nameUseful;
+        } elseif ($request->type == "social") {
+            $name = $request->nameSocial;
+        } elseif ($request->type == "text") {
+            $text = $request->text;
+        } elseif ($request->type == "contact") {
+            $text = $request->address . '|' . $request->phone . '|' . $request->email;
+        } elseif ($request->type == "copyRight") {
+            $text = $request->copyRight;
+        } elseif ($request->type == "logo") {
+            if (!empty($request->logo)) {
+                $logoName = time() . '.' . $request->logo->extension();
+                $request->logo->move(public_path('assets/images/all'), $logoName);
+            } else {
+                $logoName = '';
+            }
+            $text = $logoName;
+        }
+
+        TopFooter::create([
+            'type' => $request->type,
+            'name' => $name,
+            'url' => $request->url,
+            'text' => $text,
+        ]);
+
+        Session::flash('success', 'フッターが正常に追加されました');
+        return redirect()->route('admin.get.home');
+    }
+
+    public function editFooter($id) {
+        $footer = TopFooter::where('id', $id)->first();
+        return view('admins.edit-footer', compact('footer'));
+    }
+
+    public function updateFooter(Request $request) {
+        $updateData = [
+            'type' => $request->type,
+            'url' => $request->url
+        ];
+
+        if ($request->type == "useful") {
+            $updateData['name'] = $request->nameUseful;
+        } elseif ($request->type == "social") {
+            $updateData['name'] = $request->nameSocial;
+        } elseif ($request->type == "text") {
+            $updateData['text'] = $request->text;
+        } elseif ($request->type == "contact") {
+            $updateData['text'] = $request->address . '|' . $request->phone . '|' . $request->email;
+        } elseif ($request->type == "copyRight") {
+            $updateData['text'] = $request->copyRight;
+        }
+
+        TopFooter::where('id', $request->id)->update($updateData);
+        Session::flash('success', 'フッターが正常に更新されました');
+        return redirect()->route('admin.edit.footers');
+    }
+
+    public function deleteFooter($id) {
+        TopFooter::where('id', $id)->delete();
+        Session::flash('success', 'フッターが正常に削除されました');
+        return redirect()->route('admin.edit.footers');
     }
 
     public function getMembers() {

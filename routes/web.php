@@ -81,6 +81,7 @@ Route::get('/admin/edit/footers', [AdminController::class, 'editFooters'])->name
 Route::get('/admin/add/footer', [AdminController::class, 'addFooter'])->name('admin.add.footer');
 Route::post('/admin/store/footer', [AdminController::class, 'storeFooter'])->name('admin.store.footer');
 Route::get('/admin/edit/footer/{id}', [AdminController::class, 'editFooter'])->name('admin.edit.footer');
+Route::post('/admin/update/footer', [AdminController::class, 'updateFooter'])->name('admin.update.footer');
 Route::get('/admin/delete/footer{id}', [AdminController::class, 'deleteFooter'])->name('admin.delete.footer');
 
 // members

@@ -38,21 +38,31 @@
                           <td>
                             {{ $footer->type }}
                           </td>
+                          @if ($footer->type == 'text' || $footer->type == 'contact' || 
+                          $footer->type == 'copyRight' || $footer->type == 'logo')
+                          <td colspan="2">
+                            {{ $footer->text }}
+                          </td>
+                          @else
                           <td>
                             {{ $footer->name }}
                           </td>
                           <td>
                             {{ $footer->url }}
                           </td>
+                          @endif
                           <td>
                             <a href="{{ route('admin.edit.footer', $footer->id) }}">
                               <i class="fa-icon-pencil-square" style="font-size: 1.5em;"></i>
                             </a>
+                            @if (!($footer->type == 'text' || $footer->type == 'contact' || 
+                            $footer->type == 'copyRight' || $footer->type == 'logo'))
                             <div class="tr-modal-popup">
                               <a href="#modal-popup-{{ $footer->id }}" data-effect="mfp-newspaper">
                                 <i class="fa-icon-trash" style="font-size: 1.5em;"></i>
                               </a>
                             </div>
+                            @endif
                           </td>
                         </tr>
                         <!-- Modal Popup Message Box -->

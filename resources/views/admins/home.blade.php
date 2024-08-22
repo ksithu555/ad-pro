@@ -55,6 +55,18 @@
     </section>
     <!--== Header End ==-->
     <!--== Footer Start ==-->
+    @php
+        $footerText = $footers->where('type', 'text')->first();
+        $usefulFooters = $footers->where('type', 'useful');
+        $contactUs = $footers->where('type', 'contact')->first();
+        $contactDetails = [];
+
+        if ($contactUs && $contactUs->text) {
+            $contactDetails = explode('|', $contactUs->text);
+        }
+        $copyRight = $footers->where('type', 'copyRight')->first();
+        $logo = $footers->where('type', 'logo')->first();
+    @endphp
     <section>
         <div class="container">
             <div class="row">
@@ -85,34 +97,39 @@
                                     <div class="widget widget-text">
                                     <div class="logo logo-footer">
                                         <a href="#">
-                                        <img class="logo logo-display" src="{{ asset('assets/images/all/adpro3_blogo.png') }}" alt="">
+                                        @if ($logo)
+                                        <img class="logo logo-display" src="{{ asset('assets/images/all/' . $logo->text) }}" alt="">
+                                        @endif
                                         </a>
                                     </div>
-                                    <p>Objectively innovate empowered manufactured products whereas parallel platforms. Holisticly predominate extensible testing procedures for reliable supply chains. Dramatically engage top-line web services vis-a-vis cutting-edge deliverables.</p>
+                                    @if ($footerText)
+                                    <p>{!! nl2br($footerText->text) !!}</p>
+                                    @endif
                                     </div>
                                 </div>
                             <div class="col-sm-4 col-md-3">
                                 <div class="widget widget-links">
                                     <h5 class="widget-title">Useful Links</h5>
+                                    @if ($usefulFooters)
                                     <ul>
-                                        <li><a href="#">Home</a></li>
-                                        <li><a href="#">About Us</a></li>
-                                        <li><a href="#">Our Services</a></li>
-                                        <li><a href="#">Blog</a></li>
-                                        <li><a href="#">Portfolio</a></li>
+                                        @foreach ($usefulFooters as $useful)
+                                        <li><a href="{{ $useful->url }}">{{ $useful->name }}</a></li>
+                                        @endforeach
                                     </ul>
+                                    @endif
                                 </div>
                             </div>
                             <div class="col-sm-4 col-md-4">
                                 <div class="widget widget-links">
                                     <h5 class="widget-title">Contact Us</h5>
                                     <div class="widget-links">
+                                        @if ($contactDetails)
                                         <ul>
-                                            <li>57 Patton Street Caulfield East VIC 3145</li>
-                                            <li>(03) 9414 7288</li>
-                                            <li>sayhi@gmail.com</li>
-                                            <li>www.ADPRO.com</li>
+                                            @foreach ($contactDetails as $contact)
+                                            <li>{{ $contact }}</li>
+                                            @endforeach
                                         </ul>
+                                        @endif
                                     </div>
                                 </div>
                             </div>
@@ -123,15 +140,18 @@
                         <div class="container">
                             <div class="row">
                                 <div class="col-md-6 col-xs-12">
-                                    <div class="copy-right text-left">© 2019 <i class="icon icofont icofont-heart-alt"></i> ADPRO. All rights reserved</div>
+                                    @if ($copyRight)
+                                    <div class="copy-right text-left">{{ $copyRight->text }}</div>
+                                    @endif
                                 </div>
                                 <div class="col-md-6 col-xs-12">
                                     <ul class="social-media">
-                                    <li><a href="#" class="icofont icofont-social-facebook"></a></li>
-                                    <li><a href="#" class="icofont icofont-social-twitter"></a></li>
-                                    <li><a href="#" class="icofont icofont-social-behance"></a></li>
-                                    <li><a href="#" class="icofont icofont-social-dribble"></a></li>
-                                    <li><a href="#" class="icofont icofont-social-linkedin"></a></li>
+                                        @php
+                                            $socialFooters = $footers->where('type', 'social');
+                                        @endphp
+                                        @foreach ($socialFooters as $social)
+                                        <li><a href="{{ $social->url }}" class="icofont icofont-social-{{ $social->name }}"></a></li>
+                                        @endforeach
                                     </ul>
                                 </div>
                             </div>

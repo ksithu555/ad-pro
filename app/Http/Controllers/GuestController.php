@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\News;
+use App\Models\TopFooter;
 use App\Models\TopHeader;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;

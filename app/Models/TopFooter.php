@@ -9,6 +9,7 @@ class TopFooter extends Model
     protected $fillable = [
         'type',
         'name',
-        'url'
+        'url',
+        'text'
     ];
 }

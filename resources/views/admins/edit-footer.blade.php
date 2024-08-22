@@ -4,44 +4,33 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-8 section-heading">
-                <h4 class="text-uppercase mt-0">フッター登録</h4>
+                <h4 class="text-uppercase mt-0">フッター修正</h4>
+                <x-message-box></x-message-box>
                 </div>
             </div>
             <div class="row mt-50">
                 <div class="col-md-12">
-                <form name="add-footer-form" id="add-footer-form" action="{{ route('admin.store.footer') }}" method="POST" 
+                <form name="edit-footer-form" id="edit-footer-form" action="{{ route('admin.update.footer') }}" method="POST" 
                     class="contact-form-style-01" enctype="multipart/form-data">
                     @csrf
                     <div class="messages"></div>
+                    <input type="hidden" id="id" name="id" value="{{ $footer->id }}">
                     <div class="row">
                         <div class="col-md-12 col-sm-12">
                             <div class="form-group">
                                 <select name="type" class="orderby" id="typeSelect" onchange="toggleFields()">
+                                    @if ($footer->type == 'useful')
                                     <option value="useful" selected="selected">Useful Links</option>
-                                    <option value="social">Social Media</option>
-                                    @php
-                                        $checkLogo = $footers->where('type', 'logo')->first();
-                                    @endphp
-                                    @if ($checkLogo == null)
-                                    <option value="logo">Logo</option>
-                                    @endif
-                                    @php
-                                        $checkText = $footers->where('type', 'text')->first();
-                                    @endphp
-                                    @if ($checkText == null)
-                                    <option value="text">Footer Text</option>
-                                    @endif
-                                    @php
-                                        $checkContact = $footers->where('type', 'contact')->first();
-                                    @endphp
-                                    @if ($checkContact == null)
-                                    <option value="contact">Contact Us</option>
-                                    @endif
-                                    @php
-                                        $checkCopy = $footers->where('type', 'copyRight')->first();
-                                    @endphp
-                                    @if ($checkCopy == null)
-                                    <option value="copyRight">Copy Right</option>
+                                    @elseif ($footer->type == 'social')
+                                    <option value="social" selected="selected">Social Media</option>
+                                    @elseif ($footer->type == 'logo')
+                                    <option value="logo" selected="selected">Logo</option>
+                                    @elseif ($footer->type == 'text')
+                                    <option value="text" selected="selected">Footer Text</option>
+                                    @elseif ($footer->type == 'contact')
+                                    <option value="contact" selected="selected">Contact Us</option>
+                                    @elseif ($footer->type == 'copyRight')
+                                    <option value="copyRight" selected="selected">Copy Right</option>
                                     @endif
                                 </select>
                                 <span class="error" style="color:#BF0731" id="error-type"></span>
@@ -51,7 +40,7 @@
                         <div class="col-md-12 col-sm-12" id="usefulLinkField">
                             <div class="form-group">
                                 <label class="sr-only" for="nameUseful">名前</label>
-                                <input type="text" name="nameUseful" class="md-input" id="nameUseful" placeholder="名前 *" value="{{ old('nameUseful') }}">
+                                <input type="text" name="nameUseful" class="md-input" id="nameUseful" placeholder="名前 *" value="{{ old('nameUseful') ? old('nameUseful') : $footer->name }}">
                                 <span class="error" style="color:#BF0731" id="error-nameUseful"></span>
                             </div>
                         </div>
@@ -59,19 +48,19 @@
                         <div class="col-md-12 col-sm-12" id="socialMediaField" style="display:none;">
                             <div class="form-group">
                                 <select name="nameSocial" class="orderby social-media">
-                                    <option value="" selected="selected">選択*</option>
-                                    <option value="facebook">Facebook</option>
-                                    <option value="twitter">Twitter</option>
-                                    <option value="behance">Behance</option>
-                                    <option value="linkedin">Linkedin</option>
-                                    <option value="youtube">Youtube</option>
-                                    <option value="instagram">Instagram</option>
-                                    <option value="tumblr">Tumblr</option>
-                                    <option value="flikr">Flikr</option>
-                                    <option value="pinterest">Pinterest</option>
-                                    <option value="github">Github</option>
-                                    <option value="google-plus">Google Plus</option>
-                                </select>
+                                    <option value="">選択*</option>
+                                    <option value="facebook" @if($footer->name == 'facebook')selected="selected"@endif>Facebook</option>
+                                    <option value="twitter" @if($footer->name == 'twitter')selected="selected"@endif>Twitter</option>
+                                    <option value="behance" @if($footer->name == 'behance')selected="selected"@endif>Behance</option>
+                                    <option value="linkedin" @if($footer->name == 'linkedin')selected="selected"@endif>Linkedin</option>
+                                    <option value="youtube" @if($footer->name == 'youtube')selected="selected"@endif>Youtube</option>
+                                    <option value="instagram" @if($footer->name == 'instagram')selected="selected"@endif>Instagram</option>
+                                    <option value="tumblr" @if($footer->name == 'tumblr')selected="selected"@endif>Tumblr</option>
+                                    <option value="flikr" @if($footer->name == 'flikr')selected="selected"@endif>Flikr</option>
+                                    <option value="pinterest" @if($footer->name == 'pinterest')selected="selected"@endif>Pinterest</option>
+                                    <option value="github" @if($footer->name == 'github')selected="selected"@endif>Github</option>
+                                    <option value="google-plus" @if($footer->name == 'google-plus')selected="selected"@endif>Google Plus</option>
+                                </select>                                
                                 <span class="error" style="color:#BF0731" id="error-nameSocial"></span>
                             </div>
                         </div>
@@ -79,7 +68,7 @@
                         <div class="col-md-12 col-sm-12" id="urlField">
                             <div class="form-group">
                                 <label class="sr-only" for="url">URL</label>
-                                <input type="text" name="url" class="md-input" id="url" placeholder="URL *" value="{{ old('url') }}">
+                                <input type="text" name="url" class="md-input" id="url" placeholder="URL *" value="{{ old('url') ? old('url') : $footer->url }}">
                                 <span class="error" style="color:#BF0731" id="error-url"></span>
                             </div>
                         </div>
@@ -87,8 +76,8 @@
                         <div class="col-md-12 col-sm-12" id="logoField">
                             <div class="form-group">
                                 <label class="md-file" for="logo" id="file-label">画像 *</label>
-                                <input type="file" name="logo" id="logo" placeholder="画像 *" style="display: none;" value="{{ old('logo') }}">
-                                <img id="logo-preview" src="" alt="Logo Preview" style="display:none; width: 80px; margin: 10px 0 0 14px;">
+                                <input type="file" name="logo" id="logo" placeholder="画像 *" style="display: none;">
+                                <img id="logo-preview" src="{{ asset('assets/images/all/' . $footer->text) }}" alt="Logo Preview" style="width: 80px; margin: 10px 0 0 14px;">
                                 <span class="error" style="color:#BF0731" id="error-logo"></span>
                             </div>
                         </div>
@@ -96,25 +85,31 @@
                         <div class="col-md-12 col-sm-12" id="footerTextField">
                             <div class="form-group">
                                 <label class="sr-only" for="text">本文</label>
-                                <textarea name="text" class="md-textarea" id="text" rows="7" placeholder="本文 *">{{ old('text') }}</textarea>
+                                <textarea name="text" class="md-textarea" id="text" rows="7" placeholder="本文 *">{{ old('text') ? old('text') : $footer->text }}</textarea>
                                 <span class="error" style="color:#BF0731" id="error-text"></span>
                             </div>
                         </div>
 
+                        @php
+                            $contactUs = [null,null,null];
+                            if ($footer->type == 'contact') {
+                                $contactUs = explode('|', $footer->text);
+                            }
+                        @endphp
                         <div class="col-md-12 col-sm-12" id="contactUsField">
                             <div class="form-group">
                                 <label class="sr-only" for="address">住所</label>
-                                <input type="text" name="address" class="md-input" id="address" placeholder="住所 *" value="{{ old('address') }}">
+                                <input type="text" name="address" class="md-input" id="address" placeholder="住所 *" value="{{ old('address') ? old('address') : $contactUs[0] }}">
                                 <span class="error" style="color:#BF0731" id="error-address"></span>
                             </div>
                             <div class="form-group">
                                 <label class="sr-only" for="phone">電話番号</label>
-                                <input type="text" name="phone" class="md-input" id="phone" placeholder="電話番号 *" value="{{ old('phone') }}">
+                                <input type="text" name="phone" class="md-input" id="phone" placeholder="電話番号 *" value="{{ old('phone') ? old('phone') : $contactUs[1] }}">
                                 <span class="error" style="color:#BF0731" id="error-phone"></span>
                             </div>
                             <div class="form-group">
                                 <label class="sr-only" for="email">メール</label>
-                                <input type="text" name="email" class="md-input" id="email" placeholder="メール *" value="{{ old('email') }}">
+                                <input type="text" name="email" class="md-input" id="email" placeholder="メール *" value="{{ old('email') ? old('email') : $contactUs[2] }}">
                                 <span class="error" style="color:#BF0731" id="error-email"></span>
                             </div>
                         </div>
@@ -122,7 +117,7 @@
                         <div class="col-md-12 col-sm-12" id="copyRightField">
                             <div class="form-group">
                                 <label class="sr-only" for="copyRight">コピーライト</label>
-                                <input type="text" name="copyRight" class="md-input" id="copyRight" placeholder="コピーライト *" value="{{ old('copyRight') }}">
+                                <input type="text" name="copyRight" class="md-input" id="copyRight" placeholder="コピーライト *" value="{{ old('copyRight') ? old('copyRight') : $footer->text }}">
                                 <span class="error" style="color:#BF0731" id="error-copyRight"></span>
                             </div>
                         </div>
@@ -147,8 +142,8 @@
 
     <!-- Modal Popup Message Box -->
     <div id="modal-popup" class="white-bg all-padding-60 mfp-with-anim mfp-hide centerize-col col-lg-4 col-md-6 col-sm-7 col-xs-11 text-center">
-        <span class="text-uppercase font-30px font-600 mb-20 display-block dark-color">フッター登録</span>
-        <p class="mb-20">フッターを登録してもよろしいですか?</p>
+        <span class="text-uppercase font-30px font-600 mb-20 display-block dark-color">フッター修正</span>
+        <p class="mb-20">フッターを修正してもよろしいですか?</p>
         <a class="btn btn-lg btn-circle btn-color popup-modal-close" href="#" onclick="submitForm()">Yes</a>
         <a class="btn btn-lg btn-circle btn-secondary-color popup-modal-close" href="#">No</a>
     </div>
@@ -245,7 +240,7 @@
     {{-- validate --}}
     <script>
         function showModal() {
-            if (validateAddFooterForm()) {
+            if (validateEditFooterForm()) {
                 document.getElementById('open-modal').setAttribute('href', '#modal-popup');
                 document.getElementById('open-modal').setAttribute('data-effect', 'mfp-newspaper');
                 document.getElementById('open-modal').click();
@@ -254,10 +249,10 @@
 
         function submitForm() {
             document.getElementById('confirmed').value = '1';
-            document.getElementById('add-footer-form').submit();
+            document.getElementById('edit-footer-form').submit();
         }
 
-        function validateAddFooterForm() {
+        function validateEditFooterForm() {
             let isValid = true;
             document.querySelectorAll('.error').forEach(el => el.textContent = '');
 
@@ -270,7 +265,6 @@
             const phone = document.getElementById('phone').value.trim();
             const email = document.getElementById('email').value.trim();
             const copyRight = document.getElementById('copyRight').value.trim();
-            const logo = document.getElementById('logo').files[0];
 
             if (type === 'useful') {
                 if (!nameUseful) {
@@ -313,11 +307,6 @@
             } else if (type === 'copyRight') {
                 if (!copyRight) {
                     document.getElementById('error-copyRight').textContent = 'コピーライトを入力してください。';
-                    isValid = false;
-                }
-            } else if (type === 'logo') {
-                if (!logo) {
-                    document.getElementById('error-logo').textContent = '画像を選択してください。';
                     isValid = false;
                 }
             }

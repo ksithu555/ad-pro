@@ -106,7 +106,7 @@ class UserAdvertisementController extends Controller
         ]);
 
         Session::flash('success', 'セクションが正常に追加されました');
-        return redirect()->route('user.show.sections');
+        return redirect()->route('user.show.sections', $advertisement->id);
     }
 
     public function updateSectionStatus(Request $request) {

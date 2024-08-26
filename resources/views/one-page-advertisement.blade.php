@@ -138,7 +138,7 @@
             @elseif ($advertisementSection->section->name == 'Header02')
             <!--== Header02 Start ==-->
             <section class="parallax-bg fixed-bg view-height-100vh lg-section"  id="{{ $advertisementSection->name }}"
-                data-parallax-bg-image="{{ asset('assets/images/background/parallax-bg-13.jpg') }}" 
+                data-parallax-bg-image="{{ asset('assets/images/all/header-02.webp') }}" 
                 data-parallax-speed="0.5" data-parallax-direction="up">
                 @if ($advertisementSection->advertisementHeaderBlocks[0]->status == 1)
                 <div class="color-overlay-bg"></div>
@@ -179,29 +179,29 @@
                                 <div class="widget widget-text">
                                     @php
                                         $logo = $advertisementSection->advertisementFooterBlocks->where('type', 'logo')->first();
-                                        $logoImage = $logo->text;
+                                        $logoImage = $logo ? $logo->text : null;
                                     @endphp
-                                    @if ($logo->status == 1)
+                                    @if ($logo && $logo->status == 1)
                                     <div class="logo logo-footer">
                                         <img class="logo logo-display" src="{{ asset('assets/images/all/' . $logoImage) }}" alt="">
                                     </div>
                                     @endif
                                     @php
                                         $text = $advertisementSection->advertisementFooterBlocks->where('type', 'text')->first();
-                                        $footerText = $text->text;
+                                        $footerText = $text ? $text->text : null;
                                     @endphp
-                                    @if ($test->status == 1)
+                                    @if ($text && $text->status == 1)
                                     <p>{{ $footerText }}</p>
                                     @endif
                                 </div>
                             </div>
                             <div class="col-sm-6 col-md-3">
                                 <div class="widget widget-links">
-                                    <h5 class="widget-title">Useful Links</h5>
                                     @php
                                         $usefuls = $advertisementSection->advertisementFooterBlocks->where('type', 'useful');
                                     @endphp
-                                    @if ($usefuls)
+                                    @if ($usefuls->isNotEmpty())
+                                    <h5 class="widget-title">Useful Links</h5>
                                     <ul>
                                         @foreach ($usefuls as $usefulLink)
                                         @if ($usefulLink->status == 1)
@@ -214,22 +214,23 @@
                             </div>
                             <div class="col-sm-6 col-md-4">
                                 <div class="widget widget-links">
-                                    <h5 class="widget-title">Contact Us</h5>
                                     @php
+                                        $contactUs = null;
                                         $contact = $advertisementSection->advertisementFooterBlocks->where('type', 'contact')->first();
                                         if ($contact && $contact->text) {
                                             $contactUs = explode('|', $contact->text);
                                         }
                                     @endphp
+                                    @if ($contactUs && $contact->status == 1)
+                                    <h5 class="widget-title">Contact Us</h5>
                                     <div class="widget-links">
-                                        @if ($contactUs && $contact->status == 1)
                                         <ul>
                                             @foreach ($contactUs as $contactDetaiil)
                                             <li>{{ $contactDetaiil }}</li>
                                             @endforeach
                                         </ul>
-                                        @endif
                                     </div>
+                                    @endif
                                 </div>
                             </div>
                         </div>
@@ -241,9 +242,9 @@
                             <div class="col-md-6 col-xs-12">
                                 @php
                                     $copyRight = $advertisementSection->advertisementFooterBlocks->where('type', 'copyRight')->first();
-                                    $copyRightText = $copyRight->text;
+                                    $copyRightText = $copyRight ? $copyRight->text : null;
                                 @endphp
-                                @if ($copyRight->status == 1)
+                                @if ($copyRight && $copyRight->status == 1)
                                 <div class="copy-right text-left">
                                     {{ $copyRightText }}
                                 </div>
@@ -267,7 +268,7 @@
             </footer>
             <!--== Footer01 End ==-->
             @elseif ($advertisementSection->section->name == 'Footer02')
-            <!--== Footer01 Start ==-->
+            <!--== Footer02 Start ==-->
             <footer class="footer dark-block" id="{{ $advertisementSection->name }}">
                 <div class="footer-copyright">
                     <div class="container">
@@ -275,9 +276,11 @@
                             <div class="col-md-6 col-xs-12">
                                 @php
                                     $copyRight = $advertisementSection->advertisementFooterBlocks->where('type', 'copyRight')->first();
-                                    $copyRightText = $copyRight->text;
+                                    if ($copyRight) {
+                                        $copyRightText = $copyRight ? $copyRight->text : null;
+                                    }
                                 @endphp
-                                @if ($copyRight->status == 1)
+                                @if ($copyRight && $copyRightStatus == 1)
                                 <div class="copy-right text-left">
                                     {{ $copyRightText }}
                                 </div>
@@ -299,7 +302,7 @@
                     </div>
                 </div>
             </footer>
-            <!--== Footer01 End ==-->
+            <!--== Footer02 End ==-->
             @endif
         {{-- Footer Hero End --}}
         @endif

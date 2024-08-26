@@ -153,6 +153,66 @@ class UserAdvertisementController extends Controller
         return response()->json(['success' => false]);
     }
 
+    public function orderUpSection($id)
+    {
+        $currentSection = AdvertisementSection::findOrFail($id);
+        $previousSection = AdvertisementSection::where('order', '<', $currentSection->order)
+                                            ->orderBy('order', 'desc')
+                                            ->first();
+
+        if ($previousSection) {
+            // Swap the order values
+            $tempOrder = $currentSection->order;
+            $currentSection->order = $previousSection->order;
+            $previousSection->order = $tempOrder;
+
+            $currentSection->save();
+            $previousSection->save();
+
+            Session::flash('success', 'セクションの順番が正常に更新されました。');
+            return response()->json(['success' => true]);
+        }
+        Session::flash('error', 'セクションの順番が正常に変更に失敗しました。');
+        return response()->json(['success' => true]);
+    }
+
+    public function orderDownSection($id)
+    {
+        $currentSection = AdvertisementSection::findOrFail($id);
+        $nextSection = AdvertisementSection::where('order', '>', $currentSection->order)
+                                        ->orderBy('order')
+                                        ->first();
+
+        if ($nextSection) {
+            // Swap the order values
+            $tempOrder = $currentSection->order;
+            $currentSection->order = $nextSection->order;
+            $nextSection->order = $tempOrder;
+
+            $currentSection->save();
+            $nextSection->save();
+            Session::flash('success', 'セクションの順番が正常に更新されました。');
+            return response()->json(['success' => true]);
+        }
+        Session::flash('error', 'セクションの順番が正常に変更に失敗しました。');
+        return response()->json(['success' => true]);
+    }
+
+    public function deleteSection($id) {
+        $advertisementSection = AdvertisementSection::find($id);
+        if ($advertisementSection) {
+            $advertisementSection->delete();
+            if ($advertisementSection->section->type == 'header') {
+                AdvertisementHeaderBlock::where('advertisement_section_id', $advertisementSection->id)->delete();
+            }
+            if ($advertisementSection->section->type == 'footer') {
+                AdvertisementFooterBlock::where('advertisement_section_id', $advertisementSection->id)->delete();
+            }
+            Session::flash('success', 'セクションが正常に削除されました。');
+            return redirect()->route('user.show.sections', $advertisementSection->advertisement_id);
+        }
+    }
+
     public function showSectionBlocks($id) {
         $advertisementSection = AdvertisementSection::find($id);
         $type = $advertisementSection->section->type;
@@ -163,7 +223,7 @@ class UserAdvertisementController extends Controller
             $advertisementSectionBlocks = AdvertisementFooterBlock::where('advertisement_section_id', $advertisementSection->id)->get();
         }
 
-        return view('users.advertisements.show-section-blocks', compact('id', 'type', 'advertisementSectionBlocks'));
+        return view('users.advertisements.show-section-blocks', compact('id', 'type', 'advertisementSection', 'advertisementSectionBlocks'));
     }
 
     // Header
@@ -321,50 +381,5 @@ class UserAdvertisementController extends Controller
         }
         Session::flash('error', 'ブロックステータスの変更に失敗しました。');
         return response()->json(['success' => false]);
-    }
-
-    public function orderUpSection($id)
-    {
-        $currentSection = AdvertisementSection::findOrFail($id);
-        $previousSection = AdvertisementSection::where('order', '<', $currentSection->order)
-                                            ->orderBy('order', 'desc')
-                                            ->first();
-
-        if ($previousSection) {
-            // Swap the order values
-            $tempOrder = $currentSection->order;
-            $currentSection->order = $previousSection->order;
-            $previousSection->order = $tempOrder;
-
-            $currentSection->save();
-            $previousSection->save();
-
-            Session::flash('success', 'セクションの順番が正常に更新されました。');
-            return response()->json(['success' => true]);
-        }
-        Session::flash('error', 'セクションの順番が正常に変更に失敗しました。');
-        return response()->json(['success' => true]);
-    }
-
-    public function orderDownSection($id)
-    {
-        $currentSection = AdvertisementSection::findOrFail($id);
-        $nextSection = AdvertisementSection::where('order', '>', $currentSection->order)
-                                        ->orderBy('order')
-                                        ->first();
-
-        if ($nextSection) {
-            // Swap the order values
-            $tempOrder = $currentSection->order;
-            $currentSection->order = $nextSection->order;
-            $nextSection->order = $tempOrder;
-
-            $currentSection->save();
-            $nextSection->save();
-            Session::flash('success', 'セクションの順番が正常に更新されました。');
-            return response()->json(['success' => true]);
-        }
-        Session::flash('error', 'セクションの順番が正常に変更に失敗しました。');
-        return response()->json(['success' => true]);
     }
 }

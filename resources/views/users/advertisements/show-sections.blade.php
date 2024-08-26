@@ -11,14 +11,22 @@
             </div>
         </div>
         <div class="row">
-          <div class="col-md-12">
-            <div style="text-align: right;">
-              <a class="btn btn-md btn-dark-outline btn-square margin-left-auto margin-right-auto display-table-sm"
-              href="{{ route('user.add.section') }}">
-                <i class="fa-icon-plus-square"></i> セクション
-              </a>
+            <div class="col-md-6">
+                <div style="text-align: left;">
+                    <a class="btn btn-md btn-dark-outline btn-square margin-left-auto margin-right-auto display-table-sm"
+                    href="{{ route('user.show.advertisement') }}">
+                        <i class="fa fa-arrow-left"></i> 戻る
+                    </a>
+                </div>
             </div>
-          </div>
+            <div class="col-md-6">
+                <div style="text-align: right;">
+                    <a class="btn btn-md btn-dark-outline btn-square margin-left-auto margin-right-auto display-table-sm"
+                    href="{{ route('user.add.section') }}">
+                        <i class="fa-icon-plus-square"></i> セクション
+                    </a>
+                </div>
+            </div>
         </div>
         <div class="row">
             <div class="col-md-12">
@@ -89,7 +97,7 @@
                             <div id="modal-popup-{{ $section->id }}" class="white-bg all-padding-60 mfp-with-anim mfp-hide centerize-col col-lg-4 col-md-6 col-sm-7 col-xs-11 text-center">
                                 <span class="text-uppercase font-30px font-600 mb-20 display-block dark-color">セクション削除</span>
                                 <p class="mb-20">セクションを削除してもよろしいですか?</p>
-                                <a class="btn btn-lg btn-circle btn-color" href="{{ route('admin.delete.section', $section->id) }}">Yes</a>
+                                <a class="btn btn-lg btn-circle btn-color" href="{{ route('user.delete.section', $section->id) }}">Yes</a>
                                 <a class="btn btn-lg btn-circle btn-secondary-color popup-modal-close" href="#">No</a>
                             </div>
                             @endforeach

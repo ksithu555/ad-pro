@@ -23,7 +23,15 @@
             }
         @endphp
         <div class="row">
-          <div class="col-md-12">
+          <div class="col-md-6">
+              <div style="text-align: left;">
+                  <a class="btn btn-md btn-dark-outline btn-square margin-left-auto margin-right-auto display-table-sm"
+                  href="{{ route('user.show.sections', $advertisementSection->advertisement_id) }}">
+                      <i class="fa fa-arrow-left"></i> 戻る
+                  </a>
+              </div>
+          </div>
+          <div class="col-md-6">
             <div style="text-align: right;">
               <a class="btn btn-md btn-dark-outline btn-square margin-left-auto margin-right-auto display-table-sm"
               href="{{ route($addRoute, $id) }}">

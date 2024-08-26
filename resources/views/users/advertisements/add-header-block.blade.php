@@ -87,7 +87,7 @@
     {{-- validate --}}
     <script>
         function showModal() {
-            if (validateAddFooterBlockForm()) {
+            if (validateAddHeaderBlockForm()) {
                 document.getElementById('open-modal').setAttribute('href', '#modal-popup');
                 document.getElementById('open-modal').setAttribute('data-effect', 'mfp-newspaper');
                 document.getElementById('open-modal').click();
@@ -96,10 +96,10 @@
 
         function submitForm() {
             document.getElementById('confirmed').value = '1';
-            document.getElementById('add-footer-block-form').submit();
+            document.getElementById('add-header-block-form').submit();
         }
 
-        function validateAddFooterBlockForm() {
+        function validateAddHeaderBlockForm() {
             let isValid = true;
             document.querySelectorAll('.error').forEach(el => el.textContent = '');
 

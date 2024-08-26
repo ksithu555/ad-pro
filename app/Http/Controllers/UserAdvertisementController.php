@@ -111,6 +111,20 @@ class UserAdvertisementController extends Controller
 
     public function updateSectionStatus(Request $request) {
         $section = AdvertisementSection::find($request->id);
+        if ($section->section->type == 'header') {
+            $advertisementHeaderBlock = AdvertisementHeaderBlock::where('advertisement_section_id', $section->id)->get();
+            if ($advertisementHeaderBlock->isEmpty()) {
+                Session::flash('warning', 'セクションのステータスはまだ変更できません。');
+                return response()->json(['success' => true]);
+            }
+        }
+        if ($section->section->type == 'footer') {
+            $advertisementFooterBlock = AdvertisementFooterBlock::where('advertisement_section_id', $section->id)->get();
+            if ($advertisementFooterBlock->isEmpty()) {
+                Session::flash('warning', 'セクションのステータスはまだ変更できません。');
+                return response()->json(['success' => true]);
+            }
+        }
         if ($section) {
             $section->status = $request->status;
             $section->save();

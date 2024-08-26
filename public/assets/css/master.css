@@ -5217,3 +5217,86 @@ input:checked + .slider:before {
   display: block;
   border-radius: 0 15px 15px 0;
 }
+
+/* Hide the default radio button */
+.custom-radio input[type="radio"] {
+  display: none;
+}
+
+/* Style for the custom radio button */
+.custom-radio input[type="radio"] + label {
+  position: relative;
+  padding-left: 15px;
+  cursor: pointer;
+  display: inline-block;
+  color: #333; /* Default text color */
+  font-size: 16px;
+}
+
+/* Create the custom radio button circle */
+.custom-radio input[type="radio"] + label:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  border: 2px solid #BF0731; /* Border color of the radio button */
+  background-color: #fff; /* Background color of the radio button */
+  transition: background-color 0.3s ease;
+}
+
+/* Inner circle when the radio button is checked */
+.custom-radio input[type="radio"]:checked + label:after {
+  content: "";
+  position: absolute;
+  left: 3px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background-color: #BF0731; /* Color of the selected state */
+}
+
+/* Hover effect for the radio button */
+.custom-radio input[type="radio"] + label:hover:before {
+  background-color: rgba(191, 7, 49, 0.1);
+}
+
+.text-align-center-arrow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.arrow-button {
+  background-color: #BF0731;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 14px;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+}
+
+.arrow-button:hover, .arrow-button:focus {
+  background-color: #ac0e27;
+}
+
+.arrow-button.up {
+  /* Optional styles for the up button */
+}
+
+.arrow-button.down {
+  /* Optional styles for the down button */
+}

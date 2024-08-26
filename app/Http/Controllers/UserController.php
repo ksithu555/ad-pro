@@ -6,16 +6,20 @@ use App\Models\User;
 use App\Models\Alarm;
 use App\Models\Notice;
 use App\Models\Message;
+use App\Models\Section;
 use App\Mail\VerifyEmail;
 use App\Models\Announcement;
 use Illuminate\Http\Request;
 use App\Models\Advertisement;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\URL;
+use App\Models\AdvertisementSection;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
+use App\Models\AdvertisementFooterBlock;
+use App\Models\AdvertisementHeaderBlock;
 
 class UserController extends Controller
 {
@@ -95,42 +99,6 @@ class UserController extends Controller
         $ttl = $users->total();
         $ttlpage = ceil($ttl/$limit);
         return view('users.members', compact('users', 'ttl', 'ttlpage'));
-    }
-
-    public function getAdvertisements() {
-        $advertisements = Advertisement::all();
-        return view('users.advertisements', compact('advertisements'));
-    }
-
-    public function showAdvertisement() {
-        $advertisement = Advertisement::where('user_id', Auth::user()->id)->first();
-        if (!$advertisement) {
-            return view('users.show-advertisement', compact('advertisement'));
-        } else {
-            return view('users.edit-advertisement', compact('advertisement'));
-        }
-    }
-
-    public function storeAdvertisement(Request $request) {
-        Advertisement::create([
-            'user_id' => Auth::user()->id,
-            'name' => $request->name,
-            'param_name' => $request->paramName
-        ]);
-
-        Session::flash('success', '広告が正常に追加されました');
-        return redirect()->route('user.show.advertisement');
-    }
-
-    public function updateAdvertisement(Request $request) {
-        $updateData = [
-            'name' => $request->name,
-            'param_name' => $request->paramName
-        ];
-
-        Advertisement::where('id', $request->id)->update($updateData);
-        Session::flash('success', '広告が正常に更新されました');
-        return redirect()->route('user.show.advertisement');
     }
 
     public function getAnnouncements() {

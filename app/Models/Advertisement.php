@@ -10,11 +10,14 @@ class Advertisement extends Model
     protected $fillable = [
         'user_id',
         'name',
-        'param_name'
+        'logo_white',
+        'logo_color',
+        'param_name',
+        'status'
     ];
 
-    public function advertisement()
+    public function advertisementSections()
     {
-        return $this->hasOne(Advertisement::class);
+        return $this->hasMany(AdvertisementSection::class);
     }
 }

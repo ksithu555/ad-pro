@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Advertisement;
 use App\Models\News;
 use App\Models\TopFooter;
 use App\Models\TopHeader;
@@ -42,5 +43,17 @@ class GuestController extends Controller
 
     public function contact() {
         return view('contact');
+    }
+
+    public function showOnePageAdvertisement($param) {
+        $advertisement = Advertisement::where('param_name', $param)->first();
+        if (!$advertisement) {
+            return view('404-error');
+        }
+        if ($advertisement->status == 1) {
+            return view('one-page-advertisement', compact('advertisement'));
+        } else {
+            return view('maintenance');
+        }
     }
 }

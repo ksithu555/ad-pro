@@ -125,7 +125,10 @@
           </li>
           <li class="dropdown">
             <a href="{{ route('admin.get.sections') }}" class="dropdown-toggle" data-toggle="dropdown">
-                <span class="{{ request()->routeIs('admin.get.sections') ? 'default-color' : '' }}">セクション一覧</span>
+                <span class="{{ request()->routeIs('admin.get.sections') ||
+                request()->routeIs('admin.add.section') ||
+                request()->routeIs('admin.edit.section')
+                ? 'default-color' : '' }}">セクション一覧</span>
             </a>
           </li>
           <li class="dropdown">

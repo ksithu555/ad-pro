@@ -17,6 +17,13 @@
                     <div class="row">
                         <div class="col-md-12 col-sm-12">
                             <div class="form-group">
+                                <label class="sr-only" for="type">タイプ</label>
+                                <input type="text" name="type" class="md-input" id="type" placeholder="タイプ *" value="{{ old('type') ? old('type') : $section->type }}">
+                                <span class="error" style="color:#BF0731" id="error-type"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-sm-12">
+                            <div class="form-group">
                                 <label class="sr-only" for="name">名前</label>
                                 <input type="text" name="name" class="md-input" id="name" placeholder="名前 *" value="{{ old('name') ? old('name') : $section->name }}">
                                 <span class="error" style="color:#BF0731" id="error-name"></span>
@@ -74,8 +81,14 @@
             let isValid = true;
             document.querySelectorAll('.error').forEach(el => el.textContent = '');
 
+            const type = document.getElementById('type').value.trim();
             const name = document.getElementById('name').value.trim();
             const note = document.getElementById('note').value.trim();
+
+            if (!type) {
+                document.getElementById('error-type').textContent = 'タイプを入力してください。';
+                isValid = false;
+            }
 
             if (!name) {
                 document.getElementById('error-name').textContent = 'セクションを入力してください。';

@@ -1,4 +1,4 @@
-<x-admin-layout>
+<x-user-layout>
     <!--== Contact Form Style 01 Start ==-->
     <section class="white-bg">
         <div class="container">
@@ -9,18 +9,11 @@
             </div>
             <div class="row mt-50">
                 <div class="col-md-12">
-                <form name="add-section-form" id="add-section-form" action="{{ route('admin.store.section') }}" method="POST" 
+                <form name="add-section-form" id="add-section-form" action="{{ route('user.store.section') }}" method="POST" 
                     class="contact-form-style-01" enctype="multipart/form-data">
                     @csrf
                     <div class="messages"></div>
                     <div class="row">
-                        <div class="col-md-12 col-sm-12">
-                            <div class="form-group">
-                                <label class="sr-only" for="type">タイプ</label>
-                                <input type="text" name="type" class="md-input" id="type" placeholder="タイプ *" value="{{ old('type') }}">
-                                <span class="error" style="color:#BF0731" id="error-type"></span>
-                            </div>
-                        </div>
                         <div class="col-md-12 col-sm-12">
                             <div class="form-group">
                                 <label class="sr-only" for="name">名前</label>
@@ -28,12 +21,47 @@
                                 <span class="error" style="color:#BF0731" id="error-name"></span>
                             </div>
                         </div>
-                        <div class="col-md-12 col-sm-12">
-                            <div class="form-group">
-                                <label class="sr-only" for="note">注記</label>
-                                <textarea name="note" class="md-textarea" id="note" rows="7" placeholder="注記 *">{{ old('note') }}</textarea>
-                                <span class="error" style="color:#BF0731" id="error-note"></span>
+                        <div class="col-md-12">
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-striped table-hover shop-cart">
+                                    <thead>
+                                        <tr>
+                                            <th>選択</th>
+                                            <th>#</th>
+                                            <th>名前</th>
+                                            <th>注記</th>
+                                            <th style="min-width: 110px;">プレビュー</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($sections as $key => $section)
+                                        <tr>
+                                            <td>
+                                                <div class="custom-radio">
+                                                    <input type="radio" id="section-{{ $section->id }}" name="section" value="{{ $section->id }}">
+                                                    <label for="section-{{ $section->id }}"></label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                {{ $key + 1 }}
+                                            </td>
+                                            <td>
+                                                {{ $section->name }}
+                                            </td>
+                                            <td>
+                                                {!! nl2br($section->note) !!}
+                                            </td>                              
+                                            <td style="min-width: 110px;">
+                                                <a href="{{ route('admin.preview.section', $section->id) }}" target="_blank">
+                                                    <i class="fa fa-eye" style="font-size: 1.5em;"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
                             </div>
+                            <span class="error" style="color:#BF0731" id="error-section"></span>
                         </div>
                         <div class="col-md-12 col-sm-12">
                             <div class="text-left mt-20">
@@ -80,26 +108,22 @@
             let isValid = true;
             document.querySelectorAll('.error').forEach(el => el.textContent = '');
 
-            const type = document.getElementById('type').value.trim();
             const name = document.getElementById('name').value.trim();
-            const note = document.getElementById('note').value.trim();
+            const selectedSection = document.querySelector('input[name="section"]:checked');
 
-            if (!type) {
-                document.getElementById('error-type').textContent = 'タイプを入力してください。';
-                isValid = false;
-            }
-
+            // Validate the name input
             if (!name) {
-                document.getElementById('error-name').textContent = 'セクションを入力してください。';
+                document.getElementById('error-name').textContent = 'セクションの名前を入力してください。';
                 isValid = false;
             }
 
-            if (!note) {
-                document.getElementById('error-note').textContent = '注記を入力してください。';
+            // Validate the radio button selection
+            if (!selectedSection) {
+                document.getElementById('error-section').textContent = 'セクションテンプレートを選択してください。';
                 isValid = false;
             }
 
             return isValid;
         }
     </script>
-</x-admin-layout>
+</x-user-layout>

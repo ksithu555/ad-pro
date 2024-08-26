@@ -25,6 +25,22 @@
                             </div>
                             <div class="col-md-12 col-sm-12">
                                 <div class="form-group">
+                                    <label class="md-file" for="logoWhite" id="logoWhite-file-label">白いロゴ *</label>
+                                    <input type="file" name="logoWhite" id="logoWhite" placeholder="白いロゴ *" style="display: none;" value="{{ old('logoWhite') }}">
+                                    <img id="logoWhite-preview" src="" alt="LogoWhite Preview" style="display:none; width: 80px; margin: 10px 0 0 14px;">
+                                    <span class="error" style="color:#BF0731" id="error-logoWhite"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-12 col-sm-12">
+                                <div class="form-group">
+                                    <label class="md-file" for="logoColor" id="logoColor-file-label">カラーロゴ *</label>
+                                    <input type="file" name="logoColor" id="logoColor" placeholder="カラーロゴ *" style="display: none;" value="{{ old('logoColor') }}">
+                                    <img id="logoColor-preview" src="" alt="LogoColor Preview" style="display:none; width: 80px; margin: 10px 0 0 14px;">
+                                    <span class="error" style="color:#BF0731" id="error-logoColor"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-12 col-sm-12">
+                                <div class="form-group">
                                     <label class="sr-only" for="paramName">広告パラメータ</label>
                                     <input type="text" name="paramName" class="md-input" id="paramName" placeholder="広告パラメータ *" value="{{ old('paramName') }}">
                                     <span class="error" style="color:#BF0731" id="error-paramName"></span>
@@ -57,6 +73,48 @@
     </div>
     @endif
 
+    {{-- logo white --}}
+    <script>
+        document.getElementById('logoWhite').addEventListener('change', function() {
+        var fileName = this.files[0].name;
+        var label = document.getElementById('logoWhite-file-label');
+        label.classList.add('selected');
+        label.setAttribute('data-file-name', fileName);
+        });
+        document.getElementById('logoWhite').addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const logoWhitePreview = document.getElementById('logoWhite-preview');
+                    logoWhitePreview.src = e.target.result;
+                    logoWhitePreview.style.display = 'block';
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+    </script>
+    {{-- logo color --}}
+    <script>
+        document.getElementById('logoColor').addEventListener('change', function() {
+        var fileName = this.files[0].name;
+        var label = document.getElementById('logoColor-file-label');
+        label.classList.add('selected');
+        label.setAttribute('data-file-name', fileName);
+        });
+        document.getElementById('logoColor').addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const logoColorPreview = document.getElementById('logoColor-preview');
+                    logoColorPreview.src = e.target.result;
+                    logoColorPreview.style.display = 'block';
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+    </script>
     {{-- validate --}}
     <script>
         function showModal() {
@@ -78,7 +136,19 @@
 
             const name = document.getElementById('name').value.trim();
             const paramName = document.getElementById('paramName').value.trim();
+            const logoWhite = document.getElementById('logoWhite').files[0];
+            const logoColor = document.getElementById('logoColor').files[0];
             const namePattern = /^[a-zA-Z0-9-_]+$/; 
+
+            if (!logoWhite) {
+                document.getElementById('error-logoWhite').textContent = '画像を選択してください。';
+                isValid = false;
+            }
+
+            if (!logoColor) {
+                document.getElementById('error-logoColor').textContent = '画像を選択してください。';
+                isValid = false;
+            }
 
             if (!name) {
                 document.getElementById('error-name').textContent = '広告名を入力してください。';

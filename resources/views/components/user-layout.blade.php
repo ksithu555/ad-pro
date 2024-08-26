@@ -113,10 +113,23 @@
                 ? 'default-color' : '' }}">会員リスト</span>
             </a>
           </li>
-          <li class="dropdown">
+          {{-- <li class="dropdown">
             <a href="{{ route('user.get.advertisements') }}" class="dropdown-toggle" data-toggle="dropdown">
                 <span class="{{ request()->routeIs('user.get.advertisements')
                 ? 'default-color' : '' }}">広告配布</span>
+            </a>
+          </li> --}}
+          <li class="dropdown">
+            <a href="{{ route('user.show.advertisement') }}" class="dropdown-toggle" data-toggle="dropdown">
+                <span class="{{ request()->routeIs('user.show.advertisement') ||
+                request()->routeIs('user.show.sections') ||
+                request()->routeIs('user.add.section') ||
+                request()->routeIs('user.show.section.blocks') ||
+                request()->routeIs('user.add.header.block') ||
+                request()->routeIs('user.edit.header.block') ||
+                request()->routeIs('user.add.footer.block') ||
+                request()->routeIs('user.edit.footer.block')
+                ? 'default-color' : '' }}">広告管理</span>
             </a>
           </li>
           <li class="dropdown">
@@ -126,13 +139,13 @@
                 request()->routeIs('user.add.announcement') ||
                 request()->routeIs('user.show.announcement') ||
                 request()->routeIs('user.edit.announcement')
-                ? 'default-color' : '' }}">公示広場</span>
+                ? 'default-color' : '' }}">情報広場</span>
             </a>
           </li>
           <li class="dropdown">
             <a href="{{ route('user.get.messages') }}" class="dropdown-toggle" data-toggle="dropdown">
                 <span class="{{ request()->routeIs('user.get.messages')
-                ? 'default-color' : '' }}">商談</span>
+                ? 'default-color' : '' }}">商談管理</span>
             </a>
           </li>
           <li class="dropdown">
@@ -149,29 +162,6 @@
   <!--== Header End ==-->
 
   {{ $slot }}
-
-  <!--== Footer Start ==-->
-  <footer class="footer dark-block">
-    <div class="footer-copyright">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6 col-xs-12">
-            <div class="copy-right text-left">© 2019 <i class="icon icofont icofont-heart-alt"></i> ADPRO. All rights reserved</div>
-          </div>
-          <div class="col-md-6 col-xs-12">
-            <ul class="social-media">
-              <li><a href="#" class="icofont icofont-social-facebook"></a></li>
-              <li><a href="#" class="icofont icofont-social-twitter"></a></li>
-              <li><a href="#" class="icofont icofont-social-behance"></a></li>
-              <li><a href="#" class="icofont icofont-social-dribble"></a></li>
-           	  <li><a href="#" class="icofont icofont-social-linkedin"></a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </footer>
-  <!--== Footer End ==-->
 
   <!--== Go to Top  ==-->
   <a href="javascript:" id="return-to-top"><i class="icofont icofont-arrow-up"></i></a>

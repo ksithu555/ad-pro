@@ -26,6 +26,22 @@
                             </div>
                             <div class="col-md-12 col-sm-12">
                                 <div class="form-group">
+                                    <label class="md-file" for="logoWhite" id="logoWhite-file-label">白いロゴ *</label>
+                                    <input type="file" name="logoWhite" id="logoWhite" placeholder="白いロゴ *" style="display: none;" value="{{ old('logoWhite') }}">
+                                    <img id="logoWhite-preview" src="{{ asset('assets/images/all/' . $advertisement->logo_white) }}" alt="LogoWhite Preview" style="width: 80px; margin: 10px 0 0 14px;">
+                                    <span class="error" style="color:#BF0731" id="error-logoWhite"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-12 col-sm-12">
+                                <div class="form-group">
+                                    <label class="md-file" for="logoColor" id="logoColor-file-label">カラーロゴ *</label>
+                                    <input type="file" name="logoColor" id="logoColor" placeholder="カラーロゴ *" style="display: none;" value="{{ old('logoColor') }}">
+                                    <img id="logoColor-preview" src="{{ asset('assets/images/all/' . $advertisement->logo_color) }}" alt="LogoColor Preview" style="width: 80px; margin: 10px 0 0 14px;">
+                                    <span class="error" style="color:#BF0731" id="error-logoColor"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-12 col-sm-12">
+                                <div class="form-group">
                                     <label class="sr-only" for="paramName">広告パラメータ</label>
                                     <input type="text" name="paramName" class="md-input" id="paramName" placeholder="広告パラメータ *" value="{{ old('paramName') ? old('paramName') : $advertisement->param_name }}">
                                     <span class="error" style="color:#BF0731" id="error-paramName"></span>
@@ -36,7 +52,7 @@
                                     <input type="hidden" id="confirmed" name="confirmed" value="0">
                                     <div class="tr-modal-popup">
                                         <a onclick="showModal()" id="open-modal" class="btn btn-outline btn-md btn-square btn-animate remove-margin">
-                                            <span>登録 <i class="ion-android-arrow-forward"></i></span>
+                                            <span>修正 <i class="ion-android-arrow-forward"></i></span>
                                         </a>
                                     </div>
                                 </div>
@@ -57,35 +73,80 @@
         <a class="btn btn-lg btn-circle btn-secondary-color popup-modal-close" href="#">No</a>
     </div>
 
+    <!--== Call to Actions Style 03 Start ==-->
+    <section class="default-bg">
+        <div class="container">
+            <div class="row mt-50">
+                <div class="col-lg-8 col-md-8 col-sm-10 col-xs-12 centerize-col text-center white-color">
+                    <h5 class="text-uppercase font-600 mb-30 font-40px">No Coding required to build your page.</h5>
+                    <a class="btn btn-md btn-light-outline btn-circle"
+                    href="{{ route('user.show.sections', $advertisement->id) }}">今から始めましょう</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--== Call to Actions Style 03 End ==-->
+
     <!--== Call to Actions Style 02 Start ==-->
     <section class="parallax-bg fixed-bg pt-80 pb-80" data-parallax-bg-image="{{ asset('assets/images/all/header-01.webp') }}" data-parallax-speed="0.8" data-parallax-direction="up">
         <div class="parallax-overlay"></div>
         <div class="container">
                 <div class="row">
                 <div class="col-md-12 col-sm-12 centerize-col text-center white-color relative">
-                    <span class="sm-mb-30 font-20px display-inline-block mr-30">The URL of your advertising page is ADPRO.site/ad/{{ $advertisement->param_name }}</span>
-                    <a class="btn btn-md btn-light-outline btn-square">Click Here</a>
+                    <span class="sm-mb-30 font-20px display-inline-block mr-30">
+                        The URL of your advertising page is {{ url(route('guest.one.page.advertisement', $advertisement->param_name)) }}
+                    </span>
+                    <a class="btn btn-md btn-light-outline btn-square"
+                    href="{{ route('guest.one.page.advertisement', $advertisement->param_name) }}" target="_blank">ここをクリック</a>
                 </div>
             </div>
         </div>
     </section>
     <!--== Call to Actions Style 02 End ==-->
-
-    <!--== Call to Actions Style 03 Start ==-->
-    <section class="default-bg">
-        <div class="container">
-            <div class="row mt-50">
-                <div class="col-lg-8 col-md-8 col-sm-10 col-xs-12 centerize-col text-center white-color">
-                    <h5 class="text-uppercase font-600 mb-30 font-40px">No Coding required to build your page. 
-                        ADPRO delivers everything.</h5>
-                    <a class="btn btn-md btn-light-outline btn-circle">Start from Now</a>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!--== Call to Actions Style 03 End ==-->
     @endif
 
+    {{-- logo white --}}
+    <script>
+        document.getElementById('logoWhite').addEventListener('change', function() {
+        var fileName = this.files[0].name;
+        var label = document.getElementById('logoWhite-file-label');
+        label.classList.add('selected');
+        label.setAttribute('data-file-name', fileName);
+        });
+        document.getElementById('logoWhite').addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const logoWhitePreview = document.getElementById('logoWhite-preview');
+                    logoWhitePreview.src = e.target.result;
+                    logoWhitePreview.style.display = 'block';
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+    </script>
+    {{-- logo color --}}
+    <script>
+        document.getElementById('logoColor').addEventListener('change', function() {
+        var fileName = this.files[0].name;
+        var label = document.getElementById('logoColor-file-label');
+        label.classList.add('selected');
+        label.setAttribute('data-file-name', fileName);
+        });
+        document.getElementById('logoColor').addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const logoColorPreview = document.getElementById('logoColor-preview');
+                    logoColorPreview.src = e.target.result;
+                    logoColorPreview.style.display = 'block';
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+    </script>
     {{-- validate --}}
     <script>
         function showModal() {

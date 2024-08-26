@@ -1,4 +1,4 @@
-<x-admin-layout>
+<x-user-layout>
     <!--== Products Start ==-->
     <section>
       <div class="container">
@@ -14,8 +14,8 @@
           <div class="col-md-12">
             <div style="text-align: right;">
               <a class="btn btn-md btn-dark-outline btn-square margin-left-auto margin-right-auto display-table-sm"
-              href="{{ route('admin.add.section') }}">
-                <i class="fa-icon-plus-square"></i> Section
+              href="{{ route('user.add.section') }}">
+                <i class="fa-icon-plus-square"></i> セクション
               </a>
             </div>
           </div>
@@ -32,11 +32,12 @@
                         <thead>
                             <tr>
                             <th>#</th>
-                            <th style="min-width: 110px;">タイプ</th>
-                            <th>名前</th>
-                            <th>注記</th>
+                            <th style="min-width: 110px;">名前</th>
+                            <th style="min-width: 110px;">セクション</th>
                             <th>テータス</th>
                             <th style="min-width: 110px;">プレビュー</th>
+                            <th>注記</th>
+                            <th>順番</th>
                             <th style="min-width: 110px;">アクション</th>
                             </tr>
                         </thead>
@@ -47,35 +48,41 @@
                                     {{ $ttl + 1 - ($sections->firstItem() + $key) }}
                                 </td>
                                 <td style="min-width: 110px;">
-                                    {{ $section->type }}
-                                </td>
-                                <td>
                                     {{ $section->name }}
                                 </td>
-                                <td>
-                                    {!! nl2br($section->note) !!}
-                                </td>
                                 <td style="min-width: 110px;">
-                                    <label class="toggle-switch">
-                                        <input type="checkbox" data-id="{{ $section->id }}" class="status-toggle" {{ $section->status == 1 ? 'checked' : '' }}>
-                                        <span class="slider"></span>
-                                    </label>   
-                                </td>                                
+                                    {{ $section->section->name }}  
+                                </td>   
+                                <td>
+                                    {{ $section->section->note }}  
+                                </td>                              
                                 <td style="min-width: 110px;">
                                     <a href="{{ route('admin.preview.section', $section->id) }}" target="_blank">
                                       <i class="fa fa-eye" style="font-size: 1.5em;"></i>
                                     </a>
                                 </td>
                                 <td>
-                                    <a href="{{ route('admin.edit.section', $section->id) }}">
-                                      <i class="fa-icon-pencil-square" style="font-size: 1.5em;"></i>
+                                    <label class="toggle-switch">
+                                        <input type="checkbox" data-id="{{ $section->id }}" class="status-toggle" {{ $section->status == 1 ? 'checked' : '' }}>
+                                        <span class="slider"></span>
+                                    </label>   
+                                </td>
+                                <td>
+                                    <div class="text-align-center-arrow">
+                                        <button class="arrow-button up" aria-label="Move Up" data-id="{{ $section->id }}">&#9650;</button>
+                                        <button class="arrow-button down" aria-label="Move Down" data-id="{{ $section->id }}" style="margin-top: 5px;">&#9660;</button>
+                                    </div>                                  
+                                </td>
+                                <td style="min-width: 110px;">
+                                    <a href="{{ route('user.show.section.blocks', $section->id) }}">
+                                      <i class="fa-icon-plus-square" style="font-size: 1.5em;"></i>
                                     </a>
                                     <div class="tr-modal-popup">
                                       <a href="#modal-popup-{{ $section->id }}" data-effect="mfp-newspaper">
                                         <i class="fa-icon-trash" style="font-size: 1.5em;"></i>
                                       </a>
                                     </div>
-                                  </td>
+                                </td>
                             </tr>
 
                             <!-- Modal Popup Message Box -->
@@ -107,7 +114,7 @@
 
                 // Send AJAX request to update the section status
                 $.ajax({
-                    url: '/admin/update/section-status', // The route URL
+                    url: '/user/update/section-status', // The route URL
                     method: 'POST',
                     data: {
                         _token: '{{ csrf_token() }}', // CSRF token for security
@@ -129,5 +136,60 @@
             });
         });
     </script>
-  </x-admin-layout>
+    <script>
+        $(document).ready(function() {
+            // Listen for the up arrow button click event
+            $('.arrow-button.up').on('click', function() {
+                // Get the section ID from the data-id attribute
+                var sectionId = $(this).data('id');
+    
+                // Send AJAX request to move the section up
+                $.ajax({
+                    url: '/user/section/order-up/' + sectionId, // The route URL
+                    method: 'POST',
+                    data: {
+                        _token: '{{ csrf_token() }}' // CSRF token for security
+                    },
+                    success: function(response) {
+                        if (response.success) {
+                            window.location.reload();
+                        } else {
+                            alert('Failed to move the section up.');
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('Error moving section up: ' + error);
+                        alert('An error occurred while moving the section up.');
+                    }
+                });
+            });
+    
+            // Listen for the down arrow button click event
+            $('.arrow-button.down').on('click', function() {
+                // Get the section ID from the data-id attribute
+                var sectionId = $(this).data('id');
+    
+                // Send AJAX request to move the section down
+                $.ajax({
+                    url: '/user/section/order-down/' + sectionId, // The route URL
+                    method: 'POST',
+                    data: {
+                        _token: '{{ csrf_token() }}' // CSRF token for security
+                    },
+                    success: function(response) {
+                        if (response.success) {
+                            window.location.reload();
+                        } else {
+                            alert('Failed to move the section down.');
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('Error moving section down: ' + error);
+                        alert('An error occurred while moving the section down.');
+                    }
+                });
+            });
+        });
+    </script>    
+  </x-user-layout>
   

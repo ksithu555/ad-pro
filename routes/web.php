@@ -1,10 +1,12 @@
 <?php
 
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\GuestController;
 use App\Http\Controllers\VerificationController;
+use App\Http\Controllers\UserAdvertisementController;
 
 Route::get('/test', function () {
     return 'This is a test route!';
@@ -18,6 +20,7 @@ Route::get('/news-detail/{id}', [GuestController::class, 'showNews'])->name('gue
 Route::get('/faqs', [GuestController::class, 'faqs'])->name('guest.faqs');
 Route::get('/contact', [GuestController::class, 'contact'])->name('guest.contact');
 
+Route::get('/ad/{param}', [GuestController::class, 'showOnePageAdvertisement'])->name('guest.one.page.advertisement');
 Route::get('/one-page', [GuestController::class, 'onePage']);
 
 // User
@@ -37,10 +40,34 @@ Route::get('/user/delete/alarm/{id}', [UserController::class, 'deleteAlarm'])->n
 Route::get('/user/members', [UserController::class, 'getMembers'])->name('user.get.members');
 
 // Advertisement
-Route::get('/user/advertisements', [UserController::class, 'getAdvertisements'])->name('user.get.advertisements');
-Route::get('/user/show/advertisement', [UserController::class, 'showAdvertisement'])->name('user.show.advertisement');
-Route::post('/user/store/advertisement', [UserController::class, 'storeAdvertisement'])->name('user.store.advertisement');
-Route::post('/user/update/advertisement', [UserController::class, 'updateAdvertisement'])->name('user.update.advertisement');
+Route::get('/user/advertisements', [UserAdvertisementController::class, 'getAdvertisements'])->name('user.get.advertisements');
+Route::get('/user/show/advertisement', [UserAdvertisementController::class, 'showAdvertisement'])->name('user.show.advertisement');
+Route::post('/user/store/advertisement', [UserAdvertisementController::class, 'storeAdvertisement'])->name('user.store.advertisement');
+Route::post('/user/update/advertisement', [UserAdvertisementController::class, 'updateAdvertisement'])->name('user.update.advertisement');
+// Section
+Route::get('/user/show/sections/{id}', [UserAdvertisementController::class, 'showSections'])->name('user.show.sections');
+Route::get('/user/add/section', [UserAdvertisementController::class, 'addSection'])->name('user.add.section');
+Route::post('/user/store/section', [UserAdvertisementController::class, 'storeSection'])->name('user.store.section');
+Route::post('/user/update/section-status', [UserAdvertisementController::class, 'updateSectionStatus'])->name('user.update.section.status');
+Route::post('/user/section/order-up/{id}', [UserAdvertisementController::class, 'orderUpSection'])->name('user.section.order-up');
+Route::post('/user/section/order-down/{id}', [UserAdvertisementController::class, 'orderDownSection'])->name('user.section.order-down');
+
+// Block
+Route::get('/user/show/section/{id}/blocks', [UserAdvertisementController::class, 'showSectionBlocks'])->name('user.show.section.blocks');
+// Header Block
+Route::get('/user/add/section/{id}/header-block', [UserAdvertisementController::class, 'addHeaderBlock'])->name('user.add.header.block');
+Route::post('/user/store/section/header-block', [UserAdvertisementController::class, 'storeHeaderBlock'])->name('user.store.header.block');
+Route::get('/user/edit/section/header-block/{id}', [UserAdvertisementController::class, 'editHeaderBlock'])->name('user.edit.header.block');
+Route::post('/user/update/section/header-block', [UserAdvertisementController::class, 'updateHeaderBlock'])->name('user.update.header.block');
+Route::get('/user/delete/section/header-block/{id}', [UserAdvertisementController::class, 'deleteHeaderBlock'])->name('user.delete.header.block');
+Route::post('/user/update/section/header-block-status', [UserAdvertisementController::class, 'updateHeaderBlockStatus'])->name('user.update.section.header.block.status');
+// Footer Block
+Route::get('/user/add/section/{id}/footer-block', [UserAdvertisementController::class, 'addFooterBlock'])->name('user.add.footer.block');
+Route::post('/user/store/section/footer-block', [UserAdvertisementController::class, 'storeFooterBlock'])->name('user.store.footer.block');
+Route::get('/user/edit/section/footer-block/{id}', [UserAdvertisementController::class, 'editFooterBlock'])->name('user.edit.footer.block');
+Route::post('/user/update/section/footer-block', [UserAdvertisementController::class, 'updateFooterBlock'])->name('user.update.footer.block');
+Route::get('/user/delete/section/footer-block/{id}', [UserAdvertisementController::class, 'deleteFooterBlock'])->name('user.delete.footer.block');
+Route::post('/user/update/section/footer-block-status', [UserAdvertisementController::class, 'updateFooterBlockStatus'])->name('user.update.section.footer.block.status');
 
 // Announcement
 Route::get('/user/announcements', [UserController::class, 'getAnnouncements'])->name('user.get.announcements');

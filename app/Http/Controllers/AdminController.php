@@ -208,6 +208,7 @@ class AdminController extends Controller
 
     public function storeSection(Request $request) {
         Section::create([
+            'type' => $request->type,
             'name' => $request->name,
             'note' => $request->note,
             'status' => 0
@@ -249,7 +250,7 @@ class AdminController extends Controller
         if ($section) {
             $section->status = $request->status;
             $section->save();
-            Session::flash('success', 'セクションの状態が正常に更新されました。');
+            Session::flash('success', 'セクションのテータスが正常に更新されました。');
             return response()->json(['success' => true]);
         }
         Session::flash('error', 'セクションステータスの変更に失敗しました。');

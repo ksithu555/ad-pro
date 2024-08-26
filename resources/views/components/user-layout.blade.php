@@ -81,7 +81,7 @@
             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icofont icofont-user-alt-4"></i></a>
             <ul class="dropdown-menu">
               <li><a href="shop-standard.html">One</a></li>
-              <li><a href="{{ route('user.show.advertisement') }}">広告管理</a></li>
+              <li><a href="{{ route('user.get.advertisements') }}">広告管理</a></li>
               <li><a href="{{ route('user.show.announcements') }}">ビズ公示管理</a></li>
               <li><a href="{{ route('user.get.plans') }}">アップグレード</a></li>
             </ul>
@@ -120,8 +120,9 @@
             </a>
           </li> --}}
           <li class="dropdown">
-            <a href="{{ route('user.show.advertisement') }}" class="dropdown-toggle" data-toggle="dropdown">
-                <span class="{{ request()->routeIs('user.show.advertisement') ||
+            <a href="{{ route('user.get.advertisements') }}" class="dropdown-toggle" data-toggle="dropdown">
+                <span class="{{ request()->routeIs('user.get.advertisements') ||
+                request()->routeIs('user.show.advertisement') ||
                 request()->routeIs('user.show.sections') ||
                 request()->routeIs('user.add.section') ||
                 request()->routeIs('user.show.section.blocks') ||
@@ -130,6 +131,12 @@
                 request()->routeIs('user.add.footer.block') ||
                 request()->routeIs('user.edit.footer.block')
                 ? 'default-color' : '' }}">広告管理</span>
+            </a>
+          </li>
+          <li class="dropdown">
+            <a href="{{ route('user.get.materials') }}" class="dropdown-toggle" data-toggle="dropdown">
+                <span class="{{ request()->routeIs('user.get.materials')
+                ? 'default-color' : '' }}">素材集</span>
             </a>
           </li>
           <li class="dropdown">

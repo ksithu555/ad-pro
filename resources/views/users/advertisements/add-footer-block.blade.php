@@ -34,6 +34,9 @@
                                         <option value="copyRight">Copy Right</option>
                                         @endif
                                     @else
+                                        @if ($advertisementSection->advertisementFooterBlocks->where('type', 'logo')->first() == null) 
+                                        <option value="logo">Logo</option>
+                                        @endif
                                         <option value="social">Social Media</option>
                                         @if ($advertisementSection->advertisementFooterBlocks->where('type', 'copyRight')->first() == null)
                                         <option value="copyRight">Copy Right</option>

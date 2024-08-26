@@ -14,7 +14,7 @@
             <div class="col-md-6">
                 <div style="text-align: left;">
                     <a class="btn btn-md btn-dark-outline btn-square margin-left-auto margin-right-auto display-table-sm"
-                    href="{{ route('user.show.advertisement') }}">
+                    href="{{ route('user.get.advertisements') }}">
                         <i class="fa fa-arrow-left"></i> 戻る
                     </a>
                 </div>
@@ -42,7 +42,7 @@
                             <th>#</th>
                             <th style="min-width: 110px;">名前</th>
                             <th style="min-width: 110px;">セクション</th>
-                            <th>テータス</th>
+                            <th>ステータス</th>
                             <th style="min-width: 110px;">プレビュー</th>
                             <th>注記</th>
                             <th>順番</th>
@@ -65,7 +65,7 @@
                                     {{ $section->section->note }}  
                                 </td>                              
                                 <td style="min-width: 110px;">
-                                    <a href="{{ route('admin.preview.section', $section->id) }}" target="_blank">
+                                    <a href="{{ route('admin.preview.section', $section->section_id) }}" target="_blank">
                                       <i class="fa fa-eye" style="font-size: 1.5em;"></i>
                                     </a>
                                 </td>

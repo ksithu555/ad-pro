@@ -21,9 +21,14 @@
                 $editRoute = 'user.edit.footer.block';
                 $deleteRoute = 'user.delete.footer.block';
             }
+            if ($type == 'list') {
+                $addRoute = 'user.add.list.block';
+                $editRoute = 'user.edit.list.block';
+                $deleteRoute = 'user.delete.list.block';
+            }
         @endphp
         <div class="row">
-          <div class="col-md-6">
+          <div class="col-md-3">
               <div style="text-align: left;">
                   <a class="btn btn-md btn-dark-outline btn-square margin-left-auto margin-right-auto display-table-sm"
                   href="{{ route('user.show.sections', $advertisementSection->advertisement_id) }}">
@@ -32,6 +37,9 @@
               </div>
           </div>
           <div class="col-md-6">
+              <x-message-box></x-message-box>
+          </div>
+          <div class="col-md-3">
             <div style="text-align: right;">
               <a class="btn btn-md btn-dark-outline btn-square margin-left-auto margin-right-auto display-table-sm"
               href="{{ route($addRoute, $id) }}">
@@ -39,11 +47,6 @@
               </a>
             </div>
           </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <x-message-box></x-message-box>
-            </div>
         </div>
         <div class="row mt-10">
             <div class="col-md-12">
@@ -116,7 +119,7 @@
                           @endforeach
                         </tbody>
                     </table>
-                    @else
+                    @elseif ($type == 'header' || $type == 'list')
                     <table class="table table-bordered table-striped table-hover shop-cart">
                         <thead>
                             <tr>
@@ -147,12 +150,21 @@
                                 <td style="min-width: 110px;">
                                     <img src="{{ asset('assets/images/all/' . $block->image ) }}" alt=""> 
                                 </td>
+                                @if ($type == 'header')
                                 <td style="min-width: 110px;">
-                                    <label class="toggle-switch">
-                                        <input type="checkbox" data-id="{{ $block->id }}" class="status-toggle-header" {{ $block->status == 1 ? 'checked' : '' }}>
-                                        <span class="slider"></span>
-                                    </label>   
-                                </td>  
+                                  <label class="toggle-switch">
+                                      <input type="checkbox" data-id="{{ $block->id }}" class="status-toggle-header" {{ $block->status == 1 ? 'checked' : '' }}>
+                                      <span class="slider"></span>
+                                  </label>   
+                                </td>
+                                @elseif ($type == 'list')
+                                <td style="min-width: 110px;">
+                                  <label class="toggle-switch">
+                                      <input type="checkbox" data-id="{{ $block->id }}" class="status-toggle-list" {{ $block->status == 1 ? 'checked' : '' }}>
+                                      <span class="slider"></span>
+                                  </label>   
+                                </td>
+                                @endif
                                 <td>
                                     <a href="{{ route($editRoute, $block->id) }}">
                                       <i class="fa-icon-pencil-square" style="font-size: 1.5em;"></i>
@@ -183,6 +195,7 @@
     </section>
     <!--== Products End ==-->
     <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
+    {{-- footer toggle --}}
     <script>
         $(document).ready(function() {
             // Listen for the toggle switch change event
@@ -216,6 +229,7 @@
             });
         });
     </script>
+    {{-- header toggle --}}
     <script>
       $(document).ready(function() {
           // Listen for the toggle switch change event
@@ -228,6 +242,40 @@
               // Send AJAX request to update the section status
               $.ajax({
                   url: '/user/update/section/header-block-status', // The route URL
+                  method: 'POST',
+                  data: {
+                      _token: '{{ csrf_token() }}', // CSRF token for security
+                      id: blockId,
+                      status: status
+                  },
+                  success: function(response) {
+                      if (response.success) {
+                          window.location.reload();
+                      } else {
+                          window.location.reload();
+                      }
+                  },
+                  error: function(xhr, status, error) {
+                      console.error('Error updating section status: ' + status);
+                      // window.location.reload();
+                  }
+              });
+          });
+      });
+    </script>
+    {{-- list toggle --}}
+    <script>
+      $(document).ready(function() {
+          // Listen for the toggle switch change event
+          $('.status-toggle-list').on('change', function() {
+              // Get the section ID from the data-id attribute
+              var blockId = $(this).data('id');
+              // Determine the status based on whether the checkbox is checked
+              var status = $(this).is(':checked') ? 1 : 0;
+
+              // Send AJAX request to update the section status
+              $.ajax({
+                  url: '/user/update/section/list-block-status', // The route URL
                   method: 'POST',
                   data: {
                       _token: '{{ csrf_token() }}', // CSRF token for security

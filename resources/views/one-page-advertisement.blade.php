@@ -83,7 +83,7 @@
                     @if ($advertisementSection->status == 1)
                     <li>
                         <a class="page-scroll" href="#{{ $advertisementSection->name }}">
-                            <span style="color: #BF0731">{{ $advertisementSection->name }}</span>
+                            <span>{{ $advertisementSection->name }}</span>
                         </a>
                     </li>
                     @endif
@@ -112,7 +112,7 @@
                                         <div class="white-color text-center">
                                             <span class="font-60px font-700 play-font wow fadeInUp font-italic" 
                                                 data-wow-delay="0.1s">
-                                                {{ $advertisementSection->advertisementHeaderBlocks[0]->body }}
+                                                {!! nl2br($advertisementSection->advertisementHeaderBlocks[0]->body) !!}
                                             </span>
                                             <h1 class="white-color font-700 font-120px line-height-120 xs-font-40px xs-line-height-50 sm-font-60px sm-line-height-60 wow fadeInUp" 
                                                 data-wow-delay="0.2s">
@@ -149,7 +149,7 @@
                                 <div class="col-md-8 col-sm-8 col-xs-12 xs-mb-30">
                                     <div class="all-padding-50 white-color">
                                         <h3 class="roboto-font font-700 line-height-50">{{ $advertisementSection->advertisementHeaderBlocks[0]->title }}</h3>
-                                        <h5 class="roboto-font font-300">{{ $advertisementSection->advertisementHeaderBlocks[0]->body }}</h5>
+                                        <h5 class="roboto-font font-300">{!! nl2br($advertisementSection->advertisementHeaderBlocks[0]->body) !!}</h5>
                                     </div>
                                 </div>
                                 <div class="col-md-4 col-sm-4 col-xs-12">
@@ -167,6 +167,78 @@
             @endif
 
         {{-- Header Hero End --}}
+        @elseif ($advertisementSection->section->type == 'list'  && $advertisementSection->status == 1)
+        {{-- List Hero Start --}}
+            @if ($advertisementSection->section->name == 'List01')
+            <!--== List01 Start ==-->
+            <section class="pt-0 pb-0 grey-bg" id="{{ $advertisementSection->name }}">
+                <div class="container-fluid">
+                    @foreach ($advertisementSection->advertisementListBlocks as $key => $advertisementListBlock)
+                        @if ($advertisementListBlock->status == 1)
+                        @if ($key % 2 == 0)
+                        <div class="row row-flex flex-center">
+                            <div class="col-md-6 col-sm-12 bg-flex-cover" style="background-image: url({{ asset('assets/images/all/' . $advertisementListBlock->image) }});"></div>
+                            <div class="col-md-6 col-sm-12">
+                                <div class="col-inner spacer text-center">
+                                    <h3 class="mt-20 text-uppercase">{{ $advertisementListBlock->title }}</h3>
+                                    <hr class="dark-bg center_line bold-line">
+                                    <h6 class="mt-30">{!! nl2br($advertisementListBlock->body) !!}</h6>
+                                </div>
+                            </div>
+                        </div>
+                        @else
+                        <div class="row row-flex flex-center">
+                            <div class="col-md-6 col-sm-12">
+                                <div class="col-inner spacer text-center">
+                                    <h3 class="mt-20 text-uppercase">{{ $advertisementListBlock->title }}</h3>
+                                    <hr class="dark-bg center_line bold-line">
+                                    <h6 class="mt-30">{!! nl2br($advertisementListBlock->body) !!}</h6>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-12 bg-flex-cover" style="background-image: url({{ asset('assets/images/all/' . $advertisementListBlock->image) }});"></div>
+                        </div>
+                        @endif
+                        @endif
+                    @endforeach
+                </div>
+            </section>
+            <!--== List01 End ==-->
+            @elseif ($advertisementSection->section->name == 'List02')
+            <!--== List02 Start ==-->
+            <section class="pt-0 pb-0 grey-bg" id="{{ $advertisementSection->name }}">
+                <div class="container-fluid">
+                    @foreach ($advertisementSection->advertisementListBlocks as $key => $advertisementListBlock)
+                        @if ($advertisementListBlock->status == 1)
+                        @if ($key % 2 == 0)
+                        <div class="row row-flex flex-center">
+                            <div class="col-md-6 col-sm-12">
+                                <div class="col-inner spacer text-center">
+                                    <h3 class="mt-20 text-uppercase">{{ $advertisementListBlock->title }}</h3>
+                                    <hr class="dark-bg center_line bold-line">
+                                    <h6 class="mt-30">{!! nl2br($advertisementListBlock->body) !!}</h6>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-12 bg-flex-cover" style="background-image: url({{ asset('assets/images/all/' . $advertisementListBlock->image) }});"></div>
+                        </div>
+                        @else
+                        <div class="row row-flex flex-center">
+                            <div class="col-md-6 col-sm-12 bg-flex-cover" style="background-image: url({{ asset('assets/images/all/' . $advertisementListBlock->image) }});"></div>
+                            <div class="col-md-6 col-sm-12">
+                                <div class="col-inner spacer text-center">
+                                    <h3 class="mt-20 text-uppercase">{{ $advertisementListBlock->title }}</h3>
+                                    <hr class="dark-bg center_line bold-line">
+                                    <h6 class="mt-30">{!! nl2br($advertisementListBlock->body) !!}</h6>
+                                </div>
+                            </div>
+                        </div>
+                        @endif
+                        @endif
+                    @endforeach
+                </div>
+            </section>
+            <!--== List01 End ==-->
+            @endif
+        {{-- List Hero End --}}
         @elseif ($advertisementSection->section->type == 'footer'  && $advertisementSection->status == 1)
         {{-- Footer Hero Start --}}
             @if ($advertisementSection->section->name == 'Footer01')
@@ -273,20 +345,23 @@
                 <div class="footer-copyright">
                     <div class="container">
                         <div class="row">
-                            <div class="col-md-6 col-xs-12">
+                            <div class="col-md-4 col-xs-12">
                                 @php
                                     $copyRight = $advertisementSection->advertisementFooterBlocks->where('type', 'copyRight')->first();
-                                    if ($copyRight) {
-                                        $copyRightText = $copyRight ? $copyRight->text : null;
-                                    }
+                                    $copyRightText = $copyRight ? $copyRight->text : null;
                                 @endphp
-                                @if ($copyRight && $copyRightStatus == 1)
+                                @if ($copyRight && $copyRight->status == 1)
                                 <div class="copy-right text-left">
                                     {{ $copyRightText }}
                                 </div>
                                 @endif
                             </div>
-                            <div class="col-md-6 col-xs-12">
+                            <div class="col-sm-4 col-xs-12">
+                                <div class="logo display-block height-auto">
+                                    <img class="logo margin-left-auto margin-right-auto" src="{{ asset('assets/images/all/adpro3_blogo.png') }}" alt="ADPRO logo">
+                                </div>
+                            </div>
+                            <div class="col-md-4col-xs-12">
                                 @php
                                     $socials = $advertisementSection->advertisementFooterBlocks->where('type', 'social');
                                 @endphp

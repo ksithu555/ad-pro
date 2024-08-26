@@ -250,7 +250,7 @@ class AdminController extends Controller
         if ($section) {
             $section->status = $request->status;
             $section->save();
-            Session::flash('success', 'セクションのテータスが正常に更新されました。');
+            Session::flash('success', 'セクションのステータスが正常に更新されました。');
             return response()->json(['success' => true]);
         }
         Session::flash('error', 'セクションステータスの変更に失敗しました。');

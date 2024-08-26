@@ -35,7 +35,7 @@
                             <th style="min-width: 110px;">タイプ</th>
                             <th>名前</th>
                             <th>注記</th>
-                            <th>テータス</th>
+                            <th>ステータス</th>
                             <th style="min-width: 110px;">プレビュー</th>
                             <th style="min-width: 110px;">アクション</th>
                             </tr>

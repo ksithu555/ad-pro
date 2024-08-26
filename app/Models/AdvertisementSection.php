@@ -29,4 +29,8 @@ class AdvertisementSection extends Model
     public function advertisementFooterBlocks() {
         return $this->hasMany(AdvertisementFooterBlock::class);
     }
+
+    public function advertisementListBlocks() {
+        return $this->hasMany(AdvertisementListBlock::class);
+    }
 }

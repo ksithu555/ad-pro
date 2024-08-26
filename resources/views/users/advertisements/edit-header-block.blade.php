@@ -25,7 +25,7 @@
                         <div class="col-md-12 col-sm-12">
                             <div class="form-group">
                                 <label class="sr-only" for="body">ボディ</label>
-                                <input type="text" name="body" class="md-input" id="body" placeholder="ボディ *" value="{{ old('body') ? old('body') : $advertisementHeaderBlock->body }}">
+                                <textarea name="body" class="md-textarea" id="body" rows="7" placeholder="ボディ *">{{ old('body') ? old('body') : $advertisementHeaderBlock->body }}</textarea>
                                 <span class="error" style="color:#BF0731" id="error-body"></span>
                             </div>
                         </div>

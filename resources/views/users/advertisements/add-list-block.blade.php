@@ -4,12 +4,12 @@
     <div class="container">
     	<div class="row">
         	<div class="col-sm-8 section-heading">
-              <h4 class="text-uppercase mt-0">ヘッダーブロック登録</h4>
+              <h4 class="text-uppercase mt-0">リストブロック登録</h4>
         	</div>
         </div>
         <div class="row mt-50">
             <div class="col-md-12">
-                <form name="add-header-block-form" id="add-header-block-form" action="{{ route('user.store.header.block') }}" method="POST" 
+                <form name="add-list-block-form" id="add-list-block-form" action="{{ route('user.store.list.block') }}" method="POST" 
                     class="contact-form-style-01" enctype="multipart/form-data">
                     @csrf
                     <div class="messages"></div>
@@ -57,8 +57,8 @@
 
   <!-- Modal Popup Message Box -->
   <div id="modal-popup" class="white-bg all-padding-60 mfp-with-anim mfp-hide centerize-col col-lg-4 col-md-6 col-sm-7 col-xs-11 text-center">
-    <span class="text-uppercase font-30px font-600 mb-20 display-block dark-color">ヘッダーブロック登録</span>
-    <p class="mb-20">ヘッダーブロックを登録してもよろしいですか?</p>
+    <span class="text-uppercase font-30px font-600 mb-20 display-block dark-color">リストブロック登録</span>
+    <p class="mb-20">リストブロックを登録してもよろしいですか?</p>
     <a class="btn btn-lg btn-circle btn-color popup-modal-close" href="#" onclick="submitForm()">Yes</a>
     <a class="btn btn-lg btn-circle btn-secondary-color popup-modal-close" href="#">No</a>
   </div>
@@ -87,7 +87,7 @@
     {{-- validate --}}
     <script>
         function showModal() {
-            if (validateAddHeaderBlockForm()) {
+            if (validateAddListBlockForm()) {
                 document.getElementById('open-modal').setAttribute('href', '#modal-popup');
                 document.getElementById('open-modal').setAttribute('data-effect', 'mfp-newspaper');
                 document.getElementById('open-modal').click();
@@ -96,10 +96,10 @@
 
         function submitForm() {
             document.getElementById('confirmed').value = '1';
-            document.getElementById('add-header-block-form').submit();
+            document.getElementById('add-list-block-form').submit();
         }
 
-        function validateAddHeaderBlockForm() {
+        function validateAddListBlockForm() {
             let isValid = true;
             document.querySelectorAll('.error').forEach(el => el.textContent = '');
 

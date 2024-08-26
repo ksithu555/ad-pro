@@ -90,10 +90,18 @@ class UserAdvertisementController extends Controller
     }
 
     public function storeSection(Request $request) {
+        $advertisement = Advertisement::where('user_id', Auth::user()->id)->first();
+
+        $maxOrder = AdvertisementSection::where('advertisement_id', $advertisement->id)->max('order');
+        // If there are no sections yet, $maxOrder will be null, so we start with 1
+        $order = $maxOrder ? $maxOrder + 1 : 1;
+
         AdvertisementSection::create([
+            'advertisement_id' => $advertisement->id,
             'user_id' => Auth::user()->id,
             'name' => $request->name,
             'section_id' => $request->section,
+            'order' => $order,
             'status' => 0
         ]);
 

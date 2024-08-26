@@ -135,13 +135,42 @@
                 @endif
             </section>
             <!--== Header01 End ==-->
+            @elseif ($advertisementSection->section->name == 'Header02')
+            <!--== Header02 Start ==-->
+            <section class="parallax-bg fixed-bg view-height-100vh lg-section"  id="{{ $advertisementSection->name }}"
+                data-parallax-bg-image="{{ asset('assets/images/background/parallax-bg-13.jpg') }}" 
+                data-parallax-speed="0.5" data-parallax-direction="up">
+                @if ($advertisementSection->advertisementHeaderBlocks[0]->status == 1)
+                <div class="color-overlay-bg"></div>
+                <div class="hero-text-wrap transparent-bg">
+                    <div class="hero-text">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-8 col-sm-8 col-xs-12 xs-mb-30">
+                                    <div class="all-padding-50 white-color">
+                                        <h3 class="roboto-font font-700 line-height-50">{{ $advertisementSection->advertisementHeaderBlocks[0]->title }}</h3>
+                                        <h5 class="roboto-font font-300">{{ $advertisementSection->advertisementHeaderBlocks[0]->body }}</h5>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm-4 col-xs-12">
+                                    <div class="single-mobile-wrap">
+                                        <img src="{{ asset('assets/images/all/' . $advertisementSection->advertisementHeaderBlocks[0]->image) }}" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @endif
+            </section>
+            <!--== Header02 End ==-->
             @endif
 
         {{-- Header Hero End --}}
         @elseif ($advertisementSection->section->type == 'footer'  && $advertisementSection->status == 1)
         {{-- Footer Hero Start --}}
             @if ($advertisementSection->section->name == 'Footer01')
-            <!--== Footer Start ==-->
+            <!--== Footer01 Start ==-->
             <footer class="footer dark-block" id="{{ $advertisementSection->name }}">
                 <div class="footer-main">
                     <div class="container">
@@ -152,14 +181,18 @@
                                         $logo = $advertisementSection->advertisementFooterBlocks->where('type', 'logo')->first();
                                         $logoImage = $logo->text;
                                     @endphp
+                                    @if ($logo->status == 1)
                                     <div class="logo logo-footer">
                                         <img class="logo logo-display" src="{{ asset('assets/images/all/' . $logoImage) }}" alt="">
                                     </div>
+                                    @endif
                                     @php
                                         $text = $advertisementSection->advertisementFooterBlocks->where('type', 'text')->first();
                                         $footerText = $text->text;
                                     @endphp
+                                    @if ($test->status == 1)
                                     <p>{{ $footerText }}</p>
+                                    @endif
                                 </div>
                             </div>
                             <div class="col-sm-6 col-md-3">
@@ -171,7 +204,9 @@
                                     @if ($usefuls)
                                     <ul>
                                         @foreach ($usefuls as $usefulLink)
+                                        @if ($usefulLink->status == 1)
                                         <li><a href="{{ $usefulLink->url }}">{{ $usefulLink->name }}</a></li>
+                                        @endif
                                         @endforeach
                                     </ul>
                                     @endif
@@ -187,7 +222,7 @@
                                         }
                                     @endphp
                                     <div class="widget-links">
-                                        @if ($contactUs)
+                                        @if ($contactUs && $contact->status == 1)
                                         <ul>
                                             @foreach ($contactUs as $contactDetaiil)
                                             <li>{{ $contactDetaiil }}</li>
@@ -208,9 +243,11 @@
                                     $copyRight = $advertisementSection->advertisementFooterBlocks->where('type', 'copyRight')->first();
                                     $copyRightText = $copyRight->text;
                                 @endphp
+                                @if ($copyRight->status == 1)
                                 <div class="copy-right text-left">
                                     {{ $copyRightText }}
                                 </div>
+                                @endif
                             </div>
                             <div class="col-md-6 col-xs-12">
                                 @php
@@ -218,7 +255,9 @@
                                 @endphp
                                 <ul class="social-media">
                                     @foreach ($socials as $social)
+                                    @if ($social->status == 1)
                                     <li><a href="{{ $social->url }}" class="icofont icofont-social-{{ $social->name }}"></a></li>
+                                    @endif
                                     @endforeach
                                 </ul>
                             </div>
@@ -226,7 +265,41 @@
                     </div>
                 </div>
             </footer>
-            <!--== Footer End ==-->
+            <!--== Footer01 End ==-->
+            @elseif ($advertisementSection->section->name == 'Footer02')
+            <!--== Footer01 Start ==-->
+            <footer class="footer dark-block" id="{{ $advertisementSection->name }}">
+                <div class="footer-copyright">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-6 col-xs-12">
+                                @php
+                                    $copyRight = $advertisementSection->advertisementFooterBlocks->where('type', 'copyRight')->first();
+                                    $copyRightText = $copyRight->text;
+                                @endphp
+                                @if ($copyRight->status == 1)
+                                <div class="copy-right text-left">
+                                    {{ $copyRightText }}
+                                </div>
+                                @endif
+                            </div>
+                            <div class="col-md-6 col-xs-12">
+                                @php
+                                    $socials = $advertisementSection->advertisementFooterBlocks->where('type', 'social');
+                                @endphp
+                                <ul class="social-media">
+                                    @foreach ($socials as $social)
+                                    @if ($social->status == 1)
+                                    <li><a href="{{ $social->url }}" class="icofont icofont-social-{{ $social->name }}"></a></li>
+                                    @endif
+                                    @endforeach
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+            <!--== Footer01 End ==-->
             @endif
         {{-- Footer Hero End --}}
         @endif

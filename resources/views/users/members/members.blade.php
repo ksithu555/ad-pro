@@ -16,23 +16,33 @@
                         <table class="table table-bordered table-striped table-hover shop-cart">
                             <thead>
                                 <tr>
-                                <th>#</th>
-                                <th>名前</th>
-                                <th>メールアドレス</th>
+                                    <th>#</th>
+                                    <th>登録日</th>
+                                    <th>会社名</th>
+                                    <th>会員名</th>
+                                    <th>詳細</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach ($users as $key => $user)
                                 <tr>
-                                <td>
-                                    {{ $ttl + 1 - ($users->firstItem() + $key) }}
-                                </td>
-                                <td>
-                                    {{ $user->name }}
-                                </td>
-                                <td>
-                                    {{ $user->email }}
-                                </td>
+                                    <td>
+                                        {{ $ttl + 1 - ($users->firstItem() + $key) }}
+                                    </td>
+                                    <td>
+                                        {{ $user->created_at->format('Y-m-d') }}
+                                    </td>
+                                    <td>
+                                        {{ $user->company->name }}
+                                    </td>
+                                    <td>
+                                        {{ $user->name }}
+                                    </td>                           
+                                    <td style="min-width: 110px;">
+                                        <a href="{{ route('user.show.member.detail', $user->id) }}">
+                                          <i class="fa fa-eye" style="font-size: 1.5em;"></i>
+                                        </a>
+                                    </td>
                                 </tr>
                                 @endforeach
                             </tbody>

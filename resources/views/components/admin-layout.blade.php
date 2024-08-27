@@ -84,7 +84,7 @@
               <li><a href="shop-standard.html">One</a></li>
               <li><a href="shop-fullwidth.html">Two</a></li>
               <li><a href="shop-with-sidebar.html">Three</a></li>
-              <li><a href="shop-product.html">Four</a></li>
+              <li><a href="{{ route('admin.logout') }}">ログアウト</a></li>
             </ul>
           </li>
         </ul>

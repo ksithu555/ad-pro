@@ -5,10 +5,12 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\GuestController;
+use App\Http\Controllers\UserMemberController;
 use App\Http\Controllers\UserMaterialController;
 use App\Http\Controllers\VerificationController;
 use App\Http\Controllers\AdminMaterialController;
 use App\Http\Controllers\UserAdvertisementController;
+use App\Http\Controllers\AdminAdvertisementController;
 
 Route::get('/test', function () {
     return 'This is a test route!';
@@ -32,6 +34,7 @@ Route::get('/user/register', [UserController::class, 'showRegister'])->name('use
 Route::post('/user/register', [UserController::class, 'storeRegister'])->name('user.store.register');
 Route::get('email/verify/{id}/{hash}', [VerificationController::class, 'verify'])->name('verification.verify');
 Route::post('email/resend', [VerificationController::class, 'resend'])->name('verification.resend');
+Route::get('/user/logout', [UserController::class, 'logout'])->name('user.logout');
 
 // Alarm
 Route::get('/user/alarms', [UserController::class, 'getAlarms'])->name('user.get.alarms');
@@ -39,7 +42,8 @@ Route::get('/user/check/alarm/{id}', [UserController::class, 'checkAlarm'])->nam
 Route::get('/user/delete/alarm/{id}', [UserController::class, 'deleteAlarm'])->name('user.delete.alarm');
 
 // Member List
-Route::get('/user/members', [UserController::class, 'getMembers'])->name('user.get.members');
+Route::get('/user/members', [UserMemberController::class, 'getMembers'])->name('user.get.members');
+Route::get('/user/show/member-detail/{id}', [UserMemberController::class, 'showMemberDetail'])->name('user.show.member.detail');
 
 // Advertisement
 Route::get('/user/advertisements', [UserAdvertisementController::class, 'getAdvertisements'])->name('user.get.advertisements');
@@ -110,6 +114,7 @@ Route::get('user/plans', [UserController::class, 'getPlans'])->name('user.get.pl
 // Admin
 Route::get('/admin/login', [AdminController::class, 'showLogin'])->name('admin.show.login');
 Route::post('/admin/login', [AdminController::class, 'storeLogin'])->name('admin.store.login');
+Route::get('/admin/logout', [AdminController::class, 'logout'])->name('admin.logout');
 
 // home
 Route::get('/admin/home', [AdminController::class, 'getHome'])->name('admin.get.home');
@@ -132,7 +137,7 @@ Route::get('/admin/delete/footer{id}', [AdminController::class, 'deleteFooter'])
 Route::get('/admin/members', [AdminController::class, 'getMembers'])->name('admin.get.members');
 
 // advertisements
-Route::get('/admin/advertisements', [AdminController::class, 'getAdvertisements'])->name('admin.get.advertisements');
+Route::get('/admin/advertisements', [AdminAdvertisementController::class, 'getAdvertisements'])->name('admin.get.advertisements');
 
 // materials
 Route::get('/admin/materials', [AdminMaterialController::class, 'getMaterials'])->name('admin.get.materials');

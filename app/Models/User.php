@@ -67,4 +67,14 @@ class User extends Authenticatable
     {
         return $this->hasMany(Announcement::class, 'created_by', 'id');
     }
+
+    public function advertisements()
+    {
+        return $this->hasMany(Advertisement::class);
+    }
+
+    public function company()
+    {
+        return $this->hasOne(Company::class);
+    }
 }

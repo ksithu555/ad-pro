@@ -5300,3 +5300,77 @@ input:checked + .slider:before {
 .arrow-button.down {
   /* Optional styles for the down button */
 }
+
+/* Custom Checkbox Styling */
+.custom-checkbox {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.custom-checkbox input[type="checkbox"] {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  cursor: pointer;
+  appearance: none; /* Remove default styling */
+  border: 2px solid #BF0731;
+  border-radius: 3px;
+  background-color: #fff;
+  transition: background-color 0.2s, border-color 0.2s;
+}
+
+.custom-checkbox input[type="checkbox"]:checked {
+  background-color: #BF0731;
+  border-color: #BF0731;
+}
+
+.custom-checkbox input[type="checkbox"]:checked::before {
+  content: '\2713'; /* Checkmark character */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 16px;
+  color: #fff;
+}
+
+.custom-checkbox label {
+  font-size: 14px;
+  color: #333;
+  cursor: pointer;
+}
+
+.custom-checkbox input[type="checkbox"]:focus {
+  outline: none;
+}
+
+.label-required {
+  display: inline-block;
+  background-color: #BF0731; /* Required label background color */
+  color: #fff; /* Text color */
+  font-size: 12px; /* Adjust the font size */
+  font-weight: bold; /* Make the text bold */
+  padding: 2px 4px; /* Padding around the text */
+  border-radius: 3px; /* Rounded corners */
+  margin-left: 5px; /* Space between the label and the text */
+}
+
+.label-optional {
+  display: inline-block;
+  background-color: #B0B0B0; /* Optional label background color */
+  color: #fff; /* Text color */
+  font-size: 12px; /* Adjust the font size */
+  font-weight: bold; /* Make the text bold */
+  padding: 2px 4px; /* Padding around the text */
+  border-radius: 3px; /* Rounded corners */
+  margin-left: 5px; /* Space between the label and the text */
+}
+
+.error {
+  color: #BF0731; /* Error text color */
+  font-size: 12px; /* Adjust the font size */
+  margin-top: 5px; /* Space between input and error message */
+  display: block;
+}

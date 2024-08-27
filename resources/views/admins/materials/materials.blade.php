@@ -30,6 +30,7 @@
                         <thead>
                             <tr>
                             <th>#</th>
+                            <th>登録日</th>
                             <th style="min-width: 110px;">タイプ</th>
                             <th>名前</th>
                             <th>画像</th>
@@ -42,6 +43,9 @@
                             <tr>
                                 <td>
                                     {{ $ttl + 1 - ($materials->firstItem() + $key) }}
+                                </td>
+                                <td>
+                                    {{ $material->created_at->format('Y-m-d') }}
                                 </td>
                                 <td style="min-width: 110px;">
                                     {{ $material->type }}

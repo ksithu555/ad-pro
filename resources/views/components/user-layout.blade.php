@@ -84,6 +84,7 @@
               <li><a href="{{ route('user.get.advertisements') }}">広告管理</a></li>
               <li><a href="{{ route('user.show.announcements') }}">ビズ公示管理</a></li>
               <li><a href="{{ route('user.get.plans') }}">アップグレード</a></li>
+              <li><a href="{{ route('user.logout') }}">ログアウト</a></li>
             </ul>
           </li>
         </ul>

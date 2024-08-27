@@ -40,6 +40,15 @@ class AdminController extends Controller
         return redirect()->route('admin.get.advertisements');
     }
 
+    public function logout(Request $request) {
+        Auth::logout();
+        
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect('/');
+    }
+
     public function getHome() {
         $headers = TopHeader::all();
         $footers = TopFooter::all();
@@ -188,10 +197,6 @@ class AdminController extends Controller
         $ttl = $users->total();
         $ttlpage = ceil($ttl/$limit);
         return view('admins.members', compact('users', 'ttl', 'ttlpage'));
-    }
-
-    public function getAdvertisements() {
-        return view('admins.advertisements');
     }
 
     public function getSections() {

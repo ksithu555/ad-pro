@@ -20,6 +20,8 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
 use App\Models\AdvertisementFooterBlock;
 use App\Models\AdvertisementHeaderBlock;
+use App\Models\Company;
+use App\Models\RegisterSelector;
 
 class UserController extends Controller
 {
@@ -47,16 +49,52 @@ class UserController extends Controller
     }
 
     public function showRegister() {
-        return view('auth.user-register');
+        $registerSelectors = RegisterSelector::all();
+        return view('auth.user-register', compact('registerSelectors'));
     }
 
     public function storeRegister(Request $request) {
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
-            'password' => $request->password,
+            'password' => Hash::make($request->password),
             'company_name' => $request->companyName,
             'status' => 1,
+        ]);
+
+        if (!empty($request->companyLogo)) {
+            $companyLogoName = time() . '.' . $request->companyLogo->extension();
+            $request->companyLogo->move(public_path('assets/images/all'), $companyLogoName);
+        } else {
+            $companyLogoName = '';
+        }
+        if (!empty($request->companyFounderPhoto)) {
+            $companyFounderPhotoName = time() . '.' . $request->companyFounderPhoto->extension();
+            $request->companyFounderPhoto->move(public_path('assets/images/all'), $companyFounderPhotoName);
+        } else {
+            $companyFounderPhotoName = '';
+        }
+
+        Company::create([
+            'user_id' => $user->id,
+            'name' => $request->companyName,
+            'phone' => $request->companyPhone,
+            'business' => $request->businessType,
+            'purpose' => $request->purposeOfUse,
+            'industry' => $request->industry,
+            'position' => $request->position,
+            'postal_code' => $request->companyPostalCode,
+            'room_no' => $request->companyRoomNo,
+            'building' => $request->companyBuilding,
+            'block' => $request->companyBlock,
+            'city' => $request->companyCity,
+            'prefecture' => $request->companyPrefecture,
+            'country' => $request->companyCountry,
+            'website' => $request->companyWebsite,
+            'logo' => $companyLogoName,
+            'description' => $request->companyDescription,
+            'founder_name' => $request->companyFounderName,
+            'founder_image' => $companyFounderPhotoName
         ]);
         
         $verificationUrl = URL::temporarySignedRoute(
@@ -68,6 +106,15 @@ class UserController extends Controller
         Mail::to($user->email)->send(new VerifyEmail($user, $verificationUrl));
     
         return view('auth.user-register-verify-email', ['user' => $user]);
+    }
+
+    public function logout(Request $request) {
+        Auth::logout();
+        
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect('/');
     }
 
     public function getAlarms() {
@@ -91,14 +138,6 @@ class UserController extends Controller
         Alarm::where('id', $id)->delete();
         Session::flash('success', 'チェックしたアラームを削除しました');
         return redirect()->route('user.get.alarms');
-    }
-
-    public function getMembers() {
-        $limit = 10;
-        $users = User::where('id', '!=', Auth::user()->id)->paginate($limit);
-        $ttl = $users->total();
-        $ttlpage = ceil($ttl/$limit);
-        return view('users.members', compact('users', 'ttl', 'ttlpage'));
     }
 
     public function getAnnouncements() {

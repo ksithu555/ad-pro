@@ -53,15 +53,28 @@
                             <div class="col-md-8 col-sm-8 col-md-offset-2 col-sd-offset-2">
                                 <div class="form-group">
                                     <label class="sr-only" for="email">Email</label>
-                                    <input type="email" name="email" class="md-input" id="email" placeholder="Email *" required data-error="Please Enter Valid Email">
+                                    <input type="email" name="email" class="md-input" id="email" placeholder="メール *" required data-error="有効なメールアドレスを入力してください。">
                                     <div class="help-block with-errors"></div>
                                 </div>
                             </div>
                             <div class="col-md-8 col-sm-8 col-md-offset-2 col-sd-offset-2">
                                 <div class="form-group">
                                     <label class="sr-only" for="password">Password</label>
-                                    <input type="password" name="password" class="md-input" id="password" placeholder="Password *" required data-error="Your Password is Required">
+                                    <input type="password" name="password" class="md-input" id="password" placeholder="パスワード *" required data-error="パスワードを入力してください。">
                                     <div class="help-block with-errors"></div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-md-offset-2 col-sd-offset-2">
+                                <div class="form-group">
+                                    <div class="custom-checkbox">
+                                        <input type="checkbox" id="rememberMe" name="rememberMe" {{ old('remember') ? 'checked' : '' }}>
+                                        <label for="rememberMe" class="pt-10">ログイン情報を保存する</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4">
+                                <div class="form-group pt-10" style="text-align: right;">
+                                    <a href=""><i class="icon-key"></i>&nbsp;&nbsp;&nbsp;パスワードをお忘れですか？</a>
                                 </div>
                             </div>
                             <div class="col-md-8 col-sm-8 col-md-offset-2 col-sd-offset-2">
@@ -78,4 +91,38 @@
         </div>
     </section>
     <!--== Contact Form Style 01 End ==-->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var rememberMeCheckbox = document.getElementById('rememberMe');
+            var emailInput = document.getElementById('email');
+            var passwordInput = document.getElementById('password');
+    
+            // Check if there is a stored cookie and set the checkbox accordingly
+            if (document.cookie.includes('rememberMe=true')) {
+                rememberMeCheckbox.checked = true;
+                // If the "Remember Me" cookie is set, populate the email and password fields
+                var rememberMeData = document.cookie.split('; ').find(row => row.startsWith('rememberMeData='));
+                if (rememberMeData) {
+                    var data = rememberMeData.split('=')[1].split('|');
+                    emailInput.value = decodeURIComponent(data[0]);
+                    passwordInput.value = decodeURIComponent(data[1]);
+                }
+            }
+    
+            rememberMeCheckbox.addEventListener('change', function() {
+                if (this.checked) {
+                    var email = emailInput.value.trim();
+                    var password = passwordInput.value.trim();
+                    // If checkbox is checked, set a cookie to remember the user
+                    var cookieValue = encodeURIComponent(email) + '|' + encodeURIComponent(password);
+                    document.cookie = 'rememberMeData=' + cookieValue + '; expires=Thu, 31 Dec 2099 23:59:59 UTC; path=/';
+                    document.cookie = 'rememberMe=true; expires=Thu, 31 Dec 2099 23:59:59 UTC; path=/';
+                } else {
+                    // If checkbox is unchecked, remove the rememberMe cookie
+                    document.cookie = 'rememberMeData=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+                    document.cookie = 'rememberMe=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+                }
+            });
+        });
+    </script>
 </x-guest-layout>

@@ -109,6 +109,9 @@
             if (!type) {
                 document.getElementById('error-type').textContent = 'タイプを入力してください。';
                 isValid = false;
+            } else if (/[^a-zA-Z0-9-_]/.test(type)) {
+                document.getElementById('error-type').textContent = 'タイプにはスペースや特殊文字を含めることはできません。';
+                isValid = false;
             }
 
             if (!name) {

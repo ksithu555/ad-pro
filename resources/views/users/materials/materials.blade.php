@@ -8,9 +8,9 @@
                     <div data-filter="*" class="cbp-filter-item-active cbp-filter-item dark">
                         All
                     </div>
-                    @foreach ($materials as $typeMaterial)
-                    <div data-filter=".{{ $typeMaterial->type }}" class="cbp-filter-item">
-                        {{ $typeMaterial->type }}
+                    @foreach ($types as $type)
+                    <div data-filter=".{{ $type }}" class="cbp-filter-item">
+                        {{ $type }}
                     </div>
                     @endforeach
                 </div>

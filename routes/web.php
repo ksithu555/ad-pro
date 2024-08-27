@@ -5,9 +5,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\GuestController;
-use App\Http\Controllers\VerificationController;
-use App\Http\Controllers\UserAdvertisementController;
 use App\Http\Controllers\UserMaterialController;
+use App\Http\Controllers\VerificationController;
+use App\Http\Controllers\AdminMaterialController;
+use App\Http\Controllers\UserAdvertisementController;
 
 Route::get('/test', function () {
     return 'This is a test route!';
@@ -130,10 +131,19 @@ Route::get('/admin/delete/footer{id}', [AdminController::class, 'deleteFooter'])
 // members
 Route::get('/admin/members', [AdminController::class, 'getMembers'])->name('admin.get.members');
 
-// advertisement
+// advertisements
 Route::get('/admin/advertisements', [AdminController::class, 'getAdvertisements'])->name('admin.get.advertisements');
 
-// section
+// materials
+Route::get('/admin/materials', [AdminMaterialController::class, 'getMaterials'])->name('admin.get.materials');
+Route::get('/admin/add/material', [AdminMaterialController::class, 'addMaterial'])->name('admin.add.material');
+Route::post('/admin/store/material', [AdminMaterialController::class, 'storeMaterial'])->name('admin.store.material');
+Route::get('/admin/edit/material/{id}', [AdminMaterialController::class, 'editMaterial'])->name('admin.edit.material');
+Route::post('/admin/update/material', [AdminMaterialController::class, 'updateMaterial'])->name('admin.update.material');
+Route::get('/admin/material/delete/{id}', [AdminMaterialController::class, 'deleteMaterial'])->name('admin.delete.material');
+Route::post('/admin/update/material-status', [AdminMaterialController::class, 'updateMaterialStatus'])->name('admin.update.material.status');
+
+// sections
 Route::get('/admin/sections', [AdminController::class, 'getSections'])->name('admin.get.sections');
 Route::get('/admin/add/section', [AdminController::class, 'addSection'])->name('admin.add.section');
 Route::post('/admin/store/section', [AdminController::class, 'storeSection'])->name('admin.store.section');

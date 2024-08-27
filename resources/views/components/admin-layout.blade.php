@@ -124,6 +124,14 @@
             </a>
           </li>
           <li class="dropdown">
+            <a href="{{ route('admin.get.materials') }}" class="dropdown-toggle" data-toggle="dropdown">
+                <span class="{{ request()->routeIs('admin.get.materials') ||
+                request()->routeIs('admin.add.material') ||
+                request()->routeIs('admin.edit.material')
+                ? 'default-color' : '' }}">素材一覧</span>
+            </a>
+          </li>
+          <li class="dropdown">
             <a href="{{ route('admin.get.sections') }}" class="dropdown-toggle" data-toggle="dropdown">
                 <span class="{{ request()->routeIs('admin.get.sections') ||
                 request()->routeIs('admin.add.section') ||

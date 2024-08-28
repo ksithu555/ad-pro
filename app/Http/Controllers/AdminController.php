@@ -240,13 +240,13 @@ class AdminController extends Controller
         ];
 
         Section::where('id', $request->id)->update($updateData);
-        Session::flash('success', 'セクションが正常に更新されました。');
+        Session::flash('success', 'セクションが正常に更新されました');
         return redirect()->route('admin.get.sections');
     }
 
     public function deleteSection($id) {
         Section::where('id', $id)->delete();
-        Session::flash('success', 'セクションが正常に削除されました。');
+        Session::flash('success', 'セクションが正常に削除されました');
         return redirect()->route('admin.get.sections');
     }
 
@@ -255,10 +255,10 @@ class AdminController extends Controller
         if ($section) {
             $section->status = $request->status;
             $section->save();
-            Session::flash('success', 'セクションのステータスが正常に更新されました。');
+            Session::flash('success', 'セクションのステータスが正常に更新されました');
             return response()->json(['success' => true]);
         }
-        Session::flash('error', 'セクションステータスの変更に失敗しました。');
+        Session::flash('error', 'セクションステータスの変更に失敗しました');
         return response()->json(['success' => false]);
     }
 
@@ -305,7 +305,7 @@ class AdminController extends Controller
             'author_name' => $request->authorName,
             'author_image' => $authorImageName,
         ]);
-        Session::flash('success', '新着情報が正常に追加されました。');
+        Session::flash('success', '新着情報が正常に追加されました');
         return redirect()->route('admin.get.news');
     }
 
@@ -334,13 +334,13 @@ class AdminController extends Controller
         }
 
         News::where('id', $request->id)->update($updateData);
-        Session::flash('success', '新着情報が正常に更新されました。');
+        Session::flash('success', '新着情報が正常に更新されました');
         return redirect()->route('admin.get.news');
     }
 
     public function deleteNews($id) {
         News::where('id', $id)->delete();
-        Session::flash('success', '新着情報が正常に削除されました。');
+        Session::flash('success', '新着情報が正常に削除されました');
         return redirect()->route('admin.get.news');
     }
 

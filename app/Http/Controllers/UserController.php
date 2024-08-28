@@ -55,25 +55,13 @@ class UserController extends Controller
 
     public function storeRegister(Request $request) {
         $user = User::create([
-            'name' => $request->name,
+            'name' => $request->nameKanji,
+            'name_furigana' => $request->nameFurigana,
             'email' => $request->email,
             'password' => Hash::make($request->password),
             'company_name' => $request->companyName,
             'status' => 1,
         ]);
-
-        if (!empty($request->companyLogo)) {
-            $companyLogoName = time() . '.' . $request->companyLogo->extension();
-            $request->companyLogo->move(public_path('assets/images/all'), $companyLogoName);
-        } else {
-            $companyLogoName = '';
-        }
-        if (!empty($request->companyFounderPhoto)) {
-            $companyFounderPhotoName = time() . '.' . $request->companyFounderPhoto->extension();
-            $request->companyFounderPhoto->move(public_path('assets/images/all'), $companyFounderPhotoName);
-        } else {
-            $companyFounderPhotoName = '';
-        }
 
         Company::create([
             'user_id' => $user->id,
@@ -90,11 +78,7 @@ class UserController extends Controller
             'city' => $request->companyCity,
             'prefecture' => $request->companyPrefecture,
             'country' => $request->companyCountry,
-            'website' => $request->companyWebsite,
-            'logo' => $companyLogoName,
-            'description' => $request->companyDescription,
-            'founder_name' => $request->companyFounderName,
-            'founder_image' => $companyFounderPhotoName
+            'website' => $request->companyWebsite
         ]);
         
         $verificationUrl = URL::temporarySignedRoute(

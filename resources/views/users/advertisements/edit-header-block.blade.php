@@ -107,12 +107,12 @@
             const body = document.getElementById('body').value.trim();
 
             if (!title) {
-                document.getElementById('error-title').textContent = 'タイトルを入力してください。';
+                document.getElementById('error-title').textContent = 'タイトルを入力してください';
                 isValid = false;
             }
 
             if (!body) {
-                document.getElementById('error-body').textContent = 'ボデイを入力してください。';
+                document.getElementById('error-body').textContent = 'ボデイを入力してください';
                 isValid = false;
             }
 

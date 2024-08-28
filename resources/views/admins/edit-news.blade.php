@@ -144,17 +144,17 @@
             const authorName = document.getElementById('authorName').value.trim();
 
             if (!title) {
-                document.getElementById('error-title').textContent = 'タイトルを入力してください。';
+                document.getElementById('error-title').textContent = 'タイトルを入力してください';
                 isValid = false;
             }
 
             if (!body) {
-                document.getElementById('error-body').textContent = '体を入力してください。';
+                document.getElementById('error-body').textContent = '体を入力してください';
                 isValid = false;
             }
 
             if (!authorName) {
-                document.getElementById('error-authorName').textContent = '著者名を入力してください。';
+                document.getElementById('error-authorName').textContent = '著者名を入力してください';
                 isValid = false;
             }
 

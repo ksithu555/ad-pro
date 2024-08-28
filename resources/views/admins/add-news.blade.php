@@ -145,27 +145,27 @@
             const authorImage = document.getElementById('authorImage').files[0];
 
             if (!title) {
-                document.getElementById('error-title').textContent = 'タイトルを入力してください。';
+                document.getElementById('error-title').textContent = 'タイトルを入力してください';
                 isValid = false;
             }
 
             if (!body) {
-                document.getElementById('error-body').textContent = '体を入力してください。';
+                document.getElementById('error-body').textContent = '体を入力してください';
                 isValid = false;
             }
 
             if (!image) {
-                document.getElementById('error-image').textContent = '画像を選択してください。';
+                document.getElementById('error-image').textContent = '画像を選択してください';
                 isValid = false;
             }
 
             if (!authorName) {
-                document.getElementById('error-authorName').textContent = '著者名を入力してください。';
+                document.getElementById('error-authorName').textContent = '著者名を入力してください';
                 isValid = false;
             }
 
             if (!authorImage) {
-                document.getElementById('error-authorImage').textContent = '著者画像を選択してください。';
+                document.getElementById('error-authorImage').textContent = '著者画像を選択してください';
                 isValid = false;
             }
 

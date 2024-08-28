@@ -95,16 +95,16 @@ class UserAdvertisementController extends Controller
             $advertisement->status = $request->status;
             $advertisement->save();
             
-            Session::flash('success', 'ページのステータスが正常に更新されました。');
+            Session::flash('success', 'ページのステータスが正常に更新されました');
             return response()->json(['success' => true]);
         }
-        Session::flash('error', 'ページステータスの変更に失敗しました。');
+        Session::flash('error', 'ページステータスの変更に失敗しました');
         return response()->json(['success' => false]);
     }
 
     public function deleteAdvertisement($id) {
         Advertisement::where('id', $id)->delete();
-        Session::flash('success', 'ページが正常に削除されました。');
+        Session::flash('success', 'ページが正常に削除されました');
         return redirect()->route('user.get.advertisements');
     }
 
@@ -146,14 +146,14 @@ class UserAdvertisementController extends Controller
         if ($section->section->type == 'header') {
             $advertisementHeaderBlock = AdvertisementHeaderBlock::where('advertisement_section_id', $section->id)->get();
             if ($advertisementHeaderBlock->isEmpty()) {
-                Session::flash('warning', 'セクションのステータスはまだ変更できません。');
+                Session::flash('warning', 'セクションのステータスはまだ変更できません');
                 return response()->json(['success' => true]);
             }
         }
         if ($section->section->type == 'footer') {
             $advertisementFooterBlock = AdvertisementFooterBlock::where('advertisement_section_id', $section->id)->get();
             if ($advertisementFooterBlock->isEmpty()) {
-                Session::flash('warning', 'セクションのステータスはまだ変更できません。');
+                Session::flash('warning', 'セクションのステータスはまだ変更できません');
                 return response()->json(['success' => true]);
             }
         }
@@ -178,10 +178,10 @@ class UserAdvertisementController extends Controller
                 $advertisement->status = 1;
                 $advertisement->save();
             }
-            Session::flash('success', 'セクションのステータスが正常に更新されました。');
+            Session::flash('success', 'セクションのステータスが正常に更新されました');
             return response()->json(['success' => true]);
         }
-        Session::flash('error', 'セクションステータスの変更に失敗しました。');
+        Session::flash('error', 'セクションステータスの変更に失敗しました');
         return response()->json(['success' => false]);
     }
 
@@ -201,10 +201,10 @@ class UserAdvertisementController extends Controller
             $currentSection->save();
             $previousSection->save();
 
-            Session::flash('success', 'セクションの順番が正常に更新されました。');
+            Session::flash('success', 'セクションの順番が正常に更新されました');
             return response()->json(['success' => true]);
         }
-        Session::flash('error', 'セクションの順番が正常に変更に失敗しました。');
+        Session::flash('error', 'セクションの順番が正常に変更に失敗しました');
         return response()->json(['success' => true]);
     }
 
@@ -223,10 +223,10 @@ class UserAdvertisementController extends Controller
 
             $currentSection->save();
             $nextSection->save();
-            Session::flash('success', 'セクションの順番が正常に更新されました。');
+            Session::flash('success', 'セクションの順番が正常に更新されました');
             return response()->json(['success' => true]);
         }
-        Session::flash('error', 'セクションの順番が正常に変更に失敗しました。');
+        Session::flash('error', 'セクションの順番が正常に変更に失敗しました');
         return response()->json(['success' => true]);
     }
 
@@ -240,7 +240,7 @@ class UserAdvertisementController extends Controller
             if ($advertisementSection->section->type == 'footer') {
                 AdvertisementFooterBlock::where('advertisement_section_id', $advertisementSection->id)->delete();
             }
-            Session::flash('success', 'セクションが正常に削除されました。');
+            Session::flash('success', 'セクションが正常に削除されました');
             return redirect()->route('user.show.sections', $advertisementSection->advertisement_id);
         }
     }
@@ -281,7 +281,7 @@ class UserAdvertisementController extends Controller
             'image' => $imageName,
             'status' => 0
         ]);
-        Session::flash('success', 'ヘッダーブロックが正常に追加されました。');
+        Session::flash('success', 'ヘッダーブロックが正常に追加されました');
         return redirect()->route('user.show.section.blocks', $request->advertisementSectionId);
     }
 
@@ -304,14 +304,14 @@ class UserAdvertisementController extends Controller
 
         $advertisementHeaderBlock = AdvertisementHeaderBlock::find($request->id);
         $advertisementHeaderBlock->update($updateData);
-        Session::flash('success', 'ヘッダーブロックが正常に更新されました。');
+        Session::flash('success', 'ヘッダーブロックが正常に更新されました');
         return redirect()->route('user.show.section.blocks', $advertisementHeaderBlock->advertisement_section_id);
     }
 
     public function deleteHeaderBlock($id) {
         $advertisementHeaderBlock = AdvertisementHeaderBlock::find($id);
         AdvertisementHeaderBlock::where('id', $id)->delete();
-        Session::flash('success', 'ヘッダーブロックが正常に削除されました。');
+        Session::flash('success', 'ヘッダーブロックが正常に削除されました');
         return redirect()->route('user.show.section.blocks', $advertisementHeaderBlock->advertisement_section_id);
 
     }
@@ -321,10 +321,10 @@ class UserAdvertisementController extends Controller
         if ($block) {
             $block->status = $request->status;
             $block->save();
-            Session::flash('success', 'ブロックのステータスが正常に更新されました。');
+            Session::flash('success', 'ブロックのステータスが正常に更新されました');
             return response()->json(['success' => true]);
         }
-        Session::flash('error', 'ブロックステータスの変更に失敗しました。');
+        Session::flash('error', 'ブロックステータスの変更に失敗しました');
         return response()->json(['success' => false]);
     }
 
@@ -365,7 +365,7 @@ class UserAdvertisementController extends Controller
             'text' => $text,
             'status' => 0
         ]);
-        Session::flash('success', 'フッターブロックが正常に追加されました。');
+        Session::flash('success', 'フッターブロックが正常に追加されました');
         return redirect()->route('user.show.section.blocks', $request->advertisementSectionId);
     }
 
@@ -394,14 +394,14 @@ class UserAdvertisementController extends Controller
 
         $advertisementFooterBlock = AdvertisementFooterBlock::find($request->id);
         $advertisementFooterBlock->update($updateData);
-        Session::flash('success', 'ヘッダーブロックが正常に更新されました。');
+        Session::flash('success', 'ヘッダーブロックが正常に更新されました');
         return redirect()->route('user.show.section.blocks', $advertisementFooterBlock->advertisement_section_id);
     }
 
     public function deleteFooterBlock($id) {
         $advertisementHeaderBlock = AdvertisementHeaderBlock::find($id);
         AdvertisementHeaderBlock::where('id', $id)->delete();
-        Session::flash('success', 'ヘッダーブロックが正常に削除されました。');
+        Session::flash('success', 'ヘッダーブロックが正常に削除されました');
         return redirect()->route('user.show.section.blocks', $advertisementHeaderBlock->advertisement_section_id);
 
     }
@@ -411,10 +411,10 @@ class UserAdvertisementController extends Controller
         if ($block) {
             $block->status = $request->status;
             $block->save();
-            Session::flash('success', 'ブロックのステータスが正常に更新されました。');
+            Session::flash('success', 'ブロックのステータスが正常に更新されました');
             return response()->json(['success' => true]);
         }
-        Session::flash('error', 'ブロックステータスの変更に失敗しました。');
+        Session::flash('error', 'ブロックステータスの変更に失敗しました');
         return response()->json(['success' => false]);
     }
 
@@ -438,7 +438,7 @@ class UserAdvertisementController extends Controller
             'image' => $imageName,
             'status' => 0
         ]);
-        Session::flash('success', 'リストブロックが正常に追加されました。');
+        Session::flash('success', 'リストブロックが正常に追加されました');
         return redirect()->route('user.show.section.blocks', $request->advertisementSectionId);
     }
 
@@ -461,14 +461,14 @@ class UserAdvertisementController extends Controller
 
         $advertisementListBlock = AdvertisementListBlock::find($request->id);
         $advertisementListBlock->update($updateData);
-        Session::flash('success', 'リストブロックが正常に更新されました。');
+        Session::flash('success', 'リストブロックが正常に更新されました');
         return redirect()->route('user.show.section.blocks', $advertisementListBlock->advertisement_section_id);
     }
 
     public function deleteListBlock($id) {
         $advertisementListBlock = AdvertisementListBlock::find($id);
         AdvertisementListBlock::where('id', $id)->delete();
-        Session::flash('success', 'リストブロックが正常に削除されました。');
+        Session::flash('success', 'リストブロックが正常に削除されました');
         return redirect()->route('user.show.section.blocks', $advertisementListBlock->advertisement_section_id);
 
     }
@@ -478,10 +478,10 @@ class UserAdvertisementController extends Controller
         if ($block) {
             $block->status = $request->status;
             $block->save();
-            Session::flash('success', 'ブロックのステータスが正常に更新されました。');
+            Session::flash('success', 'ブロックのステータスが正常に更新されました');
             return response()->json(['success' => true]);
         }
-        Session::flash('error', 'ブロックステータスの変更に失敗しました。');
+        Session::flash('error', 'ブロックステータスの変更に失敗しました');
         return response()->json(['success' => false]);
     }
 }

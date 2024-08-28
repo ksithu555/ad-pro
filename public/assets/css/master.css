@@ -140,7 +140,7 @@ border-color: none;box-shadow: none;outline: 0 none;}
 .select-custom select {width: 100%;border: none;box-shadow: none;background-color: transparent;background-image: none;-webkit-appearance: none;-moz-appearance: none;
 appearance: none;cursor: pointer;}
 .md-input, .md-textarea, .md-select select {padding: 14px 20px;font-size: 14px;line-height: normal;border-radius: 0;}
-input, textarea, select {border: 1px solid #eee;font-size: 14px;padding: 8px 15px;width: 100%;margin: 0 0 20px 0;max-width: 100%;resize: none;background-color: transparent;color:#fff;}
+input, textarea, select {border: 1px solid #eee;font-size: 14px;padding: 8px 15px;width: 100%;margin: 0 0 0 0;max-width: 100%;resize: none;background-color: transparent;color:#fff;}
 .md-file {
   border: 1px solid #eee;
   padding: 14px 20px;
@@ -5305,7 +5305,6 @@ input:checked + .slider:before {
 .custom-checkbox {
   display: flex;
   align-items: center;
-  margin-bottom: 15px;
 }
 
 .custom-checkbox input[type="checkbox"] {
@@ -5344,33 +5343,4 @@ input:checked + .slider:before {
 
 .custom-checkbox input[type="checkbox"]:focus {
   outline: none;
-}
-
-.label-required {
-  display: inline-block;
-  background-color: #BF0731; /* Required label background color */
-  color: #fff; /* Text color */
-  font-size: 12px; /* Adjust the font size */
-  font-weight: bold; /* Make the text bold */
-  padding: 2px 4px; /* Padding around the text */
-  border-radius: 3px; /* Rounded corners */
-  margin-left: 5px; /* Space between the label and the text */
-}
-
-.label-optional {
-  display: inline-block;
-  background-color: #B0B0B0; /* Optional label background color */
-  color: #fff; /* Text color */
-  font-size: 12px; /* Adjust the font size */
-  font-weight: bold; /* Make the text bold */
-  padding: 2px 4px; /* Padding around the text */
-  border-radius: 3px; /* Rounded corners */
-  margin-left: 5px; /* Space between the label and the text */
-}
-
-.error {
-  color: #BF0731; /* Error text color */
-  font-size: 12px; /* Adjust the font size */
-  margin-top: 5px; /* Space between input and error message */
-  display: block;
 }

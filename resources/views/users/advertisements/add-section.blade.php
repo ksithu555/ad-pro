@@ -113,13 +113,13 @@
 
             // Validate the name input
             if (!name) {
-                document.getElementById('error-name').textContent = 'セクションの名前を入力してください。';
+                document.getElementById('error-name').textContent = 'セクションの名前を入力してください';
                 isValid = false;
             }
 
             // Validate the radio button selection
             if (!selectedSection) {
-                document.getElementById('error-section').textContent = 'セクションテンプレートを選択してください。';
+                document.getElementById('error-section').textContent = 'セクションテンプレートを選択してください';
                 isValid = false;
             }
 

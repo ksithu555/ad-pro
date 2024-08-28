@@ -131,27 +131,27 @@
             const location = document.getElementById('location').value.trim();
 
             if (!type) {
-                document.getElementById('error-type').textContent = 'タイプを入力してください。';
+                document.getElementById('error-type').textContent = 'タイプを入力してください';
                 isValid = false;
             }
 
             if (!title) {
-                document.getElementById('error-title').textContent = 'タイトルを入力してください。';
+                document.getElementById('error-title').textContent = 'タイトルを入力してください';
                 isValid = false;
             }
 
             if (!description) {
-                document.getElementById('error-description').textContent = '体を入力してください。';
+                document.getElementById('error-description').textContent = '体を入力してください';
                 isValid = false;
             }
 
             if (!dateTime) {
-                document.getElementById('error-dateTime').textContent = '日時を入力してください。';
+                document.getElementById('error-dateTime').textContent = '日時を入力してください';
                 isValid = false;
             }
 
             if (!location) {
-                document.getElementById('error-location').textContent = '場所を選択してください。';
+                document.getElementById('error-location').textContent = '場所を選択してください';
                 isValid = false;
             }
 

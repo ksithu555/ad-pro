@@ -35,7 +35,7 @@ class AdminMaterialController extends Controller
             'image' => $imageName,
             'status' => 0
         ]);
-        Session::flash('success', '素材が正常に追加されました。');
+        Session::flash('success', '素材が正常に追加されました');
         return redirect()->route('admin.get.materials');
     }
 
@@ -58,13 +58,13 @@ class AdminMaterialController extends Controller
         }
 
         Material::where('id', $request->id)->update($updateData);
-        Session::flash('success', '素材が正常に更新されました。');
+        Session::flash('success', '素材が正常に更新されました');
         return redirect()->route('admin.get.materials');
     }
 
     public function deleteMaterial($id) {
         Material::where('id', $id)->delete();
-        Session::flash('success', '素材が正常に削除されました。');
+        Session::flash('success', '素材が正常に削除されました');
         return redirect()->route('admin.get.materials');
     }
 
@@ -73,10 +73,10 @@ class AdminMaterialController extends Controller
         if ($material) {
             $material->status = $request->status;
             $material->save();
-            Session::flash('success', '素材のステータスが正常に更新されました。');
+            Session::flash('success', '素材のステータスが正常に更新されました');
             return response()->json(['success' => true]);
         }
-        Session::flash('error', '素材ステータスの変更に失敗しました。');
+        Session::flash('error', '素材ステータスの変更に失敗しました');
         return response()->json(['success' => false]);
     }
 }

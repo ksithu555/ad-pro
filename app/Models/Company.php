@@ -22,10 +22,6 @@ class Company extends Model
         'prefecture',
         'country',
         'website',
-        'logo',
-        'description',
-        'founder_name',
-        'founder_image'
     ];
 
     public function user()

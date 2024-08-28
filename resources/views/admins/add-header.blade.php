@@ -99,12 +99,12 @@
             const image = document.getElementById('image').files[0];
 
             if (!title) {
-                document.getElementById('error-title').textContent = 'タイトルを入力してください。';
+                document.getElementById('error-title').textContent = 'タイトルを入力してください';
                 isValid = false;
             }
 
             if (!image) {
-                document.getElementById('error-image').textContent = '画像を選択してください。';
+                document.getElementById('error-image').textContent = '画像を選択してください';
                 isValid = false;
             }
 

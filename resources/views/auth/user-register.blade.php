@@ -51,67 +51,77 @@
                         <div class="row">
                             <div class="col-md-12 col-sm-12">
                                 <div class="row">
-                                    <div class="col-md-6 col-sm-6">
+                                    <div class="col-md-8 col-sm-8 col-md-offset-2 col-sd-offset-2 pt-10">
                                         <div class="form-group">
-                                            <label for="name">名前 <span class="label-required">必須</span></label>
-                                            <input type="text" name="name" class="md-input" id="name" placeholder="名前 *">
-                                            <span class="error" style="color:#BF0731" id="error-name"></span>
+                                            <label class="sr-only" for="nameKanji">名前 (漢字)</label>
+                                            <input type="text" name="nameKanji" class="md-input" id="nameKanji" placeholder="名前 (漢字) *">
+                                            <span class="error" style="color:#BF0731" id="error-nameKanji"></span>
                                         </div>
                                     </div>
-                                    <div class="col-md-6 col-sm-6">
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-8 col-sm-8 col-md-offset-2 col-sd-offset-2 pt-10">
                                         <div class="form-group">
-                                            <label for="email">メール <span class="label-required">必須</span></label>
+                                            <label class="sr-only" for="nameFurigana">名前 (ふりがな)</label>
+                                            <input type="text" name="nameFurigana" class="md-input" id="nameFurigana" placeholder="名前 (ふりがな) *">
+                                            <span class="error" style="color:#BF0731" id="error-nameFurigana"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-8 col-sm-8 col-md-offset-2 col-sd-offset-2 pt-10">
+                                        <div class="form-group">
+                                            <label class="sr-only" for="email">メール</label>
                                             <input type="email" name="email" class="md-input" id="email" placeholder="メール *">
                                             <span class="error" style="color:#BF0731" id="error-email"></span>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-6 col-sm-6">
+                                    <div class="col-md-8 col-sm-8 col-md-offset-2 col-sd-offset-2 pt-10">
                                         <div class="form-group">
-                                            <label for="password">パスワード <span class="label-required">必須</span></label>
+                                            <label class="sr-only" for="password">パスワード</label>
                                             <input type="password" name="password" class="md-input" id="password" placeholder="パスワード *">
                                             <span class="error" style="color:#BF0731" id="error-password"></span>
                                         </div>
                                     </div>
-                                    <div class="col-md-6 col-sm-6">
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-8 col-sm-8 col-md-offset-2 col-sd-offset-2 pt-10">
                                         <div class="form-group">
-                                            <label for="confirmPassword">確認パスワード <span class="label-required">必須</span></label>
+                                            <label class="sr-only" for="confirmPassword">確認パスワード</label>
                                             <input type="password" name="confirmPassword" class="md-input" id="confirmPassword" placeholder="確認パスワード *">
                                             <span class="error" style="color:#BF0731" id="error-confirmPassword"></span>
                                         </div>
                                     </div>
                                 </div>
-                                {{-- <div class="row">
-                                    <div class="col-md-12 col-sm-12">
-                                        <h5>会社情報</h5>
-                                    </div>
-                                </div> --}}
                                 <div class="row">
-                                    <div class="col-md-6 col-sm-6">
+                                    <div class="col-md-8 col-sm-8 col-md-offset-2 col-sd-offset-2 pt-10">
                                         <div class="form-group">
-                                            <label for="companyName">会社名 <span class="label-required">必須</span></label>
+                                            <label class="sr-only" for="companyName">会社名</label>
                                             <input type="text" name="companyName" class="md-input" id="companyName" placeholder="会社名 *">
                                             <span class="error" style="color:#BF0731" id="error-companyName"></span>
                                         </div>
                                     </div>
-                                    <div class="col-md-6 col-sm-6">
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-8 col-sm-8 col-md-offset-2 col-sd-offset-2 pt-10">
                                         <div class="form-group">
-                                            <label for="companyPhone">電話番号 <span class="label-required">必須</span></label>
+                                            <label class="sr-only" for="companyPhone">電話番号</label>
                                             <input type="text" name="companyPhone" class="md-input" id="companyPhone" placeholder="電話番号 *">
                                             <span class="error" style="color:#BF0731" id="error-companyPhone"></span>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-6 col-sm-6">
+                                    <div class="col-md-8 col-sm-8 col-md-offset-2 col-sd-offset-2 pt-10">
                                         @php
                                             $businessTypes = $registerSelectors->where('type', 'business');
                                         @endphp
                                         <div class="form-group">
-                                            <label for="businessType">事業形態 <span class="label-required">必須</span></label>
+                                            <label for="businessType">事業形態</label>
                                             <select name="businessType" class="orderby social-media">
-                                                <option value="" selected="selected">選択してください。</option>
+                                                <option value="" selected="selected">選択してください *</option>
                                                 @foreach ($businessTypes as $business)
                                                 <option value="{{ $business->id }}">{{ $business->name }}</option>
                                                 @endforeach
@@ -119,14 +129,16 @@
                                             <span class="error" style="color:#BF0731" id="error-businessType"></span>
                                         </div>
                                     </div>
-                                    <div class="col-md-6 col-sm-6">
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-8 col-sm-8 col-md-offset-2 col-sd-offset-2 pt-10">
                                         @php
                                             $purposeOfUses = $registerSelectors->where('type', 'purpose');
                                         @endphp
                                         <div class="form-group">
-                                            <label for="purposeOfUse">利用目的 <span class="label-required">必須</span></label>
+                                            <label for="purposeOfUse">利用目的</label>
                                             <select name="purposeOfUse" class="orderby social-media">
-                                                <option value="" selected="selected">選択してください。</option>
+                                                <option value="" selected="selected">選択してください *</option>
                                                 @foreach ($purposeOfUses as $purposeOfUse)
                                                 <option value="{{ $purposeOfUse->id }}">{{ $purposeOfUse->name }}</option>
                                                 @endforeach
@@ -136,14 +148,14 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-6 col-sm-6">
+                                    <div class="col-md-8 col-sm-8 col-md-offset-2 col-sd-offset-2 pt-10">
                                         @php
                                             $industries = $registerSelectors->where('type', 'industry');
                                         @endphp
                                         <div class="form-group">
-                                            <label for="industry">業種 <span class="label-required">必須</span></label>
+                                            <label for="industry">業種</label>
                                             <select name="industry" class="orderby social-media">
-                                                <option value="" selected="selected">選択してください。</option>
+                                                <option value="" selected="selected">選択してください *</option>
                                                 @foreach ($industries as $industry)
                                                 <option value="{{ $industry->id }}">{{ $industry->name }}</option>
                                                 @endforeach
@@ -151,14 +163,16 @@
                                             <span class="error" style="color:#BF0731" id="error-industry"></span>
                                         </div>
                                     </div>
-                                    <div class="col-md-6 col-sm-6">
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-8 col-sm-8 col-md-offset-2 col-sd-offset-2 pt-10">
                                         @php
                                             $positions = $registerSelectors->where('type', 'position');
                                         @endphp
                                         <div class="form-group">
-                                            <label for="position">役職 <span class="label-required">必須</span></label>
+                                            <label for="position">役職</label>
                                             <select name="position" class="orderby social-media">
-                                                <option value="" selected="selected">選択してください。</option>
+                                                <option value="" selected="selected">選択してください *</option>
                                                 @foreach ($positions as $position)
                                                 <option value="{{ $position->id }}">{{ $position->name }}</option>
                                                 @endforeach
@@ -168,114 +182,79 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-6 col-sm-6">
+                                    <div class="col-md-8 col-sm-8 col-md-offset-2 col-sd-offset-2 pt-10">
                                         <div class="form-group">
-                                            <label for="companyWebsite">URL <span class="label-optional">任意</span></label>
-                                            <input type="text" name="companyWebsite" class="md-input" id="companyWebsite" placeholder="URL">
-                                            <span class="error" style="color:#BF0731" id="error-companyWebsite"></span>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-sm-6">
-                                        <div class="form-group">
-                                            <label for="companyLogo">ロゴ <span class="label-optional">任意</span></label>
-                                            <label class="md-file" for="companyLogo" id="logo-file-label">ロゴ</label>
-                                            <input type="file" name="companyLogo" id="companyLogo" placeholder="ロゴ" style="display: none;" value="{{ old('companyLogo') }}">
-                                            <img id="companyLogo-preview" src="" alt="Image Preview" style="display:none; width: 80px; margin: 10px 0 0 14px;">
-                                            <span class="error" style="color:#BF0731" id="error-companyLogo"></span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-12 col-sm-12">
-                                        <div class="form-group">
-                                            <label for="companyDescription">説明 <span class="label-optional">任意</span></label>
-                                            <textarea name="companyDescription" class="md-textarea" id="companyDescription" rows="7" placeholder="説明">{{ old('companyDescription') }}</textarea>
-                                            <span class="error" style="color:#BF0731" id="error-companyDescription"></span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6 col-sm-6">
-                                        <div class="form-group">
-                                            <label for="companyFounderName">創業者名 <span class="label-optional">任意</span></label>
-                                            <input type="text" name="companyFounderName" class="md-input" id="companyFounderName" placeholder="創業者名">
-                                            <span class="error" style="color:#BF0731" id="error-companyFounderName"></span>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-sm-6">
-                                        <div class="form-group">
-                                            <label for="companyFounderPhoto">創業者の写真 <span class="label-optional">任意</span></label>
-                                            <label class="md-file" for="companyFounderPhoto" id="photo-file-label">創業者の写真</label>
-                                            <input type="file" name="companyFounderPhoto" id="companyFounderPhoto" placeholder="創業者の写真" style="display: none;" value="{{ old('companyFounderPhoto') }}">
-                                            <img id="companyFounderPhoto-preview" src="" alt="Image Preview" style="display:none; width: 80px; margin: 10px 0 0 14px;">
-                                            <span class="error" style="color:#BF0731" id="error-companyFounderPhoto"></span>
-                                        </div>
-                                    </div>
-                                </div>
-                                {{-- <div class="row">
-                                    <div class="col-md-12 col-sm-12">
-                                        <h5>会社住所</h5>
-                                    </div>
-                                </div> --}}
-                                <div class="row">
-                                    <div class="col-md-6 col-sm-6">
-                                        <div class="form-group">
-                                            <label for="companyPostalCode">郵便番号 <span class="label-required">必須</span></label>
+                                            <label class="sr-only" for="companyPostalCode">郵便番号</label>
                                             <input type="text" name="companyPostalCode" class="md-input" id="companyPostalCode" placeholder="郵便番号 *">
                                             <span class="error" style="color:#BF0731" id="error-companyPostalCode"></span>
                                         </div>
                                     </div>
-                                    <div class="col-md-6 col-sm-6">
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-8 col-sm-8 col-md-offset-2 col-sd-offset-2 pt-10">
                                         <div class="form-group">
-                                            <label for="companyRoomNo">部屋番号 <span class="label-required">必須</span></label>
+                                            <label class="sr-only" for="companyRoomNo">部屋番号</label>
                                             <input type="text" name="companyRoomNo" class="md-input" id="companyRoomNo" placeholder="部屋番号 *">
                                             <span class="error" style="color:#BF0731" id="error-companyRoomNo"></span>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-6 col-sm-6">
+                                    <div class="col-md-8 col-sm-8 col-md-offset-2 col-sd-offset-2 pt-10">
                                         <div class="form-group">
-                                            <label for="companyBuilding">ビル <span class="label-required">必須</span></label>
+                                            <label class="sr-only" for="companyBuilding">ビル</label>
                                             <input type="text" name="companyBuilding" class="md-input" id="companyBuilding" placeholder="ビル *">
                                             <span class="error" style="color:#BF0731" id="error-companyBuilding"></span>
                                         </div>
                                     </div>
-                                    <div class="col-md-6 col-sm-6">
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-8 col-sm-8 col-md-offset-2 col-sd-offset-2 pt-10">
                                         <div class="form-group">
-                                            <label for="companyBlock">丁目 <span class="label-required">必須</span></label>
+                                            <label class="sr-only" for="companyBlock">丁目</label>
                                             <input type="text" name="companyBlock" class="md-input" id="companyBlock" placeholder="丁目 *">
                                             <span class="error" style="color:#BF0731" id="error-companyBlock"></span>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-6 col-sm-6">
+                                    <div class="col-md-8 col-sm-8 col-md-offset-2 col-sd-offset-2 pt-10">
                                         <div class="form-group">
-                                            <label for="companyCity">市 <span class="label-required">必須</span></label>
+                                            <label class="sr-only" for="companyCity">市</label>
                                             <input type="text" name="companyCity" class="md-input" id="companyCity" placeholder="市 *">
                                             <span class="error" style="color:#BF0731" id="error-companyCity"></span>
                                         </div>
                                     </div>
-                                    <div class="col-md-6 col-sm-6">
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-8 col-sm-8 col-md-offset-2 col-sd-offset-2 pt-10">
                                         <div class="form-group">
-                                            <label for="companyPrefecture">県 <span class="label-required">必須</span></label>
+                                            <label class="sr-only" for="companyPrefecture">県</label>
                                             <input type="text" name="companyPrefecture" class="md-input" id="companyPrefecture" placeholder="県 *">
                                             <span class="error" style="color:#BF0731" id="error-companyPrefecture"></span>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-6 col-sm-6">
+                                    <div class="col-md-8 col-sm-8 col-md-offset-2 col-sd-offset-2 pt-10">
                                         <div class="form-group">
-                                            <label for="companyCountry">国 <span class="label-required">必須</span></label>
+                                            <label class="sr-only" for="companyCountry">国</label>
                                             <input type="text" name="companyCountry" class="md-input" id="companyCountry" placeholder="国 *">
                                             <span class="error" style="color:#BF0731" id="error-companyCountry"></span>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-12 col-sm-12">
+                                    <div class="col-md-8 col-sm-8 col-md-offset-2 col-sd-offset-2 pt-10">
+                                        <div class="form-group">
+                                            <label class="sr-only" for="companyWebsite">URL</label>
+                                            <input type="text" name="companyWebsite" class="md-input" id="companyWebsite" placeholder="URL">
+                                            <span class="error" style="color:#BF0731" id="error-companyWebsite"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-8 col-sm-8 col-md-offset-2 col-sd-offset-2 pt-10">
                                         <div class="form-group">
                                             <div class="custom-checkbox">
                                                 <input type="checkbox" id="terms" name="terms">
@@ -285,10 +264,11 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-md-12 col-sm-12">
+                            </div>
+                            <div class="row">
+                                <div class="col-md-8 col-sm-8 col-md-offset-2 col-sd-offset-2 pt-10">
                                         <input type="hidden" id="confirmed" name="confirmed" value="0">
-                                        <div class="text-left mt-20">
+                                        <div class="text-left ml-10">
                                             <button type="submit" name="submitButton" class="btn btn-outline btn-md btn-square btn-animate remove-margin">
                                                 <span>登録<i class="ion-android-arrow-forward"></i></span>
                                             </button>
@@ -303,48 +283,6 @@
         </div>
     </section>
     <!--== Contact Form Style 01 End ==-->
-    {{-- logo --}}
-    <script>
-        document.getElementById('companyLogo').addEventListener('change', function() {
-        var fileName = this.files[0].name;
-        var label = document.getElementById('logo-file-label');
-        label.classList.add('selected');
-        label.setAttribute('data-file-name', fileName);
-        });
-        document.getElementById('companyLogo').addEventListener('change', function(event) {
-            const file = event.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    const companyLogoPreview = document.getElementById('companyLogo-preview');
-                    imagePcompanyLogoPreviewreview.src = e.target.result;
-                    companyLogoPreview.style.display = 'block';
-                };
-                reader.readAsDataURL(file);
-            }
-        });
-    </script>
-    {{-- photo --}}
-    <script>
-        document.getElementById('companyFounderPhoto').addEventListener('change', function() {
-        var fileName = this.files[0].name;
-        var label = document.getElementById('photo-file-label');
-        label.classList.add('selected');
-        label.setAttribute('data-file-name', fileName);
-        });
-        document.getElementById('companyFounderPhoto').addEventListener('change', function(event) {
-            const file = event.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    const companyFounderPhotoPreview = document.getElementById('companyFounderPhoto-preview');
-                    companyFounderPhotoPreview.src = e.target.result;
-                    companyFounderPhotoPreview.style.display = 'block';
-                };
-                reader.readAsDataURL(file);
-            }
-        });
-    </script>
     <script>
         function submitForm() {
             if (validateRegisterForm()) {
@@ -356,15 +294,14 @@
             let isValid = true;
             document.querySelectorAll('.error').forEach(el => el.textContent = '');
 
-            const name = document.getElementById('name').value.trim();
+            const nameKanji = document.getElementById('nameKanji').value.trim();
+            const nameFurigana = document.getElementById('nameFurigana').value.trim();
             const email = document.getElementById('email').value.trim();
             const password = document.getElementById('password').value.trim();
             const confirmPassword = document.getElementById('confirmPassword').value.trim();
             const companyName = document.getElementById('companyName').value.trim();
             const companyPhone = document.getElementById('companyPhone').value.trim();
             const companyWebsite = document.getElementById('companyWebsite').value.trim();
-            const companyFounderName = document.getElementById('companyFounderName').value.trim();
-            const companyFounderPhoto = document.getElementById('companyFounderPhoto').files.length > 0;
             const companyPostalCode = document.getElementById('companyPostalCode').value.trim();
             const companyRoomNo = document.getElementById('companyRoomNo').value.trim();
             const companyBuilding = document.getElementById('companyBuilding').value.trim();
@@ -379,12 +316,20 @@
             const terms = document.getElementById('terms');
 
             // Existing validations
-            if (!name) {
+            if (!nameKanji) {
                 isValid = false;
-                document.getElementById('error-name').textContent = 'お名前を入力してください';
+                document.getElementById('error-nameKanji').textContent = 'お名前 (漢字)を入力してください';
             } else if (name.length > 255) {
                 isValid = false;
-                document.getElementById('error-name').textContent = '名前は255文字以内でなければなりません';
+                document.getElementById('error-nameKanji').textContent = '名前 (漢字)は255文字以内でなければなりません';
+            }
+
+            if (!nameFurigana) {
+                isValid = false;
+                document.getElementById('error-nameFurigana').textContent = 'お名前 (ふりがな)を入力してください';
+            } else if (name.length > 255) {
+                isValid = false;
+                document.getElementById('error-nameFurigana').textContent = '名前 (ふりがな)は255文字以内でなければなりません';
             }
 
             if (!email) {
@@ -430,11 +375,6 @@
             if (companyWebsite && /\s/.test(companyWebsite)) {
                 isValid = false;
                 document.getElementById('error-companyWebsite').textContent = 'ウェブサイトにスペースを含めることはできません';
-            }
-
-            if (companyFounderPhoto && !companyFounderName) {
-                isValid = false;
-                document.getElementById('error-companyFounderName').textContent = '創業者名を入力してください';
             }
 
             if (!companyPostalCode) {

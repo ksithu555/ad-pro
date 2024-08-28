@@ -85,17 +85,17 @@
             const note = document.getElementById('note').value.trim();
 
             if (!type) {
-                document.getElementById('error-type').textContent = 'タイプを入力してください。';
+                document.getElementById('error-type').textContent = 'タイプを入力してください';
                 isValid = false;
             }
 
             if (!name) {
-                document.getElementById('error-name').textContent = 'セクションを入力してください。';
+                document.getElementById('error-name').textContent = 'セクションを入力してください';
                 isValid = false;
             }
 
             if (!note) {
-                document.getElementById('error-note').textContent = '注記を入力してください。';
+                document.getElementById('error-note').textContent = '注記を入力してください';
                 isValid = false;
             }
 

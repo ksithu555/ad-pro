@@ -273,50 +273,50 @@
 
             if (type === 'useful') {
                 if (!nameUseful) {
-                    document.getElementById('error-nameUseful').textContent = '名前を入力してください。';
+                    document.getElementById('error-nameUseful').textContent = '名前を入力してください';
                     isValid = false;
                 }
 
                 if (!url) {
-                    document.getElementById('error-url').textContent = 'URLを入力してください。';
+                    document.getElementById('error-url').textContent = 'URLを入力してください';
                     isValid = false;
                 }
             } else if (type === 'social') {
                 if (nameSocial == '') {
-                    document.getElementById('error-nameSocial').textContent = 'ソーシャルメディアを選択してください。';
+                    document.getElementById('error-nameSocial').textContent = 'ソーシャルメディアを選択してください';
                     isValid = false;
                 }
 
                 if (!url) {
-                    document.getElementById('error-url').textContent = 'URLを入力してください。';
+                    document.getElementById('error-url').textContent = 'URLを入力してください';
                     isValid = false;
                 }
             } else if (type === 'text') {
                 if (!text) {
-                    document.getElementById('error-text').textContent = '本文を入力してください。';
+                    document.getElementById('error-text').textContent = '本文を入力してください';
                     isValid = false;
                 }
             } else if (type === 'contact') {
                 if (!address) {
-                    document.getElementById('error-address').textContent = '住所を入力してください。';
+                    document.getElementById('error-address').textContent = '住所を入力してください';
                     isValid = false;
                 }
                 if (!phone) {
-                    document.getElementById('error-phone').textContent = '電話番号を入力してください。';
+                    document.getElementById('error-phone').textContent = '電話番号を入力してください';
                     isValid = false;
                 }
                 if (!email) {
-                    document.getElementById('error-email').textContent = 'メールを入力してください。';
+                    document.getElementById('error-email').textContent = 'メールを入力してください';
                     isValid = false;
                 }
             } else if (type === 'copyRight') {
                 if (!copyRight) {
-                    document.getElementById('error-copyRight').textContent = 'コピーライトを入力してください。';
+                    document.getElementById('error-copyRight').textContent = 'コピーライトを入力してください';
                     isValid = false;
                 }
             } else if (type === 'logo') {
                 if (!logo) {
-                    document.getElementById('error-logo').textContent = '画像を選択してください。';
+                    document.getElementById('error-logo').textContent = '画像を選択してください';
                     isValid = false;
                 }
             }

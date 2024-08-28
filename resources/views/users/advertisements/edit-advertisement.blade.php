@@ -171,16 +171,16 @@
             const namePattern = /^[a-zA-Z0-9-_]+$/; 
 
             if (!name) {
-                document.getElementById('error-name').textContent = '広告名を入力してください。';
+                document.getElementById('error-name').textContent = '広告名を入力してください';
                 isValid = false;
             }
 
             if (!paramName) {
-                document.getElementById('error-paramName').textContent = '広告パラメータを入力してください。';
+                document.getElementById('error-paramName').textContent = '広告パラメータを入力してください';
                 isValid = false;
             } else if (!namePattern.test(paramName)) {
                 isValid = false;
-                document.getElementById('error-paramName').textContent = '広告パラメータには英数字、ダッシュ、およびアンダースコアのみを使用できます。';
+                document.getElementById('error-paramName').textContent = '広告パラメータには英数字、ダッシュ、およびアンダースコアのみを使用できます';
             }
 
             return isValid;

@@ -53,14 +53,14 @@
                             <div class="col-md-8 col-sm-8 col-md-offset-2 col-sd-offset-2">
                                 <div class="form-group">
                                     <label class="sr-only" for="email">Email</label>
-                                    <input type="email" name="email" class="md-input" id="email" placeholder="メール *" required data-error="有効なメールアドレスを入力してください。">
+                                    <input type="email" name="email" class="md-input" id="email" placeholder="メール *" required data-error="有効なメールアドレスを入力してください">
                                     <div class="help-block with-errors"></div>
                                 </div>
                             </div>
                             <div class="col-md-8 col-sm-8 col-md-offset-2 col-sd-offset-2">
                                 <div class="form-group">
                                     <label class="sr-only" for="password">Password</label>
-                                    <input type="password" name="password" class="md-input" id="password" placeholder="パスワード *" required data-error="パスワードを入力してください。">
+                                    <input type="password" name="password" class="md-input" id="password" placeholder="パスワード *" required data-error="パスワードを入力してください">
                                     <div class="help-block with-errors"></div>
                                 </div>
                             </div>

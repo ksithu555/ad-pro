@@ -107,15 +107,15 @@
             const name = document.getElementById('name').value.trim();
 
             if (!type) {
-                document.getElementById('error-type').textContent = 'タイプを入力してください。';
+                document.getElementById('error-type').textContent = 'タイプを入力してください';
                 isValid = false;
             } else if (/[^a-zA-Z0-9-_]/.test(type)) {
-                document.getElementById('error-type').textContent = 'タイプにはスペースや特殊文字を含めることはできません。';
+                document.getElementById('error-type').textContent = 'タイプにはスペースや特殊文字を含めることはできません';
                 isValid = false;
             }
 
             if (!name) {
-                document.getElementById('error-name').textContent = '名前を入力してください。';
+                document.getElementById('error-name').textContent = '名前を入力してください';
                 isValid = false;
             }
 

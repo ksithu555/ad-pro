@@ -46,11 +46,11 @@
             </div>
             <div class="row mt-50">
                 <div class="col-lg-4 col-md-5 col-xs-12 centerize-col text-center">
-                <h6 class="mb-30 font-30px roboto-font font-100 mt-0">We have sent an email to {{ $user->email }} to verify your email address.</h6>
+                <h6 class="mb-30 font-30px roboto-font font-100 mt-0">あなたのメールアドレスを確認するために、{{ $user->email }} にメールを送信しました。</h6>
                 <form method="POST" action="{{ route('verification.resend') }}">
                     @csrf
                     <input type="hidden" name="email" value="{{ $user->email }}">
-                    <button type="submit" class="btn btn-md btn-color btn-animate">Verification Email<i class="tr-icon icofont icofont-arrow-right"></i></span></button>
+                    <button type="submit" class="btn btn-md btn-color btn-animate">確認メールを再送信<i class="tr-icon icofont icofont-arrow-right"></i></span></button>
                 </form>
                 </div>
             </div>

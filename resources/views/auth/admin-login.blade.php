@@ -46,24 +46,29 @@
             </div>
             <div class="row">
                 <div class="col-md-8 centerize-col">
-                    <form name="login-form" id="login-form" action="{{ route('admin.store.login') }}" method="POST" class="contact-form-style-01">
+                    <form name="login-form" id="login-form" action="{{ route('admin.store.login') }}" method="POST" 
+                        class="contact-form-style-01" onsubmit="event.preventDefault(); submitForm();">
                         @csrf
                         <div class="messages"></div>
                         <div class="row">
                             <div class="col-md-8 col-sm-8 col-md-offset-2 col-sd-offset-2">
                                 <div class="form-group">
                                     <label class="sr-only" for="email">Email</label>
-                                    <input type="email" name="email" class="md-input" id="email" placeholder="メール *" required data-error="有効なメールアドレスを入力してください">
-                                    <div class="help-block with-errors"></div>
+                                    <input type="email" name="email" class="md-input" id="email" placeholder="メール *" value="{{ old('email') }}">
+                                    <span class="error" style="color:#BF0731" id="error-email"></span>
                                 </div>
                             </div>
+                        </div>
+                        <div class="row">
                             <div class="col-md-8 col-sm-8 col-md-offset-2 col-sd-offset-2">
                                 <div class="form-group">
                                     <label class="sr-only" for="password">Password</label>
-                                    <input type="password" name="password" class="md-input" id="password" placeholder="パスワード *" required data-error="パスワードを入力してください">
-                                    <div class="help-block with-errors"></div>
+                                    <input type="password" name="password" class="md-input" id="password" placeholder="パスワード *" value="{{ old('password') }}">
+                                    <span class="error" style="color:#BF0731" id="error-password"></span>
                                 </div>
                             </div>
+                        </div>
+                        <div class="row">
                             <div class="col-md-4 col-sm-4 col-md-offset-2 col-sd-offset-2">
                                 <div class="form-group">
                                     <div class="custom-checkbox">
@@ -77,9 +82,12 @@
                                     <a href=""><i class="icon-key"></i>&nbsp;&nbsp;&nbsp;パスワードをお忘れですか？</a>
                                 </div>
                             </div>
+                        </div>
+                        <div class="row">
                             <div class="col-md-8 col-sm-8 col-md-offset-2 col-sd-offset-2">
+                                <input type="hidden" id="confirmed" name="confirmed" value="0">
                                 <div class="text-center">
-                                    <button type="submit" name="submit" class="btn btn-outline btn-md btn-square btn-animate remove-margin">
+                                    <button type="submit" name="submitButton" class="btn btn-outline btn-md btn-square btn-animate remove-margin">
                                         <span>ログイン <i class="ion-android-arrow-forward"></i></span>
                                     </button>
                                 </div>
@@ -124,5 +132,34 @@
                 }
             });
         });
-    </script>    
+    </script>
+    <script>
+        function submitForm() {
+            if (validateLoginForm()) {
+                document.getElementById('confirmed').value = '1';
+                document.getElementById('login-form').submit();
+            }
+        }
+        function validateLoginForm() {
+            let isValid = true;
+            document.querySelectorAll('.error').forEach(el => el.textContent = '');
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value.trim();
+
+            if (!email) {
+                isValid = false;
+                document.getElementById('error-email').textContent = 'メールアドレスを入力してください';
+            } else if (!/\S+@\S+\.\S+/.test(email)) {
+                isValid = false;
+                document.getElementById('error-email').textContent = '有効なメールアドレスを入力してください';
+            }
+
+            if (!password) {
+                isValid = false;
+                document.getElementById('error-password').textContent = 'パスワードを入力してください';
+            }
+
+            return isValid;
+        }
+    </script>
 </x-guest-layout>

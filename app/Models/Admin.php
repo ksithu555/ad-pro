@@ -11,7 +11,7 @@ class Admin extends Model implements UserContract
     use AuthenticatableTrait;
 
     // Define fillable and hidden attributes
-    protected $fillable = ['name', 'email', 'password'];
+    protected $fillable = ['role', 'name', 'email', 'password', 'status'];
     protected $hidden = ['password'];
 
     // Implement the methods from Authenticatable interface

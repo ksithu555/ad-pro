@@ -5,10 +5,16 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\GuestController;
+use App\Http\Controllers\AdminNewsController;
 use App\Http\Controllers\UserMemberController;
+use App\Http\Controllers\AdminMemberController;
+use App\Http\Controllers\AdminNoticeController;
+use App\Http\Controllers\AdminSectionController;
 use App\Http\Controllers\UserMaterialController;
 use App\Http\Controllers\VerificationController;
 use App\Http\Controllers\AdminMaterialController;
+use App\Http\Controllers\AdminSubAdminController;
+use App\Http\Controllers\AdminAnnouncementController;
 use App\Http\Controllers\UserAdvertisementController;
 use App\Http\Controllers\AdminAdvertisementController;
 
@@ -115,6 +121,8 @@ Route::get('user/plans', [UserController::class, 'getPlans'])->name('user.get.pl
 Route::get('/admin/login', [AdminController::class, 'showLogin'])->name('admin.show.login');
 Route::post('/admin/login', [AdminController::class, 'storeLogin'])->name('admin.store.login');
 Route::get('/admin/logout', [AdminController::class, 'logout'])->name('admin.logout');
+Route::get('/admin/change/password', [AdminController::class, 'changePassword'])->name('admin.change.password');
+Route::post('/admin/update/password', [AdminController::class, 'updatePassword'])->name('admin.update.password');
 
 // home
 Route::get('/admin/home', [AdminController::class, 'getHome'])->name('admin.get.home');
@@ -134,7 +142,9 @@ Route::post('/admin/update/footer', [AdminController::class, 'updateFooter'])->n
 Route::get('/admin/delete/footer{id}', [AdminController::class, 'deleteFooter'])->name('admin.delete.footer');
 
 // members
-Route::get('/admin/members', [AdminController::class, 'getMembers'])->name('admin.get.members');
+Route::get('/admin/members', [AdminMemberController::class, 'getMembers'])->name('admin.get.members');
+Route::get('/admin/show/member-detail/{id}', [AdminMemberController::class, 'showMemberDetail'])->name('admin.show.member.detail');
+Route::post('/admin/update/member-status', [AdminMemberController::class, 'updateMemberStatus'])->name('admin.update.member.status');
 
 // advertisements
 Route::get('/admin/advertisements', [AdminAdvertisementController::class, 'getAdvertisements'])->name('admin.get.advertisements');
@@ -149,31 +159,40 @@ Route::get('/admin/material/delete/{id}', [AdminMaterialController::class, 'dele
 Route::post('/admin/update/material-status', [AdminMaterialController::class, 'updateMaterialStatus'])->name('admin.update.material.status');
 
 // sections
-Route::get('/admin/sections', [AdminController::class, 'getSections'])->name('admin.get.sections');
-Route::get('/admin/add/section', [AdminController::class, 'addSection'])->name('admin.add.section');
-Route::post('/admin/store/section', [AdminController::class, 'storeSection'])->name('admin.store.section');
-Route::get('/admin/preview/section/{id}', [AdminController::class, 'previewSection'])->name('admin.preview.section');
-Route::get('/admin/edit/section/{id}', [AdminController::class, 'editSection'])->name('admin.edit.section');
-Route::post('/admin/update/section', [AdminController::class, 'updateSection'])->name('admin.update.section');
-Route::get('/admin/delete/section', [AdminController::class, 'deleteSection'])->name('admin.delete.section');
-Route::post('/admin/update/section-status', [AdminController::class, 'updateSectionStatus'])->name('admin.update.section.status');
+Route::get('/admin/sections', [AdminSectionController::class, 'getSections'])->name('admin.get.sections');
+Route::get('/admin/add/section', [AdminSectionController::class, 'addSection'])->name('admin.add.section');
+Route::post('/admin/store/section', [AdminSectionController::class, 'storeSection'])->name('admin.store.section');
+Route::get('/admin/preview/section/{id}', [AdminSectionController::class, 'previewSection'])->name('admin.preview.section');
+Route::get('/admin/edit/section/{id}', [AdminSectionController::class, 'editSection'])->name('admin.edit.section');
+Route::post('/admin/update/section', [AdminSectionController::class, 'updateSection'])->name('admin.update.section');
+Route::get('/admin/delete/section', [AdminSectionController::class, 'deleteSection'])->name('admin.delete.section');
+Route::post('/admin/update/section-status', [AdminSectionController::class, 'updateSectionStatus'])->name('admin.update.section.status');
 
 // announcements
-Route::get('/admin/announcements', [AdminController::class, 'getAnnouncements'])->name('admin.get.announcements');
-Route::get('/admin/show/announcement/{id}', [AdminController::class, 'showAnnouncement'])->name('admin.show.announcement');
+Route::get('/admin/announcements', [AdminAnnouncementController::class, 'getAnnouncements'])->name('admin.get.announcements');
+Route::get('/admin/show/announcement/{id}', [AdminAnnouncementController::class, 'showAnnouncement'])->name('admin.show.announcement');
 
 // news
-Route::get('/admin/news', [AdminController::class, 'getNews'])->name('admin.get.news');
-Route::get('/admin/add/news', [AdminController::class, 'addNews'])->name('admin.add.news');
-Route::post('/admin/store/news', [AdminController::class, 'storeNews'])->name('admin.store.news');
-Route::get('/admin/edit/news/{id}', [AdminController::class, 'editNews'])->name('admin.edit.news');
-Route::post('/admin/update/news', [AdminController::class, 'updateNews'])->name('admin.update.news');
-Route::get('/admin/delete/news/{id}', [AdminController::class, 'deleteNews'])->name('admin.delete.news');
+Route::get('/admin/news', [AdminNewsController::class, 'getNews'])->name('admin.get.news');
+Route::get('/admin/add/news', [AdminNewsController::class, 'addNews'])->name('admin.add.news');
+Route::post('/admin/store/news', [AdminNewsController::class, 'storeNews'])->name('admin.store.news');
+Route::get('/admin/edit/news/{id}', [AdminNewsController::class, 'editNews'])->name('admin.edit.news');
+Route::post('/admin/update/news', [AdminNewsController::class, 'updateNews'])->name('admin.update.news');
+Route::get('/admin/delete/news/{id}', [AdminNewsController::class, 'deleteNews'])->name('admin.delete.news');
 
 // notice
-Route::get('/admin/notices', [AdminController::class, 'getNotices'])->name('admin.get.notices');
-Route::get('/admin/add/notice', [AdminController::class, 'addNotice'])->name('admin.add.notice');
-Route::post('/admin/store/notice', [AdminController::class, 'storeNotice'])->name('admin.store.notice');
-Route::get('/admin/edit/notice/{id}', [AdminController::class, 'editNotice'])->name('admin.edit.notice');
-Route::post('/admin/update/notice', [AdminController::class, 'updateNotice'])->name('admin.update.notice');
-Route::get('/admin/delete/notice/{id}', [AdminController::class, 'deleteNotice'])->name('admin.delete.notice');
+Route::get('/admin/notices', [AdminNoticeController::class, 'getNotices'])->name('admin.get.notices');
+Route::get('/admin/add/notice', [AdminNoticeController::class, 'addNotice'])->name('admin.add.notice');
+Route::post('/admin/store/notice', [AdminNoticeController::class, 'storeNotice'])->name('admin.store.notice');
+Route::get('/admin/edit/notice/{id}', [AdminNoticeController::class, 'editNotice'])->name('admin.edit.notice');
+Route::post('/admin/update/notice', [AdminNoticeController::class, 'updateNotice'])->name('admin.update.notice');
+Route::get('/admin/delete/notice/{id}', [AdminNoticeController::class, 'deleteNotice'])->name('admin.delete.notice');
+
+// sub admins
+Route::get('/admin/sub-admins', [AdminSubAdminController::class, 'getSubAdmins'])->name('admin.get.sub.admins');
+Route::get('/admin/add/sub-admins', [AdminSubAdminController::class, 'addSubAdmin'])->name('admin.add.sub.admin');
+Route::post('/admin/store/sub-admins', [AdminSubAdminController::class, 'storeSubAdmin'])->name('admin.store.sub.admin');
+Route::get('/admin/edit/sub-admins/{id}', [AdminSubAdminController::class, 'editSubAdmin'])->name('admin.edit.sub.admin');
+Route::post('/admin/update/sub-admins', [AdminSubAdminController::class, 'updateSubAdmin'])->name('admin.update.sub.admin');
+Route::get('/admin/delete/sub-admins/{id}', [AdminSubAdminController::class, 'deleteSubAdmin'])->name('admin.delete.sub.admin');
+Route::post('/admin/update/sub-admin-status', [AdminSubAdminController::class, 'updateSubAdminStatus'])->name('admin.update.sub.admin.status');

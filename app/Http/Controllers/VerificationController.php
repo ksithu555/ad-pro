@@ -46,6 +46,16 @@ class VerificationController extends Controller
             return redirect('/')->with('info', 'Email already verified');
         }
 
+        $lastResend = session('last_resend_' . $user->id);
+
+        if ($lastResend && now()->diffInSeconds($lastResend) < 300) { // 300 seconds = 5 minutes
+            Session::flash('warning', '確認メールを再送信するには5分待つ必要があります');
+            return view('auth.user-register-verify-email', ['user' => $user])->with('warning', 'Please wait 5 minutes before resending the verification email.');
+        }
+
+        // Update the last resend time
+        session(['last_resend_' . $user->id => now()]);
+
         $verificationUrl = URL::temporarySignedRoute(
             'verification.verify',
             now()->addMinutes(60),
@@ -55,6 +65,6 @@ class VerificationController extends Controller
         Mail::to($user->email)->send(new VerifyEmail($user, $verificationUrl));
 
         Session::flash('success', '確認メールを再送信しました');
-        return back()->with('success', 'Verification email resent');
+        return view('auth.user-register-verify-email', ['user' => $user])->with('success', 'Verification email resent');
     }
 }

@@ -83,7 +83,7 @@
             <ul class="dropdown-menu">
               <li><a href="shop-standard.html">One</a></li>
               <li><a href="shop-fullwidth.html">Two</a></li>
-              <li><a href="shop-with-sidebar.html">Three</a></li>
+              <li><a href="{{ route('admin.change.password') }}">パスワード変更</a></li>
               <li><a href="{{ route('admin.logout') }}">ログアウト</a></li>
             </ul>
           </li>
@@ -162,6 +162,16 @@
                 ? 'default-color' : '' }}">お知らせ</span>
             </a>
           </li>
+          @if (Auth::user()->role == 'admin')
+          <li class="dropdown">
+            <a href="{{ route('admin.get.sub.admins') }}" class="dropdown-toggle" data-toggle="dropdown">
+                <span class="{{ request()->routeIs('admin.get.sub.admins') ||
+                request()->routeIs('admin.add.sub.admin') ||
+                request()->routeIs('admin.edit.sub.admin')
+                ? 'default-color' : '' }}">管理者一覧</span>
+            </a>
+          </li>
+          @endif
         </ul>
       </div>
       <!--== /.navbar-collapse ==-->

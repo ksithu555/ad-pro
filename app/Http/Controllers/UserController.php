@@ -21,6 +21,7 @@ use Illuminate\Support\Facades\Session;
 use App\Models\AdvertisementFooterBlock;
 use App\Models\AdvertisementHeaderBlock;
 use App\Models\Company;
+use App\Models\Prefecture;
 use App\Models\RegisterSelector;
 
 class UserController extends Controller
@@ -34,12 +35,12 @@ class UserController extends Controller
     
         if (!$loginAdmin) {
             Session::flash('error', 'Email is Incorrect');
-            return redirect()->back();
+            return redirect()->back()->withInput();
         }
     
         if (!Hash::check($request->password, $loginAdmin->password)) {
             Session::flash('error', 'Email or Password is Incorrect');
-            return redirect()->back();
+            return redirect()->back()->withInput();
         }
     
         Auth::login($loginAdmin);
@@ -50,7 +51,8 @@ class UserController extends Controller
 
     public function showRegister() {
         $registerSelectors = RegisterSelector::all();
-        return view('auth.user-register', compact('registerSelectors'));
+        $prefectures = Prefecture::all();
+        return view('auth.user-register', compact('registerSelectors', 'prefectures'));
     }
 
     public function storeRegister(Request $request) {
@@ -66,18 +68,14 @@ class UserController extends Controller
         Company::create([
             'user_id' => $user->id,
             'name' => $request->companyName,
-            'phone' => $request->companyPhone,
             'business' => $request->businessType,
             'purpose' => $request->purposeOfUse,
             'industry' => $request->industry,
             'position' => $request->position,
+            'phone' => $request->companyPhone,
             'postal_code' => $request->companyPostalCode,
-            'room_no' => $request->companyRoomNo,
-            'building' => $request->companyBuilding,
-            'block' => $request->companyBlock,
-            'city' => $request->companyCity,
-            'prefecture' => $request->companyPrefecture,
-            'country' => $request->companyCountry,
+            'prefecture_id' => $request->companyPrefecture,
+            'address' => $request->companyAddress,
             'website' => $request->companyWebsite
         ]);
         

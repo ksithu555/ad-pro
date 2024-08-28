@@ -11,18 +11,16 @@
             </div>
         </div>
         <div class="row">
-          <div class="col-md-12">
-            <div style="text-align: right;">
-              <a class="btn btn-md btn-dark-outline btn-square margin-left-auto margin-right-auto display-table-sm"
-              href="{{ route('admin.add.section') }}">
-                <i class="fa-icon-plus-square"></i> Section
-              </a>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-8 col-md-offset-2">
                 <x-message-box></x-message-box>
+            </div>
+            <div class="col-md-2">
+                <div style="text-align: right;">
+                    <a class="btn btn-md btn-dark-outline btn-square margin-left-auto margin-right-auto display-table-sm"
+                    href="{{ route('admin.add.section') }}">
+                        <i class="fa-icon-plus-square"></i> Section
+                    </a>
+                </div>
             </div>
         </div>
         <div class="row mt-10">
@@ -32,6 +30,7 @@
                         <thead>
                             <tr>
                             <th>#</th>
+                            <th style="min-width: 110px;">登録日</th>
                             <th style="min-width: 110px;">タイプ</th>
                             <th>名前</th>
                             <th>注記</th>
@@ -45,6 +44,9 @@
                             <tr>
                                 <td>
                                     {{ $ttl + 1 - ($sections->firstItem() + $key) }}
+                                </td>
+                                <td style="min-width: 110px;">
+                                    {{ $section->created_at->format('Y-m-d') }}
                                 </td>
                                 <td style="min-width: 110px;">
                                     {{ $section->type }}

@@ -15,38 +15,44 @@
                     <div class="messages"></div>
                     <input type="hidden" id="id" name="id" value="{{ $material->id }}">
                     <div class="row">
-                    <div class="col-md-12 col-sm-12">
-                        <div class="form-group">
-                            <label class="sr-only" for="type">タイプ</label>
-                            <input type="text" name="type" class="md-input" id="type" placeholder="タイプ *" value="{{ old('type') ? old('type') : $material->type }}">
-                            <span class="error" style="color:#BF0731" id="error-type"></span>
-                        </div>
-                    </div>
-                    <div class="col-md-12 col-sm-12">
-                        <div class="form-group">
-                            <label class="sr-only" for="name">名前</label>
-                            <input type="text" name="name" class="md-input" id="name" placeholder="名前 *" value="{{ old('name') ? old('name') : $material->name }}">
-                            <span class="error" style="color:#BF0731" id="error-name"></span>
-                        </div>
-                    </div>
-                    <div class="col-md-12 col-sm-12">
-                        <div class="form-group">
-                            <label class="md-file" for="image" id="file-label">画像 *</label>
-                            <input type="file" name="image" id="image" placeholder="画像 *" style="display: none;" value="{{ old('image') }}">
-                            <img id="image-preview" src="{{ asset('assets/images/all/' . $material->image) }}" alt="Image Preview" style="width: 80px; margin: 10px 0 0 14px;">
-                            <span class="error" style="color:#BF0731" id="error-image"></span>
-                        </div>
-                    </div>
-                    <div class="col-md-12 col-sm-12">
-                        <div class="text-left mt-20">
-                            <input type="hidden" id="confirmed" name="confirmed" value="0">
-                            <div class="tr-modal-popup">
-                                <a onclick="showModal()" id="open-modal" class="btn btn-outline btn-md btn-square btn-animate remove-margin">
-                                    <span>修正 <i class="ion-android-arrow-forward"></i></span>
-                                </a>
+                        <div class="col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2">
+                            <div class="form-group">
+                                <label class="sr-only" for="type">タイプ</label>
+                                <input type="text" name="type" class="md-input" id="type" placeholder="タイプ *" value="{{ old('type') ? old('type') : $material->type }}">
+                                <span class="error" style="color:#BF0731" id="error-type"></span>
                             </div>
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2">
+                            <div class="form-group">
+                                <label class="sr-only" for="name">名前</label>
+                                <input type="text" name="name" class="md-input" id="name" placeholder="名前 *" value="{{ old('name') ? old('name') : $material->name }}">
+                                <span class="error" style="color:#BF0731" id="error-name"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2">
+                            <div class="form-group">
+                                <label class="md-file" for="image" id="file-label">画像 *</label>
+                                <input type="file" name="image" id="image" placeholder="画像 *" style="display: none;" value="{{ old('image') }}">
+                                <img id="image-preview" src="{{ asset('assets/images/all/' . $material->image) }}" alt="Image Preview" style="width: 80px; margin: 10px 0 0 14px;">
+                                <span class="error" style="color:#BF0731" id="error-image"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2">
+                            <div class="text-center">
+                                <input type="hidden" id="confirmed" name="confirmed" value="0">
+                                <div class="tr-modal-popup">
+                                    <a onclick="showModal()" id="open-modal" class="btn btn-dark-outline btn-md btn-square btn-animate remove-margin">
+                                        <span>修正 <i class="ion-android-arrow-forward"></i></span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </form>
                 </div>

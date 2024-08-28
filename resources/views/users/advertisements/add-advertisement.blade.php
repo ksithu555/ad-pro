@@ -73,13 +73,23 @@
 
     {{-- logo white --}}
     <script>
-        document.getElementById('logoWhite').addEventListener('change', function() {
-        var fileName = this.files[0].name;
-        var label = document.getElementById('logoWhite-file-label');
-        label.classList.add('selected');
-        label.setAttribute('data-file-name', fileName);
+        document.getElementById('logoWhite-file-label').addEventListener('click', function() {
+            var label = document.getElementById('logoWhite-file-label');
+            label.classList.add('md-file-focus');
+        });
+        document.getElementById('logoWhite-file-label').addEventListener('mouseleave', function() {
+            var label = document.getElementById('logoWhite-file-label');
+            setTimeout(() => label.classList.remove('md-file-focus'), 1500);
         });
         document.getElementById('logoWhite').addEventListener('change', function(event) {
+            var fileName = this.files[0].name;
+            var label = document.getElementById('logoWhite-file-label');
+            
+            // Update label with file name and apply 'selected' class
+            label.classList.add('selected');
+            label.setAttribute('data-file-name', fileName);
+            
+            // Display the preview of the selected file
             const file = event.target.files[0];
             if (file) {
                 const reader = new FileReader();
@@ -90,17 +100,25 @@
                 };
                 reader.readAsDataURL(file);
             }
+            label.classList.remove('md-file-focus');
         });
     </script>
     {{-- logo color --}}
     <script>
-        document.getElementById('logoColor').addEventListener('change', function() {
-        var fileName = this.files[0].name;
-        var label = document.getElementById('logoColor-file-label');
-        label.classList.add('selected');
-        label.setAttribute('data-file-name', fileName);
+        document.getElementById('logoColor-file-label').addEventListener('click', function() {
+            var label = document.getElementById('logoColor-file-label');
+            label.classList.add('md-file-focus');
         });
-        document.getElementById('logoColor').addEventListener('change', function(event) {
+        document.getElementById('logoColor-file-label').addEventListener('mouseleave', function() {
+            var label = document.getElementById('logoColor-file-label');
+            setTimeout(() => label.classList.remove('md-file-focus'), 1500);
+        });
+        document.getElementById('logoColor').addEventListener('change', function() {
+            var fileName = this.files[0].name;
+            var label = document.getElementById('logoColor-file-label');
+            label.classList.add('selected');
+            label.setAttribute('data-file-name', fileName);
+
             const file = event.target.files[0];
             if (file) {
                 const reader = new FileReader();
@@ -111,6 +129,7 @@
                 };
                 reader.readAsDataURL(file);
             }
+            label.classList.remove('md-file-focus');
         });
     </script>
     {{-- validate --}}

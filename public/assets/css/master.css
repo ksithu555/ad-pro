@@ -150,7 +150,7 @@ input, textarea, select {border: 1px solid #eee;font-size: 14px;padding: 8px 15p
   background-color: transparent;
   color: #000000;
   text-align: left;
-  margin: 0 0 20px 0;
+  margin: 0 0 0 0;
   max-width: 100%;
 }
 
@@ -5005,8 +5005,8 @@ input:checked + .slider:before {
 /* Style for the search button */
 .search-box button {
   position: absolute;
-  right: 5px;
-  top: 35%;
+  right: 1%;
+  top: 50%;
   transform: translateY(-50%);
   background-color: #BF0731;
   border: none;
@@ -5344,3 +5344,29 @@ input:checked + .slider:before {
 .custom-checkbox input[type="checkbox"]:focus {
   outline: none;
 }
+
+/* Transition effect for input fields */
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"],
+.form-group label.md-file,
+.form-group select {
+    transition: border-color 0.3s ease-in-out;
+}
+
+/* Change border color on focus */
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group input[type="password"]:focus,
+.md-file-focus,
+.form-group select:focus {
+    border-color: #BF0731;
+}
+
+/* Change border color to red when .error element contains text */
+/* .form-group:has(.error:not(:empty)) input[type="text"],
+.form-group:has(.error:not(:empty)) input[type="password"],
+.form-group:has(.error:not(:empty)) select {
+    border-color: red;
+} */
+

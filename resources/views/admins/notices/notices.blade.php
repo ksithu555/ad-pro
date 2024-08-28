@@ -12,7 +12,7 @@
           </div>
           <div class="row">
             <div class="col-md-12">
-              <div class="text-center">
+              <div class="text-right">
                   <a class="btn btn-md btn-dark-outline btn-square margin-left-auto margin-right-auto display-table-sm"
                       href="{{ route('admin.add.notice') }}">
                       <i class="fa-icon-plus-square"></i> お知らせ登録
@@ -27,10 +27,10 @@
                 <table class="table table-bordered table-striped table-hover shop-cart">
                   <thead>
                     <tr>
-                      <th><strong>#</strong></th>
-                      <th><strong>タイトル</strong></th>
-                      <th><strong>体</strong></th>
-                      <th><strong>アクション</strong></th>
+                      <th>#</th>
+                      <th>タイトル</th>
+                      <th>体</th>
+                      <th>アクション</th>
                     </tr>
                   </thead>
                   <tbody>

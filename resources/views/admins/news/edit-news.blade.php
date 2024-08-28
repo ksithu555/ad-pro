@@ -4,63 +4,74 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-8 section-heading">
-                <h4 class="text-uppercase mt-0">新着情報登録</h4>
+                <h4 class="text-uppercase mt-0">新着情報修正</h4>
                 </div>
             </div>
             <div class="row mt-50">
                 <div class="col-md-12">
-                <form name="add-news-form" id="add-news-form" action="{{ route('admin.store.news') }}" method="POST" 
+                <form name="edit-news-form" id="edit-news-form" action="{{ route('admin.update.news') }}" method="POST" 
                     class="contact-form-style-01" enctype="multipart/form-data">
                     @csrf
                     <div class="messages"></div>
+                    <input type="hidden" id="id" name="id" value="{{ $new->id }}">
                     <div class="row">
-                    <div class="col-md-12 col-sm-12">
-                        <div class="form-group">
-                            <label class="sr-only" for="title">タイトル</label>
-                            <input type="text" name="title" class="md-input" id="title" placeholder="タイトル *" value="{{ old('title') }}">
-                            <span class="error" style="color:#BF0731" id="error-title"></span>
-                        </div>
-                    </div>
-                    <div class="col-md-12 col-sm-12">
-                        <div class="form-group">
-                            <label class="sr-only" for="body">体</label>
-                            <textarea name="body" class="md-textarea" id="body" rows="7" placeholder="体 *">{{ old('body') }}</textarea>
-                            <span class="error" style="color:#BF0731" id="error-body"></span>
-                        </div>
-                    </div>
-                    <div class="col-md-12 col-sm-12">
-                        <div class="form-group">
-                            <label class="md-file" for="image" id="file-label">画像 *</label>
-                            <input type="file" name="image" id="image" placeholder="画像 *" style="display: none;" value="{{ old('image') }}">
-                            <img id="image-preview" src="" alt="Image Preview" style="display:none; width: 80px; margin: 10px 0 0 14px;">
-                            <span class="error" style="color:#BF0731" id="error-image"></span>
-                        </div>
-                    </div>
-                    <div class="col-md-12 col-sm-12">
-                        <div class="form-group">
-                            <label class="sr-only" for="authorName">著者名</label>
-                            <input type="text" name="authorName" class="md-input" id="authorName" placeholder="著者名 *" value="{{ old('authorName') }}">
-                            <span class="error" style="color:#BF0731" id="error-authorName"></span>
-                        </div>
-                    </div>
-                    <div class="col-md-12 col-sm-12">
-                        <div class="form-group">
-                            <label class="md-file" for="authorImage" id="author-file-label">著者画像 *</label>
-                            <input type="file" name="authorImage" id="authorImage" placeholder="著者画像 *" style="display: none;" value="{{ old('authorImage') }}">
-                            <img id="authorImage-preview" src="" alt="Image Preview" style="display:none; width: 80px; margin: 10px 0 0 14px;">
-                            <span class="error" style="color:#BF0731" id="error-authorImage"></span>
-                        </div>
-                    </div>
-                    <div class="col-md-12 col-sm-12">
-                        <div class="text-left mt-20">
-                            <input type="hidden" id="confirmed" name="confirmed" value="0">
-                            <div class="tr-modal-popup">
-                                <a onclick="showModal()" id="open-modal" class="btn btn-outline btn-md btn-square btn-animate remove-margin">
-                                    <span>登録 <i class="ion-android-arrow-forward"></i></span>
-                                </a>
+                        <div class="col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2">
+                            <div class="form-group">
+                                <label class="sr-only" for="title">タイトル</label>
+                                <input type="text" name="title" class="md-input" id="title" placeholder="タイトル *" value="{{ old('title') ? old('title') : $new->title }}">
+                                <span class="error" style="color:#BF0731" id="error-title"></span>
                             </div>
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2">
+                            <div class="form-group">
+                                <label class="sr-only" for="body">体</label>
+                                <textarea name="body" class="md-textarea" id="body" rows="7" placeholder="体 *">{{ old('body') ? old('body') : $new->body }}</textarea>
+                                <span class="error" style="color:#BF0731" id="error-body"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2">
+                            <div class="form-group">
+                                <label class="md-file" for="image" id="file-label">画像 *</label>
+                                <input type="file" name="image" id="image" placeholder="画像 *" style="display: none;">
+                                <img id="image-preview" src="{{ asset('assets/images/all/' . $new->image) }}" alt="Image Preview" style="width: 80px; margin: 10px 0 0 14px;">
+                                <span class="error" style="color:#BF0731" id="error-image"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2">
+                            <div class="form-group">
+                                <label class="sr-only" for="authorName">著者名</label>
+                                <input type="text" name="authorName" class="md-input" id="authorName" placeholder="著者名 *" value="{{ old('authorName') ? old('authorName') : $new->author_name }}">
+                                <span class="error" style="color:#BF0731" id="error-authorName"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2">
+                            <div class="form-group">
+                                <label class="md-file" for="authorImage" id="author-file-label">著者画像 *</label>
+                                <input type="file" name="authorImage" id="authorImage" placeholder="著者画像 *" style="display: none;" value="{{ old('authorImage') ? old('authorImage') : $new->author_image }}">
+                                <img id="authorImage-preview" src="{{ asset('assets/images/all/' . $new->author_image) }}" alt="Image Preview" style="width: 80px; margin: 10px 0 0 14px;">
+                                <span class="error" style="color:#BF0731" id="error-authorImage"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2">
+                            <div class="text-center">
+                                <input type="hidden" id="confirmed" name="confirmed" value="0">
+                                <div class="tr-modal-popup">
+                                    <a onclick="showModal()" id="open-modal" class="btn btn-dark-outline btn-md btn-square btn-animate remove-margin">
+                                        <span>修正 <i class="ion-android-arrow-forward"></i></span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </form>
                 </div>
@@ -122,7 +133,7 @@
     {{-- validate --}}
     <script>
         function showModal() {
-            if (validateAddNewsForm()) {
+            if (validateEditNewsForm()) {
                 document.getElementById('open-modal').setAttribute('href', '#modal-popup');
                 document.getElementById('open-modal').setAttribute('data-effect', 'mfp-newspaper');
                 document.getElementById('open-modal').click();
@@ -131,18 +142,16 @@
 
         function submitForm() {
             document.getElementById('confirmed').value = '1';
-            document.getElementById('add-news-form').submit();
+            document.getElementById('edit-news-form').submit();
         }
 
-        function validateAddNewsForm() {
+        function validateEditNewsForm() {
             let isValid = true;
             document.querySelectorAll('.error').forEach(el => el.textContent = '');
 
             const title = document.getElementById('title').value.trim();
             const body = document.getElementById('body').value.trim();
-            const image = document.getElementById('image').files[0];
             const authorName = document.getElementById('authorName').value.trim();
-            const authorImage = document.getElementById('authorImage').files[0];
 
             if (!title) {
                 document.getElementById('error-title').textContent = 'タイトルを入力してください';
@@ -154,18 +163,8 @@
                 isValid = false;
             }
 
-            if (!image) {
-                document.getElementById('error-image').textContent = '画像を選択してください';
-                isValid = false;
-            }
-
             if (!authorName) {
                 document.getElementById('error-authorName').textContent = '著者名を入力してください';
-                isValid = false;
-            }
-
-            if (!authorImage) {
-                document.getElementById('error-authorImage').textContent = '著者画像を選択してください';
                 isValid = false;
             }
 

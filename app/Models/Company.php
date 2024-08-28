@@ -9,18 +9,14 @@ class Company extends Model
     protected $fillable = [
         'user_id',
         'name',
-        'phone',
         'business',
         'purpose',
         'industry',
         'position',
+        'phone',
         'postal_code',
-        'room_no',
-        'building',
-        'block',
-        'city',
-        'prefecture',
-        'country',
+        'prefecture_id',
+        'address',
         'website',
     ];
 
@@ -51,5 +47,10 @@ class Company extends Model
     {
         return $this->belongsTo(RegisterSelector::class, 'position', 'id')
             ->where('type', 'position');
+    }
+
+    public function prefecture()
+    {
+        return $this->belongsTo(Prefecture::class);
     }
 }

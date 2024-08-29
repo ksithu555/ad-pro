@@ -4,8 +4,8 @@
         <section class="title-hero-bg parallax-effect" style="background-image: url({{ asset('assets/images/all/header-ad-list.webp') }});">
             <div class="container">
                 <div class="page-title text-center white-color">
-                    <h1>Default Header</h1>
-                    <h4 class="text-uppercase mt-30">Our Creative Portfolio</h4>
+                    <h1>登録</h1>
+                    <h4 class="text-uppercase mt-30">Register</h4>
                 </div>
             </div>
         </section>
@@ -19,8 +19,8 @@
                    <div class="v-align-middle text-left text-xs-center breadcrumb">
                          <!-- Breadcrumb Start -->
                              <ul class="text-xs-center white-color">
-                            <li>ホーム</li>
-                            <li>登録</li>
+                            <li>Home</li>
+                            <li>Register</li>
                           </ul>
                       <!-- Breadcrumb End -->
                   </div>
@@ -37,13 +37,9 @@
     <!--== Contact Form Style 01 Start ==-->
     <section class="white-bg">
         <div class="container">
-            <div class="row">
-                <div class="col-sm-8 section-heading">
-                    <h4 class="text-uppercase mt-0">登録</h4>
-                </div>
-            </div>
-            <div class="row mt-50">
+            <div class="row mt-25">
                 <div class="col-md-12">
+                    <x-message-box></x-message-box>
                     <form name="register-form" id="register-form" action="{{ route('user.store.register') }}" method="POST" 
                         class="contact-form-style-01" onsubmit="event.preventDefault(); submitForm();" enctype="multipart/form-data">
                         @csrf

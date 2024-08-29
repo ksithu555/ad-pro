@@ -38,7 +38,7 @@
     <!--== Accordion Style 03 Start ==-->
     <section class="white-bg">
         <div class="container">
-            <div class="row mt-50">
+            <div class="row mt-25">
                 <div class="col-md-8 col-sm-12 centerize-col">
                     <div class="panel-group accordion-style-03" id="accordion-style-03">
                         <div class="panel">

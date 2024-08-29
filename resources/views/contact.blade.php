@@ -38,7 +38,7 @@
   <!--== Contact Form Style 01 Start ==-->
   <section class="white-bg">
     <div class="container">
-        <div class="row mt-50">
+        <div class="row mt-25">
             <div class="col-md-12">
               <form name="contact-form" id="contact-form" action="php/contact.php" method="POST" class="contact-form-style-01">
                 <div class="messages"></div>

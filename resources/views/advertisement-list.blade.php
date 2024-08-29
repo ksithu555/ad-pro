@@ -38,9 +38,9 @@
     <!--== Portfolio Start ==-->
     <section class="white-bg dark-block">
         <div class="container">
-            <div class="row mt-50">
+            <div class="row mt-25">
                 <div class="col-md-12">
-                    <div id="portfolio-gallery-filter" class="cbp-l-filters-alignCenter text-sm-center mb-100">
+                    <div id="portfolio-gallery-filter" class="cbp-l-filters-alignCenter text-sm-center mb-50">
                         <div data-filter="*" class="cbp-filter-item-active cbp-filter-item dark">
                             All
                         </div>

@@ -38,7 +38,7 @@
     <!--== Blog Classic Post Start ==-->
     <section class="white-bg">
         <div class="container">
-            <div class="row blog-style-01 mt-50">
+            <div class="row blog-style-01 mt-25">
                 @foreach ($news as $key => $new)
                 <!--== Post Start ==-->
                 <div class="col-md-4 col-sm-4 col-xs-12 mb-30">

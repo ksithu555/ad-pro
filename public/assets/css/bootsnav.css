@@ -735,8 +735,13 @@ body.on-side .wrap-sticky nav.navbar.bootsnav.sticked{
 		position: relative;
 	}
 
-    nav.navbar.bootsnav.navbar-transparent.white, nav.navbar.bootsnav.navbar-transparent.dark{
+    nav.navbar.bootsnav.navbar-transparent.white{
         background-color:black;
+        height:80px;
+		box-shadow: none;
+    }
+    nav.navbar.bootsnav.navbar-transparent.dark{
+        background-color:white;
         height:80px;
 		box-shadow: none;
     }

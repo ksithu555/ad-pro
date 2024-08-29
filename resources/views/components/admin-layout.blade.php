@@ -170,7 +170,7 @@
                 ? 'default-color' : '' }}">お知らせ</span>
             </a>
           </li>
-          @if (Auth::user()->role == 'admin')
+          @if (Auth::guard('admin')->user()->role == 'admin')
           <li class="dropdown">
             <a href="{{ route('admin.get.sub.admins') }}" class="dropdown-toggle" data-toggle="dropdown">
                 <span class="{{ request()->routeIs('admin.get.sub.admins') ||

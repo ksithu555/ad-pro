@@ -54,7 +54,7 @@ class AdminController extends Controller
     }
 
     public function updatePassword(Request $request) {
-        $user = User::find(Auth::user()->id);
+        $user = Admin::find(Auth::guard('admin')->user()->id);
 
         if (!Hash::check($request->currentPassword, $user->password)) {
             Session::flash('error', '現在のパスワードが正しくありません');

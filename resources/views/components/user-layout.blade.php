@@ -78,7 +78,15 @@
       <div class="attr-nav hidden-xs sm-display-none">
         <ul>
           <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icofont icofont-user-alt-4"></i></a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              @php
+                $defaultColor = '';
+                  if (request()->routeIs('user.get.plans')) {
+                    $defaultColor = 'default-color';
+                  }
+              @endphp
+              <i class="icofont icofont-user-alt-4 {{ $defaultColor }}"></i>
+            </a>
             <ul class="dropdown-menu">
               <li><a href="shop-standard.html">One</a></li>
               <li><a href="{{ route('user.get.advertisements') }}">広告管理</a></li>

@@ -7,10 +7,12 @@ use Illuminate\Http\Request;
 use App\Models\Advertisement;
 use App\Models\AdvertisementSection;
 use Illuminate\Support\Facades\Auth;
+use App\Models\AdvertisementBoxBlock;
 use App\Models\AdvertisementListBlock;
 use Illuminate\Support\Facades\Session;
 use App\Models\AdvertisementFooterBlock;
 use App\Models\AdvertisementHeaderBlock;
+use App\Models\AdvertisementSubBoxBlock;
 
 class UserAdvertisementController extends Controller
 {
@@ -26,14 +28,14 @@ class UserAdvertisementController extends Controller
         return view('users.advertisements.add-advertisement');
     }
 
-    public function showAdvertisement() {
-        $advertisement = Advertisement::where('user_id', Auth::user()->id)->first();
-        if (!$advertisement) {
-            return view('users.advertisements.show-advertisement', compact('advertisement'));
-        } else {
-            return view('users.advertisements.edit-advertisement', compact('advertisement'));
-        }
-    }
+    // public function showAdvertisement() {
+    //     $advertisement = Advertisement::where('user_id', Auth::user()->id)->first();
+    //     if (!$advertisement) {
+    //         return view('users.advertisements.show-advertisement', compact('advertisement'));
+    //     } else {
+    //         return view('users.advertisements.edit-advertisement', compact('advertisement'));
+    //     }
+    // }
 
     public function storeAdvertisement(Request $request) {
         if (!empty($request->logoWhite)) {
@@ -157,6 +159,20 @@ class UserAdvertisementController extends Controller
                 return response()->json(['success' => true]);
             }
         }
+        if ($section->section->type == 'list') {
+            $advertisementListBlock = AdvertisementListBlock::where('advertisement_section_id', $section->id)->get();
+            if ($advertisementListBlock->isEmpty()) {
+                Session::flash('warning', 'セクションのステータスはまだ変更できません');
+                return response()->json(['success' => true]);
+            }
+        }
+        if ($section->section->type == 'box') {
+            $advertisementBoxBlock = AdvertisementBoxBlock::where('advertisement_section_id', $section->id)->get();
+            if ($advertisementBoxBlock->isEmpty()) {
+                Session::flash('warning', 'セクションのステータスはまだ変更できません');
+                return response()->json(['success' => true]);
+            }
+        }
         if ($section) {
             $section->status = $request->status;
             $section->save();
@@ -257,6 +273,9 @@ class UserAdvertisementController extends Controller
         if($type == 'list') {
             $advertisementSectionBlocks = AdvertisementListBlock::where('advertisement_section_id', $advertisementSection->id)->get();
         }
+        if($type == 'box') {
+            $advertisementSectionBlocks = AdvertisementBoxBlock::where('advertisement_section_id', $advertisementSection->id)->get();
+        }
 
         return view('users.advertisements.show-section-blocks', compact('id', 'type', 'advertisementSection', 'advertisementSectionBlocks'));
     }
@@ -321,10 +340,10 @@ class UserAdvertisementController extends Controller
         if ($block) {
             $block->status = $request->status;
             $block->save();
-            Session::flash('success', 'ブロックのステータスが正常に更新されました');
+            Session::flash('success', 'ヘッダーブロックのステータスが正常に更新されました');
             return response()->json(['success' => true]);
         }
-        Session::flash('error', 'ブロックステータスの変更に失敗しました');
+        Session::flash('error', 'ヘッダーブロックステータスの変更に失敗しました');
         return response()->json(['success' => false]);
     }
 
@@ -394,14 +413,14 @@ class UserAdvertisementController extends Controller
 
         $advertisementFooterBlock = AdvertisementFooterBlock::find($request->id);
         $advertisementFooterBlock->update($updateData);
-        Session::flash('success', 'ヘッダーブロックが正常に更新されました');
+        Session::flash('success', 'フッターブロックが正常に更新されました');
         return redirect()->route('user.show.section.blocks', $advertisementFooterBlock->advertisement_section_id);
     }
 
     public function deleteFooterBlock($id) {
         $advertisementHeaderBlock = AdvertisementHeaderBlock::find($id);
         AdvertisementHeaderBlock::where('id', $id)->delete();
-        Session::flash('success', 'ヘッダーブロックが正常に削除されました');
+        Session::flash('success', 'フッターブロックが正常に削除されました');
         return redirect()->route('user.show.section.blocks', $advertisementHeaderBlock->advertisement_section_id);
 
     }
@@ -411,10 +430,10 @@ class UserAdvertisementController extends Controller
         if ($block) {
             $block->status = $request->status;
             $block->save();
-            Session::flash('success', 'ブロックのステータスが正常に更新されました');
+            Session::flash('success', 'フッターブロックのステータスが正常に更新されました');
             return response()->json(['success' => true]);
         }
-        Session::flash('error', 'ブロックステータスの変更に失敗しました');
+        Session::flash('error', 'フッターブロックステータスの変更に失敗しました');
         return response()->json(['success' => false]);
     }
 
@@ -478,10 +497,128 @@ class UserAdvertisementController extends Controller
         if ($block) {
             $block->status = $request->status;
             $block->save();
-            Session::flash('success', 'ブロックのステータスが正常に更新されました');
+            Session::flash('success', 'リストブロックのステータスが正常に更新されました');
             return response()->json(['success' => true]);
         }
-        Session::flash('error', 'ブロックステータスの変更に失敗しました');
+        Session::flash('error', 'リストブロックステータスの変更に失敗しました');
+        return response()->json(['success' => false]);
+    }
+
+    // Box
+    public function addBoxBlock($id) {
+        return view('users.advertisements.add-box-block', compact('id'));
+    }
+
+    public function storeBoxBlock(Request $request) {
+        AdvertisementBoxBlock::create([
+            'advertisement_section_id' => $request->advertisementSectionId,
+            'title' => $request->title,
+            'body' => $request->body,
+            'status' => 0
+        ]);
+
+        Session::flash('success', 'ボックスブロックが正常に追加されました');
+        return redirect()->route('user.show.section.blocks', $request->advertisementSectionId);
+    }
+
+    public function editBoxBlock($id) {
+        $advertisementBoxBlock = AdvertisementBoxBlock::find($id);
+        return view('users.advertisements.edit-box-block', compact('advertisementBoxBlock'));
+    }
+
+    public function updateBoxBlock(Request $request) {
+        $updateData = [
+            'title' => $request->title,
+            'body' => $request->body,
+        ];
+
+        $advertisementBoxBlock = AdvertisementBoxBlock::find($request->id);
+        $advertisementBoxBlock->update($updateData);
+        Session::flash('success', 'ボックスブロックが正常に更新されました');
+        return redirect()->route('user.show.section.blocks', $advertisementBoxBlock->advertisement_section_id);
+    }
+
+    public function deleteBoxBlock($id) {
+        $advertisementBoxBlock = AdvertisementBoxBlock::find($id);
+        AdvertisementBoxBlock::where('id', $id)->delete();
+        Session::flash('success', 'ボックスブロックが正常に削除されました');
+        return redirect()->route('user.show.section.blocks', $advertisementBoxBlock->advertisement_section_id);
+
+    }
+
+    public function updateBoxBlockStatus(Request $request) {
+        $block = AdvertisementBoxBlock::find($request->id);
+        if ($block) {
+            $block->status = $request->status;
+            $block->save();
+            Session::flash('success', 'ボックスブロックのステータスが正常に更新されました');
+            return response()->json(['success' => true]);
+        }
+        Session::flash('error', 'ボックスブロックステータスの変更に失敗しました');
+        return response()->json(['success' => false]);
+    }
+
+    // Sub Block
+    public function showBlockSubBlocks($type, $id) {
+        if ($type == 'box') {
+            $advertisementBlock = AdvertisementBoxBlock::find($id);
+            $advertisementBlockSubBlocks = AdvertisementSubBoxBlock::where('advertisement_box_block_id', $advertisementBlock->id)->get();
+        }
+        
+        return view('users.advertisements.show-block-sub-blocks', compact('id', 'type', 'advertisementBlock', 'advertisementBlockSubBlocks'));
+    }
+
+    public function addSubBoxBlock($id) {
+        return view('users.advertisements.add-sub-box-block', compact('id'));
+    }
+
+    public function storeSubBoxBlock(Request $request) {
+        AdvertisementSubBoxBlock::create([
+            'advertisement_box_block_id' => $request->advertisementBoxBlockId,
+            'title' => $request->title,
+            'body' => $request->body,
+            'icon' => $request->icon,
+            'status' => 0
+        ]);
+
+        Session::flash('success', 'サブボックスブロックが正常に追加されました');
+        return redirect()->route('user.show.block.sub.blocks', ['type' => 'box', 'id' => $request->advertisementBoxBlockId]);
+    }
+
+    public function editSubBoxBlock($id) {
+        $subBoxBlock = AdvertisementSubBoxBlock::find($id);
+        return view('users.advertisements.edit-sub-box-block', compact('subBoxBlock'));
+    }
+
+    public function updateSubBoxBlock(Request $request) {
+        $updateData = [
+            'title' => $request->title,
+            'body' => $request->body,
+            'icon' => $request->icon
+        ];
+
+        $advertisementSubBoxBlock = AdvertisementSubBoxBlock::find($request->id);
+        $advertisementSubBoxBlock->update($updateData);
+        Session::flash('success', 'サブボックスブロックが正常に更新されました');
+        return redirect()->route('user.show.block.sub.blocks', ['type' => 'box', 'id' => $advertisementSubBoxBlock->advertisement_box_block_id]);
+    }
+
+    public function deleteSubBoxBlock($id) {
+        $advertisementSubBoxBlock = AdvertisementSubBoxBlock::find($id);
+        AdvertisementSubBoxBlock::where('id', $id)->delete();
+        Session::flash('success', 'サブボックスブロックが正常に削除されました');
+        return redirect()->route('user.show.block.sub.blocks', ['type' => 'box', 'id' => $advertisementSubBoxBlock->advertisement_box_block_id]);
+    }
+
+    public function updateSubBoxBlockStatus(Request $request) {
+        $subBlock = AdvertisementSubBoxBlock::find($request->id);
+        if ($subBlock) {
+            $subBlock->status = $request->status;
+            $subBlock->save();
+            Session::flash('success', 'サブボックスブロックのステータスが正常に更新されました');
+            return response()->json(['success' => true]);
+        }
+        Session::flash('error', 'サブボックスブロックステータスの変更に失敗しました');
         return response()->json(['success' => false]);
     }
 }

@@ -42,6 +42,24 @@
                     </div>
                     <div class="row">
                         <div class="col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2">
+                            <div class="form-group">
+                                <label class="sr-only" for="minBlock">最小ブロック</label>
+                                <input type="number" name="minBlock" class="md-input" id="minBlock" placeholder="最小ブロック *" value="{{ old('minBlock') }}">
+                                <span class="error" style="color:#BF0731" id="error-minBlock"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2">
+                            <div class="form-group">
+                                <label class="sr-only" for="maxBlock">最大ブロック</label>
+                                <input type="number" name="maxBlock" class="md-input" id="maxBlock" placeholder="最大ブロック *" value="{{ old('maxBlock') }}">
+                                <span class="error" style="color:#BF0731" id="error-maxBlock"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2">
                             <div class="text-center">
                                 <input type="hidden" id="confirmed" name="confirmed" value="0">
                                 <div class="tr-modal-popup">

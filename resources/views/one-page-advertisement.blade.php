@@ -239,6 +239,52 @@
             <!--== List01 End ==-->
             @endif
         {{-- List Hero End --}}
+        @elseif ($advertisementSection->section->type == 'box'  && $advertisementSection->status == 1)
+        {{-- Box Hero Start --}}
+            @if ($advertisementSection->section->name == 'Box01')
+            <!--== Box01 Start ==-->
+            <section class="white-bg pt-0 pb-0" id="{{ $advertisementSection->name }}">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-8 section-heading">
+                            <h2 class="font-700">{{ $advertisementSection->advertisementBoxBlock->title }}</h2>
+                            <hr class="dark-bg center_line bold-line">
+                            <h4>{{ $advertisementSection->advertisementBoxBlock->body }}</h4>
+                        </div>
+                    </div>
+                    <div class="row mt-50">
+                        @foreach ($advertisementSection->advertisementBoxBlock->advertisementSubBoxBlocks as $advertisementSubBoxBlock)
+                        @php
+                            $count = $advertisementSection->advertisementBoxBlock->advertisementSubBoxBlocks->where('status', 1)->count();
+                            if ($count == 1) {
+                                $col = 12;
+                            } elseif ($count == 2) {
+                                $col = 6;
+                            } else {
+                                $col = 4;
+                            }
+                        @endphp    
+                        @if ($advertisementSubBoxBlock->status == 1)
+                            <div class="col-md-{{ $col }} col-sm-{{ $col }} col-xs-12">
+                                <div class="feature-box text-center mb-50 feature-box-rounded wow fadeInUp center-feature" data-wow-delay="0.1s">
+                                    <span class="font-100px default-color font-700">
+                                        <span class="dark-color">
+                                            {{ substr($advertisementSubBoxBlock->icon, 0, 1) }}
+                                        </span>
+                                        {{ substr($advertisementSubBoxBlock->icon, 1) }}
+                                    </span>
+                                    <h4 class="mt-0 font-600">{{ $advertisementSubBoxBlock->title }}</h4>
+                                    <p class="font-400">{{ $advertisementSubBoxBlock->body }}</p>
+                                </div>
+                            </div>
+                            @endif
+                        @endforeach
+                    </div>
+                </div>
+            </section>
+            <!--== Box01 End ==-->
+            @endif
+        {{-- Box Hero End --}}
         @elseif ($advertisementSection->section->type == 'footer'  && $advertisementSection->status == 1)
         {{-- Footer Hero Start --}}
             @if ($advertisementSection->section->name == 'Footer01')

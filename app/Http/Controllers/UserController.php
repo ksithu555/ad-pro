@@ -31,19 +31,19 @@ class UserController extends Controller
     }
 
     public function storeLogin(Request $request) {
-        $loginAdmin = User::where('email', $request->email)->first();
+        $loginUser = User::where('email', $request->email)->first();
     
-        if (!$loginAdmin) {
+        if (!$loginUser) {
             Session::flash('error', 'Email is Incorrect');
             return redirect()->back()->withInput();
         }
     
-        if (!Hash::check($request->password, $loginAdmin->password)) {
+        if (!Hash::check($request->password, $loginUser->password)) {
             Session::flash('error', 'Email or Password is Incorrect');
             return redirect()->back()->withInput();
         }
     
-        Auth::login($loginAdmin);
+        Auth::login($loginUser);
         $request->session()->regenerate();
     
         return redirect()->route('user.get.alarms');

@@ -86,11 +86,11 @@
                                             <table class="table table-bordered table-striped table-hover shop-cart">
                                                 <thead>
                                                     <tr>
-                                                    <th><strong>タイプ</strong></th>
-                                                    <th><strong>アラーム</strong></th>
-                                                    <th><strong>送信者</strong></th>
-                                                    <th><strong>日付</strong></th>
-                                                    <th><strong>チェックしましたか?</strong></th>
+                                                    <th>タイプ</th>
+                                                    <th>アラーム</th>
+                                                    <th>送信者</th>
+                                                    <th>日付</th>
+                                                    <th>チェックしましたか?</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>

@@ -34,7 +34,7 @@ class AdminController extends Controller
             return redirect()->back()->withInput();
         }
     
-        Auth::login($loginAdmin);
+        Auth::guard('admin')->login($loginAdmin);
         $request->session()->regenerate();
     
         return redirect()->route('admin.get.home');

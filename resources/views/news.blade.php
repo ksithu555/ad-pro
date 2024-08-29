@@ -4,8 +4,8 @@
         <section class="title-hero-bg parallax-effect" style="background-image: url({{ asset('assets/images/all/header-ad-list.webp') }});">
             <div class="container">
                 <div class="page-title text-center white-color">
-                    <h1>Default Header</h1>
-                    <h4 class="text-uppercase mt-30">Our Creative Portfolio</h4>
+                    <h1>新着情報</h1>
+                    <h4 class="text-uppercase mt-30">News</h4>
                 </div>
             </div>
         </section>
@@ -19,8 +19,8 @@
                    <div class="v-align-middle text-left text-xs-center breadcrumb">
                          <!-- Breadcrumb Start -->
                              <ul class="text-xs-center white-color">
-                            <li>ホーム</li>
-                            <li>新着情報</li>
+                            <li>Home</li>
+                            <li>News</li>
                           </ul>
                       <!-- Breadcrumb End -->
                   </div>
@@ -38,11 +38,6 @@
     <!--== Blog Classic Post Start ==-->
     <section class="white-bg">
         <div class="container">
-            <div class="row">
-                <div class="col-sm-8 section-heading">
-                    <h4 class="text-uppercase mt-0">新着情報</h4>
-                </div>
-            </div>
             <div class="row blog-style-01 mt-50">
                 @foreach ($news as $key => $new)
                 <!--== Post Start ==-->

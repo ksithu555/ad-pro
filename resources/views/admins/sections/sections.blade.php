@@ -34,6 +34,8 @@
                             <th style="min-width: 110px;">タイプ</th>
                             <th>名前</th>
                             <th>注記</th>
+                            <th>最小ブロック</th>
+                            <th>最大ブロック</th>
                             <th>ステータス</th>
                             <th style="min-width: 110px;">プレビュー</th>
                             <th style="min-width: 110px;">アクション</th>
@@ -56,6 +58,12 @@
                                 </td>
                                 <td>
                                     {!! nl2br($section->note) !!}
+                                </td>
+                                <td>
+                                    {{ $section->min_block }}
+                                </td>
+                                <td>
+                                    {{ $section->max_block }}
                                 </td>
                                 <td style="min-width: 110px;">
                                     <label class="toggle-switch">

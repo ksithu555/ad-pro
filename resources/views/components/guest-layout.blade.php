@@ -72,11 +72,11 @@
                     <div class="container">
                     <!--== Start Atribute Navigation ==-->
                     <div class="attr-nav hidden-xs sm-display-none">
-                        <ul class="social-media-dark social-top">
+                        {{-- <ul class="social-media-dark social-top">
                         <li><a href="#" class="icofont icofont-social-facebook"></a></li>
                         <li><a href="#" class="icofont icofont-social-twitter"></a></li>
                         <li class="search"><a href="#" id="search-button"><i class="icofont icofont-search"></i></a></li>
-                        </ul>
+                        </ul> --}}
                     </div>
                     <!--== End Atribute Navigation ==-->
 

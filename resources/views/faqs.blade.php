@@ -4,8 +4,8 @@
         <section class="title-hero-bg parallax-effect" style="background-image: url({{ asset('assets/images/all/header-ad-list.webp') }});">
             <div class="container">
                 <div class="page-title text-center white-color">
-                    <h1>Default Header</h1>
-                    <h4 class="text-uppercase mt-30">Our Creative Portfolio</h4>
+                    <h1>よくある質問</h1>
+                    <h4 class="text-uppercase mt-30">FAQ</h4>
                 </div>
             </div>
         </section>
@@ -19,8 +19,8 @@
                    <div class="v-align-middle text-left text-xs-center breadcrumb">
                          <!-- Breadcrumb Start -->
                              <ul class="text-xs-center white-color">
-                            <li>ホーム</li>
-                            <li>よくある質問</li>
+                            <li>Home</li>
+                            <li>FAQ</li>
                           </ul>
                       <!-- Breadcrumb End -->
                   </div>
@@ -38,11 +38,6 @@
     <!--== Accordion Style 03 Start ==-->
     <section class="white-bg">
         <div class="container">
-            <div class="row">
-                <div class="col-sm-8 section-heading">
-                <h4 class="text-uppercase mt-0">よくある質問</h4>
-                </div>
-            </div>
             <div class="row mt-50">
                 <div class="col-md-8 col-sm-12 centerize-col">
                     <div class="panel-group accordion-style-03" id="accordion-style-03">

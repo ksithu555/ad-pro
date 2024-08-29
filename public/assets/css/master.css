@@ -5345,12 +5345,14 @@ input:checked + .slider:before {
   outline: none;
 }
 
-/* Transition effect for input fields */
+/* Transition effect for input fields and textarea */
 .form-group input[type="text"],
 .form-group input[type="email"],
 .form-group input[type="password"],
+.form-group input[type="number"],
 .form-group label.md-file,
-.form-group select {
+.form-group select,
+.form-group textarea {
     transition: border-color 0.3s ease-in-out;
 }
 
@@ -5358,8 +5360,10 @@ input:checked + .slider:before {
 .form-group input[type="text"]:focus,
 .form-group input[type="email"]:focus,
 .form-group input[type="password"]:focus,
+.form-group input[type="number"]:focus,
 .md-file-focus,
-.form-group select:focus {
+.form-group select:focus,
+.form-group textarea:focus {
     border-color: #BF0731;
 }
 

@@ -54,7 +54,7 @@ Route::get('/user/show/member-detail/{id}', [UserMemberController::class, 'showM
 // Advertisement
 Route::get('/user/advertisements', [UserAdvertisementController::class, 'getAdvertisements'])->name('user.get.advertisements');
 Route::get('/user/add/advertisement', [UserAdvertisementController::class, 'addAdvertisement'])->name('user.add.advertisement');
-Route::get('/user/show/advertisement', [UserAdvertisementController::class, 'showAdvertisement'])->name('user.show.advertisement');
+// Route::get('/user/show/advertisement', [UserAdvertisementController::class, 'showAdvertisement'])->name('user.show.advertisement');
 Route::post('/user/store/advertisement', [UserAdvertisementController::class, 'storeAdvertisement'])->name('user.store.advertisement');
 Route::get('/user/edit/advertisement/{id}', [UserAdvertisementController::class, 'editAdvertisement'])->name('user.edit.advertisement');
 Route::post('/user/update/advertisement', [UserAdvertisementController::class, 'updateAdvertisement'])->name('user.update.advertisement');
@@ -92,6 +92,23 @@ Route::get('/user/edit/section/list-block/{id}', [UserAdvertisementController::c
 Route::post('/user/update/section/list-block', [UserAdvertisementController::class, 'updateListBlock'])->name('user.update.list.block');
 Route::get('/user/delete/section/list-block/{id}', [UserAdvertisementController::class, 'deleteListBlock'])->name('user.delete.list.block');
 Route::post('/user/update/section/list-block-status', [UserAdvertisementController::class, 'updateListBlockStatus'])->name('user.update.section.list.block.status');
+// Box Block
+Route::get('/user/add/section/{id}/box-block', [UserAdvertisementController::class, 'addBoxBlock'])->name('user.add.box.block');
+Route::post('/user/store/section/box-block', [UserAdvertisementController::class, 'storeBoxBlock'])->name('user.store.box.block');
+Route::get('/user/edit/section/box-block/{id}', [UserAdvertisementController::class, 'editBoxBlock'])->name('user.edit.box.block');
+Route::post('/user/update/section/box-block', [UserAdvertisementController::class, 'updateBoxBlock'])->name('user.update.box.block');
+Route::get('/user/delete/section/box-block/{id}', [UserAdvertisementController::class, 'deleteBoxBlock'])->name('user.delete.box.block');
+Route::post('/user/update/section/box-block-status', [UserAdvertisementController::class, 'updateBoxBlockStatus'])->name('user.update.section.box.block.status');
+
+// Sub Block
+Route::get('/user/show/{type}/block/{id}/sub-blocks', [UserAdvertisementController::class, 'showBlockSubBlocks'])->name('user.show.block.sub.blocks');
+// Sub Box Block
+Route::get('/user/add/box-block/{id}/sub-box-block', [UserAdvertisementController::class, 'addSubBoxBlock'])->name('user.add.sub.box.block');
+Route::post('/user/store/box-block/sub-box-block', [UserAdvertisementController::class, 'storeSubBoxBlock'])->name('user.store.sub.box.block');
+Route::get('/user/edit/box-block/sub-box-block/{id}', [UserAdvertisementController::class, 'editSubBoxBlock'])->name('user.edit.sub.box.block');
+Route::post('/user/update/box-block/sub-box-block', [UserAdvertisementController::class, 'updateSubBoxBlock'])->name('user.update.sub.box.block');
+Route::get('/user/delete/box-block/sub-box-block/{id}', [UserAdvertisementController::class, 'deleteSubBoxBlock'])->name('user.delete.sub.box.block');
+Route::post('/user/update/box-block/sub-box-block-status', [UserAdvertisementController::class, 'updateSubBoxBlockStatus'])->name('user.update.box.block.sub.box.block.status');
 
 // Material
 Route::get('/user/materials', [UserMaterialController::class, 'getMaterials'])->name('user.get.materials');

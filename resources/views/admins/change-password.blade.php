@@ -24,7 +24,7 @@
                                     <div class="col-md-8 col-sm-8 col-md-offset-2 col-sd-offset-2 pt-10">
                                         <div class="form-group">
                                             <label class="sr-only" for="email">メール</label>
-                                            <input type="text" name="email" class="md-input" id="email" placeholder="メール *"value="{{ old('email') ? old('email') : Auth::user()->email }}" disabled>
+                                            <input type="text" name="email" class="md-input" id="email" placeholder="メール *"value="{{ old('email') ? old('email') : Auth::guard('admin')->user()->email }}" disabled>
                                             <span class="error" style="color:#BF0731" id="error-email"></span>
                                         </div>
                                     </div>
@@ -121,9 +121,6 @@
             if (!currentPassword) {
                 isValid = false;
                 document.getElementById('error-currentPassword').textContent = '現在のパスワードを入力してください';
-            } else if (currentPassword.length < 8) {
-                isValid = false;
-                document.getElementById('error-currentPassword').textContent = '現在のパスワードは8文字以上でなければなりません';
             }
 
             if (!newPassword) {

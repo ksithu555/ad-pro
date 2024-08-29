@@ -79,7 +79,15 @@
             <a href="#" id="search-button"><i class="icofont icofont-search"></i></a>
           </li> --}}
           <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icofont icofont-user-alt-4"></i></a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              @php
+                $defaultColor = '';
+                  if (request()->routeIs('admin.change.password')) {
+                    $defaultColor = 'default-color';
+                  }
+              @endphp
+              <i class="icofont icofont-user-alt-4 {{ $defaultColor }}"></i>
+            </a>
             <ul class="dropdown-menu">
               <li><a href="shop-standard.html">One</a></li>
               <li><a href="shop-fullwidth.html">Two</a></li>

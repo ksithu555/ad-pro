@@ -12,7 +12,7 @@ class AdminNewsController extends Controller
 
     public function getNews() {
         $limit = 10;
-        $news = News::paginate($limit);
+        $news = News::orderBy('created_at', 'desc')->paginate($limit);
         $ttl = $news->total();
         $ttlpage = (ceil($ttl / $limit));
         return view('admins.news.news', compact('news', 'ttl', 'ttlpage'));

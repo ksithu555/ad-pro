@@ -24,7 +24,7 @@
 <link rel="stylesheet" type="text/css" href="{{ asset('revolution/fonts/font-awesome/css/font-awesome.min.css') }}">
 {{-- Date Time Picker --}}
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-
+        
 </head>
 <body>
 
@@ -62,35 +62,40 @@
         $advertisementSections = $advertisement->advertisementSections->sortBy('order');
     @endphp
     <!--== Header Start ==-->
-    <nav class="navbar navbar-default navbar-fixed navbar-transparent dark bootsnav on no-full">
+    <nav class="navbar navbar-default navbar-fixed navbar-transparent dark bootsnav on no-full" style="height: auto;">
         <div class="container">
-            <!--== Start Header Navigation ==-->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu"> <i class="tr-icon ion-android-menu"></i> </button>
-                <div class="logo">
-                    <a href="#">
-                        <img class="logo logo-display" src="{{ asset('assets/images/all/' . $advertisement->logo_color) }}" alt="">
-                        <img class="logo logo-scrolled" src="{{ asset('assets/images/all/' . $advertisement->logo_white) }}" alt="">
-                    </a>
+            <div class="row">
+                <div class="col-md-2">
+                    <!--== Start Header Navigation ==-->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu"> <i class="tr-icon ion-android-menu"></i> </button>
+                        <div class="logo">
+                            <a href="#">
+                                <img class="logo logo-display" src="{{ asset('assets/images/all/' . $advertisement->logo_color) }}" alt="">
+                                <img class="logo logo-scrolled" src="{{ asset('assets/images/all/' . $advertisement->logo_white) }}" alt="">
+                            </a>
+                        </div>
+                    </div>
+                    <!--== End Header Navigation ==-->
+                </div>
+                <div class="col-md-10">
+                    <!--== Collect the nav links, forms, and other content for toggling ==-->
+                    <div class="collapse navbar-collapse" id="navbar-menu">
+                        <ul class="nav navbar-nav navbar-right" data-in="fadeIn" data-out="fadeOut">
+                            @foreach ($advertisementSections as $advertisementSection)
+                            @if ($advertisementSection->status == 1)
+                            <li>
+                                <a class="page-scroll" href="#{{ $advertisementSection->name }}">
+                                    <span>{{ $advertisementSection->name }}</span>
+                                </a>
+                            </li>
+                            @endif
+                            @endforeach
+                        </ul>
+                    </div>
+                    <!--== /.navbar-collapse ==-->
                 </div>
             </div>
-            <!--== End Header Navigation ==-->
-
-            <!--== Collect the nav links, forms, and other content for toggling ==-->
-            <div class="collapse navbar-collapse" id="navbar-menu">
-                <ul class="nav navbar-nav navbar-right" data-in="fadeIn" data-out="fadeOut">
-                    @foreach ($advertisementSections as $advertisementSection)
-                    @if ($advertisementSection->status == 1)
-                    <li>
-                        <a class="page-scroll" href="#{{ $advertisementSection->name }}">
-                            <span>{{ $advertisementSection->name }}</span>
-                        </a>
-                    </li>
-                    @endif
-                    @endforeach
-                </ul>
-            </div>
-            <!--== /.navbar-collapse ==-->
         </div>
     </nav>
     <!--== Header End ==-->

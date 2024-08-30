@@ -68,7 +68,12 @@
             <div class="row row-flex flex-center mt-25">
                 @foreach ($news as $key => $new)
                 <div class="col-md-4 col-sm-12">
-                    <img class="img-responsive" src="{{ asset('assets/images/all/' . $new->image) }}" alt=""/></div>
+                    <div class="post-date-box">
+                        {{ $new->created_at->format('d') }}
+                        <span>{{ $new->created_at->format('m, Y') }}</span>
+                    </div>
+                    <img class="img-responsive" src="{{ asset('assets/images/all/' . $new->image) }}" alt=""/>
+                </div>                
                 <div class="col-md-8 col-sm-12">
                     <div class="col-inner spacer">
                         <h4 class="mt-20 text-uppercase">{!! nl2br($new->title) !!}</h4>

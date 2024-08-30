@@ -20,7 +20,8 @@ class GuestController extends Controller
     }
 
     public function advertisements() {
-        return view('advertisement-list');
+        $advertisements = Advertisement::where('status', 1)->get();
+        return view('advertisement-list', compact('advertisements'));
     }
 
     public function news() {

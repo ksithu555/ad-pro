@@ -20,13 +20,13 @@ class GuestController extends Controller
     }
 
     public function advertisements() {
-        $advertisements = Advertisement::where('status', 1)->get();
+        $advertisements = Advertisement::with('user')->where('status', 1)->get();
         return view('advertisement-list', compact('advertisements'));
     }
 
     public function news() {
         $limit = 9;
-        $news = News::paginate($limit);
+        $news = News::orderBy('created_at', 'desc')->paginate($limit);
         $ttl = $news->total();
         $ttlpage = (ceil($ttl / $limit));
         return view('news', compact('news', 'ttl', 'ttlpage'));

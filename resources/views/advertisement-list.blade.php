@@ -71,6 +71,14 @@
                                 </div>
                             </div>
                             <div class="cbp-l-grid-projects-title dark-color font-500 text-uppercase">{{ $advertisement->name }}</div>
+                            <div class="cbp-l-grid-projects-desc default-color font-14px">
+                                <span class="company-name" style="font-weight: bold;">
+                                    <i class="fa fa-building"></i> {{ $advertisement->user->company_name }}
+                                </span>
+                                <span class="date" style="color: #999; margin-left: 10px;">
+                                    <i class="fa fa-calendar"></i> {{ $advertisement->created_at->format('Y-m-d') }}
+                                </span>
+                            </div>
                         </div>
                         @endforeach
                     </div>

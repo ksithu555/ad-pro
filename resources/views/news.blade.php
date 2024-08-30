@@ -37,9 +37,9 @@
 
     <!--== News Start ==-->
     <section class="grey-bg">
-        <div class="container-fluid">
+        <div class="container">
             <div class="row mt-25">
-                <div class="col-md-10 col-md-offset-1 col-sm-12">
+                <div class="col-md-12 col-sm-12">
                     @foreach ($news as $key => $new)
                     <div class="row row-flex {{ $key != 0 ? 'mt-20' : ''}}" style="align-items: flex-start;">
                         <div class="col-md-4 col-sm-12" style="margin-top: 25px;">

@@ -40,7 +40,10 @@
                                         <p>
                                             色を変更するには、<code style="color: black;">&lt;span style="color: red;"&gt;<span style="color: red;">希望するテキスト</span>&lt;/span&gt;</code> を使用します。
                                         </p>
-                                    </div>                                    
+                                        <p>
+                                            リンクを作成するには、<code style="color: black;">&lt;a href="希望するURL" target="_blank" style="color: blue; text-decoration: none;"&gt;<a href="#" target="_blank" style="color: blue; text-decoration: none;">希望するテキスト</a>&lt;/a&gt;</code> を使用します。
+                                        </p>
+                                    </div>
                                 </div>
                                 <label class="sr-only" for="body">体</label>
                                 <textarea name="body" class="md-textarea" id="body" rows="7" placeholder="体 *">{{ old('body') }}</textarea>

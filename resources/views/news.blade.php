@@ -79,7 +79,7 @@
                         <h4 class="mt-20 text-uppercase">{!! nl2br($new->title) !!}</h4>
                         <hr class="dark-bg bold-line" style="background-color: #BF0731;">
                         <p class="mt-20" style="color: black;">
-                            {!! nl2br((preg_replace('/(https?:\/\/[^\s]+)/', '<a href="$1" target="_blank">$1</a>', $new->body))) !!}
+                            {!! nl2br($new->body) !!}
                         </p>
                     </div>
                 </div>

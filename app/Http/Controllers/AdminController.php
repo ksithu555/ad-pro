@@ -63,6 +63,11 @@ class AdminController extends Controller
 
         $user->password = Hash::make($request->newPassword);
         $user->save();
+        
+        Auth::logout();
+        
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
 
         Session::flash('success', 'パスワードが正常に更新されました');
         return redirect()->route('admin.show.login');

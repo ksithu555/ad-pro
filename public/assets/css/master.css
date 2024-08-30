@@ -5374,3 +5374,39 @@ input:checked + .slider:before {
     border-color: red;
 } */
 
+.info-icon-container {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.info-icon {
+  font-size: 16px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.guideline-box {
+  display: none;
+  position: absolute;
+  top: 20px;
+  left: 0;
+  background-color: #fff;
+  color: #333;
+  border: 1px solid #ccc;
+  padding: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  width: 100%; /* This makes the box responsive to its container */
+  max-width: 100%; /* Ensures it doesn't exceed its container */
+  font-size: 14px;
+  box-sizing: border-box; /* Ensures padding is included in the width */
+}
+
+.info-icon-container:hover .guideline-box {
+  display: block;
+}
+
+.info-icon-container:hover .info-icon {
+  color: #BF0731;
+}

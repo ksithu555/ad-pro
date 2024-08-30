@@ -11,7 +11,11 @@ class News extends Model
         'title',
         'body',
         'image',
-        'author_name',
-        'author_image'
+        'created_by'
     ];
+
+    public function admin()
+    {
+        return $this->belongsTo(Admin::class, 'created_by', 'id');
+    }
 }

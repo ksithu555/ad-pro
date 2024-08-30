@@ -99,6 +99,30 @@ class UserController extends Controller
         return redirect('/');
     }
 
+    public function changePassword() {
+        return view('users.change-password');
+    }
+
+    public function updatePassword(Request $request) {
+        $user = User::find(Auth::user()->id);
+
+        if (!Hash::check($request->currentPassword, $user->password)) {
+            Session::flash('error', '現在のパスワードが正しくありません');
+            return redirect()->back()->withInput();
+        }
+
+        $user->password = Hash::make($request->newPassword);
+        $user->save();
+        
+        Auth::logout();
+        
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        Session::flash('success', 'パスワードが正常に更新されました');
+        return redirect()->route('user.show.login');
+    } 
+
     public function getAlarms() {
         $alarms = Alarm::where('to_email', Auth::user()->email)->where('status', 0)->get();
         $checkedAlarms = Alarm::where('to_email', Auth::user()->email)->where('status', 1)->get();

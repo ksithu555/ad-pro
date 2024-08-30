@@ -81,7 +81,8 @@
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               @php
                 $defaultColor = '';
-                  if (request()->routeIs('user.get.plans')) {
+                  if (request()->routeIs('user.get.plans') ||
+                  request()->routeIs('user.change.password')) {
                     $defaultColor = 'default-color';
                   }
               @endphp
@@ -92,6 +93,7 @@
               <li><a href="{{ route('user.get.advertisements') }}">広告管理</a></li>
               <li><a href="{{ route('user.show.announcements') }}">ビズ公示管理</a></li>
               <li><a href="{{ route('user.get.plans') }}">アップグレード</a></li>
+              <li><a href="{{ route('user.change.password') }}">パスワード変更</a></li>
               <li><a href="{{ route('user.logout') }}">ログアウト</a></li>
             </ul>
           </li>

@@ -41,6 +41,8 @@ Route::post('/user/register', [UserController::class, 'storeRegister'])->name('u
 Route::get('email/verify/{id}/{hash}', [VerificationController::class, 'verify'])->name('verification.verify');
 Route::post('email/resend', [VerificationController::class, 'resend'])->name('verification.resend');
 Route::get('/user/logout', [UserController::class, 'logout'])->name('user.logout');
+Route::get('/user/change/password', [UserController::class, 'changePassword'])->name('user.change.password');
+Route::post('/user/update/password', [UserController::class, 'updatePassword'])->name('user.update.password');
 
 // Alarm
 Route::get('/user/alarms', [UserController::class, 'getAlarms'])->name('user.get.alarms');

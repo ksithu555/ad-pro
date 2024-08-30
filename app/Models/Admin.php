@@ -39,5 +39,10 @@ class Admin extends Model implements UserContract
     {
         $this->remember_token = $value;
     }
+
+    public function news()
+    {
+        return $this->hasMany(News::class, 'created_by', 'id');
+    }
 }
 

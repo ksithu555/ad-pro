@@ -31,12 +31,11 @@
                   <tr>
                     <th>#</th>
                     <th style="min-width: 110px;">登録日</th>
-                    <th>タイトル</th>
+                    <th style="min-width: 110px">タイトル</th>
                     <th>体</th>
-                    <th>画像</th>
-                    <th>著者名</th>
-                    <th>著者画像</th>
-                    <th>アクション</th>
+                    <th style="min-width: 110px">画像</th>
+                    <th style="min-width: 110px">作成者</th>
+                    <th style="min-width: 110px">アクション</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -48,22 +47,19 @@
                     <td style="min-width: 110px">
                       {{ $new->created_at->format('Y-m-d') }}
                     </td>
-                    <td>
+                    <td style="min-width: 110px">
                       {{ nl2br($new->title) }}
                     </td>
                     <td>
                       {!! nl2br($new->body) !!}
                     </td>
-                    <td>
+                    <td style="min-width: 110px">
                       <img src="{{ asset('assets/images/all/' . $new->image ) }}" alt=""> 
                     </td>
-                    <td>
-                      {{ nl2br($new->author_name) }}
+                    <td style="min-width: 110px">
+                      {{ $new->admin->name }}
                     </td>
-                    <td>
-                      <img src="{{ asset('assets/images/all/' . $new->author_image ) }}" alt=""> 
-                    </td>
-                    <td>
+                    <td style="min-width: 110px">
                       <a href="{{ route('admin.edit.news', $new->id) }}">
                         <i class="fa-icon-pencil-square" style="font-size: 1.5em;"></i>
                       </a>

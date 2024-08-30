@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\News;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
 class AdminNewsController extends Controller
@@ -28,18 +29,11 @@ class AdminNewsController extends Controller
         } else {
             $imageName = '';
         }
-        if (!empty($request->authorImage)) {
-            $authorImageName = time() . '.' . $request->authorImage->extension();
-            $request->authorImage->move(public_path('assets/images/all'), $authorImageName);
-        } else {
-            $authorImageName = '';
-        }
         News::create([
             'title' => $request->title,
             'body' => $request->body,
             'image' => $imageName,
-            'author_name' => $request->authorName,
-            'author_image' => $authorImageName,
+            'created_by' => Auth::guard('admin')->user()->id,
         ]);
         Session::flash('success', '新着情報が正常に追加されました');
         return redirect()->route('admin.get.news');
@@ -54,7 +48,6 @@ class AdminNewsController extends Controller
         $updateData = [
             'title' => $request->title,
             'body' => $request->body,
-            'author_name' => $request->authorName,
         ];
 
         if (!empty($request->image)) {
@@ -63,20 +56,30 @@ class AdminNewsController extends Controller
             $updateData['image'] = $imageName;
         }
 
-        if (!empty($request->authorImage)) {
-            $authorImageName = time() . '.' . $request->authorImage->extension();
-            $request->authorImage->move(public_path('assets/images/all'), $authorImageName);
-            $updateData['author_image'] = $authorImageName;
-        }
-
         News::where('id', $request->id)->update($updateData);
         Session::flash('success', '新着情報が正常に更新されました');
         return redirect()->route('admin.get.news');
     }
 
     public function deleteNews($id) {
-        News::where('id', $id)->delete();
-        Session::flash('success', '新着情報が正常に削除されました');
+        $news = News::find($id);
+    
+        if ($news) {
+            if (!empty($news->image)) {
+                $imagePath = public_path('assets/images/all/' . $news->image);
+    
+                if (file_exists($imagePath)) {
+                    unlink($imagePath);
+                }
+            }
+    
+            $news->delete();
+    
+            Session::flash('success', '新着情報が正常に削除されました');
+        } else {
+            Session::flash('error', '新着情報が見つかりません');
+        }
+        
         return redirect()->route('admin.get.news');
-    }
+    }    
 }

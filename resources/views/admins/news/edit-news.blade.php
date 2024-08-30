@@ -26,6 +26,23 @@
                     <div class="row">
                         <div class="col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2">
                             <div class="form-group">
+                                <div class="info-icon-container">
+                                    <i class="ion-information-circled info-icon"></i>
+                                    <div class="guideline-box" id="guideline-box">
+                                        <p>
+                                            重要なテキストを強調するために、<code style="color: black;">&lt;strong&gt;<strong>希望するテキスト</strong>&lt;/strong&gt;</code> を使用します。
+                                        </p>
+                                        <p>
+                                            テキストに斜体を適用するには、<code style="color: black;">&lt;span style="font-style: italic;"&gt;<span style="font-style: italic;">希望するテキスト</span>&lt;/span&gt;</code> を使用します。
+                                        </p>
+                                        <p>
+                                            下線を引くには、<code style="color: black;">&lt;span style="text-decoration: underline;"&gt;<span style="text-decoration: underline;">希望するテキスト</span>&lt;/span&gt;</code> を使用します。
+                                        </p>
+                                        <p>
+                                            色を変更するには、<code style="color: black;">&lt;span style="color: red;"&gt;<span style="color: red;">希望するテキスト</span>&lt;/span&gt;</code> を使用します。
+                                        </p>
+                                    </div>                                    
+                                </div>
                                 <label class="sr-only" for="body">体</label>
                                 <textarea name="body" class="md-textarea" id="body" rows="7" placeholder="体 *">{{ old('body') ? old('body') : $new->body }}</textarea>
                                 <span class="error" style="color:#BF0731" id="error-body"></span>
@@ -39,25 +56,6 @@
                                 <input type="file" name="image" id="image" placeholder="画像 *" style="display: none;">
                                 <img id="image-preview" src="{{ asset('assets/images/all/' . $new->image) }}" alt="Image Preview" style="width: 80px; margin: 10px 0 0 14px;">
                                 <span class="error" style="color:#BF0731" id="error-image"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2">
-                            <div class="form-group">
-                                <label class="sr-only" for="authorName">著者名</label>
-                                <input type="text" name="authorName" class="md-input" id="authorName" placeholder="著者名 *" value="{{ old('authorName') ? old('authorName') : $new->author_name }}">
-                                <span class="error" style="color:#BF0731" id="error-authorName"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2">
-                            <div class="form-group">
-                                <label class="md-file" for="authorImage" id="author-file-label">著者画像 *</label>
-                                <input type="file" name="authorImage" id="authorImage" placeholder="著者画像 *" style="display: none;" value="{{ old('authorImage') ? old('authorImage') : $new->author_image }}">
-                                <img id="authorImage-preview" src="{{ asset('assets/images/all/' . $new->author_image) }}" alt="Image Preview" style="width: 80px; margin: 10px 0 0 14px;">
-                                <span class="error" style="color:#BF0731" id="error-authorImage"></span>
                             </div>
                         </div>
                     </div>
@@ -109,27 +107,6 @@
             }
         });
     </script>
-    {{-- author image --}}
-    <script>
-        document.getElementById('authorImage').addEventListener('change', function() {
-        var fileName = this.files[0].name;
-        var label = document.getElementById('author-file-label');
-        label.classList.add('selected');
-        label.setAttribute('data-file-name', fileName);
-        });
-        document.getElementById('authorImage').addEventListener('change', function(event) {
-            const file = event.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    const imagePreview = document.getElementById('authorImage-preview');
-                    imagePreview.src = e.target.result;
-                    imagePreview.style.display = 'block';
-                };
-                reader.readAsDataURL(file);
-            }
-        });
-    </script>
     {{-- validate --}}
     <script>
         function showModal() {
@@ -151,7 +128,6 @@
 
             const title = document.getElementById('title').value.trim();
             const body = document.getElementById('body').value.trim();
-            const authorName = document.getElementById('authorName').value.trim();
 
             if (!title) {
                 document.getElementById('error-title').textContent = 'タイトルを入力してください';
@@ -160,11 +136,6 @@
 
             if (!body) {
                 document.getElementById('error-body').textContent = '体を入力してください';
-                isValid = false;
-            }
-
-            if (!authorName) {
-                document.getElementById('error-authorName').textContent = '著者名を入力してください';
                 isValid = false;
             }
 

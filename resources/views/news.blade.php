@@ -36,7 +36,7 @@
     <!--== Page Title End ==-->
 
     <!--== Blog Classic Post Start ==-->
-    <section class="white-bg">
+    {{-- <section class="white-bg">
         <div class="container">
             <div class="row blog-style-01 mt-25">
                 @foreach ($news as $key => $new)
@@ -60,7 +60,28 @@
             </div>
             @include('components.pagination')
         </div>
-
-    </section>
+    </section> --}}
     <!--== Blog Classic Post End ==-->
+    <!--== News Start ==-->
+    <section class="grey-bg">
+        <div class="container-fluid">
+            <div class="row row-flex flex-center mt-25">
+                @foreach ($news as $key => $new)
+                <div class="col-md-4 col-sm-12">
+                    <img class="img-responsive" src="{{ asset('assets/images/all/' . $new->image) }}" alt=""/></div>
+                <div class="col-md-8 col-sm-12">
+                    <div class="col-inner spacer">
+                        <h4 class="mt-20 text-uppercase">{!! nl2br($new->title) !!}</h4>
+                        <hr class="dark-bg bold-line" style="background-color: #BF0731;">
+                        <p class="mt-20" style="color: black;">
+                            {!! nl2br((preg_replace('/(https?:\/\/[^\s]+)/', '<a href="$1" target="_blank">$1</a>', $new->body))) !!}
+                        </p>
+                    </div>
+                </div>
+                @endforeach
+            </div>
+            @include('components.pagination')
+        </div>
+    </section>
+    <!--== News End ==-->
 </x-guest-layout>

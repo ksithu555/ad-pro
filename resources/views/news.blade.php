@@ -15,21 +15,21 @@
     <section class="default-bg pt-40 pb-40">
         <div class="container">
           <div class="row white-color">
-              <div class="col-lg-8 col-md-6 col-sm-6 col-xs-12 display-table" style="height:30px;">
-                   <div class="v-align-middle text-left text-xs-center breadcrumb">
-                         <!-- Breadcrumb Start -->
-                             <ul class="text-xs-center white-color">
+                <div class="col-lg-8 col-md-6 col-sm-6 col-xs-12 display-table" style="height:30px;">
+                    <div class="v-align-middle text-left text-xs-center breadcrumb">
+                        <!-- Breadcrumb Start -->
+                        <ul class="text-xs-center white-color">
                             <li>Home</li>
                             <li>News</li>
-                          </ul>
-                      <!-- Breadcrumb End -->
-                  </div>
-               </div>
-               <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 display-table text-right text-xs-left xs-mt-10">
-                   <div class="v-align-middle text-right text-xs-center">
-                      <h1 class="text-uppercase mb-0 font-600 font-20px line-height-26 mt-0">新着情報</h1>
-                  </div>
-               </div>
+                        </ul>
+                        <!-- Breadcrumb End -->
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 display-table text-right text-xs-left xs-mt-10">
+                    <div class="v-align-middle text-right text-xs-center">
+                        <h1 class="text-uppercase mb-0 font-600 font-20px line-height-26 mt-0">新着情報</h1>
+                    </div>
+                </div>
              </div>
           </div>
     </section>
@@ -51,7 +51,7 @@
                             src="{{ asset('assets/images/all/' . $new->image) }}" alt=""/>
                         </div>                
                         <div class="col-md-8 col-sm-12">
-                            <div class="">
+                            <div class="content">
                                 <h4 class="mt-20 text-uppercase">{!! nl2br($new->title) !!}</h4>
                                 <hr class="dark-bg" style="background-color: #BF0731;">
                                 <p class="mt-20" style="color: black;">

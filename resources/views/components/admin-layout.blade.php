@@ -109,7 +109,7 @@
       <!--== Collect the nav links, forms, and other content for toggling ==-->
       <div class="collapse navbar-collapse" id="navbar-menu">
         <ul class="nav navbar-nav navbar-right" data-in="fadeIn" data-out="fadeOut">
-          <li class="dropdown">
+          <li class="">
             <a href="{{ route('admin.get.home') }}" class="dropdown-toggle" data-toggle="dropdown">
                 <span class="{{ request()->routeIs('admin.get.home') ||
                 request()->routeIs('admin.add.header') ||
@@ -159,7 +159,7 @@
                 <span class="{{ request()->routeIs('admin.get.news') ||
                 request()->routeIs('admin.add.news') ||
                 request()->routeIs('admin.edit.news')
-                ? 'default-color' : '' }}">新着情報</span>
+                ? 'default-color' : '' }}">新着情報一覧</span>
             </a>
           </li>
           <li class="dropdown">
@@ -167,7 +167,7 @@
                 <span class="{{ request()->routeIs('admin.get.notices') ||
                 request()->routeIs('admin.add.notice') ||
                 request()->routeIs('admin.edit.notice')
-                ? 'default-color' : '' }}">お知らせ</span>
+                ? 'default-color' : '' }}">お知らせ一覧</span>
             </a>
           </li>
           @if (Auth::guard('admin')->user()->role == 'admin')

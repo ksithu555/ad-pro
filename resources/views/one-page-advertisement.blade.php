@@ -88,6 +88,31 @@
                     </li>
                     @endif
                     @endforeach
+                    <li>
+                        <a class="page-scroll" href="">
+                            <span>How about what</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="">
+                            <span>How about what</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="">
+                            <span>How about what</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="">
+                            <span>How about what</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="">
+                            <span>How about what</span>
+                        </a>
+                    </li>
                 </ul>
             </div>
             <!--== /.navbar-collapse ==-->

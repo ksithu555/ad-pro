@@ -35,55 +35,33 @@
     </section>
     <!--== Page Title End ==-->
 
-    <!--== Blog Classic Post Start ==-->
-    {{-- <section class="white-bg">
-        <div class="container">
-            <div class="row blog-style-01 mt-25">
-                @foreach ($news as $key => $new)
-                <!--== Post Start ==-->
-                <div class="col-md-4 col-sm-4 col-xs-12 mb-30">
-                    <div class="post">
-                        <div class="post-img"> <img class="img-responsive" src="{{ asset('assets/images/all/' . $new->image) }}" alt=""/> </div>
-                        <div class="post-info all-padding-40">
-                            <h3><a href="blog-grid.html">{{ nl2br($new->title) }}</a></h3>
-                            <h6>{{ $new->created_at->format('F d, Y') }}</h6>
-                            <hr>
-                            <p class="mt-10">
-                                <span class="extras-wrap"><i class="fa fa-user"></i><span>{{ $new->author_name }}</span></span>
-                            </p>
-                            <a class="readmore" href="{{ route('guest.show.news', $new->id) }}"><span>Read More</span></a> 
-                        </div>
-                    </div>
-                </div>
-                <!--== Post End ==-->
-                @endforeach
-            </div>
-            @include('components.pagination')
-        </div>
-    </section> --}}
-    <!--== Blog Classic Post End ==-->
     <!--== News Start ==-->
     <section class="grey-bg">
         <div class="container-fluid">
-            <div class="row row-flex flex-center mt-25">
-                @foreach ($news as $key => $new)
-                <div class="col-md-4 col-sm-12">
-                    <div class="post-date-box">
-                        {{ $new->created_at->format('d') }}
-                        <span>{{ $new->created_at->format('m, Y') }}</span>
+            <div class="row mt-25">
+                <div class="col-md-10 col-md-offset-1 col-sm-12">
+                    @foreach ($news as $key => $new)
+                    <div class="row row-flex {{ $key != 0 ? 'mt-20' : ''}}" style="align-items: flex-start;">
+                        <div class="col-md-4 col-sm-12" style="margin-top: 25px;">
+                            <div class="post-date-box">
+                                {{ $new->created_at->format('d') }}
+                                <span>{{ $new->created_at->format('m, Y') }}</span>
+                            </div>
+                            <img class="img-responsive" style="position: relative;"
+                            src="{{ asset('assets/images/all/' . $new->image) }}" alt=""/>
+                        </div>                
+                        <div class="col-md-8 col-sm-12">
+                            <div class="">
+                                <h4 class="mt-20 text-uppercase">{!! nl2br($new->title) !!}</h4>
+                                <hr class="dark-bg" style="background-color: #BF0731;">
+                                <p class="mt-20" style="color: black;">
+                                    {!! nl2br($new->body) !!}
+                                </p>
+                            </div>
+                        </div>
                     </div>
-                    <img class="img-responsive" src="{{ asset('assets/images/all/' . $new->image) }}" alt=""/>
-                </div>                
-                <div class="col-md-8 col-sm-12">
-                    <div class="col-inner spacer">
-                        <h4 class="mt-20 text-uppercase">{!! nl2br($new->title) !!}</h4>
-                        <hr class="dark-bg bold-line" style="background-color: #BF0731;">
-                        <p class="mt-20" style="color: black;">
-                            {!! nl2br($new->body) !!}
-                        </p>
-                    </div>
+                    @endforeach
                 </div>
-                @endforeach
             </div>
             @include('components.pagination')
         </div>

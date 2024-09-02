@@ -18,7 +18,7 @@
                 <div style="text-align: right;">
                     <a class="btn btn-md btn-dark-outline btn-square margin-left-auto margin-right-auto display-table-sm"
                     href="{{ route('admin.add.section') }}">
-                        <i class="fa-icon-plus-square"></i> Section
+                        <i class="fa-icon-plus-square"></i> セクション
                     </a>
                 </div>
             </div>

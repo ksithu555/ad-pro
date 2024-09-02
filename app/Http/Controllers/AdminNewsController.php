@@ -9,7 +9,6 @@ use Illuminate\Support\Facades\Session;
 
 class AdminNewsController extends Controller
 {
-
     public function getNews() {
         $limit = 10;
         $news = News::orderBy('created_at', 'desc')->paginate($limit);

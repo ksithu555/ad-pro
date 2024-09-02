@@ -12,22 +12,22 @@
     </div>
     <!--== Page Title End ==-->
     <!--== Page Title Start ==-->
-    <section class="default-bg pt-40 pb-40">
+    <section class="default-bg pt-20 pb-20">
         <div class="container">
           <div class="row white-color">
-              <div class="col-lg-8 col-md-6 col-sm-6 col-xs-12 display-table" style="height:30px;">
+              <div class="col-lg-8 col-md-6 col-sm-6 col-xs-12 display-table">
                    <div class="v-align-middle text-left text-xs-center breadcrumb">
-                         <!-- Breadcrumb Start -->
-                             <ul class="text-xs-center white-color">
+                        <!-- Breadcrumb Start -->
+                        <ul class="text-xs-center white-color">
                             <li>Home</li>
                             <li>FAQ</li>
-                          </ul>
-                      <!-- Breadcrumb End -->
+                        </ul>
+                        <!-- Breadcrumb End -->
                   </div>
                </div>
                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 display-table text-right text-xs-left xs-mt-10">
                    <div class="v-align-middle text-right text-xs-center">
-                      <h1 class="text-uppercase mb-0 font-600 font-20px line-height-26 mt-0">よくある質問</h1>
+                      <h1 class="text-uppercase mb-0 font-600 font-16px line-height-26 mt-0">よくある質問</h1>
                   </div>
                </div>
              </div>

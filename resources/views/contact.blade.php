@@ -96,7 +96,7 @@
                           <input type="hidden" id="confirmed" name="confirmed" value="0">
                           <div class="tr-modal-popup text-center">
                               <a onclick="showModal()" id="open-modal" class="btn btn-dark-outline btn-md btn-square btn-animate remove-margin">
-                                  <span>登録 <i class="ion-android-arrow-forward"></i></span>
+                                  <span>送信 <i class="ion-android-arrow-forward"></i></span>
                               </a>
                           </div>
                       </div>

@@ -1,6 +1,6 @@
 <x-admin-layout>
     <!--== Products Start ==-->
-    <section>
+    <section class="white-bg pt-120 pb-120">
         <div class="container">
             <div class="row">
                 <div class="col-sm-8 section-heading">

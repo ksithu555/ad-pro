@@ -1,7 +1,7 @@
 <x-admin-layout>
     <!--== Products Start ==-->
     <section>
-        <div class="container">
+        <div class="white-bg pt-120 pb-120">
             <div class="row">
                 <div class="col-sm-8 section-heading">
                     <div class="search-box">

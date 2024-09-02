@@ -134,13 +134,21 @@
             <a href="{{ route('user.get.advertisements') }}" class="dropdown-toggle" data-toggle="dropdown">
                 <span class="{{ request()->routeIs('user.get.advertisements') ||
                 request()->routeIs('user.show.advertisement') ||
+                request()->routeIs('user.add.advertisement') ||
                 request()->routeIs('user.show.sections') ||
                 request()->routeIs('user.add.section') ||
                 request()->routeIs('user.show.section.blocks') ||
                 request()->routeIs('user.add.header.block') ||
                 request()->routeIs('user.edit.header.block') ||
                 request()->routeIs('user.add.footer.block') ||
-                request()->routeIs('user.edit.footer.block')
+                request()->routeIs('user.edit.footer.block') ||
+                request()->routeIs('user.add.list.block') ||
+                request()->routeIs('user.edit.list.block') ||
+                request()->routeIs('user.add.box.block') ||
+                request()->routeIs('user.edit.box.block') ||
+                request()->routeIs('user.show.block.sub.blocks') ||
+                request()->routeIs('user.add.sub.box.block') ||
+                request()->routeIs('user.edit.sub.box.block')
                 ? 'default-color' : '' }}">広告管理</span>
             </a>
           </li>

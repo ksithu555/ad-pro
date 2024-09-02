@@ -1,6 +1,6 @@
 <x-user-layout>
     <!--== Tabs Style 01 Start ==-->
-    <section>
+    <section class="white-bg pt-120 pb-120">
         <div class="container">
             <div class="row tabs-style-01">
                 <div class="col-md-12">

@@ -1,6 +1,6 @@
 <x-user-layout>
   <!--== Third Fourth / One Fourth Columns Start ==-->
-  <section class="white-bg">
+  <section class="white-bg pt-120 pb-120">
     <div class="container">
         <div class="row mt-50">
             <div class="col-md-4 col-sm-12 sm-mb-30">

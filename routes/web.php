@@ -18,10 +18,6 @@ use App\Http\Controllers\AdminAnnouncementController;
 use App\Http\Controllers\UserAdvertisementController;
 use App\Http\Controllers\AdminAdvertisementController;
 
-Route::get('/test', function () {
-    return 'This is a test route!';
-});
-
 // Guest
 Route::get('/', [GuestController::class, 'home'])->name('guest.home');
 Route::get('/advertisements', [GuestController::class, 'advertisements'])->name('guest.advertisement.list');
@@ -29,6 +25,7 @@ Route::get('/news', [GuestController::class, 'news'])->name('guest.news');
 Route::get('/news-detail/{id}', [GuestController::class, 'showNews'])->name('guest.show.news');
 Route::get('/faqs', [GuestController::class, 'faqs'])->name('guest.faqs');
 Route::get('/contact', [GuestController::class, 'contact'])->name('guest.contact');
+Route::post('/send/contact', [GuestController::class, 'sendContact'])->name('guest.send.contact');
 
 Route::get('/ad/{param}', [GuestController::class, 'showOnePageAdvertisement'])->name('guest.one.page.advertisement');
 Route::get('/one-page', [GuestController::class, 'onePage']);
@@ -64,7 +61,7 @@ Route::post('/user/update/advertisement-status', [UserAdvertisementController::c
 Route::get('/user/delete/advertisement/{id}', [UserAdvertisementController::class, 'deleteAdvertisement'])->name('user.delete.advertisement');
 // Section
 Route::get('/user/show/sections/{id}', [UserAdvertisementController::class, 'showSections'])->name('user.show.sections');
-Route::get('/user/add/section', [UserAdvertisementController::class, 'addSection'])->name('user.add.section');
+Route::get('/user/add/section/{id}', [UserAdvertisementController::class, 'addSection'])->name('user.add.section');
 Route::post('/user/store/section', [UserAdvertisementController::class, 'storeSection'])->name('user.store.section');
 Route::post('/user/update/section-status', [UserAdvertisementController::class, 'updateSectionStatus'])->name('user.update.section.status');
 Route::post('/user/section/order-up/{id}', [UserAdvertisementController::class, 'orderUpSection'])->name('user.section.order-up');
@@ -114,6 +111,7 @@ Route::post('/user/update/box-block/sub-box-block-status', [UserAdvertisementCon
 
 // Material
 Route::get('/user/materials', [UserMaterialController::class, 'getMaterials'])->name('user.get.materials');
+Route::get('/user/material-icons', [UserMaterialController::class, 'getMaterialIcons'])->name('user.get.material.icons');
 
 // Announcement
 Route::get('/user/announcements', [UserController::class, 'getAnnouncements'])->name('user.get.announcements');

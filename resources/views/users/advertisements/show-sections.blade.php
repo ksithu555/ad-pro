@@ -22,7 +22,7 @@
             <div class="col-md-6">
                 <div style="text-align: right;">
                     <a class="btn btn-md btn-dark-outline btn-square margin-left-auto margin-right-auto display-table-sm"
-                    href="{{ route('user.add.section') }}">
+                    href="{{ route('user.add.section', $id) }}">
                         <i class="fa-icon-plus-square"></i> セクション
                     </a>
                 </div>
@@ -42,9 +42,9 @@
                             <th>#</th>
                             <th style="min-width: 110px;">名前</th>
                             <th style="min-width: 110px;">セクション</th>
-                            <th>ステータス</th>
-                            <th style="min-width: 110px;">プレビュー</th>
                             <th>注記</th>
+                            <th style="min-width: 110px;">プレビュー</th>
+                            <th style="min-width: 110px;">ステータス</th>
                             <th>順番</th>
                             <th style="min-width: 110px;">アクション</th>
                             </tr>
@@ -69,7 +69,7 @@
                                       <i class="fa fa-eye" style="font-size: 1.5em;"></i>
                                     </a>
                                 </td>
-                                <td>
+                                <td style="min-width: 110px;">
                                     <label class="toggle-switch">
                                         <input type="checkbox" data-id="{{ $section->id }}" class="status-toggle" {{ $section->status == 1 ? 'checked' : '' }}>
                                         <span class="slider"></span>

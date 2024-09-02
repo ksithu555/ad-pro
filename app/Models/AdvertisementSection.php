@@ -34,7 +34,7 @@ class AdvertisementSection extends Model
         return $this->hasMany(AdvertisementListBlock::class);
     }
 
-    public function advertisementBoxBlock() {
-        return $this->hasOne(AdvertisementBoxBlock::class);
+    public function advertisementBoxBlocks() {
+        return $this->hasMany(AdvertisementBoxBlock::class);
     }
 }

@@ -106,38 +106,42 @@
             @if ($advertisementSection->section->name == 'Header01')
             <!--== Header01 Start ==-->
             <section class="pt-0 pb-0" id="{{ $advertisementSection->name }}">
-                @if ($advertisementSection->advertisementHeaderBlocks[0]->status == 1)
-                <div class="parallax-overlay z-index-0"></div>
-                <div class="container relative view-height-100vh">
-                    <div class="simple-content-slider text-center">
-                        <div class="simple-content-slider-text">
-                            <div class="simple-content-text-inner">
-                                <div class="row">
-                                    <div class="col-md-10 centerize-col">
-                                        <div class="white-color text-center">
-                                            <span class="font-60px font-700 play-font wow fadeInUp font-italic" 
-                                                data-wow-delay="0.1s">
-                                                {!! nl2br($advertisementSection->advertisementHeaderBlocks[0]->body) !!}
-                                            </span>
-                                            <h1 class="white-color font-700 font-120px line-height-120 xs-font-40px xs-line-height-50 sm-font-60px sm-line-height-60 wow fadeInUp" 
-                                                data-wow-delay="0.2s">
-                                                {{ $advertisementSection->advertisementHeaderBlocks[0]->title }}
-                                            </h1>
+                @foreach ($advertisementSection->advertisementHeaderBlocks as $advertisementHeaderBlock)
+                @if ($advertisementHeaderBlock->status == 1)
+                <section class="pt-0 pb-0">
+                    <div class="parallax-overlay z-index-0"></div>
+                    <div class="container relative view-height-100vh">
+                        <div class="simple-content-slider text-center">
+                            <div class="simple-content-slider-text">
+                                <div class="simple-content-text-inner">
+                                    <div class="row">
+                                        <div class="col-md-10 centerize-col">
+                                            <div class="white-color text-center">
+                                                <span class="font-60px font-700 play-font wow fadeInUp font-italic" 
+                                                    data-wow-delay="0.1s">
+                                                    {!! nl2br($advertisementHeaderBlock->body) !!}
+                                                </span>
+                                                <h1 class="white-color font-700 font-120px line-height-120 xs-font-40px xs-line-height-50 sm-font-60px sm-line-height-60 wow fadeInUp" 
+                                                    data-wow-delay="0.2s">
+                                                    {{ $advertisementHeaderBlock->title }}
+                                                </h1>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="view-height-100vh absolute z-index-minus2 top-0 width-100-percent">
-                    <div class="view-height-100vh">
-                        <div class="slide-img parallax-bg fixed-bg" 
-                            data-parallax-bg-image="{{ asset('assets/images/all/' . $advertisementSection->advertisementHeaderBlocks[0]->image) }}" 
-                            data-parallax-speed="0.8" data-parallax-direction="up"></div>
+                    <div class="view-height-100vh absolute z-index-minus2 top-0 width-100-percent">
+                        <div class="view-height-100vh">
+                            <div class="slide-img parallax-bg fixed-bg" 
+                                data-parallax-bg-image="{{ asset('assets/images/all/' . $advertisementHeaderBlock->image) }}" 
+                                data-parallax-speed="0.8" data-parallax-direction="up"></div>
+                        </div>
                     </div>
-                </div>
+                </section>
                 @endif
+                @endforeach
             </section>
             <!--== Header01 End ==-->
             @elseif ($advertisementSection->section->name == 'Header02')
@@ -145,28 +149,30 @@
             <section class="parallax-bg fixed-bg view-height-100vh lg-section"  id="{{ $advertisementSection->name }}"
                 data-parallax-bg-image="{{ asset('assets/images/all/header-02.webp') }}" 
                 data-parallax-speed="0.5" data-parallax-direction="up">
-                @if ($advertisementSection->advertisementHeaderBlocks[0]->status == 1)
                 <div class="color-overlay-bg"></div>
                 <div class="hero-text-wrap transparent-bg">
                     <div class="hero-text">
+                        @foreach ($advertisementSection->advertisementHeaderBlocks as $key => $advertisementHeaderBlock)
+                        @if ($advertisementHeaderBlock->status == 1)
                         <div class="container">
                             <div class="row">
                                 <div class="col-md-8 col-sm-8 col-xs-12 xs-mb-30">
                                     <div class="all-padding-50 white-color">
-                                        <h3 class="roboto-font font-700 line-height-50">{{ $advertisementSection->advertisementHeaderBlocks[0]->title }}</h3>
-                                        <h5 class="roboto-font font-300">{!! nl2br($advertisementSection->advertisementHeaderBlocks[0]->body) !!}</h5>
+                                        <h3 class="roboto-font font-700 line-height-50">{{ $advertisementHeaderBlock->title }}</h3>
+                                        <h5 class="roboto-font font-300">{!! nl2br($advertisementHeaderBlock->body) !!}</h5>
                                     </div>
                                 </div>
                                 <div class="col-md-4 col-sm-4 col-xs-12">
                                     <div class="single-mobile-wrap">
-                                        <img src="{{ asset('assets/images/all/' . $advertisementSection->advertisementHeaderBlocks[0]->image) }}" />
+                                        <img src="{{ asset('assets/images/all/' . $advertisementHeaderBlock->image) }}" />
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        @endif
+                        @endforeach
                     </div>
                 </div>
-                @endif
             </section>
             <!--== Header02 End ==-->
             @endif
@@ -249,18 +255,19 @@
             @if ($advertisementSection->section->name == 'Box01')
             <!--== Box01 Start ==-->
             <section class="white-bg pt-0 pb-0" id="{{ $advertisementSection->name }}">
+                @foreach ($advertisementSection->advertisementBoxBlocks as $advertisementBoxBlock)
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-8 section-heading">
-                            <h2 class="font-700">{{ $advertisementSection->advertisementBoxBlock->title }}</h2>
+                            <h2 class="font-700">{{ $advertisementBoxBlock->title }}</h2>
                             <hr class="dark-bg center_line bold-line">
-                            <h4>{{ $advertisementSection->advertisementBoxBlock->body }}</h4>
+                            <h4>{{ $advertisementBoxBlock->body }}</h4>
                         </div>
                     </div>
                     <div class="row mt-50">
-                        @foreach ($advertisementSection->advertisementBoxBlock->advertisementSubBoxBlocks as $advertisementSubBoxBlock)
+                        @foreach ($advertisementBoxBlock->advertisementSubBoxBlocks as $advertisementSubBoxBlock)
                         @php
-                            $count = $advertisementSection->advertisementBoxBlock->advertisementSubBoxBlocks->where('status', 1)->count();
+                            $count = $advertisementBoxBlock->advertisementSubBoxBlocks->where('status', 1)->count();
                             if ($count == 1) {
                                 $col = 12;
                             } elseif ($count == 2) {
@@ -286,8 +293,48 @@
                         @endforeach
                     </div>
                 </div>
+                @endforeach
             </section>
             <!--== Box01 End ==-->
+            @elseif ($advertisementSection->section->name == 'Box02')
+            {{-- Box02 Start --}}
+            <section class="pt-0 pb-0" id="{{ $advertisementSection->name }}">
+                @foreach ($advertisementSection->advertisementBoxBlocks as $advertisementBoxBlock)
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-8 section-heading">
+                            <h2 class="font-700">{{ $advertisementBoxBlock->title }}</h2>
+                            <hr class="dark-bg center_line bold-line">
+                            <h4>{{ $advertisementBoxBlock->body }}</h4>
+                        </div>
+                    </div>
+                    <div class="row mt-50 service-box-style-01">
+                        @foreach ($advertisementBoxBlock->advertisementSubBoxBlocks as $advertisementSubBoxBlock)
+                        @php
+                            $count = $advertisementBoxBlock->advertisementSubBoxBlocks->where('status', 1)->count();
+                            if ($count == 1) {
+                                $col = 12;
+                            } elseif ($count == 2) {
+                                $col = 6;
+                            } else {
+                                $col = 4;
+                            }
+                        @endphp
+                        @if ($advertisementSubBoxBlock->status == 1)
+                        <div class="col-md-{{ $col }} col-sm-{{ $col }} col-xs-12">
+                          <div class="feature-box text-center mb-50 feature-box-rounded center-feature border-radius-10">
+                            <i class="{{ $advertisementSubBoxBlock->icon }} font-40px default-color"></i>
+                            <h4 class="mt-0 font-600">{{ $advertisementSubBoxBlock->title }}</h4>
+                            <p class="font-400 mt-20">{{ $advertisementSubBoxBlock->body }}</p>
+                          </div>
+                        </div>
+                        @endif
+                        @endforeach
+                    </div>
+                </div>
+                @endforeach
+            </section>
+            {{-- Box02 End --}}
             @endif
         {{-- Box Hero End --}}
         @elseif ($advertisementSection->section->type == 'footer'  && $advertisementSection->status == 1)

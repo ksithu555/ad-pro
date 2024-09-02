@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Session;
 use App\Models\AdvertisementFooterBlock;
 use App\Models\AdvertisementHeaderBlock;
 use App\Models\AdvertisementSubBoxBlock;
+use App\Models\Icon;
 
 class UserAdvertisementController extends Controller
 {
@@ -115,16 +116,16 @@ class UserAdvertisementController extends Controller
         $sections = AdvertisementSection::where('advertisement_id', $id)->orderBy('order')->paginate($limit);
         $ttl = $sections->total();
         $ttlpage = ceil($ttl / $limit);
-        return view('users.advertisements.show-sections', compact('sections', 'ttl', 'ttlpage'));
+        return view('users.advertisements.show-sections', compact('id','sections', 'ttl', 'ttlpage'));
     }
 
-    public function addSection() {
+    public function addSection($id) {
         $sections = Section::where('status', 1)->get();
-        return view('users.advertisements.add-section', compact('sections'));
+        return view('users.advertisements.add-section', compact('id', 'sections'));
     }
 
     public function storeSection(Request $request) {
-        $advertisement = Advertisement::where('user_id', Auth::user()->id)->first();
+        $advertisement = Advertisement::where('id', $request->id)->first();
 
         $maxOrder = AdvertisementSection::where('advertisement_id', $advertisement->id)->max('order');
         // If there are no sections yet, $maxOrder will be null, so we start with 1
@@ -569,7 +570,9 @@ class UserAdvertisementController extends Controller
     }
 
     public function addSubBoxBlock($id) {
-        return view('users.advertisements.add-sub-box-block', compact('id'));
+        $advertisementBoxBlock = AdvertisementBoxBlock::with('advertisementSection')->with('advertisementSection.section')->where('id', $id)->first();
+        $icons = Icon::where('status', 1)->get();
+        return view('users.advertisements.add-sub-box-block', compact('advertisementBoxBlock', 'icons'));
     }
 
     public function storeSubBoxBlock(Request $request) {
@@ -586,8 +589,10 @@ class UserAdvertisementController extends Controller
     }
 
     public function editSubBoxBlock($id) {
-        $subBoxBlock = AdvertisementSubBoxBlock::find($id);
-        return view('users.advertisements.edit-sub-box-block', compact('subBoxBlock'));
+        $subBoxBlock = AdvertisementSubBoxBlock::with('advertisementBoxBlock')->with('advertisementBoxBlock.advertisementSection')
+        ->with('advertisementBoxBlock.advertisementSection.section')->find($id);
+        $icons = Icon::where('status', 1)->get();
+        return view('users.advertisements.edit-sub-box-block', compact('subBoxBlock', 'icons'));
     }
 
     public function updateSubBoxBlock(Request $request) {

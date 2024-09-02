@@ -4,6 +4,16 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
+                    <div style="text-align: right;">
+                        <a class="btn btn-md btn-dark-outline btn-square margin-left-auto margin-right-auto display-table-sm"
+                        href="{{ route('user.get.material.icons') }}">
+                            <i class="fa fa-eye"></i> &nbsp;アイコン
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
                     <div id="portfolio-gallery-filter" class="cbp-l-filters-alignCenter text-sm-center mb-100">
                         <div data-filter="*" class="cbp-filter-item-active cbp-filter-item dark">
                             All
@@ -15,7 +25,8 @@
                         @endforeach
                     </div>
                 </div>
-
+            </div>
+            <div class="row">
                 <div class="col-md-12">
                     <div id="portfolio-gallery" class="cbp">
                         @foreach ($materials as $material)

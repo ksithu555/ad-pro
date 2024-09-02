@@ -13,6 +13,7 @@
                     class="contact-form-style-01" enctype="multipart/form-data">
                     @csrf
                     <div class="messages"></div>
+                    <input type="hidden" id="id" name="id" value="{{ $id }}">
                     <div class="row">
                         <div class="col-md-12 col-sm-12">
                             <div class="form-group">

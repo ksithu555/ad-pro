@@ -33,7 +33,6 @@
             </div>
         </div>
     </div>
-
   </section>
   <!--== Service Boxes Style 01 End ==-->
 </x-section-layout>

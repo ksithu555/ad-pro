@@ -5448,3 +5448,24 @@ input:checked + .slider:before {
   border-bottom: 2px solid #007BFF;
   text-decoration: none;
 }
+
+#icon-dropdown {
+  display: none;
+  /* position: absolute; */
+  background-color: #fff;
+  border: 1px solid #ddd;
+  max-height: 200px;
+  overflow-y: auto;
+  width: 100%;
+  z-index: 1000;
+  box-sizing: border-box;
+}
+
+.icon-dropdown-item {
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.icon-dropdown-item:hover {
+  background-color: #f1f1f1;
+}

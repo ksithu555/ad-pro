@@ -104,7 +104,7 @@
       <!--== Start Header Navigation ==-->
       <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu"> <i class="tr-icon ion-android-menu"></i> </button>
-        <div class="logo"> <a href="index.html">
+        <div class="logo"> <a href="/">
           <img class="logo logo-display" src="{{ asset('assets/images/all/adpro2_blogo.png') }}" alt="">
           <img class="logo logo-scrolled" src="{{ asset('assets/images/all/adpro_blogo.png') }}" alt="">  </a> </div>
       </div>
@@ -154,7 +154,8 @@
           </li>
           <li class="dropdown">
             <a href="{{ route('user.get.materials') }}" class="dropdown-toggle" data-toggle="dropdown">
-                <span class="{{ request()->routeIs('user.get.materials')
+                <span class="{{ request()->routeIs('user.get.materials') ||
+                request()->routeIs('user.get.material.icons')
                 ? 'default-color' : '' }}">素材集</span>
             </a>
           </li>

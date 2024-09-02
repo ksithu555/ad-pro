@@ -63,11 +63,11 @@
                           <tr>
                             <th>#</th>
                             <th style="min-width: 110px;">セクション</th>
-                            <th>タイプ</th>
+                            <th style="min-width: 110px;">タイプ</th>
                             <th>名前</th>
                             <th>URL</th>
-                            <th>注記</th>
-                            <th>アクション</th>
+                            <th style="min-width: 110px;">ステータス</th>
+                            <th style="min-width: 110px;">アクション</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -79,7 +79,7 @@
                             <td style="min-width: 110px;">
                                 {{ $block->advertisementSection->name }}
                             </td>
-                            <td>
+                            <td style="min-width: 110px;">
                               {{ $block->type }}
                             </td>
                             @if ($block->type == 'text' || $block->type == 'contact' || 
@@ -101,7 +101,7 @@
                                     <span class="slider"></span>
                                 </label>   
                             </td>  
-                            <td>
+                            <td style="min-width: 110px;">
                                 <a href="{{ route($editRoute, $block->id) }}">
                                     <i class="fa-icon-pencil-square" style="font-size: 1.5em;"></i>
                                 </a>
@@ -134,7 +134,7 @@
                             <th>タイトル</th>
                             <th>ボディ</th>
                             <th>画像</th>
-                            <th>注記</th>
+                            <th>ステータス</th>
                             <th style="min-width: 110px;">アクション</th>
                             </tr>
                         </thead>
@@ -201,7 +201,7 @@
                             <th style="min-width: 110px;">セクション</th>
                             <th>タイトル</th>
                             <th>ボディ</th>
-                            <th>注記</th>
+                            <th>ステータス</th>
                             <th style="min-width: 110px;">アクション</th>
                             </tr>
                         </thead>

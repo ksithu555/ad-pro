@@ -2,12 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Advertisement;
 use App\Models\News;
+use App\Models\Contact;
+use App\Mail\ContactMail;
 use App\Models\TopFooter;
 use App\Models\TopHeader;
 use Illuminate\Http\Request;
+use App\Models\Advertisement;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Session;
 
 class GuestController extends Controller
 {
@@ -44,6 +48,21 @@ class GuestController extends Controller
 
     public function contact() {
         return view('contact');
+    }
+
+    public function sendContact(Request $request) {
+        $contact = Contact::create([
+            'subject' => $request->subject,
+            'name' => $request->name,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'content' => $request->content
+        ]);
+
+        Mail::to(env('MAIL_FROM_ADDRESS'))->send(new ContactMail($contact));
+
+        Session::flash('success', 'お問い合わせは正常に送信されました');
+        return redirect()->route('guest.contact');
     }
 
     public function showOnePageAdvertisement($param) {

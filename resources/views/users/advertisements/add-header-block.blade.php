@@ -15,21 +15,21 @@
                     <div class="messages"></div>
                     <input type="hidden" id="advertisementSectionId" name="advertisementSectionId" value="{{ $id }}">
                     <div class="row">
-                        <div class="col-md-12 col-sm-12">
+                        <div class="col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2">
                             <div class="form-group">
                                 <label class="sr-only" for="title">タイトル</label>
                                 <input type="text" name="title" class="md-input" id="title" placeholder="タイトル *" value="{{ old('title') }}">
                                 <span class="error" style="color:#BF0731" id="error-title"></span>
                             </div>
                         </div>
-                        <div class="col-md-12 col-sm-12">
+                        <div class="col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2">
                             <div class="form-group">
                                 <label class="sr-only" for="body">ボディ</label>
                                 <textarea name="body" class="md-textarea" id="body" rows="7" placeholder="ボディ *">{{ old('body') }}</textarea>
                                 <span class="error" style="color:#BF0731" id="error-body"></span>
                             </div>
                         </div>
-                        <div class="col-md-12 col-sm-12">
+                        <div class="col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2">
                             <div class="form-group">
                                 <label class="md-file" for="image" id="file-label">画像 *</label>
                                 <input type="file" name="image" id="image" placeholder="画像 *" style="display: none;" value="{{ old('image') }}">
@@ -37,11 +37,11 @@
                                 <span class="error" style="color:#BF0731" id="error-image"></span>
                             </div>
                         </div>
-                        <div class="col-md-12 col-sm-12">
+                        <div class="col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2">
                             <div class="text-left mt-20">
                                 <input type="hidden" id="confirmed" name="confirmed" value="0">
-                                <div class="tr-modal-popup">
-                                    <a onclick="showModal()" id="open-modal" class="btn btn-outline btn-md btn-square btn-animate remove-margin">
+                                <div class="tr-modal-popup text-center">
+                                    <a onclick="showModal()" id="open-modal" class="btn btn-dark-outline btn-md btn-square btn-animate remove-margin">
                                         <span>登録 <i class="ion-android-arrow-forward"></i></span>
                                     </a>
                                 </div>

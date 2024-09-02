@@ -31,7 +31,7 @@ class ContactMail extends Mailable
     public function build()
     {
         return $this->view('emails.contact-email')
-                    ->subject('New Contact Mail')
+                    ->subject('ADPROからのお問合せ')
                     ->with([
                         'contact' => $this->contact,
                     ]);

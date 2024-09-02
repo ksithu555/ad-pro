@@ -43,7 +43,7 @@
 <body>
     <div class="email-container">
         <div class="header">
-            New Contact Message
+            ADPROからのお問合せ
         </div>
         <div class="content">
             <p><strong>Subject:</strong> {{ $contact->subject }}</p>

@@ -167,6 +167,8 @@ Route::get('/admin/edit/top-sections', [AdminHomeController::class, 'editTopSect
 Route::get('/admin/edit/top-section/{id}', [AdminHomeController::class, 'editTopSection'])->name('admin.edit.top.section');
 Route::post('/admin/update/top-section', [AdminHomeController::class, 'updateTopSection'])->name('admin.update.top.section');
 Route::get('/admin/delete/top-section/{id}', [AdminHomeController::class, 'deleteTopSection'])->name('admin.delete.top.section');
+Route::post('/admin/top-section/order-up/{id}', [AdminHomeController::class, 'orderUpTopSection'])->name('admin.top.section.order-up');
+Route::post('/admin/top-section/order-down/{id}', [AdminHomeController::class, 'orderDownTopSection'])->name('admin.top.section.order-down');
 // blocks
 Route::get('/admin/add/top-section/{id}/top-block', [AdminHomeController::class, 'addTopBlock'])->name('admin.add.top.section.top.block');
 Route::post('/admin/store/top-section/top-block', [AdminHomeController::class, 'storeTopBlock'])->name('admin.store.top.section.top.block');

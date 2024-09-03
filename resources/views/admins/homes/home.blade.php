@@ -153,7 +153,7 @@
     {{-- Box 01 End --}}
     @elseif ($section->type == 'Box02')
     {{-- Box 02 Start --}}
-    <section class="pb-0">
+    <section class="{{ $sectionBg }} pb-0">
         <div class="container">
             <hr class="dark-bg">
             <div class="row">
@@ -207,7 +207,7 @@
     {{-- Box 02 End --}}
     @elseif ($section->type == 'Box03')
     {{-- Box 03 Start --}}
-    <section class="pb-0">
+    <section class="{{ $sectionBg }} pb-0">
         <div class="container">
             <hr class="dark-bg">
             <div class="row">

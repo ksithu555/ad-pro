@@ -17,7 +17,7 @@
                         <div class="row">
                             <div class="col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2">
                                 <div class="form-group">
-                                    <select name="type" class="orderby type">
+                                    <select name="type" class="orderby type md-input">
                                         <option value="">タイプを選択してください*</option>
                                         <option value="Box01" @if($section->type == 'Box01')selected="selected"@endif>Box01</option>
                                         <option value="Box02" @if($section->type == 'Box02')selected="selected"@endif>Box02</option>

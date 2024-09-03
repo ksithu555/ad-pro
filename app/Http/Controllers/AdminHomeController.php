@@ -207,6 +207,51 @@ class AdminHomeController extends Controller
         return redirect()->route('admin.edit.top.sections');
     }
 
+    public function orderUpTopSection($id)
+    {
+        $currentSection = TopSection::findOrFail($id);
+        $previousSection = TopSection::where('order', '<', $currentSection->order)
+                                            ->orderBy('order', 'desc')
+                                            ->first();
+
+        if ($previousSection) {
+            // Swap the order values
+            $tempOrder = $currentSection->order;
+            $currentSection->order = $previousSection->order;
+            $previousSection->order = $tempOrder;
+
+            $currentSection->save();
+            $previousSection->save();
+
+            Session::flash('success', 'セクションの順番が正常に更新されました');
+            return response()->json(['success' => true]);
+        }
+        Session::flash('error', 'セクションの順番が正常に変更に失敗しました');
+        return response()->json(['success' => true]);
+    }
+
+    public function orderDownTopSection($id)
+    {
+        $currentSection = TopSection::findOrFail($id);
+        $nextSection = TopSection::where('order', '>', $currentSection->order)
+                                        ->orderBy('order')
+                                        ->first();
+
+        if ($nextSection) {
+            // Swap the order values
+            $tempOrder = $currentSection->order;
+            $currentSection->order = $nextSection->order;
+            $nextSection->order = $tempOrder;
+
+            $currentSection->save();
+            $nextSection->save();
+            Session::flash('success', 'セクションの順番が正常に更新されました');
+            return response()->json(['success' => true]);
+        }
+        Session::flash('error', 'セクションの順番が正常に変更に失敗しました');
+        return response()->json(['success' => true]);
+    }
+
     public function addTopBlock($id) {
         $section = TopSection::find($id);
         $icons = Icon::where('status', 1)->get();

@@ -71,4 +71,61 @@
         </div>
     </section>
     <!--== Contact Form Style 01 End ==-->
+    {{-- Order --}}
+    <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
+    <script>
+      $(document).ready(function() {
+          // Listen for the up arrow button click event
+          $('.arrow-button.up').on('click', function() {
+              // Get the section ID from the data-id attribute
+              var sectionId = $(this).data('id');
+  
+              // Send AJAX request to move the section up
+              $.ajax({
+                  url: '/admin/top-section/order-up/' + sectionId, // The route URL
+                  method: 'POST',
+                  data: {
+                      _token: '{{ csrf_token() }}' // CSRF token for security
+                  },
+                  success: function(response) {
+                      if (response.success) {
+                          window.location.reload();
+                      } else {
+                          alert('Failed to move the section up.');
+                      }
+                  },
+                  error: function(xhr, status, error) {
+                      console.error('Error moving section up: ' + error);
+                      alert('An error occurred while moving the section up.');
+                  }
+              });
+          });
+  
+          // Listen for the down arrow button click event
+          $('.arrow-button.down').on('click', function() {
+              // Get the section ID from the data-id attribute
+              var sectionId = $(this).data('id');
+  
+              // Send AJAX request to move the section down
+              $.ajax({
+                  url: '/admin/top-section/order-down/' + sectionId, // The route URL
+                  method: 'POST',
+                  data: {
+                      _token: '{{ csrf_token() }}' // CSRF token for security
+                  },
+                  success: function(response) {
+                      if (response.success) {
+                          window.location.reload();
+                      } else {
+                          alert('Failed to move the section down.');
+                      }
+                  },
+                  error: function(xhr, status, error) {
+                      console.error('Error moving section down: ' + error);
+                      alert('An error occurred while moving the section down.');
+                  }
+              });
+          });
+      });
+    </script>    
 </x-admin-layout>

@@ -63,6 +63,8 @@ Route::get('/user/delete/advertisement/{id}', [UserAdvertisementController::clas
 Route::get('/user/show/sections/{id}', [UserAdvertisementController::class, 'showSections'])->name('user.show.sections');
 Route::get('/user/add/section/{id}', [UserAdvertisementController::class, 'addSection'])->name('user.add.section');
 Route::post('/user/store/section', [UserAdvertisementController::class, 'storeSection'])->name('user.store.section');
+Route::get('/user/edit/section/{id}', [UserAdvertisementController::class, 'editSection'])->name('user.edit.section');
+Route::post('/user/update/section', [UserAdvertisementController::class, 'updateSection'])->name('user.update.section');
 Route::post('/user/update/section-status', [UserAdvertisementController::class, 'updateSectionStatus'])->name('user.update.section.status');
 Route::post('/user/section/order-up/{id}', [UserAdvertisementController::class, 'orderUpSection'])->name('user.section.order-up');
 Route::post('/user/section/order-down/{id}', [UserAdvertisementController::class, 'orderDownSection'])->name('user.section.order-down');

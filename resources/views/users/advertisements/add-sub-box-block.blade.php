@@ -42,7 +42,8 @@
                                 </div>
                             </div>
                         </div>
-                        @elseif ($advertisementBoxBlock->advertisementSection->section->name == 'Box02')
+                        @elseif ($advertisementBoxBlock->advertisementSection->section->name == 'Box02' ||
+                        $advertisementBoxBlock->advertisementSection->section->name == 'Box03')
                         <div class="row">
                             <div class="col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2">
                                 <div class="form-group"><div class="info-icon-container">

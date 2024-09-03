@@ -59,7 +59,7 @@
 <!--== Wrapper Start ==-->
 <div class="wrapper">
     @php
-        $advertisementSections = $advertisement->advertisementSections->sortBy('order');
+        $advertisementSections = $advertisement->advertisementSections->where('status', 1)->sortBy('order');
     @endphp
     <!--== Header Start ==-->
     <nav class="navbar navbar-default navbar-fixed navbar-transparent dark bootsnav on no-full" style="height: auto;">
@@ -100,12 +100,23 @@
     </nav>
     <!--== Header End ==-->
 
+    @php
+        $bgKey = 0;
+    @endphp
     @foreach ($advertisementSections as $advertisementSection)
+        @php
+            if ($bgKey % 2 == 0) {
+                $sectionBg = 'white-bg';
+            } else {
+                $sectionBg = 'grey-bg';
+            }
+            $bgKey++;
+        @endphp
         @if ($advertisementSection->section->type == 'header' && $advertisementSection->status == 1)
         {{-- Header Hero Start --}}
             @if ($advertisementSection->section->name == 'Header01')
             <!--== Header01 Start ==-->
-            <section class="pt-0 pb-0" id="{{ $advertisementSection->name }}">
+            <section class="{{ $sectionBg }} pt-0 pb-0" id="{{ $advertisementSection->name }}">
                 @foreach ($advertisementSection->advertisementHeaderBlocks as $advertisementHeaderBlock)
                 @if ($advertisementHeaderBlock->status == 1)
                 <section class="pt-0 pb-0">
@@ -146,7 +157,7 @@
             <!--== Header01 End ==-->
             @elseif ($advertisementSection->section->name == 'Header02')
             <!--== Header02 Start ==-->
-            <section class="parallax-bg fixed-bg view-height-100vh lg-section"  id="{{ $advertisementSection->name }}"
+            <section class="{{ $sectionBg }} parallax-bg fixed-bg view-height-100vh lg-section"  id="{{ $advertisementSection->name }}"
                 data-parallax-bg-image="{{ asset('assets/images/all/header-02.webp') }}" 
                 data-parallax-speed="0.5" data-parallax-direction="up">
                 <div class="color-overlay-bg"></div>
@@ -182,7 +193,7 @@
         {{-- List Hero Start --}}
             @if ($advertisementSection->section->name == 'List01')
             <!--== List01 Start ==-->
-            <section class="pt-0 pb-0 grey-bg" id="{{ $advertisementSection->name }}">
+            <section class="{{ $sectionBg }} pt-0 pb-0" id="{{ $advertisementSection->name }}">
                 <div class="container-fluid">
                     @foreach ($advertisementSection->advertisementListBlocks as $key => $advertisementListBlock)
                         @if ($advertisementListBlock->status == 1)
@@ -216,7 +227,7 @@
             <!--== List01 End ==-->
             @elseif ($advertisementSection->section->name == 'List02')
             <!--== List02 Start ==-->
-            <section class="pt-0 pb-0 grey-bg" id="{{ $advertisementSection->name }}">
+            <section class="{{ $sectionBg }} pt-0 pb-0" id="{{ $advertisementSection->name }}">
                 <div class="container-fluid">
                     @foreach ($advertisementSection->advertisementListBlocks as $key => $advertisementListBlock)
                         @if ($advertisementListBlock->status == 1)
@@ -254,8 +265,9 @@
         {{-- Box Hero Start --}}
             @if ($advertisementSection->section->name == 'Box01')
             <!--== Box01 Start ==-->
-            <section class="white-bg pt-0 pb-0" id="{{ $advertisementSection->name }}">
+            <section class="{{ $sectionBg }} pt-0 pb-0" id="{{ $advertisementSection->name }}">
                 @foreach ($advertisementSection->advertisementBoxBlocks as $advertisementBoxBlock)
+                @if ($advertisementBoxBlock->status == 1)
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-8 section-heading">
@@ -293,13 +305,15 @@
                         @endforeach
                     </div>
                 </div>
+                @endif
                 @endforeach
             </section>
             <!--== Box01 End ==-->
             @elseif ($advertisementSection->section->name == 'Box02')
             {{-- Box02 Start --}}
-            <section class="pt-0 pb-0" id="{{ $advertisementSection->name }}">
+            <section class="{{ $sectionBg }} pt-0 pb-0" id="{{ $advertisementSection->name }}">
                 @foreach ($advertisementSection->advertisementBoxBlocks as $advertisementBoxBlock)
+                @if ($advertisementBoxBlock->status == 1)
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-8 section-heading">
@@ -332,9 +346,64 @@
                         @endforeach
                     </div>
                 </div>
+                @endif
                 @endforeach
             </section>
             {{-- Box02 End --}}
+            @elseif ($advertisementSection->section->name == 'Box03')
+            {{-- Box03 Start --}}
+            <section class="{{ $sectionBg }} pt-0 pb-0" id="{{ $advertisementSection->name }}">
+                @foreach ($advertisementSection->advertisementBoxBlocks as $advertisementBoxBlock)
+                @if ($advertisementBoxBlock->status == 1)
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-8 section-heading">
+                            <h2 class="font-700">{{ $advertisementBoxBlock->title }}</h2>
+                            <hr class="dark-bg center_line bold-line">
+                            <h4>{{ $advertisementBoxBlock->body }}</h4>
+                        </div>
+                    </div>
+                    <div class="row mt-50 service-box-style-03">
+                        @foreach ($advertisementBoxBlock->advertisementSubBoxBlocks as $advertisementSubBoxBlock)
+                        @php
+                            $count = $advertisementBoxBlock->advertisementSubBoxBlocks->where('status', 1)->count();
+                            if ($count == 1) {
+                                $col = 12;
+                            } elseif ($count == 2) {
+                                $col = 6;
+                            } else {
+                                $col = 4;
+                            }
+                        @endphp
+                        @if ($advertisementSubBoxBlock->status == 1)
+                        <div class="col-md-{{ $col }} col-sm-{{ $col }} col-xs-12">
+                            <div class="flipper">
+                              <div class="text-center mb-50 main-box">
+                                <div class="box-front height-300px white-bg">
+                                  <div class="content-wrap">
+                                    <i class="{{ $advertisementSubBoxBlock->icon }} font-40px default-color"></i>
+                                    <h4 class="font-600">{{ $advertisementSubBoxBlock->title }}</h4>
+                                    <p class="font-400 mt-20">{{ $advertisementSubBoxBlock->body }}</p>
+                                  </div>
+                                </div>
+                                <div class="box-back height-300px default-bg">
+                                  <div class="content-wrap white-color">
+                                    <i class="{{ $advertisementSubBoxBlock->icon }} font-40px"></i>
+                                    <h4 class="font-600">{{ $advertisementSubBoxBlock->title }}</h4>
+                                    <p class="font-400 mt-20">{{ $advertisementSubBoxBlock->body }}</p>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                        </div>
+                        @endif
+                        @endforeach
+                    </div>
+                </div>
+                @endif
+                @endforeach
+            </section>
+            {{-- Box03 End --}}
             @endif
         {{-- Box Hero End --}}
         @elseif ($advertisementSection->section->type == 'footer'  && $advertisementSection->status == 1)

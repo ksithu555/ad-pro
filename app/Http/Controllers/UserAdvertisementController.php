@@ -144,6 +144,23 @@ class UserAdvertisementController extends Controller
         return redirect()->route('user.show.sections', $advertisement->id);
     }
 
+    public function editSection($id) {
+        $advertisementSection = AdvertisementSection::find($id);
+        return view('users.advertisements.edit-section', compact('advertisementSection'));
+    }
+
+    public function updateSection(Request $request) {
+        $updateData = [
+            'name' => $request->name
+        ];
+
+        $advertisementSection = AdvertisementSection::find($request->id);
+        $advertisementSection->update($updateData);
+
+        Session::flash('success', 'セクションが正常に更新されました');
+        return redirect()->route('user.show.sections', $advertisementSection->advertisement_id);
+    }
+
     public function updateSectionStatus(Request $request) {
         $section = AdvertisementSection::find($request->id);
         if ($section->section->type == 'header') {

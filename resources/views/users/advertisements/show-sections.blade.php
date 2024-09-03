@@ -85,6 +85,9 @@
                                     <a href="{{ route('user.show.section.blocks', $section->id) }}">
                                       <i class="fa-icon-plus-square" style="font-size: 1.5em;"></i>
                                     </a>
+                                    <a href="{{ route('user.edit.section', $section->id) }}">
+                                      <i class="fa-icon-pencil-square" style="font-size: 1.5em;"></i>
+                                    </a>
                                     <div class="tr-modal-popup">
                                       <a href="#modal-popup-{{ $section->id }}" data-effect="mfp-newspaper">
                                         <i class="fa-icon-trash" style="font-size: 1.5em;"></i>

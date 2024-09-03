@@ -66,7 +66,11 @@ class GuestController extends Controller
     }
 
     public function showOnePageAdvertisement($param) {
-        $advertisement = Advertisement::where('param_name', $param)->first();
+        $advertisement = Advertisement::with('advertisementSections')->with('advertisementSections.advertisement')
+        ->with('advertisementSections.section')->with('advertisementSections.advertisementHeaderBlocks')
+        ->with('advertisementSections.advertisementFooterBlocks')->with('advertisementSections.advertisementListBlocks')
+        ->with('advertisementSections.advertisementBoxBlocks')->with('advertisementSections.advertisementBoxBlocks.advertisementSubBoxBlocks')
+        ->where('param_name', $param)->first();
         if (!$advertisement) {
             return view('404-error');
         }

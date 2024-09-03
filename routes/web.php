@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\GuestController;
+use App\Http\Controllers\AdminHomeController;
 use App\Http\Controllers\AdminNewsController;
 use App\Http\Controllers\UserMemberController;
 use App\Http\Controllers\AdminMemberController;
@@ -144,21 +145,35 @@ Route::get('/admin/change/password', [AdminController::class, 'changePassword'])
 Route::post('/admin/update/password', [AdminController::class, 'updatePassword'])->name('admin.update.password');
 
 // home
-Route::get('/admin/home', [AdminController::class, 'getHome'])->name('admin.get.home');
+Route::get('/admin/home', [AdminHomeController::class, 'getHome'])->name('admin.get.home');
 // header
-Route::get('/admin/add/header', [AdminController::class, 'addHeader'])->name('admin.add.header');
-Route::post('/admin/store/header', [AdminController::class, 'storeHeader'])->name('admin.store.header');
-Route::get('/admin/edit/headers', [AdminController::class, 'editHeaders'])->name('admin.edit.headers');
-Route::get('/admin/edit/header/{id}', [AdminController::class, 'editHeader'])->name('admin.edit.header');
-Route::post('/admin/update/header', [AdminController::class, 'updateHeader'])->name('admin.update.header');
-Route::get('/admin/delete/header{id}', [AdminController::class, 'deleteHeader'])->name('admin.delete.header');
+Route::get('/admin/add/header', [AdminHomeController::class, 'addHeader'])->name('admin.add.header');
+Route::post('/admin/store/header', [AdminHomeController::class, 'storeHeader'])->name('admin.store.header');
+Route::get('/admin/edit/headers', [AdminHomeController::class, 'editHeaders'])->name('admin.edit.headers');
+Route::get('/admin/edit/header/{id}', [AdminHomeController::class, 'editHeader'])->name('admin.edit.header');
+Route::post('/admin/update/header', [AdminHomeController::class, 'updateHeader'])->name('admin.update.header');
+Route::get('/admin/delete/header/{id}', [AdminHomeController::class, 'deleteHeader'])->name('admin.delete.header');
 // footer
-Route::get('/admin/edit/footers', [AdminController::class, 'editFooters'])->name('admin.edit.footers');
-Route::get('/admin/add/footer', [AdminController::class, 'addFooter'])->name('admin.add.footer');
-Route::post('/admin/store/footer', [AdminController::class, 'storeFooter'])->name('admin.store.footer');
-Route::get('/admin/edit/footer/{id}', [AdminController::class, 'editFooter'])->name('admin.edit.footer');
-Route::post('/admin/update/footer', [AdminController::class, 'updateFooter'])->name('admin.update.footer');
-Route::get('/admin/delete/footer{id}', [AdminController::class, 'deleteFooter'])->name('admin.delete.footer');
+Route::get('/admin/edit/footers', [AdminHomeController::class, 'editFooters'])->name('admin.edit.footers');
+Route::get('/admin/add/footer', [AdminHomeController::class, 'addFooter'])->name('admin.add.footer');
+Route::post('/admin/store/footer', [AdminHomeController::class, 'storeFooter'])->name('admin.store.footer');
+Route::get('/admin/edit/footer/{id}', [AdminHomeController::class, 'editFooter'])->name('admin.edit.footer');
+Route::post('/admin/update/footer', [AdminHomeController::class, 'updateFooter'])->name('admin.update.footer');
+Route::get('/admin/delete/footer/{id}', [AdminHomeController::class, 'deleteFooter'])->name('admin.delete.footer');
+// sections
+Route::get('/admin/add/top-section', [AdminHomeController::class, 'addTopSection'])->name('admin.add.top.section');
+Route::post('/admin/store/top-section', [AdminHomeController::class, 'storeTopSection'])->name('admin.store.top.section');
+Route::get('/admin/edit/top-sections', [AdminHomeController::class, 'editTopSections'])->name('admin.edit.top.sections');
+Route::get('/admin/edit/top-section/{id}', [AdminHomeController::class, 'editTopSection'])->name('admin.edit.top.section');
+Route::post('/admin/update/top-section', [AdminHomeController::class, 'updateTopSection'])->name('admin.update.top.section');
+Route::get('/admin/delete/top-section/{id}', [AdminHomeController::class, 'deleteTopSection'])->name('admin.delete.top.section');
+// blocks
+Route::get('/admin/add/top-section/{id}/top-block', [AdminHomeController::class, 'addTopBlock'])->name('admin.add.top.section.top.block');
+Route::post('/admin/store/top-section/top-block', [AdminHomeController::class, 'storeTopBlock'])->name('admin.store.top.section.top.block');
+Route::get('/admin/edit/top-section/{id}/top-blocks', [AdminHomeController::class, 'editTopBlocks'])->name('admin.edit.top.section.top.blocks');
+Route::get('/admin/edit/top-section/{sid}/top-block/{id}', [AdminHomeController::class, 'editTopBlock'])->name('admin.edit.top.section.top.block');
+Route::post('/admin/update/top-section/top-block', [AdminHomeController::class, 'updateTopBlock'])->name('admin.update.top.section.top.block');
+Route::get('/admin/delete/top-section/{sid}/top-block/{id}', [AdminHomeController::class, 'deleteTopBlock'])->name('admin.delete.top.section.top.block');
 
 // members
 Route::get('/admin/members', [AdminMemberController::class, 'getMembers'])->name('admin.get.members');
@@ -176,6 +191,7 @@ Route::get('/admin/edit/material/{id}', [AdminMaterialController::class, 'editMa
 Route::post('/admin/update/material', [AdminMaterialController::class, 'updateMaterial'])->name('admin.update.material');
 Route::get('/admin/material/delete/{id}', [AdminMaterialController::class, 'deleteMaterial'])->name('admin.delete.material');
 Route::post('/admin/update/material-status', [AdminMaterialController::class, 'updateMaterialStatus'])->name('admin.update.material.status');
+Route::get('/admin/material-icons', [AdminMaterialController::class, 'getMaterialIcons'])->name('admin.get.material.icons');
 
 // sections
 Route::get('/admin/sections', [AdminSectionController::class, 'getSections'])->name('admin.get.sections');

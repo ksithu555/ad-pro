@@ -4,7 +4,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-8 section-heading">
-                <h4 class="text-uppercase mt-0">ヘッダ修正</h4>
+                <h4 class="text-uppercase mt-0">フッター修正</h4>
                 <x-message-box></x-message-box>
                 </div>
             </div>
@@ -16,7 +16,7 @@
                     <div class="messages"></div>
                     <input type="hidden" id="id" name="id" value="{{ $footer->id }}">
                     <div class="row">
-                        <div class="col-md-12 col-sm-12">
+                        <div class="col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2">
                             <div class="form-group">
                                 <select name="type" class="orderby" id="typeSelect" onchange="toggleFields()">
                                     @if ($footer->type == 'useful')
@@ -37,7 +37,7 @@
                             </div>
                         </div>
                     
-                        <div class="col-md-12 col-sm-12" id="usefulLinkField">
+                        <div class="col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2" id="usefulLinkField">
                             <div class="form-group">
                                 <label class="sr-only" for="nameUseful">名前</label>
                                 <input type="text" name="nameUseful" class="md-input" id="nameUseful" placeholder="名前 *" value="{{ old('nameUseful') ? old('nameUseful') : $footer->name }}">
@@ -45,7 +45,7 @@
                             </div>
                         </div>
                     
-                        <div class="col-md-12 col-sm-12" id="socialMediaField" style="display:none;">
+                        <div class="col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2" id="socialMediaField" style="display:none;">
                             <div class="form-group">
                                 <select name="nameSocial" class="orderby social-media">
                                     <option value="">選択*</option>
@@ -65,7 +65,7 @@
                             </div>
                         </div>
                     
-                        <div class="col-md-12 col-sm-12" id="urlField">
+                        <div class="col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2" id="urlField">
                             <div class="form-group">
                                 <label class="sr-only" for="url">URL</label>
                                 <input type="text" name="url" class="md-input" id="url" placeholder="URL *" value="{{ old('url') ? old('url') : $footer->url }}">
@@ -73,7 +73,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-12 col-sm-12" id="logoField">
+                        <div class="col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2" id="logoField">
                             <div class="form-group">
                                 <label class="md-file" for="logo" id="file-label">画像 *</label>
                                 <input type="file" name="logo" id="logo" placeholder="画像 *" style="display: none;">
@@ -82,10 +82,10 @@
                             </div>
                         </div>
 
-                        <div class="col-md-12 col-sm-12" id="footerTextField">
+                        <div class="col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2" id="footerTextField">
                             <div class="form-group">
-                                <label class="sr-only" for="text">本文</label>
-                                <textarea name="text" class="md-textarea" id="text" rows="7" placeholder="本文 *">{{ old('text') ? old('text') : $footer->text }}</textarea>
+                                <label class="sr-only" for="text">内容</label>
+                                <textarea name="text" class="md-textarea" id="text" rows="7" placeholder="内容 *">{{ old('text') ? old('text') : $footer->text }}</textarea>
                                 <span class="error" style="color:#BF0731" id="error-text"></span>
                             </div>
                         </div>
@@ -96,7 +96,7 @@
                                 $contactUs = explode('|', $footer->text);
                             }
                         @endphp
-                        <div class="col-md-12 col-sm-12" id="contactUsField">
+                        <div class="col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2" id="contactUsField">
                             <div class="form-group">
                                 <label class="sr-only" for="address">住所</label>
                                 <input type="text" name="address" class="md-input" id="address" placeholder="住所 *" value="{{ old('address') ? old('address') : $contactUs[0] }}">
@@ -114,7 +114,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-12 col-sm-12" id="copyRightField">
+                        <div class="col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2" id="copyRightField">
                             <div class="form-group">
                                 <label class="sr-only" for="copyRight">コピーライト</label>
                                 <input type="text" name="copyRight" class="md-input" id="copyRight" placeholder="コピーライト *" value="{{ old('copyRight') ? old('copyRight') : $footer->text }}">
@@ -122,12 +122,12 @@
                             </div>
                         </div>
                     
-                        <div class="col-md-12 col-sm-12">
+                        <div class="col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2">
                             <div class="text-left mt-20">
                                 <input type="hidden" id="confirmed" name="confirmed" value="0">
-                                <div class="tr-modal-popup">
-                                    <a onclick="showModal()" id="open-modal" class="btn btn-outline btn-md btn-square btn-animate remove-margin">
-                                        <span>登録 <i class="ion-android-arrow-forward"></i></span>
+                                <div class="tr-modal-popup text-center">
+                                    <a onclick="showModal()" id="open-modal" class="btn btn-dark-outline btn-md btn-square btn-animate remove-margin">
+                                        <span>修正 <i class="ion-android-arrow-forward"></i></span>
                                     </a>
                                 </div>
                             </div>
@@ -142,8 +142,8 @@
 
     <!-- Modal Popup Message Box -->
     <div id="modal-popup" class="white-bg all-padding-60 mfp-with-anim mfp-hide centerize-col col-lg-4 col-md-6 col-sm-7 col-xs-11 text-center">
-        <span class="text-uppercase font-30px font-600 mb-20 display-block dark-color">ヘッダ修正</span>
-        <p class="mb-20">ヘッダを修正してもよろしいですか?</p>
+        <span class="text-uppercase font-30px font-600 mb-20 display-block dark-color">フッター修正</span>
+        <p class="mb-20">フッターを修正してもよろしいですか?</p>
         <a class="btn btn-lg btn-circle btn-color popup-modal-close" href="#" onclick="submitForm()">Yes</a>
         <a class="btn btn-lg btn-circle btn-secondary-color popup-modal-close" href="#">No</a>
     </div>
@@ -288,7 +288,7 @@
                 }
             } else if (type === 'text') {
                 if (!text) {
-                    document.getElementById('error-text').textContent = '本文を入力してください';
+                    document.getElementById('error-text').textContent = '内容を入力してください';
                     isValid = false;
                 }
             } else if (type === 'contact') {

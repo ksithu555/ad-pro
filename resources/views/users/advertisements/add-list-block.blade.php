@@ -24,8 +24,8 @@
                         </div>
                         <div class="col-md-12 col-sm-12">
                             <div class="form-group">
-                                <label class="sr-only" for="body">ボディ</label>
-                                <textarea name="body" class="md-textarea" id="body" rows="7" placeholder="ボディ *">{{ old('body') }}</textarea>
+                                <label class="sr-only" for="body">内容</label>
+                                <textarea name="body" class="md-textarea" id="body" rows="7" placeholder="内容 *">{{ old('body') }}</textarea>
                                 <span class="error" style="color:#BF0731" id="error-body"></span>
                             </div>
                         </div>

@@ -95,8 +95,8 @@
 
                         <div class="col-md-12 col-sm-12" id="footerTextField">
                             <div class="form-group">
-                                <label class="sr-only" for="text">本文</label>
-                                <textarea name="text" class="md-textarea" id="text" rows="7" placeholder="本文 *">{{ old('text') }}</textarea>
+                                <label class="sr-only" for="text">内容</label>
+                                <textarea name="text" class="md-textarea" id="text" rows="7" placeholder="内容 *">{{ old('text') }}</textarea>
                                 <span class="error" style="color:#BF0731" id="error-text"></span>
                             </div>
                         </div>
@@ -294,7 +294,7 @@
                 }
             } else if (type === 'text') {
                 if (!text) {
-                    document.getElementById('error-text').textContent = '本文を入力してください';
+                    document.getElementById('error-text').textContent = '内容を入力してください';
                     isValid = false;
                 }
             } else if (type === 'contact') {

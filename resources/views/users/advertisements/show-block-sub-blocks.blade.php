@@ -48,7 +48,7 @@
                             <th>#</th>
                             <th style="min-width: 110px;">セクション</th>
                             <th>タイトル</th>
-                            <th>ボディ</th>
+                            <th>内容</th>
                             <th>アイコン</th>
                             <th>注記</th>
                             <th style="min-width: 110px;">アクション</th>

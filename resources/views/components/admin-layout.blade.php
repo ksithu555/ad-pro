@@ -122,7 +122,13 @@
                 request()->routeIs('admin.edit.header') ||
                 request()->routeIs('admin.add.footer') ||
                 request()->routeIs('admin.edit.footers') ||
-                request()->routeIs('admin.edit.footer')
+                request()->routeIs('admin.edit.footer') ||
+                request()->routeIs('admin.add.top.section') ||
+                request()->routeIs('admin.edit.top.sections') ||
+                request()->routeIs('admin.edit.top.section') ||
+                request()->routeIs('admin.add.top.section.top.block') ||
+                request()->routeIs('admin.edit.top.section.top.blocks') ||
+                request()->routeIs('admin.edit.top.section.top.block')
                 ? 'default-color' : '' }}">ホーム</span>
             </a>
           </li>
@@ -140,7 +146,8 @@
             <a href="{{ route('admin.get.materials') }}" class="dropdown-toggle" data-toggle="dropdown">
                 <span class="{{ request()->routeIs('admin.get.materials') ||
                 request()->routeIs('admin.add.material') ||
-                request()->routeIs('admin.edit.material')
+                request()->routeIs('admin.edit.material') ||
+                request()->routeIs('admin.get.material.icons')
                 ? 'default-color' : '' }}">素材一覧</span>
             </a>
           </li>

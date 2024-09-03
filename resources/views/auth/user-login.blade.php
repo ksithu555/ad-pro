@@ -36,7 +36,7 @@
     <!--== Page Title End ==-->
 
     <!--== Contact Form Style 01 Start ==-->
-    <section class="white-bg">
+    <section class="white-bg pt-120 pb-120">
         <div class="container">
             <div class="row mt-25">
                 <div class="col-md-8 centerize-col">

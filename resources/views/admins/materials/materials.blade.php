@@ -11,14 +11,18 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-8 col-md-offset-2">
+            <div class="col-md-7 col-md-offset-2">
                 <x-message-box></x-message-box>
             </div>
-            <div class="col-md-2">
+            <div class="col-md-3">
                 <div style="text-align: right;">
                 <a class="btn btn-md btn-dark-outline btn-square margin-left-auto margin-right-auto display-table-sm"
                 href="{{ route('admin.add.material') }}">
                     <i class="fa-icon-plus-square"></i> 素材
+                </a>
+                <a class="btn btn-md btn-dark-outline btn-square margin-left-auto margin-right-auto display-table-sm"
+                href="{{ route('admin.get.material.icons') }}">
+                アイコン <i class="ion-android-arrow-forward"></i>
                 </a>
             </div>
           </div>

@@ -132,7 +132,7 @@
                             <th>#</th>
                             <th style="min-width: 110px;">セクション</th>
                             <th>タイトル</th>
-                            <th>ボディ</th>
+                            <th>内容</th>
                             <th>画像</th>
                             <th>ステータス</th>
                             <th style="min-width: 110px;">アクション</th>
@@ -200,7 +200,7 @@
                             <th>#</th>
                             <th style="min-width: 110px;">セクション</th>
                             <th>タイトル</th>
-                            <th>ボディ</th>
+                            <th>内容</th>
                             <th>ステータス</th>
                             <th style="min-width: 110px;">アクション</th>
                             </tr>

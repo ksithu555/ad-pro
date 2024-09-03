@@ -26,8 +26,8 @@
                         <div class="row">
                             <div class="col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2">
                                 <div class="form-group">
-                                    <label class="sr-only" for="body">ボディ</label>
-                                    <textarea name="body" class="md-textarea" id="body" rows="7" placeholder="ボディ *">{{ old('body') ? old('body') : $subBoxBlock->body }}</textarea>
+                                    <label class="sr-only" for="body">内容</label>
+                                    <textarea name="body" class="md-textarea" id="body" rows="7" placeholder="内容 *">{{ old('body') ? old('body') : $subBoxBlock->body }}</textarea>
                                     <span class="error" style="color:#BF0731" id="error-body"></span>
                                 </div>
                             </div>

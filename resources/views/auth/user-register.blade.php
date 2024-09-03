@@ -4,7 +4,7 @@
         <section class="title-hero-bg parallax-effect" style="background-image: url({{ asset('assets/images/all/header-ad-list.webp') }});">
             <div class="container">
                 <div class="page-title text-center white-color">
-                    <h1>登録</h1>
+                    <h1>会員登録</h1>
                     <h4 class="text-uppercase mt-30">Register</h4>
                 </div>
             </div>
@@ -27,7 +27,7 @@
                </div>
                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 display-table text-right text-xs-left xs-mt-10">
                    <div class="v-align-middle text-right text-xs-center">
-                      <h1 class="text-uppercase mb-0 font-600 font-16px line-height-26 mt-0">登録</h1>
+                      <h1 class="text-uppercase mb-0 font-600 font-16px line-height-26 mt-0">会員登録</h1>
                   </div>
                </div>
              </div>

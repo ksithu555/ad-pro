@@ -7,6 +7,7 @@ use App\Models\Contact;
 use App\Mail\ContactMail;
 use App\Models\TopFooter;
 use App\Models\TopHeader;
+use App\Models\TopSection;
 use Illuminate\Http\Request;
 use App\Models\Advertisement;
 use Illuminate\Support\Facades\Auth;
@@ -17,7 +18,8 @@ class GuestController extends Controller
 {
     public function home() {
         $headers = TopHeader::all();
-        return view('home', compact('headers'));
+        $sections = TopSection::orderBy('order')->get();
+        return view('home', compact('headers', 'sections'));
     }
     public function onePage() {
         return view('home-one-page');

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Icon;
 use App\Models\Material;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
@@ -78,5 +79,10 @@ class AdminMaterialController extends Controller
         }
         Session::flash('error', '素材ステータスの変更に失敗しました');
         return response()->json(['success' => false]);
+    }
+
+    public function getMaterialIcons() {
+        $icons = Icon::where('status', 1)->get();
+        return view('admins.materials.material-icons', compact('icons'));
     }
 }

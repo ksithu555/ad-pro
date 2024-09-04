@@ -117,13 +117,15 @@
             if (!reason) {
                 document.getElementById('error-reason').textContent = '理由を入力してください';
             } else {
-                let participantId = {{ $participant->id }};console.log(participantId, encodeURIComponent(reason));
-                let url = "{{ route('user.update.participant.status', ['id' => ':id', 'status' => 2, 'reason' => ':reason']) }}"
+                let participantId = @json($participant ? $participant->id : null);
+                if (participantId) {
+                    let url = "{{ route('user.update.participant.status', ['id' => ':id', 'status' => 2, 'reason' => ':reason']) }}"
                             .replace(':id', participantId)
                             .replace(':reason', encodeURIComponent(reason));
 
-                // Redirect to the generated URL
-                window.location.href = url;
+                    // Redirect to the generated URL
+                    window.location.href = url;
+                }
             }
         }
     </script>

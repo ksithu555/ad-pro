@@ -59,12 +59,12 @@
         <div class="container">
             <hr class="dark-bg">
             <div class="row">
-                <div class="col-md-2">
+                <div class="col-md-2 text-left">
                     <a class="btn margin-left-auto margin-right-auto display-table-sm">
                         <span style="font-size: 18px;">Sections</span>
                     </a>
                 </div>
-                <div class="col-md-10">
+                {{-- <div class="col-md-10">
                     <div style="text-align: right;">
                         <a class="btn btn-md btn-dark-outline btn-square margin-left-auto margin-right-auto display-table-sm"
                             href="{{ route('admin.add.top.section') }}">
@@ -75,15 +75,15 @@
                             <i class="fa-icon-pencil-square"></i> 編集
                         </a>
                     </div>
-                </div>
+                </div> --}}
             </div>
             <hr class="dark-bg">
         </div>
     </section>
-    @php
+    {{-- @php
         $bgKey = 0;
-    @endphp
-    @foreach ($sections as $section)
+    @endphp --}}
+    {{-- @foreach ($sections as $section)
         @php
             if ($bgKey % 2 == 0) {
                 $sectionBg = 'white-bg';
@@ -91,10 +91,10 @@
                 $sectionBg = 'grey-bg';
             }
             $bgKey++;
-        @endphp
-    @if ($section->type == 'Box01')
+        @endphp --}}
+    {{-- @if ($section->type == 'Box01') --}}
     {{-- Box 01 Start --}}
-    <section class="{{ $sectionBg }} pt-0 pb-0">
+    {{-- <section class="{{ $sectionBg }} pt-0 pb-0">
         <div class="container">
             <hr class="dark-bg">
             <div class="row">
@@ -149,11 +149,11 @@
                 @endforeach
             </div>
         </div>
-    </section>
+    </section> --}}
     {{-- Box 01 End --}}
-    @elseif ($section->type == 'Box02')
+    {{-- @elseif ($section->type == 'Box02') --}}
     {{-- Box 02 Start --}}
-    <section class="{{ $sectionBg }} pb-0">
+    {{-- <section class="{{ $sectionBg }} pb-0">
         <div class="container">
             <hr class="dark-bg">
             <div class="row">
@@ -203,11 +203,11 @@
                 @endforeach
             </div>
         </div>
-    </section>
+    </section> --}}
     {{-- Box 02 End --}}
-    @elseif ($section->type == 'Box03')
+    {{-- @elseif ($section->type == 'Box03') --}}
     {{-- Box 03 Start --}}
-    <section class="{{ $sectionBg }} pb-0">
+    {{-- <section class="{{ $sectionBg }} pb-0">
         <div class="container">
             <hr class="dark-bg">
             <div class="row">
@@ -270,10 +270,10 @@
                 @endforeach
             </div>
         </div>
-    </section>
+    </section> --}}
     {{-- Box 03 End --}}
-    @endif
-    @endforeach
+    {{-- @endif --}}
+    {{-- @endforeach --}}
     <!--== Sections End ==-->
     <!--== Footer Start ==-->
     @php

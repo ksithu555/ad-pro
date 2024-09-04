@@ -15,6 +15,7 @@ use App\Http\Controllers\UserMaterialController;
 use App\Http\Controllers\VerificationController;
 use App\Http\Controllers\AdminMaterialController;
 use App\Http\Controllers\AdminSubAdminController;
+use App\Http\Controllers\UserAnnouncementController;
 use App\Http\Controllers\AdminAnnouncementController;
 use App\Http\Controllers\UserAdvertisementController;
 use App\Http\Controllers\AdminAdvertisementController;
@@ -117,14 +118,14 @@ Route::get('/user/materials', [UserMaterialController::class, 'getMaterials'])->
 Route::get('/user/material-icons', [UserMaterialController::class, 'getMaterialIcons'])->name('user.get.material.icons');
 
 // Announcement
-Route::get('/user/announcements', [UserController::class, 'getAnnouncements'])->name('user.get.announcements');
-Route::get('/user/show/announcements', [UserController::class, 'showAnnouncements'])->name('user.show.announcements');
-Route::get('/user/show/announcement/{id}', [UserController::class, 'showAnnouncement'])->name('user.show.announcement');
-Route::get('/user/add/announcement', [UserController::class, 'addAnnouncement'])->name('user.add.announcement');
-Route::post('/user/store/announcement', [UserController::class, 'storeAnnouncement'])->name('user.store.announcement');
-Route::get('/user/edit/announcement/{id}', [UserController::class, 'editAnnouncement'])->name('user.edit.announcement');
-Route::post('/user/update/announcement', [UserController::class, 'updateAnnouncement'])->name('user.update.announcement');
-Route::get('/user/delete/announcement/{id}', [UserController::class, 'deleteAnnouncement'])->name('user.delete.announcement');
+Route::get('/user/announcements', [UserAnnouncementController::class, 'getAnnouncements'])->name('user.get.announcements');
+Route::get('/user/show/announcements', [UserAnnouncementController::class, 'showAnnouncements'])->name('user.show.announcements');
+Route::get('/user/show/announcement/{id}', [UserAnnouncementController::class, 'showAnnouncement'])->name('user.show.announcement');
+Route::get('/user/add/announcement', [UserAnnouncementController::class, 'addAnnouncement'])->name('user.add.announcement');
+Route::post('/user/store/announcement', [UserAnnouncementController::class, 'storeAnnouncement'])->name('user.store.announcement');
+Route::get('/user/edit/announcement/{id}', [UserAnnouncementController::class, 'editAnnouncement'])->name('user.edit.announcement');
+Route::post('/user/update/announcement', [UserAnnouncementController::class, 'updateAnnouncement'])->name('user.update.announcement');
+Route::get('/user/delete/announcement/{id}', [UserAnnouncementController::class, 'deleteAnnouncement'])->name('user.delete.announcement');
 
 // Message
 Route::get('/user/messages', [UserController::class, 'getMessages'])->name('user.get.messages');
@@ -161,21 +162,21 @@ Route::get('/admin/edit/footer/{id}', [AdminHomeController::class, 'editFooter']
 Route::post('/admin/update/footer', [AdminHomeController::class, 'updateFooter'])->name('admin.update.footer');
 Route::get('/admin/delete/footer/{id}', [AdminHomeController::class, 'deleteFooter'])->name('admin.delete.footer');
 // sections
-Route::get('/admin/add/top-section', [AdminHomeController::class, 'addTopSection'])->name('admin.add.top.section');
-Route::post('/admin/store/top-section', [AdminHomeController::class, 'storeTopSection'])->name('admin.store.top.section');
-Route::get('/admin/edit/top-sections', [AdminHomeController::class, 'editTopSections'])->name('admin.edit.top.sections');
-Route::get('/admin/edit/top-section/{id}', [AdminHomeController::class, 'editTopSection'])->name('admin.edit.top.section');
-Route::post('/admin/update/top-section', [AdminHomeController::class, 'updateTopSection'])->name('admin.update.top.section');
-Route::get('/admin/delete/top-section/{id}', [AdminHomeController::class, 'deleteTopSection'])->name('admin.delete.top.section');
-Route::post('/admin/top-section/order-up/{id}', [AdminHomeController::class, 'orderUpTopSection'])->name('admin.top.section.order-up');
-Route::post('/admin/top-section/order-down/{id}', [AdminHomeController::class, 'orderDownTopSection'])->name('admin.top.section.order-down');
+// Route::get('/admin/add/top-section', [AdminHomeController::class, 'addTopSection'])->name('admin.add.top.section');
+// Route::post('/admin/store/top-section', [AdminHomeController::class, 'storeTopSection'])->name('admin.store.top.section');
+// Route::get('/admin/edit/top-sections', [AdminHomeController::class, 'editTopSections'])->name('admin.edit.top.sections');
+// Route::get('/admin/edit/top-section/{id}', [AdminHomeController::class, 'editTopSection'])->name('admin.edit.top.section');
+// Route::post('/admin/update/top-section', [AdminHomeController::class, 'updateTopSection'])->name('admin.update.top.section');
+// Route::get('/admin/delete/top-section/{id}', [AdminHomeController::class, 'deleteTopSection'])->name('admin.delete.top.section');
+// Route::post('/admin/top-section/order-up/{id}', [AdminHomeController::class, 'orderUpTopSection'])->name('admin.top.section.order-up');
+// Route::post('/admin/top-section/order-down/{id}', [AdminHomeController::class, 'orderDownTopSection'])->name('admin.top.section.order-down');
 // blocks
-Route::get('/admin/add/top-section/{id}/top-block', [AdminHomeController::class, 'addTopBlock'])->name('admin.add.top.section.top.block');
-Route::post('/admin/store/top-section/top-block', [AdminHomeController::class, 'storeTopBlock'])->name('admin.store.top.section.top.block');
-Route::get('/admin/edit/top-section/{id}/top-blocks', [AdminHomeController::class, 'editTopBlocks'])->name('admin.edit.top.section.top.blocks');
-Route::get('/admin/edit/top-section/{sid}/top-block/{id}', [AdminHomeController::class, 'editTopBlock'])->name('admin.edit.top.section.top.block');
-Route::post('/admin/update/top-section/top-block', [AdminHomeController::class, 'updateTopBlock'])->name('admin.update.top.section.top.block');
-Route::get('/admin/delete/top-section/{sid}/top-block/{id}', [AdminHomeController::class, 'deleteTopBlock'])->name('admin.delete.top.section.top.block');
+// Route::get('/admin/add/top-section/{id}/top-block', [AdminHomeController::class, 'addTopBlock'])->name('admin.add.top.section.top.block');
+// Route::post('/admin/store/top-section/top-block', [AdminHomeController::class, 'storeTopBlock'])->name('admin.store.top.section.top.block');
+// Route::get('/admin/edit/top-section/{id}/top-blocks', [AdminHomeController::class, 'editTopBlocks'])->name('admin.edit.top.section.top.blocks');
+// Route::get('/admin/edit/top-section/{sid}/top-block/{id}', [AdminHomeController::class, 'editTopBlock'])->name('admin.edit.top.section.top.block');
+// Route::post('/admin/update/top-section/top-block', [AdminHomeController::class, 'updateTopBlock'])->name('admin.update.top.section.top.block');
+// Route::get('/admin/delete/top-section/{sid}/top-block/{id}', [AdminHomeController::class, 'deleteTopBlock'])->name('admin.delete.top.section.top.block');
 
 // members
 Route::get('/admin/members', [AdminMemberController::class, 'getMembers'])->name('admin.get.members');

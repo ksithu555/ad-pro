@@ -12,7 +12,8 @@ class Announcement extends Model
         'title',
         'description',
         'image',
-        'date_time',
+        'start_at',
+        'end_at',
         'location',
         'created_by',
     ];
@@ -20,5 +21,10 @@ class Announcement extends Model
     public function user()
     {
         return $this->belongsTo(User::class, 'created_by', 'id');
+    }
+
+    public function announcementParticipants()
+    {
+        return $this->hasMany(AnnouncementParticipant::class);
     }
 }

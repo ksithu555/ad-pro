@@ -29,7 +29,7 @@
                     <tr>
                       <th>#</th>
                       <th>タイトル</th>
-                      <th>体</th>
+                      <th>内容</th>
                       <th>アクション</th>
                     </tr>
                   </thead>

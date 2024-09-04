@@ -3,14 +3,16 @@
     <section class="white-bg pt-120 pb-120">
       <div class="container">
         <div class="row">
-          <div class="col-md-12">
-            <div class="text-center">
+          <div class="col-md-8 col-md-offset-2">
+            <x-message-box></x-message-box>
+          </div>
+          <div class="col-md-2">
+            <div class="text-right">
                 <a class="btn btn-md btn-dark-outline btn-square margin-left-auto margin-right-auto display-table-sm"
                     href="{{ route('user.add.announcement') }}">
-                    <i class="fa-icon-plus-circle"></i> ビズ公示登録
+                    <i class="fa-icon-plus-circle"></i> 情報広場
                 </a>
             </div>
-            <x-message-box></x-message-box>
           </div>
         </div>
         <div class="row mt-10">
@@ -19,13 +21,15 @@
               <table class="table table-bordered table-striped table-hover shop-cart">
                 <thead>
                   <tr>
-                    <th><strong>#</strong></th>
-                    <th><strong>タイトル</strong></th>
-                    <th><strong>体</strong></th>
-                    <th><strong>画像</strong></th>
-                    <th><strong>著者名</strong></th>
-                    <th><strong>著者画像</strong></th>
-                    <th><strong>アクション</strong></th>
+                    <th>#</th>
+                    <th style="min-width: 110px;">タイプ</th>
+                    <th style="min-width: 110px;">タイトル</th>
+                    <th>内容</th>
+                    <th>画像</th>
+                    <th style="min-width: 110px;">開始日時</th>
+                    <th style="min-width: 110px;">終了日時</th>
+                    <th style="min-width: 110px;">住所</th>
+                    <th style="min-width: 110px;">アクション</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -46,13 +50,16 @@
                     <td>
                       <img src="{{ asset('assets/images/all/' . $announcement->image ) }}" alt=""> 
                     </td>
-                    <td>
-                      {{ $announcement->date_time}}
+                    <td style="min-width: 110px;">
+                      {{ $announcement->start_at}}
                     </td>
-                    <td>
+                    <td style="min-width: 110px;">
+                      {{ $announcement->end_at}}
+                    </td>
+                    <td style="min-width: 110px;">
                       {!! nl2br($announcement->location) !!}
                     </td>
-                    <td>
+                    <td style="min-width: 110px;">
                       <a href="{{ route('user.edit.announcement', $announcement->id) }}">
                         <i class="fa-icon-pencil-square" style="font-size: 1.5em;"></i>
                       </a>
@@ -65,8 +72,8 @@
                   </tr>
                   <!-- Modal Popup Message Box -->
                   <div id="modal-popup-{{ $announcement->id }}" class="white-bg all-padding-60 mfp-with-anim mfp-hide centerize-col col-lg-4 col-md-6 col-sm-7 col-xs-11 text-center">
-                    <span class="text-uppercase font-30px font-600 mb-20 display-block dark-color">ビズ公示削除</span>
-                    <p class="mb-20">ビズ公示を削除してもよろしいですか?</p>
+                    <span class="text-uppercase font-30px font-600 mb-20 display-block dark-color">情報広場削除</span>
+                    <p class="mb-20">情報広場を削除してもよろしいですか?</p>
                       <a class="btn btn-lg btn-circle btn-color" href="{{ route('user.delete.announcement', $announcement->id) }}">Yes</a>
                       <a class="btn btn-lg btn-circle btn-secondary-color popup-modal-close" href="#">No</a>
                   </div>

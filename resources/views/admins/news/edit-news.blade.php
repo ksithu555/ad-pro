@@ -46,8 +46,8 @@
                                         </p>
                                     </div>                                    
                                 </div>
-                                <label class="sr-only" for="body">体</label>
-                                <textarea name="body" class="md-textarea" id="body" rows="7" placeholder="体 *">{{ old('body') ? old('body') : $new->body }}</textarea>
+                                <label class="sr-only" for="body">内容</label>
+                                <textarea name="body" class="md-textarea" id="body" rows="7" placeholder="内容 *">{{ old('body') ? old('body') : $new->body }}</textarea>
                                 <span class="error" style="color:#BF0731" id="error-body"></span>
                             </div>
                         </div>

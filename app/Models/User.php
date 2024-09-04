@@ -78,4 +78,9 @@ class User extends Authenticatable
     {
         return $this->hasOne(Company::class);
     }
+
+    public function announcementParticipants()
+    {
+        return $this->hasMany(AnnouncementParticipant::class);
+    }
 }

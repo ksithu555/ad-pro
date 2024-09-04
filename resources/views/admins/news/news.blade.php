@@ -32,7 +32,7 @@
                     <th>#</th>
                     <th style="min-width: 110px;">登録日</th>
                     <th style="min-width: 110px">タイトル</th>
-                    <th>体</th>
+                    <th>内容</th>
                     <th style="min-width: 110px">画像</th>
                     <th style="min-width: 110px">作成者</th>
                     <th style="min-width: 110px">アクション</th>

@@ -165,7 +165,8 @@
                 request()->routeIs('user.show.announcements') ||
                 request()->routeIs('user.add.announcement') ||
                 request()->routeIs('user.show.announcement') ||
-                request()->routeIs('user.edit.announcement')
+                request()->routeIs('user.edit.announcement') ||
+                request()->routeIs('user.show.announcement.participants')
                 ? 'default-color' : '' }}">情報広場</span>
             </a>
           </li>

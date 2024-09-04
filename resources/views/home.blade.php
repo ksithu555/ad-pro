@@ -83,7 +83,7 @@
     <!--== Boxed Icons Style 04 End ==-->
 
     <!--== Service Boxes Style 01 Start ==-->
-    <section>
+    <section class="grey-bg">
         <div class="container">
             <div class="row">
                 <div class="col-sm-8 section-heading">
@@ -118,7 +118,7 @@
     <!--== Service Boxes Style 01 End ==-->
 
     <!--== Testimonails Style 03 Start ==-->
-    <section class="grey-bg">
+    <section class="white-bg">
         <div class="container">
             <div class="row">
                 <div class="col-sm-8 section-heading">
@@ -181,7 +181,7 @@
     <!--== Testimonails Style 03 End ==-->
 
     <!--== Accordion Style 01 Start ==-->
-    <section>
+    <section class="grey-bg">
         <div class="container">
             <div class="row">
                 <div class="col-sm-8 section-heading">
@@ -255,9 +255,14 @@
     <!--== Accordion Style 01 End ==--> 
 
     <!--== Portfolio Start ==-->
-    <section class="white-bg dark-block">
+    <section class="white-bg">
         <div class="container">
-            <div class="row mt-25">
+            <div class="row">
+                <div class="col-sm-8 section-heading">
+                    <h4 class="text-uppercase mt-0">最新の広告</h4>
+                </div>
+            </div>
+            <div class="row mt-0">
                 <div class="col-md-12">
                     <div id="portfolio-gallery" class="cbp">
                         @foreach ($advertisements as $advertisement)

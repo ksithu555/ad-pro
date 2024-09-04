@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Announcement;
+use App\Models\AnnouncementParticipant;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
@@ -12,7 +13,10 @@ class UserAnnouncementController extends Controller
 {
 
     public function getAnnouncements() {
-        $announcements = Announcement::with('user')->where('created_by', '!=', Auth::user()->id)->get();
+        $now = now();
+        $announcements = Announcement::with('user')->where('created_by', '!=', Auth::user()->id)
+        ->where('start_at', '>', $now)
+        ->get();
         return view('users.announcements.announcements', compact('announcements'));
     }
 
@@ -57,7 +61,7 @@ class UserAnnouncementController extends Controller
 
     public function editAnnouncement($id) {
         $announcement = Announcement::find($id);
-        return view('users.edit-announcement', compact('announcement'));
+        return view('users.announcements.edit-announcement', compact('announcement'));
     }
 
     public function updateAnnouncement(Request $request) {
@@ -85,5 +89,39 @@ class UserAnnouncementController extends Controller
         Announcement::where('id', $id)->delete();
         Session::flash('success', '情報広場が正常に削除されました');
         return redirect()->route('user.show.announcements');
+    }
+
+    public function requestAnnouncement($id) {
+        AnnouncementParticipant::create([
+            'announcement_id' => $id,
+            'user_id' => Auth::user()->id,
+            'status' => 0
+        ]);
+
+        Session::flash('success', 'この情報広場に参加しました');
+        return redirect()->route('user.show.announcement', $id);
+    }
+
+    public function showAnnouncementParticipants($id) {
+        $limit = 10;
+        $participants = AnnouncementParticipant::with('announcement')->with('user')->where('announcement_id', $id)
+        ->paginate($limit);
+        $ttl = $participants->total();
+        $ttlpage = ceil($ttl / $limit);
+
+        return view('users.announcements.show-announcement-participants', compact('participants', 'ttl', 'ttlpage'));
+    }
+
+    public function updateParticipantStatus($id, $status, $reason) {
+        $updateData = [
+            'status' => $status,
+            'reason' => $reason
+        ];
+
+        $announcementParticipant = AnnouncementParticipant::find($id);
+        $announcementParticipant->update($updateData);
+
+        Session::flash('success', '参加者のステータスが正常に更新されました');
+        return redirect()->route('user.show.announcement.participants', $announcementParticipant->announcement_id);
     }
 }

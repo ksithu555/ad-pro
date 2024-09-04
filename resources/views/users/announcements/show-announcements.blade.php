@@ -22,13 +22,15 @@
                 <thead>
                   <tr>
                     <th>#</th>
-                    <th style="min-width: 110px;">タイプ</th>
+                    <th>タイプ</th>
                     <th style="min-width: 110px;">タイトル</th>
                     <th>内容</th>
-                    <th>画像</th>
+                    <th style="min-width: 110px;">画像</th>
                     <th style="min-width: 110px;">開始日時</th>
                     <th style="min-width: 110px;">終了日時</th>
                     <th style="min-width: 110px;">住所</th>
+                    <th>参加者</th>
+                    <th>ビュー</th>
                     <th style="min-width: 110px;">アクション</th>
                   </tr>
                 </thead>
@@ -45,9 +47,9 @@
                       {!! nl2br($announcement->title) !!}
                     </td>
                     <td>
-                      {!! nl2br($announcement->description) !!}
+                      {!! nl2br(Str::limit($announcement->description, 150, '...')) !!}
                     </td>
-                    <td>
+                    <td style="min-width: 110px;">
                       <img src="{{ asset('assets/images/all/' . $announcement->image ) }}" alt=""> 
                     </td>
                     <td style="min-width: 110px;">
@@ -58,6 +60,16 @@
                     </td>
                     <td style="min-width: 110px;">
                       {!! nl2br($announcement->location) !!}
+                    </td>
+                    <td>
+                      <a href="{{ route('user.show.announcement.participants', $announcement->id) }}">
+                        <i class="ion-android-person" style="font-size: 1.5em;"></i>
+                      </a>
+                    </td>
+                    <td>
+                      <a href="{{ route('user.show.announcement', $announcement->id) }}">
+                        <i class="fa fa-eye" style="font-size: 1.5em;"></i>
+                      </a>
                     </td>
                     <td style="min-width: 110px;">
                       <a href="{{ route('user.edit.announcement', $announcement->id) }}">

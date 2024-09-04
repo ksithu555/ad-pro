@@ -126,6 +126,10 @@ Route::post('/user/store/announcement', [UserAnnouncementController::class, 'sto
 Route::get('/user/edit/announcement/{id}', [UserAnnouncementController::class, 'editAnnouncement'])->name('user.edit.announcement');
 Route::post('/user/update/announcement', [UserAnnouncementController::class, 'updateAnnouncement'])->name('user.update.announcement');
 Route::get('/user/delete/announcement/{id}', [UserAnnouncementController::class, 'deleteAnnouncement'])->name('user.delete.announcement');
+Route::get('/user/request/announcement/{id}', [UserAnnouncementController::class, 'requestAnnouncement'])->name('user.request.announcement');
+Route::get('/user/show/announcement/{id}/participants', [UserAnnouncementController::class, 'showAnnouncementParticipants'])->name('user.show.announcement.participants');
+Route::get('/user/update/participant/{id}/status/{status}/{reason}', [UserAnnouncementController::class, 'updateParticipantStatus'])->name('user.update.participant.status');
+
 
 // Message
 Route::get('/user/messages', [UserController::class, 'getMessages'])->name('user.get.messages');

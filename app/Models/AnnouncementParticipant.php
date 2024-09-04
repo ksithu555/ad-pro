@@ -9,7 +9,8 @@ class AnnouncementParticipant extends Model
     protected $fillable = [
         'announcement_id',
         'user_id',
-        'status'
+        'status',
+        'reason'
     ];
 
     public function announcement()

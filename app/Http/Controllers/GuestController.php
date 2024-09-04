@@ -19,7 +19,7 @@ class GuestController extends Controller
     public function home() {
         $headers = TopHeader::all();
         $sections = TopSection::orderBy('order')->get();
-        $advertisements = Advertisement::orderBy('created_at', 'desc')->take(3)->get();
+        $advertisements = Advertisement::where('status', 1)->orderBy('created_at', 'desc')->take(3)->get();
         return view('home', compact('headers', 'sections', 'advertisements'));
     }
     public function onePage() {

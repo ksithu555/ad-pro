@@ -201,6 +201,17 @@
                 isValid = false;
             }
 
+            if (startAt && endAt) {
+                const startDateTime = new Date(startAt);
+                const endDateTime = new Date(endAt);
+
+                // Check if endAt is earlier than startAt
+                if (endDateTime <= startDateTime) {
+                    document.getElementById('error-endAt').textContent = '終了日時は開始日時より後に設定してください';
+                    isValid = false;
+                }
+            }
+
             if (!location) {
                 document.getElementById('error-location').textContent = '場所を選択してください';
                 isValid = false;

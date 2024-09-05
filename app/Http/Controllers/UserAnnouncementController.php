@@ -18,6 +18,7 @@ class UserAnnouncementController extends Controller
         $announcements = Announcement::with('user')->where('created_by', '!=', Auth::user()->id)
         ->where('start_at', '<', $now)
         ->where('end_at', '>', $now)
+        ->orderBy('created_at', 'desc')
         ->get();
         return view('users.announcements.announcements', compact('announcements'));
     }
@@ -87,6 +88,7 @@ class UserAnnouncementController extends Controller
 
     public function deleteAnnouncement($id) {
         Announcement::where('id', $id)->delete();
+        AnnouncementParticipant::where('announcement_id', $id)->delete();
         Session::flash('success', '情報広場が正常に削除されました');
         return redirect()->route('user.show.announcements');
     }

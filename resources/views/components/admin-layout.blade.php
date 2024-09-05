@@ -122,13 +122,7 @@
                 request()->routeIs('admin.edit.header') ||
                 request()->routeIs('admin.add.footer') ||
                 request()->routeIs('admin.edit.footers') ||
-                request()->routeIs('admin.edit.footer') ||
-                request()->routeIs('admin.add.top.section') ||
-                request()->routeIs('admin.edit.top.sections') ||
-                request()->routeIs('admin.edit.top.section') ||
-                request()->routeIs('admin.add.top.section.top.block') ||
-                request()->routeIs('admin.edit.top.section.top.blocks') ||
-                request()->routeIs('admin.edit.top.section.top.block')
+                request()->routeIs('admin.edit.footer')
                 ? 'default-color' : '' }}">ホーム</span>
             </a>
           </li>
@@ -162,8 +156,9 @@
           <li class="dropdown">
             <a href="{{ route('admin.get.announcements') }}" class="dropdown-toggle" data-toggle="dropdown">
                 <span class="{{ request()->routeIs('admin.get.announcements') ||
-                request()->routeIs('admin.show.announcement')
-                ? 'default-color' : '' }}">公示一覧</span>
+                request()->routeIs('admin.show.announcement') ||
+                request()->routeIs('admin.show.announcement.participants')
+                ? 'default-color' : '' }}">情報広場一覧</span>
             </a>
           </li>
           <li class="dropdown">

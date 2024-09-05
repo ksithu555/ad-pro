@@ -22,7 +22,7 @@
                 <thead>
                   <tr>
                     <th>#</th>
-                    <th>登録日</th>
+                    <th style="min-width: 110px;">登録日</th>
                     <th>種類</th>
                     <th style="min-width: 110px;">タイトル</th>
                     <th>内容</th>
@@ -39,6 +39,9 @@
                   <tr>
                     <td>
                       {{ $ttl + 1 - ($announcements->firstItem() + $key) }}
+                    </td>
+                    <td style="min-width: 110px;">
+                      {{ $announcement->created_at->format('Y-m-d') }}
                     </td>
                     <td>
                       {{ $announcement->type }}

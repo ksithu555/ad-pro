@@ -213,6 +213,8 @@ Route::post('/admin/update/section-status', [AdminSectionController::class, 'upd
 // announcements
 Route::get('/admin/announcements', [AdminAnnouncementController::class, 'getAnnouncements'])->name('admin.get.announcements');
 Route::get('/admin/show/announcement/{id}', [AdminAnnouncementController::class, 'showAnnouncement'])->name('admin.show.announcement');
+Route::get('/admin/show/announcement/{id}/participants', [AdminAnnouncementController::class, 'showAnnouncementParticipants'])->name('admin.show.announcement.participants');
+Route::get('/admin/delete/announcement/{id}', [AdminAnnouncementController::class, 'deleteAnnouncement'])->name('admin.delete.announcement');
 
 // news
 Route::get('/admin/news', [AdminNewsController::class, 'getNews'])->name('admin.get.news');

@@ -78,7 +78,7 @@
                             <textarea name="reason" class="md-textarea" id="reason" rows="7" placeholder="拒否理由 *" style="background-color: gray;">{{ old('reason') }}</textarea>
                             <span class="error" style="color:#BF0731" id="error-reason"></span>
                         </div>
-                        <a class="btn btn-lg btn-circle btn-color" href="#" onclick="rejected($participant->id)">
+                        <a class="btn btn-lg btn-circle btn-color" href="#" onclick="rejected({{ $participant->id }})">
                          Yes
                         </a>
                         <a class="btn btn-lg btn-circle btn-secondary-color popup-modal-close" href="#">No</a>
@@ -112,7 +112,7 @@
             document.getElementById('open-reject-modal').click();
         }
 
-        function rejected($participantId) {
+        function rejected(participantId) {
             let reason = document.getElementById('reason').value.trim();
             if (!reason) {
                 document.getElementById('error-reason').textContent = '理由を入力してください';

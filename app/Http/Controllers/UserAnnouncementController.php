@@ -16,7 +16,8 @@ class UserAnnouncementController extends Controller
     public function getAnnouncements() {
         $now = now();
         $announcements = Announcement::with('user')->where('created_by', '!=', Auth::user()->id)
-        ->where('start_at', '>', $now)
+        ->where('start_at', '<', $now)
+        ->where('end_at', '>', $now)
         ->get();
         return view('users.announcements.announcements', compact('announcements'));
     }

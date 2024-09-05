@@ -22,12 +22,13 @@
                 <thead>
                   <tr>
                     <th>#</th>
-                    <th>タイプ</th>
+                    <th>登録日</th>
+                    <th>種類</th>
                     <th style="min-width: 110px;">タイトル</th>
                     <th>内容</th>
                     <th style="min-width: 110px;">画像</th>
-                    <th style="min-width: 110px;">開始日時</th>
-                    <th style="min-width: 110px;">終了日時</th>
+                    <th style="min-width: 110px;">掲載開始日</th>
+                    <th style="min-width: 110px;">掲載終了日</th>
                     <th>参加者</th>
                     <th>ビュー</th>
                     <th style="min-width: 110px;">アクション</th>

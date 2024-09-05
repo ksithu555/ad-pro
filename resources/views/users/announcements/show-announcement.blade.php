@@ -39,6 +39,7 @@
                   </li>
                   <li>
                     <i class="fa fa-calendar"></i> 
+                      <span class="badge badge-info">掲載期間</span>
                       <span class="text-muted">{{ $announcement->start_at }} 〜 {{ $announcement->end_at }}</span>
                   </li>
               </ul>
@@ -101,7 +102,7 @@
       <a class="btn btn-lg btn-circle btn-secondary-color popup-modal-close" href="#">No</a>
   </div>
 
-  @if ($check)
+  @if ($announcement->created_by != Auth::user()->id && $check)
   <div id="reason-modal-popup" class="white-bg all-padding-60 mfp-with-anim mfp-hide centerize-col col-lg-4 col-md-6 col-sm-7 col-xs-11 text-center">
     <span class="text-uppercase font-30px font-600 mb-20 display-block dark-color">拒否理由</span>
     <p class="mb-20">{!! $check->reason !!}</p>

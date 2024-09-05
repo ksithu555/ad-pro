@@ -77,7 +77,7 @@
                     <div class="row">
                         <div class="col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2">
                             <div class="form-group">
-                                <label class="sr-only" for="startAt">開始日時</label>
+                                <label class="sr-only" for="startAt">掲載開始日</label>
                                 <input type="text" name="startAt" class="md-input" id="startAt" placeholder="開始日時 *" value="{{ old('startAt') }}">
                                 <span class="error" style="color:#BF0731" id="error-startAt"></span>
                             </div>
@@ -86,7 +86,7 @@
                     <div class="row">
                         <div class="col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2">
                             <div class="form-group">
-                                <label class="sr-only" for="endAt">終了日時</label>
+                                <label class="sr-only" for="endAt">掲載終了日</label>
                                 <input type="text" name="endAt" class="md-input" id="endAt" placeholder="終了日時 *" value="{{ old('endAt') }}">
                                 <span class="error" style="color:#BF0731" id="error-endAt"></span>
                             </div>

@@ -38,7 +38,7 @@
   <!--== Contact Form Style 01 Start ==-->
   <section class="white-bg">
     <div class="container">
-      <div class="row mt-50">
+      <div class="row">
         <div class="col-md-12">
           <x-message-box></x-message-box>
             <form name="send-contact-form" id="send-contact-form" action="{{ route('guest.send.contact') }}" method="POST" 

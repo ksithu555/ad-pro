@@ -17,6 +17,7 @@
                             <thead>
                                 <tr>
                                 <th>#</th>
+                                <th style="min-width: 110px;">登録日</th>
                                 <th>タイトル</th>
                                 <th>日付</th>
                                 </tr>
@@ -26,6 +27,9 @@
                                 <tr>
                                 <td>
                                     {{ $ttl + 1 - ($notices->firstItem() + $key) }}
+                                </td>
+                                <td style="min-width: 110px;">
+                                    {{ $notice->created_at->format('Y-m-d') }}
                                 </td>
                                 <td>
                                     {{ nl2br($notice->title) }}

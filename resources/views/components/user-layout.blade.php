@@ -82,14 +82,15 @@
               @php
                 $defaultColor = '';
                   if (request()->routeIs('user.get.plans') ||
-                  request()->routeIs('user.change.password')) {
+                  request()->routeIs('user.change.password') ||
+                  request()->routeIs('user.show.profile')) {
                     $defaultColor = 'default-color';
                   }
               @endphp
               <i class="icofont icofont-user-alt-4 {{ $defaultColor }}"></i> {{ Auth::user()->name }}
             </a>
             <ul class="dropdown-menu">
-              <li><a href="shop-standard.html">One</a></li>
+              <li><a href="{{ route('user.show.profile') }}">プロフィール</a></li>
               <li><a href="{{ route('user.show.announcements') }}">情報広場管理</a></li>
               <li><a href="{{ route('user.get.plans') }}">アップグレード</a></li>
               <li><a href="{{ route('user.change.password') }}">パスワード変更</a></li>

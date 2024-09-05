@@ -32,7 +32,7 @@
                         <thead>
                             <tr>
                             <th>#</th>
-                            <th style="min-width: 110px;">日付</th>
+                            <th style="min-width: 110px;">登録日</th>
                             <th style="min-width: 110px;">ページ名前</th>
                             <th style="min-width: 110px;">白いロゴ</th>
                             <th style="min-width: 110px;">カラーロゴ</th>

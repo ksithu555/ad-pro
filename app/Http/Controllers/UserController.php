@@ -62,6 +62,8 @@ class UserController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
             'company_name' => $request->companyName,
+            'image' => 'default-profile.webp',
+            'plan_status' => 0,
             'status' => 1,
         ]);
 
@@ -121,7 +123,13 @@ class UserController extends Controller
 
         Session::flash('success', 'パスワードが正常に更新されました');
         return redirect()->route('user.show.login');
-    } 
+    }
+
+    public function showProfile() {
+        $user = Auth::user();
+        $company = Company::where('user_id', $user->id)->first();
+        return view('users.profile', compact('user', 'company'));
+    }
 
     public function getAlarms() {
         $alarms = Alarm::with('sender')->where('to_user_id', Auth::user()->id)->where('status', 0)->get();

@@ -43,6 +43,10 @@ Route::get('/user/logout', [UserController::class, 'logout'])->name('user.logout
 Route::get('/user/change/password', [UserController::class, 'changePassword'])->name('user.change.password');
 Route::post('/user/update/password', [UserController::class, 'updatePassword'])->name('user.update.password');
 
+// Profile
+Route::get('/user/show/profile', [UserController::class, 'showProfile'])->name('user.show.profile');
+Route::post('/user/update/profile', [UserController::class, 'updateProfile'])->name('user.update.profile');
+
 // Alarm
 Route::get('/user/alarms', [UserController::class, 'getAlarms'])->name('user.get.alarms');
 Route::get('/user/check/alarm/{id}', [UserController::class, 'checkAlarm'])->name('user.check.alarm');

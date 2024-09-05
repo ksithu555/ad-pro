@@ -37,7 +37,7 @@
     <!--== Contact Form Style 01 Start ==-->
     <section class="white-bg">
         <div class="container">
-            <div class="row mt-25">
+            <div class="row">
                 <div class="col-md-12">
                     <x-message-box></x-message-box>
                     <form name="register-form" id="register-form" action="{{ route('user.store.register') }}" method="POST" 

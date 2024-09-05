@@ -120,7 +120,8 @@
           </li>
           <li class="dropdown">
             <a href="{{ route('user.get.members') }}" class="dropdown-toggle" data-toggle="dropdown">
-                <span class="{{ request()->routeIs('user.get.members')
+                <span class="{{ request()->routeIs('user.get.members') ||
+                request()->routeIs('user.show.member.detail')
                 ? 'default-color' : '' }}">会員リスト</span>
             </a>
           </li>
@@ -190,6 +191,44 @@
   <!--== Header End ==-->
 
   {{ $slot }}
+
+  <!--== Footer Start ==-->
+  @php
+    $footers = DB::table('top_footers')->get();
+    $copyRight = $footers->where('type', 'copyRight')->first();
+    $logo = $footers->where('type', 'logo')->first();
+  @endphp
+  <footer class="footer dark-block">
+    <div class="footer-copyright">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-4 col-xs-12 display-table" style="height: 40px;">
+            @if ($copyRight)
+              <div class="copy-right text-left v-align">{{ $copyRight->text }}</div>
+            @endif
+          </div>
+          <div class="col-sm-4 col-xs-12">
+              <div class="logo display-block height-auto"><a href="/">
+                @if ($logo)
+                  <img class="logo margin-left-auto margin-right-auto" src="{{ asset('assets/images/all/' . $logo->text) }}" alt="ADPRO logo"></a>
+                @endif
+              </div>
+          </div>
+          <div class="col-sm-4 col-xs-12">
+              <ul class="social-media">
+                @php
+                    $socialFooters = $footers->where('type', 'social');
+                @endphp
+                @foreach ($socialFooters as $social)
+                <li><a href="{{ $social->url }}" class="icofont icofont-social-{{ $social->name }}"></a></li>
+                @endforeach
+              </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!--== Footer End ==-->
 
   <!--== Go to Top  ==-->
   <a href="javascript:" id="return-to-top"><i class="icofont icofont-arrow-up"></i></a>

@@ -46,6 +46,7 @@ Route::post('/user/update/password', [UserController::class, 'updatePassword'])-
 // Profile
 Route::get('/user/show/profile', [UserController::class, 'showProfile'])->name('user.show.profile');
 Route::post('/user/update/profile', [UserController::class, 'updateProfile'])->name('user.update.profile');
+Route::post('/user/update/company', [UserController::class, 'updateCompany'])->name('user.update.company');
 
 // Alarm
 Route::get('/user/alarms', [UserController::class, 'getAlarms'])->name('user.get.alarms');

@@ -3,15 +3,20 @@
     <section class="white-bg pt-120 pt-120">
         <div class="container">
             <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <x-message-box></x-message-box>
+                </div>
+            </div>
+            <div class="row">
                 <div class="col-md-4 col-xs-12">
                     <figure class="imghvr-shutter-in-out-diag-1">
-                        <img src="{{ asset('assets/images/all/default-profile.webp') }}" alt="Digital" style="max-height: 300px">
+                        <img src="{{ asset('assets/images/all/' . $user->image) }}" alt="Digital" style="max-height: 300px">
                         <figcaption class="dark-bg text-center">
                         <div class="center-layout">
-                                    <div class="v-align-middle">
-                                        <a onclick="showEditUserProfileDiv()" data-effect="mfp-newspaper" class="btn btn-sm btn-light btn-circle margin-left-auto margin-right-auto display-table-sm">
-                                            写真をアップロードする
-                                        </a>
+                                <div class="v-align-middle">
+                                    <a onclick="showEditUserProfileDiv()" data-effect="mfp-newspaper" class="btn btn-sm btn-light btn-circle margin-left-auto margin-right-auto display-table-sm">
+                                        写真をアップロードする
+                                    </a>
                                 </div>
                         </figcaption>
                     </figure>
@@ -28,7 +33,7 @@
                 </div>
                 <div class="col-md-8 col-xs-12" id="editUserProfileDiv" style="display: none;">
                     <form name="edit-user-profile-form" id="edit-user-profile-form" action="{{ route('user.update.profile') }}" 
-                        method="POST" class="contact-form-style-01">
+                        method="POST" class="contact-form-style-01" enctype="multipart/form-data">
                         @csrf
                         <div class="messages"></div>
                         <div class="row">
@@ -106,50 +111,182 @@
     <!--== Company Start ==-->
     <section class="dark-bg">
         <div class="container">
-        <div class="row">
-            <div class="col-md-6 col-sm-6 col-xs-12 xs-mb-30 wow fadeInLeft" data-wow-delay="0.1s">
-            <h2 class="mt-0 font-700 white-color">{{ $company->name }}</h2>
-                <hr class="left-line default-bg bold-line">
-            <p class="mt-30 font-300 font-16px">Objectively innovate empowered manufactured products whereas parallel platforms. Holisticly predominate extensible testing procedures for reliable supply chains. Dramatically engage top-line web services vis-a-vis <br> cutting-edge deliverables.</p>
-                <p class="mt-30 font-300 font-16px">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In enim urna, accumsan quis erat nec, condimentum laoreet nulla. Pellentesque<br> porttitor est eu arcu condimentum aliquet non id felis.</p>
-            @if ($company->website)
-                <a class="btn btn-md btn-color btn-square mt-20" href="{{ $company->website }}" target="_blank">当社のウェブサイトをご覧ください</a>
-            @endif
-            </div>
-            <div class="col-md-6 col-sm-6 col-xs-12">
-                <div class="row">
-                    <!-- Phone Section -->
-                    <div class="col-md-12 feature-box text-left mb-20 col-sm-6 col-lg-6 wow fadeInRight" data-wow-delay="0.1s">
-                        <div class="pull-left">
-                            <i class="fa fa-phone default-color font-80px  mt-40"></i>
-                        </div>
-                        <div class="pull-right">
-                            <span class="font-80px default-color">01</span>
-                            <h5 class="mt-0 font-600 white-color">Phone</h5>
-                            <h5 class="mt-0 font-600 white-color">{{ $company->phone ?? 'No phone available' }}</h5>
-                        </div>
+            <div class="row">
+                <div class="col-md-6 col-sm-6 col-xs-12 xs-mb-30 wow fadeInLeft" data-wow-delay="0.1s">
+                    <h2 class="mt-0 font-700 white-color">{{ $company->name }}</h2>
+                    <hr class="left-line default-bg bold-line">
+                    <p class="mt-30 font-300 font-16px">{!! nl2br($company->overview) !!}</p>
+                    @if ($company->website)
+                    <a class="btn btn-md btn-color btn-square mt-20" href="{{ $company->website }}" target="_blank">当社のウェブサイトをご覧ください</a>
+                    @endif
+                    <div id="editCompanyBtnDiv">
+                        <a class="btn btn-md btn-color btn-square mt-20" onclick="showEditUserCompanyDiv()">
+                            修正 <i class="ion-android-arrow-forward"></i>
+                        </a>
                     </div>
-                
-                    <!-- Address Section -->
-                    <div class="col-md-12 feature-box text-left mb-20 col-sm-6 col-lg-6 wow fadeInRight" data-wow-delay="0.2s">
-                        <div class="pull-left">
-                            <i class="fa fa-map-marker font-40px default-color mt-40"></i>
+                </div>
+                <div class="col-md-6 col-sm-6 col-xs-12" id="userCompanyDiv">
+                    <div class="row">
+                        <!-- Phone Section -->
+                        <div class="col-md-12 feature-box text-left mb-20 col-sm-6 col-lg-6 wow fadeInRight" data-wow-delay="0.1s">
+                            <div class="pull-left mt-30">
+                                <i class="fa fa-phone default-color mt-10" style="font-size: 50px !important;"></i>
+                            </div>
+                            <div class="pull-right mt-30 pl-20">
+                                <span class="font-40px font-600 default-color">Phone</span>
+                                <h5 class="mt-0 font-600 white-color">Call us :</h5>
+                                <h6 class="mt-0 font-500 white-color">{{ $company->phone ?? 'No phone available' }}</h6>
+                            </div>
                         </div>
-                        <div class="pull-right">
-                            <span class="font-80px default-color">02</span>
-                            <h5 class="mt-0 font-600 white-color">Address</h5>
-                            <p class="font-300">
-                                {{ $company->postal_code ?? 'No postal code' }}<br>
-                                {{ $company->prefecture->name ?? 'No prefecture' }}<br>
-                                {{ $company->address ?? 'No address available' }}
-                            </p>
+                    
+                        <!-- Address Section -->
+                        <div class="col-md-12 feature-box text-left mb-20 col-sm-6 col-lg-6 wow fadeInRight" data-wow-delay="0.2s">
+                            <div class="pull-left mt-30">
+                                <i class="fa fa-map-marker default-color mt-10" style="font-size: 50px !important;"></i>
+                            </div>
+                            <div class="pull-right mt-30 pl-20">
+                                <span class="font-40px font-600 default-color">Address</span>
+                                <h6 class="mt-0 font-500 white-color">{{ $company->postal_code ?? 'No postal code' }}</h6>
+                                <h6 class="mt-0 font-500 white-color">{{ $company->prefecture->name ?? 'No prefecture' }}</h6>
+                                <h6 class="mt-0 font-500 white-color">{{ $company->address ?? 'No address available' }}</h6>
+                            </div>
                         </div>
-                    </div>
-                </div>                
+                    </div>                
+                </div>
+                <div class="col-md-6 col-sm-6 col-xs-12" id="editUserCompanyDiv" style="display: none;">
+                    <form name="edit-user-company-form" id="edit-user-company-form" action="{{ route('user.update.company') }}" 
+                        method="POST" class="contact-form-style-02" enctype="multipart/form-data">
+                        @csrf
+                        <div class="messages"></div>
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12">
+                                <div class="row">
+                                    <div class="col-md-12 col-sm-12 pt-10">
+                                        <div class="form-group">
+                                            <label class="sr-only" for="companyName">会社名</label>
+                                            <input type="text" name="companyName" class="md-input style-02" id="companyName" placeholder="会社名 *"
+                                             value="{{ old('companyName') ? old('companyName') : $company->name }}">
+                                            <span class="error" style="color:#BF0731" id="error-companyName"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12 col-sm-12 pt-10">
+                                        <div class="form-group">
+                                            <div class="info-icon-container">
+                                                <i class="ion-information-circled info-icon"></i>
+                                                <div class="guideline-box" id="guideline-box">
+                                                    <p>
+                                                        重要なテキストを強調するために、<code style="color: black;">&lt;strong&gt;<strong>希望するテキスト</strong>&lt;/strong&gt;</code> を使用します。
+                                                    </p>
+                                                    <p>
+                                                        テキストに斜体を適用するには、<code style="color: black;">&lt;span style="font-style: italic;"&gt;<span style="font-style: italic;">希望するテキスト</span>&lt;/span&gt;</code> を使用します。
+                                                    </p>
+                                                    <p>
+                                                        下線を引くには、<code style="color: black;">&lt;span style="text-decoration: underline;"&gt;<span style="text-decoration: underline;">希望するテキスト</span>&lt;/span&gt;</code> を使用します。
+                                                    </p>
+                                                    <p>
+                                                        色を変更するには、<code style="color: black;">&lt;span style="color: red;"&gt;<span style="color: red;">希望するテキスト</span>&lt;/span&gt;</code> を使用します。
+                                                    </p>
+                                                    <p>
+                                                        リンクを作成するには、<code style="color: black;">&lt;a href="希望するURL" target="_blank"&gt;<a href="#" target="_blank">希望するテキスト</a>&lt;/a&gt;</code> を使用します。
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <label class="sr-only" for="companyOverview">会社概要</label>
+                                            <textarea name="companyOverview" class="md-textarea style-02" id="companyOverview" rows="7" placeholder="会社概要 *">{{ old('companyOverview') ? old('companyOverview') : $company->overview }}</textarea>
+                                            <span class="error" style="color:#BF0731" id="error-companyOverview"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12 col-sm-12 pt-10">
+                                        <div class="form-group">
+                                            <label class="sr-only" for="companyPhone">電話番号</label>
+                                            <input type="text" name="companyPhone" class="md-input style-02" id="companyPhone" placeholder="電話番号 *" 
+                                            value="{{ old('companyPhone') ? old('companyPhone') : $company->phone }}">
+                                            <span class="error" style="color:#BF0731" id="error-companyPhone"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12 col-sm-12 pt-10">
+                                        <div class="form-group">
+                                            <label class="sr-only" for="companyPostalCode">郵便番号</label>
+                                            <input type="text" name="companyPostalCode" class="md-input style-02" id="companyPostalCode" placeholder="郵便番号 *" 
+                                            value="{{ old('companyPostalCode') ? old('companyPostalCode') : $company->postal_code }}">
+                                            <span class="error" style="color:#BF0731" id="error-companyPostalCode"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12 col-sm-12 pt-10">
+                                        <div class="form-group">
+                                            <select name="companyPrefecture" class="md-input style-02">
+                                                <option value="">都道府県を選択してください *</option>
+                                                @foreach ($prefectures as $prefecture)
+                                                <option value="{{ $prefecture->id }}" 
+                                                    @if($company->prefecture_id == $prefecture->id)selected="selected"@endif>
+                                                    {{ $prefecture->name }}
+                                                </option>
+                                                @endforeach
+                                            </select>
+                                            <span class="error" style="color:#BF0731" id="error-companyPrefecture"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12 col-sm-12 pt-10">
+                                        <div class="form-group">
+                                            <label class="sr-only" for="companyAddress">住所</label>
+                                            <input type="text" name="companyAddress" class="md-input style-02" id="companyAddress" placeholder="住所 *" 
+                                            value="{{ old('companyAddress') ? old('companyAddress') : $company->address }}">
+                                            <span class="error" style="color:#BF0731" id="error-companyAddress"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12 col-sm-12 pt-10">
+                                        <div class="form-group">
+                                            <label class="sr-only" for="companyWebsite">URL</label>
+                                            <input type="text" name="companyWebsite" class="md-input style-02" id="companyWebsite" placeholder="URL"
+                                            value="{{ old('companyWebsite') ? old('companyWebsite') : $company->website }}">
+                                            <span class="error" style="color:#BF0731" id="error-companyWebsite"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-8 col-sm-8 col-md-offset-2 col-sd-offset-2 pt-10">
+                                            <div class="text-center">
+                                                <input type="hidden" id="confirmed" name="confirmed" value="0">
+                                                <div class="tr-modal-popup">
+                                                    <a onclick="showCompanyModal()" id="open-company-modal" class="btn btn-md btn-color btn-square">
+                                                        <span>修正 <i class="ion-android-arrow-forward"></i></span>
+                                                    </a>
+                                                    <a onclick="showUserCompanyDiv()" class="btn btn-md btn-color btn-square">
+                                                        <span>キャンセル</span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </section>
     <!--== Company End ==-->
+
+    <!-- Modal Popup Message Box -->
+    <div id="company-modal-popup" class="white-bg all-padding-60 mfp-with-anim mfp-hide centerize-col col-lg-4 col-md-6 col-sm-7 col-xs-11 text-center">
+        <span class="text-uppercase font-30px font-600 mb-20 display-block dark-color">会社情報修正</span>
+        <p class="mb-20">会社情報を修正してもよろしいですか?</p>
+        <a class="btn btn-lg btn-circle btn-color popup-modal-close" href="#" onclick="submitCompanyForm()">Yes</a>
+        <a class="btn btn-lg btn-circle btn-secondary-color popup-modal-close" href="#">No</a>
+    </div>
 
     {{-- image --}}
     <script>
@@ -174,6 +311,7 @@
     </script>
     {{-- validate --}}
     <script>
+        // user
         function showEditUserProfileDiv() {
             var userProfileDiv = document.getElementById('userProfileDiv');
             var editUserProfileDiv = document.getElementById('editUserProfileDiv');
@@ -233,6 +371,97 @@
             } else if (!/\S+@\S+\.\S+/.test(email)) {
                 isValid = false;
                 document.getElementById('error-email').textContent = '有効なメールアドレスを入力してください';
+            }
+
+            return isValid;
+        }
+
+        // company
+        function showEditUserCompanyDiv() {
+            var userCompanyDiv = document.getElementById('userCompanyDiv');
+            var editUserCompanyDiv = document.getElementById('editUserCompanyDiv');
+            var editCompanyBtnDiv = document.getElementById('editCompanyBtnDiv');
+
+            userCompanyDiv.style.display = 'none';
+            editUserCompanyDiv.style.display = 'block';
+            editCompanyBtnDiv.style.display = 'none';
+        }
+
+        function showUserCompanyDiv() {
+            var userCompanyDiv = document.getElementById('userCompanyDiv');
+            var editUserCompanyDiv = document.getElementById('editUserCompanyDiv');
+            var editCompanyBtnDiv = document.getElementById('editCompanyBtnDiv');
+
+            userCompanyDiv.style.display = 'block';
+            editUserCompanyDiv.style.display = 'none';
+            editCompanyBtnDiv.style.display = 'block';
+        }
+
+        function showCompanyModal() {
+            if (validateEditCompanyForm()) {
+                document.getElementById('open-company-modal').setAttribute('href', '#company-modal-popup');
+                document.getElementById('open-company-modal').setAttribute('data-effect', 'mfp-newspaper');
+                document.getElementById('open-company-modal').click();
+            }
+        }
+
+        function submitCompanyForm() {
+            document.getElementById('confirmed').value = '1';
+            document.getElementById('edit-user-company-form').submit();
+        }
+
+        function validateEditCompanyForm() {
+            let isValid = true;
+            document.querySelectorAll('.error').forEach(el => el.textContent = '');
+
+            const companyName = document.getElementById('companyName').value.trim();
+            const companyOverview = document.getElementById('companyOverview').value.trim();
+            const companyPhone = document.getElementById('companyPhone').value.trim();
+            const companyPostalCode = document.getElementById('companyPostalCode').value.trim();
+            const companyAddress = document.getElementById('companyAddress').value.trim();
+            const companyPrefecture = document.querySelector('select[name="companyPrefecture"]').value;
+            const companyWebsite = document.getElementById('companyWebsite').value.trim();
+
+            if (!companyName) {
+                isValid = false;
+                document.getElementById('error-companyName').textContent = '会社名を入力してください';
+            } else if (companyName.length > 255) {
+                isValid = false;
+                document.getElementById('error-companyName').textContent = '名前は255文字以内でなければなりません';
+            }
+
+            if (!companyPhone) {
+                isValid = false;
+                document.getElementById('error-companyPhone').textContent = '電話番号を入力してください';
+            } else if (!/^[\d()+-\s]+$/.test(companyPhone)) {
+                isValid = false;
+                document.getElementById('error-companyPhone').textContent = '電話番号は数字、+、(、)、-、スペースのみを含めることができます';
+            }
+
+            if (!companyPostalCode) {
+                isValid = false;
+                document.getElementById('error-companyPostalCode').textContent = '郵便番号を入力してください';
+            } else if (!/^\d+$/.test(companyPostalCode)) {
+                isValid = false;
+                document.getElementById('error-companyPostalCode').textContent = '郵便番号は数字のみでなければなりません';
+            }
+
+            if (!companyPrefecture) {
+                isValid = false;
+                document.getElementById('error-companyPrefecture').textContent = '都道府県を選択してください';
+            }
+
+            if (!companyAddress) {
+                isValid = false;
+                document.getElementById('error-companyAddress').textContent = '住所を入力してください';
+            } else if (companyAddress.length > 255) {
+                isValid = false;
+                document.getElementById('error-companyAddress').textContent = '住所は255文字以内でなければなりません';
+            }
+
+            if (companyWebsite && /\s/.test(companyWebsite)) {
+                isValid = false;
+                document.getElementById('error-companyWebsite').textContent = 'ウェブサイトにスペースを含めることはできません';
             }
 
             return isValid;

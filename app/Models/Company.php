@@ -18,6 +18,7 @@ class Company extends Model
         'prefecture_id',
         'address',
         'website',
+        'overview'
     ];
 
     public function user()

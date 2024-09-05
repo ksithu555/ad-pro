@@ -319,9 +319,9 @@
             if (!companyPhone) {
                 isValid = false;
                 document.getElementById('error-companyPhone').textContent = '電話番号を入力してください';
-            } else if (!/^[\d()-\s]+$/.test(companyPhone)) {
+            } else if (!/^[\d()+-\s]+$/.test(companyPhone)) {
                 isValid = false;
-                document.getElementById('error-companyPhone').textContent = '電話番号は数字、(、)、-、スペースのみを含めることができます';
+                document.getElementById('error-companyPhone').textContent = '電話番号は数字、+、(、)、-、スペースのみを含めることができます';
             }
 
             if (companyWebsite && /\s/.test(companyWebsite)) {

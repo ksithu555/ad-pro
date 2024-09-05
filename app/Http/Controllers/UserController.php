@@ -127,8 +127,45 @@ class UserController extends Controller
 
     public function showProfile() {
         $user = Auth::user();
-        $company = Company::where('user_id', $user->id)->first();
-        return view('users.profile', compact('user', 'company'));
+        $company = Company::with('prefecture')->where('user_id', $user->id)->first();
+        $prefectures = Prefecture::all();
+        return view('users.profile', compact('user', 'company', 'prefectures'));
+    }
+
+    public function updateProfile(Request $request) {
+        $updateData = [
+            'name' => $request->nameKanji,
+            'name_furigana' => $request->nameFurigana,
+            'email' => $request->email,
+        ];
+
+        if (!empty($request->image)) {
+            $imageName = time() . '.' . $request->image->extension();
+            $request->image->move(public_path('assets/images/all'), $imageName);
+            $updateData['image'] = $imageName;
+        }
+
+        User::where('id', Auth::user()->id)->update($updateData);
+
+        Session::flash('success', 'ユーザー情報が正常に更新されました');
+        return redirect()->route('user.show.profile');
+    }
+
+    public function updateCompany(Request $request) {
+        $updateData = [
+            'name' => $request->companyName,
+            'overview' => $request->companyOverview,
+            'phone' => $request->companyPhone,
+            'postal_code' => $request->companyPostalCode,
+            'prefecture_id' => $request->companyPrefecture,
+            'address' => $request->companyAddress,
+            'website' => $request->companyWebsite
+        ];
+
+        Company::where('user_id', Auth::user()->id)->update($updateData);
+
+        Session::flash('success', '会社情報が正常に更新されました');
+        return redirect()->route('user.show.profile');
     }
 
     public function getAlarms() {

@@ -6,14 +6,6 @@
         <div class="col-md-8 col-md-offset-2">
           <x-message-box></x-message-box>
         </div>
-        <div class="col-md-2">
-          <div class="text-right">
-              <a class="btn btn-md btn-dark-outline btn-square margin-left-auto margin-right-auto display-table-sm"
-                  href="{{ route('user.add.announcement') }}">
-                  <i class="fa-icon-plus-circle"></i> 情報広場
-              </a>
-          </div>
-        </div>
       </div>
       <div class="row mt-10">
         <div class="col-md-12">

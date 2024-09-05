@@ -46,10 +46,7 @@
                                                             {{ $alarm->alarm }}
                                                         </td>
                                                         <td>
-                                                            @php
-                                                            $sender = $users->where('email', $alarm->from_email)->first();
-                                                            @endphp
-                                                            {{ $sender->name }}
+                                                            {{ $alarm->sender->name }}
                                                         </td>
                                                         <td>
                                                             {{ $alarm->updated_at->format('Y-m-d H:i:s') }}
@@ -103,10 +100,7 @@
                                                             {{ $checkedAlarm->alarm }}
                                                         </td>
                                                         <td>
-                                                            @php
-                                                            $sender = $users->where('email', $checkedAlarm->from_email)->first();
-                                                            @endphp
-                                                            {{ $sender->name }}
+                                                            {{ $checkedAlarm->sender->name }}
                                                         </td>
                                                         <td>
                                                             {{ $checkedAlarm->updated_at->format('Y-m-d H:i:s') }}

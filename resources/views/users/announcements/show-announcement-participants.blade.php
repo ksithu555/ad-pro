@@ -30,15 +30,18 @@
                         <td style="min-width: 110px;">
                             <div class="tr-modal-popup">
                                 @if($participant->status == 0)
-                                <a onclick="showModal()" id="open-modal" class="btn btn-lg btn-circle" href="#" style="background-color: #FFC107;">
+                                <a href="#modal-popup-{{ $participant->id }}" data-effect="mfp-newspaper" class="btn btn-lg btn-circle"
+                                 style="background-color: #FFC107;">
                                     申し込み中
                                 </a>
                                 @elseif($participant->status == 1)
-                                <a onclick="showModal()" id="open-modal" class="btn btn-lg btn-circle" href="#" style="background-color: #28A745;">
+                                <a href="#modal-popup-{{ $participant->id }}" data-effect="mfp-newspaper" class="btn btn-lg btn-circle"
+                                 style="background-color: #28A745;">
                                     承認済み
                                 </a>
                                 @elseif($participant->status == 2)
-                                <a onclick="showModal()" id="open-modal" class="btn btn-lg btn-circle" href="#" style="background-color: #DC3545;">
+                                <a href="#modal-popup-{{ $participant->id }}" data-effect="mfp-newspaper" class="btn btn-lg btn-circle"
+                                 style="background-color: #DC3545;">
                                     拒否されました
                                 </a>
                                 @endif
@@ -46,22 +49,22 @@
                         </td>
                     </tr>
                     <!-- Modal Popup Message Box -->
-                    <div id="modal-popup" class="white-bg all-padding-60 mfp-with-anim mfp-hide centerize-col col-lg-4 col-md-6 col-sm-7 col-xs-11 text-center">
+                    <div id="modal-popup-{{ $participant->id }}" class="white-bg all-padding-60 mfp-with-anim mfp-hide centerize-col col-lg-4 col-md-6 col-sm-7 col-xs-11 text-center">
                         <span class="text-uppercase font-30px font-600 mb-20 display-block dark-color">ステータス変更</span>
                         <p class="mb-20">ステータスを変更してもよろしいですか?</p>
                         <div class="tr-modal-popup">
                             @if($participant->status != 1)
-                                <a onclick="showAcceptModal()" id="open-accept-modal" class="btn btn-lg btn-circle" 
-                                href="#" style="background-color: #28A745;">承認</a>
+                                <a data-effect="mfp-newspaper" class="btn btn-lg btn-circle" 
+                                href="#accept-modal-popup-{{ $participant->id }}" style="background-color: #28A745;">承認</a>
                             @endif
                             @if($participant->status != 2)
-                                <a onclick="showRejectModal()" id="open-reject-modal" class="btn btn-lg btn-circle" 
-                                href="#" style="background-color: #DC3545;">拒否</a>
+                                <a data-effect="mfp-newspaper" class="btn btn-lg btn-circle" 
+                                href="#reject-modal-popup-{{ $participant->id }}" style="background-color: #DC3545;">拒否</a>
                             @endif
                         </div>
                     </div>
 
-                    <div id="accept-modal-popup" class="white-bg all-padding-60 mfp-with-anim mfp-hide centerize-col col-lg-4 col-md-6 col-sm-7 col-xs-11 text-center">
+                    <div id="accept-modal-popup-{{ $participant->id }}" class="white-bg all-padding-60 mfp-with-anim mfp-hide centerize-col col-lg-4 col-md-6 col-sm-7 col-xs-11 text-center">
                         <span class="text-uppercase font-30px font-600 mb-20 display-block dark-color">承認</span>
                         <p class="mb-20">参加者を承認してもよろしいですか?</p>
                         <a class="btn btn-lg btn-circle btn-color"
@@ -71,7 +74,7 @@
                         <a class="btn btn-lg btn-circle btn-secondary-color popup-modal-close" href="#">No</a>
                     </div>
 
-                    <div id="reject-modal-popup" class="white-bg all-padding-60 mfp-with-anim mfp-hide centerize-col col-lg-4 col-md-6 col-sm-7 col-xs-11 text-center">
+                    <div id="reject-modal-popup-{{ $participant->id }}" class="white-bg all-padding-60 mfp-with-anim mfp-hide centerize-col col-lg-4 col-md-6 col-sm-7 col-xs-11 text-center">
                         <span class="text-uppercase font-30px font-600 mb-20 display-block dark-color">拒否</span>
                         <p class="mb-20">参加者を拒否してもよろしいですか?</p>
                         <div class="row">
@@ -94,24 +97,6 @@
     </section>
     <!--== Products End ==-->
     <script>
-        function showModal() {
-            document.getElementById('open-modal').setAttribute('href', '#modal-popup');
-            document.getElementById('open-modal').setAttribute('data-effect', 'mfp-newspaper');
-            document.getElementById('open-modal').click();
-        }
-
-        function showAcceptModal() {
-            document.getElementById('open-accept-modal').setAttribute('href', '#accept-modal-popup');
-            document.getElementById('open-accept-modal').setAttribute('data-effect', 'mfp-newspaper');
-            document.getElementById('open-accept-modal').click();
-        }
-
-        function showRejectModal() {
-            document.getElementById('open-reject-modal').setAttribute('href', '#reject-modal-popup');
-            document.getElementById('open-reject-modal').setAttribute('data-effect', 'mfp-newspaper');
-            document.getElementById('open-reject-modal').click();
-        }
-
         function rejected(participantId) {
             let reason = document.getElementById('reason').value.trim();
             if (!reason) {

@@ -83,4 +83,14 @@ class User extends Authenticatable
     {
         return $this->hasMany(AnnouncementParticipant::class);
     }
+
+    public function receivedAlarms()
+    {
+        return $this->hasMany(Alarm::class, 'to_user_id', 'id');
+    }
+
+    public function sentAlarms()
+    {
+        return $this->hasMany(Alarm::class, 'from_user_id', 'id');
+    }
 }

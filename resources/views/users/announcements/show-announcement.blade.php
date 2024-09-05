@@ -75,7 +75,7 @@
               } elseif ($check->status == 2) {
                 $btnName = '拒否されました';
                 $btnColor = '#DC3545';
-                $popUp = '';
+                $popUp = '#reason-modal-popup';
               }
           @endphp
           <div class="row mt-20" style="padding: 20px; background-color: #f9f9f9; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
@@ -100,4 +100,12 @@
       <a class="btn btn-lg btn-circle btn-color" href="{{ route('user.request.announcement', $announcement->id) }}">Yes</a>
       <a class="btn btn-lg btn-circle btn-secondary-color popup-modal-close" href="#">No</a>
   </div>
+
+  @if ($check)
+  <div id="reason-modal-popup" class="white-bg all-padding-60 mfp-with-anim mfp-hide centerize-col col-lg-4 col-md-6 col-sm-7 col-xs-11 text-center">
+    <span class="text-uppercase font-30px font-600 mb-20 display-block dark-color">拒否理由</span>
+    <p class="mb-20">{!! $check->reason !!}</p>
+    <a class="btn btn-lg btn-circle btn-secondary-color popup-modal-close" href="#">Close</a>
+  </div>
+  @endif
 </x-user-layout>

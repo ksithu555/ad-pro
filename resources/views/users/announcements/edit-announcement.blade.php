@@ -95,15 +95,6 @@
                     </div>
                     <div class="row">
                         <div class="col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2">
-                            <div class="form-group">
-                                <label class="sr-only" for="location">場所</label>
-                                <input type="text" name="location" class="md-input" id="location" placeholder="場所 *" value="{{ old('location') ? old('location') : $announcement->location }}">
-                                <span class="error" style="color:#BF0731" id="error-location"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2">
                             <div class="text-left mt-20">
                                 <input type="hidden" id="confirmed" name="confirmed" value="0">
                                 <div class="tr-modal-popup text-center">
@@ -174,7 +165,6 @@
             const description = document.getElementById('description').value.trim();
             const startAt = document.getElementById('startAt').value.trim();
             const endAt = document.getElementById('endAt').value.trim();
-            const location = document.getElementById('location').value.trim();
 
             if (!type) {
                 document.getElementById('error-type').textContent = 'タイプを選択してください';
@@ -210,11 +200,6 @@
                     document.getElementById('error-endAt').textContent = '終了日時は開始日時より後に設定してください';
                     isValid = false;
                 }
-            }
-
-            if (!location) {
-                document.getElementById('error-location').textContent = '場所を選択してください';
-                isValid = false;
             }
 
             return isValid;

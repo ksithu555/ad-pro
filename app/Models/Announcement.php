@@ -14,7 +14,6 @@ class Announcement extends Model
         'image',
         'start_at',
         'end_at',
-        'location',
         'created_by',
     ];
 

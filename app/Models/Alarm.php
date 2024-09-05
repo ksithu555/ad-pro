@@ -9,10 +9,20 @@ class Alarm extends Model
 {
     protected $fillable = [
         'type',
-        'alarm',
-        'from_email',
-        'to_email',
         'related_id',
+        'alarm',
+        'from_user_id',
+        'to_user_id',
         'status',
     ];
+
+    public function receiver()
+    {
+        return $this->belongsTo(User::class, 'to_user_id', 'id');
+    }
+
+    public function sender()
+    {
+        return $this->belongsTo(User::class, 'from_user_id', 'id');
+    }
 }

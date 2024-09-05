@@ -86,11 +86,10 @@
                     $defaultColor = 'default-color';
                   }
               @endphp
-              <i class="icofont icofont-user-alt-4 {{ $defaultColor }}"></i>
+              <i class="icofont icofont-user-alt-4 {{ $defaultColor }}"></i> {{ Auth::user()->name }}
             </a>
             <ul class="dropdown-menu">
               <li><a href="shop-standard.html">One</a></li>
-              <li><a href="{{ route('user.get.advertisements') }}">広告管理</a></li>
               <li><a href="{{ route('user.show.announcements') }}">情報広場管理</a></li>
               <li><a href="{{ route('user.get.plans') }}">アップグレード</a></li>
               <li><a href="{{ route('user.change.password') }}">パスワード変更</a></li>

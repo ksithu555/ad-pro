@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Alarm;
 use App\Models\Announcement;
-use App\Models\AnnouncementParticipant;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\AnnouncementParticipant;
 use Illuminate\Support\Facades\Session;
 
 class UserAnnouncementController extends Controller
@@ -51,7 +52,6 @@ class UserAnnouncementController extends Controller
             'image' => $imageName,
             'start_at' => $request->startAt,
             'end_at' => $request->endAt,
-            'location' => $request->location,
             'created_by' => Auth::user()->id,
         ]);
 
@@ -71,7 +71,6 @@ class UserAnnouncementController extends Controller
             'description' => $request->description,
             'start_at' => $request->startAt,
             'end_at' => $request->endAt,
-            'location' => $request->location,
         ];
 
         if (!empty($request->image)) {
@@ -92,11 +91,33 @@ class UserAnnouncementController extends Controller
     }
 
     public function requestAnnouncement($id) {
-        AnnouncementParticipant::create([
+        $announcementParticipant = AnnouncementParticipant::create([
             'announcement_id' => $id,
             'user_id' => Auth::user()->id,
             'status' => 0
         ]);
+
+        $alarm = Alarm::where('from_user_id', Auth::user()->id)
+                  ->where('to_user_id', $announcementParticipant->announcement->user->id)
+                  ->where('type', '情報広場')
+                  ->first();
+        
+        if ($alarm) {
+            // Update the existing alarm
+            $alarm->related_id = $announcementParticipant->id;
+            $alarm->status = 0;
+            $alarm->save();
+        } else {
+            // Create a new alarm
+            Alarm::create([
+                'type' => '情報広場',
+                'alarm' => '参加者があります',
+                'from_user_id' => Auth::user()->id,
+                'to_user_id' => $announcementParticipant->announcement->user->id,
+                'related_id' => $announcementParticipant->id,
+                'status' => 0,
+            ]);
+        }
 
         Session::flash('success', 'この情報広場に参加しました');
         return redirect()->route('user.show.announcement', $id);
@@ -120,6 +141,38 @@ class UserAnnouncementController extends Controller
 
         $announcementParticipant = AnnouncementParticipant::find($id);
         $announcementParticipant->update($updateData);
+
+        if ($status == 1) {
+            $alarmMessage = '申請は承認されました';
+            $checkAlarmMessage = '申請は拒否されました';
+        } else {
+            $alarmMessage = '申請は拒否されました';
+            $checkAlarmMessage = '申請は承認されました';
+        }
+
+        $alarm = Alarm::where('from_user_id', Auth::user()->id)
+                  ->where('to_user_id', $announcementParticipant->user_id)
+                  ->where('type', '情報広場')
+                  ->where('alarm', $checkAlarmMessage)
+                  ->first();
+
+        if ($alarm) {
+            // Update the existing alarm
+            $alarm->related_id = $announcementParticipant->id;
+            $alarm->alarm = $alarmMessage;
+            $alarm->status = 0;
+            $alarm->save();
+        } else {
+            // Create a new alarm
+            Alarm::create([
+                'type' => '情報広場',
+                'alarm' => $alarmMessage,
+                'from_user_id' => Auth::user()->id,
+                'to_user_id' => $announcementParticipant->user_id,
+                'related_id' => $announcementParticipant->id,
+                'status' => 0,
+            ]);
+        }
 
         Session::flash('success', '参加者のステータスが正常に更新されました');
         return redirect()->route('user.show.announcement.participants', $announcementParticipant->announcement_id);

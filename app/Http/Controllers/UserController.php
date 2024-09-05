@@ -124,10 +124,9 @@ class UserController extends Controller
     } 
 
     public function getAlarms() {
-        $alarms = Alarm::where('to_email', Auth::user()->email)->where('status', 0)->get();
-        $checkedAlarms = Alarm::where('to_email', Auth::user()->email)->where('status', 1)->get();
-        $users = User::all();
-        return view('users.alarms', compact('alarms', 'checkedAlarms', 'users'));
+        $alarms = Alarm::with('sender')->where('to_user_id', Auth::user()->id)->where('status', 0)->get();
+        $checkedAlarms = Alarm::with('sender')->where('to_user_id', Auth::user()->id)->where('status', 1)->get();
+        return view('users.alarms', compact('alarms', 'checkedAlarms'));
     }
 
     public function checkAlarm($id) {
@@ -185,8 +184,9 @@ class UserController extends Controller
 
         Message::where('from_email', $request->toEmail)->where('to_email', Auth::user()->email)->update(['seen' => 1]);
 
-        $alarm = Alarm::where('from_email', Auth::user()->email)
-                  ->where('to_email', $request->toEmail)
+        $alarm = Alarm::where('from_user_id', Auth::user()->id)
+                  ->where('to_user_id', $message->receiver->id)
+                  ->where('type', 'メッセージ')
                   ->first();
 
         if ($alarm) {
@@ -199,8 +199,8 @@ class UserController extends Controller
             Alarm::create([
                 'type' => 'メッセージ',
                 'alarm' => 'メッセージがあります',
-                'from_email' => Auth::user()->email,
-                'to_email' => $request->toEmail,
+                'from_user_id' => Auth::user()->id,
+                'to_user_id' => $message->receiver->id,
                 'related_id' => $message->id,
                 'status' => 0,
             ]);

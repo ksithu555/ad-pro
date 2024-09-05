@@ -28,7 +28,6 @@
                     <th style="min-width: 110px;">画像</th>
                     <th style="min-width: 110px;">開始日時</th>
                     <th style="min-width: 110px;">終了日時</th>
-                    <th style="min-width: 110px;">住所</th>
                     <th>参加者</th>
                     <th>ビュー</th>
                     <th style="min-width: 110px;">アクション</th>
@@ -57,9 +56,6 @@
                     </td>
                     <td style="min-width: 110px;">
                       {{ $announcement->end_at}}
-                    </td>
-                    <td style="min-width: 110px;">
-                      {!! nl2br($announcement->location) !!}
                     </td>
                     <td>
                       <a href="{{ route('user.show.announcement.participants', $announcement->id) }}">

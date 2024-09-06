@@ -76,6 +76,25 @@
                                     </div>
                                 </div>
                                 <div class="row">
+                                    <div class="col-md-12 col-sm-12 pt-10">
+                                        @php
+                                            $businessTypes = $registerSelectors->where('type', 'business');
+                                        @endphp
+                                        <div class="form-group">
+                                            <select name="businessType" class="md-input">
+                                                <option value="">事業形態を選択してください *</option>
+                                                @foreach ($businessTypes as $business)
+                                                <option value="{{ $business->id }}"
+                                                    @if($company->business == $business->id)selected="selected"@endif>
+                                                    {{ $business->name }}
+                                                </option>
+                                                @endforeach
+                                            </select>
+                                            <span class="error" style="color:#BF0731" id="error-businessType"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
                                     <div class="col-md-8 col-sm-8 col-md-offset-2 col-sd-offset-2 pt-10">
                                             <div class="text-center">
                                                 <input type="hidden" id="confirmed" name="confirmed" value="0">
@@ -176,7 +195,7 @@
                                             $businessTypes = $registerSelectors->where('type', 'business');
                                         @endphp
                                         <div class="form-group">
-                                            <select name="businessType" class="md-input">
+                                            <select name="businessType" class="md-input style-02">
                                                 <option value="">事業形態を選択してください *</option>
                                                 @foreach ($businessTypes as $business)
                                                 <option value="{{ $business->id }}"

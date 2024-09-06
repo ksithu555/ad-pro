@@ -71,12 +71,16 @@
                                     </label>   
                                 </td>
                                 <td style="min-width: 110px;">
-                                    <a href="{{ route('user.show.sections', $advertisement->id) }}">
-                                      <i class="fa-icon-plus-square" style="font-size: 1.5em;"></i>
-                                    </a>
-                                    <a href="{{ route('user.edit.advertisement', $advertisement->id) }}">
-                                      <i class="fa-icon-pencil-square" style="font-size: 1.5em;"></i>
-                                    </a>
+                                    <div>
+                                        <a href="{{ route('user.show.sections', $advertisement->id) }}">
+                                            <i class="fa-icon-plus-square" style="font-size: 1.5em;"></i>
+                                        </a>
+                                    </div>
+                                    <div>
+                                        <a href="{{ route('user.edit.advertisement', $advertisement->id) }}">
+                                            <i class="fa-icon-pencil-square" style="font-size: 1.5em;"></i>
+                                        </a>
+                                    </div>
                                     <div class="tr-modal-popup">
                                       <a href="#modal-popup-{{ $advertisement->id }}" data-effect="mfp-newspaper">
                                         <i class="fa-icon-trash" style="font-size: 1.5em;"></i>

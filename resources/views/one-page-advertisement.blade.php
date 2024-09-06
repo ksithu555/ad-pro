@@ -409,6 +409,179 @@
         @elseif ($advertisementSection->section->type == 'contact'  && $advertisementSection->status == 1)
         {{-- Contact Hero Start --}}
             @if ($advertisementSection->section->name == 'Contact01')
+            {{-- Contact01 Start --}}
+            <section class="{{ $sectionBg }} pt-20 pb-20" id="{{ $advertisementSection->name }}">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-8 section-heading">
+                            <h4 class="text-uppercase mt-0">お問合せ</h4>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                        <x-message-box></x-message-box>
+                            <form name="send-contact-form" id="send-contact-form" action="{{ route('guest.send.advertisement.contact') }}" method="POST" 
+                                class="contact-form-style-01" enctype="multipart/form-data">
+                                @csrf
+                                <div class="messages"></div>
+                                <input type="hidden" id="advertisementId" name="advertisementId" value="{{ $advertisement->id }}">
+                                <div class="row">
+                                    <div class="col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2">
+                                        <div class="form-group">
+                                            <label class="sr-only" for="subject">件名</label>
+                                            <input type="text" name="subject" class="md-input" id="subject" placeholder="件名 *" value="{{ old('subject') }}">
+                                            <span class="error" style="color:#BF0731" id="error-subject"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2">
+                                        <div class="form-group">
+                                            <label class="sr-only" for="name">名前</label>
+                                            <input type="text" name="name" class="md-input" id="name" placeholder="名前 *" value="{{ old('name') }}">
+                                            <span class="error" style="color:#BF0731" id="error-name"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2">
+                                        <div class="form-group">
+                                            <label class="sr-only" for="email">メール</label>
+                                            <input type="text" name="email" class="md-input" id="email" placeholder="メール *" value="{{ old('email') }}">
+                                            <span class="error" style="color:#BF0731" id="error-email"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-8 col-sm-8 col-md-offset-2 col-sd-offset-2 pt-10">
+                                        <div class="form-group">
+                                            <label class="sr-only" for="phone">電話番号</label>
+                                            <input type="text" name="phone" class="md-input" id="phone" placeholder="電話番号 *">
+                                            <span class="error" style="color:#BF0731" id="error-phone"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2">
+                                        <div class="form-group">
+                                            <label class="sr-only" for="content">内容</label>
+                                            <textarea name="content" class="md-textarea" id="content" rows="7" placeholder="内容 *">{{ old('content') }}</textarea>
+                                            <span class="error" style="color:#BF0731" id="error-content"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2">
+                                        <div class="text-left mt-20">
+                                            <input type="hidden" id="confirmed" name="confirmed" value="0">
+                                            <div class="tr-modal-popup text-center">
+                                                <a onclick="showModal()" id="open-modal" class="btn btn-dark-outline btn-md btn-square btn-animate remove-margin">
+                                                    <span>送信 <i class="ion-android-arrow-forward"></i></span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Modal Popup Message Box -->
+            <div id="modal-popup" class="white-bg all-padding-60 mfp-with-anim mfp-hide centerize-col col-lg-4 col-md-6 col-sm-7 col-xs-11 text-center">
+                <span class="text-uppercase font-30px font-600 mb-20 display-block dark-color">お問合せ送信</span>
+                <p class="mb-20">お問合せを送信してもよろしいですか?</p>
+                <a class="btn btn-lg btn-circle btn-color popup-modal-close" href="#" onclick="submitForm()">Yes</a>
+                <a class="btn btn-lg btn-circle btn-secondary-color popup-modal-close" href="#">No</a>
+            </div>
+            {{-- Contact01 End --}}
+            @elseif ($advertisementSection->section->name == 'Contact02')
+            {{-- Contact02 Start --}}
+            <section class="default-bg pt-20 pb-20" id="{{ $advertisementSection->name }}">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-8 section-heading white-color">
+                            <h4 class="text-uppercase mt-0">お問合せ</h4>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                        <x-message-box></x-message-box>
+                            <form name="send-contact-form" id="send-contact-form" action="{{ route('guest.send.advertisement.contact') }}" method="POST" 
+                                class="contact-form-style-01" enctype="multipart/form-data">
+                                @csrf
+                                <div class="messages"></div>
+                                <input type="hidden" id="advertisementId" name="advertisementId" value="{{ $advertisement->id }}">
+                                <div class="row">
+                                    <div class="col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2">
+                                        <div class="form-group form-group-02">
+                                            <label class="sr-only" for="subject">件名</label>
+                                            <input type="text" name="subject" class="md-input style-02" id="subject" placeholder="件名 *" value="{{ old('subject') }}">
+                                            <span class="error" style="color:#000" id="error-subject"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2">
+                                        <div class="form-group form-group-02">
+                                            <label class="sr-only" for="name">名前</label>
+                                            <input type="text" name="name" class="md-input style-02" id="name" placeholder="名前 *" value="{{ old('name') }}">
+                                            <span class="error" style="color:#000" id="error-name"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2">
+                                        <div class="form-group form-group-02">
+                                            <label class="sr-only" for="email">メール</label>
+                                            <input type="text" name="email" class="md-input style-02" id="email" placeholder="メール *" value="{{ old('email') }}">
+                                            <span class="error" style="color:#000" id="error-email"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-8 col-sm-8 col-md-offset-2 col-sd-offset-2 pt-10">
+                                        <div class="form-group form-group-02">
+                                            <label class="sr-only" for="phone">電話番号</label>
+                                            <input type="text" name="phone" class="md-input style-02" id="phone" placeholder="電話番号 *">
+                                            <span class="error" style="color:#000" id="error-phone"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2">
+                                        <div class="form-group form-group-02">
+                                            <label class="sr-only" for="content">内容</label>
+                                            <textarea name="content" class="md-textarea style-02" id="content" rows="7" placeholder="内容 *">{{ old('content') }}</textarea>
+                                            <span class="error" style="color:#000" id="error-content"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2">
+                                        <div class="text-left mt-20">
+                                            <input type="hidden" id="confirmed" name="confirmed" value="0">
+                                            <div class="tr-modal-popup text-center">
+                                                <a onclick="showModal()" id="open-modal" class="btn btn-dark btn-md btn-square btn-animate remove-margin">
+                                                    <span>送信 <i class="ion-android-arrow-forward"></i></span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Modal Popup Message Box -->
+            <div id="modal-popup" class="white-bg all-padding-60 mfp-with-anim mfp-hide centerize-col col-lg-4 col-md-6 col-sm-7 col-xs-11 text-center">
+                <span class="text-uppercase font-30px font-600 mb-20 display-block dark-color">お問合せ送信</span>
+                <p class="mb-20">お問合せを送信してもよろしいですか?</p>
+                <a class="btn btn-lg btn-circle btn-color popup-modal-close" href="#" onclick="submitForm()">Yes</a>
+                <a class="btn btn-lg btn-circle btn-secondary-color popup-modal-close" href="#">No</a>
+            </div>
+            {{-- Contact02 End --}}
             @endif
         {{-- Contact Hero End --}}
         @elseif ($advertisementSection->section->type == 'footer'  && $advertisementSection->status == 1)
@@ -584,6 +757,72 @@
 
 {{-- Date Time Picker --}}
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+{{-- validate --}}
+<script>
+    function showModal() {
+        if (validateSendContactForm()) {
+            document.getElementById('open-modal').setAttribute('href', '#modal-popup');
+            document.getElementById('open-modal').setAttribute('data-effect', 'mfp-newspaper');
+            document.getElementById('open-modal').click();
+        }
+    }
+
+    function submitForm() {
+        document.getElementById('confirmed').value = '1';
+        document.getElementById('send-contact-form').submit();
+    }
+
+    function validateSendContactForm() {
+        let isValid = true;
+        document.querySelectorAll('.error').forEach(el => el.textContent = '');
+
+        const subject = document.getElementById('subject').value.trim();
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const phone = document.getElementById('phone').value.trim();
+        const content = document.getElementById('content').value.trim();
+
+        if (!subject) {
+            document.getElementById('error-subject').textContent = '件名を入力してください';
+            isValid = false;
+        } else if (subject.length > 255) {
+            isValid = false;
+            document.getElementById('error-subject').textContent = '件名は255文字以内でなければなりません';
+        }
+        
+        if (!name) {
+            document.getElementById('error-name').textContent = '名前を入力してください';
+            isValid = false;
+        } else if (name.length > 255) {
+            isValid = false;
+            document.getElementById('error-name').textContent = '名前は255文字以内でなければなりません';
+        }
+        
+        if (!email) {
+            isValid = false;
+            document.getElementById('error-email').textContent = 'メールアドレスを入力してください';
+        } else if (!/\S+@\S+\.\S+/.test(email)) {
+            isValid = false;
+            document.getElementById('error-email').textContent = '有効なメールアドレスを入力してください';
+        }
+        
+        if (!phone) {
+            isValid = false;
+            document.getElementById('error-phone').textContent = '電話番号を入力してください';
+        } else if (!/^[\d()+-\s]+$/.test(phone)) {
+            isValid = false;
+            document.getElementById('error-phone').textContent = '電話番号は数字、+、(、)、-、スペースのみを含めることができます';
+        }
+
+        if (!content) {
+            document.getElementById('error-content').textContent = '内容を入力してください';
+            isValid = false;
+        }
+
+        return isValid;
+    }
+</script>
 <!--== Javascript Plugins End ==-->
 </body>
 </html>

@@ -43,15 +43,15 @@
 <body>
     <div class="email-container">
         <div class="header">
-            ADPROからのお問合せ
+            {{ $advertisement->name }}からのお問合せ
         </div>
         <div class="content">
-            <p><strong>Subject:</strong> {{ $contact->subject }}</p>
-            <p><strong>Name:</strong> {{ $contact->name }}</p>
-            <p><strong>Email:</strong> {{ $contact->email }}</p>
-            <p><strong>Phone:</strong> {{ $contact->phone }}</p>
+            <p><strong>Subject:</strong> {{ $advertisementContact->subject }}</p>
+            <p><strong>Name:</strong> {{ $advertisementContact->name }}</p>
+            <p><strong>Email:</strong> {{ $advertisementContact->email }}</p>
+            <p><strong>Phone:</strong> {{ $advertisementContact->phone }}</p>
             <p><strong>Message:</strong></p>
-            <p>{!! nl2br($contact->content) !!}</p>
+            <p>{!! nl2br($advertisementContact->content) !!}</p>
         </div>
         <div class="footer">
             &copy; {{ date('Y') }} AD-Pro. All rights reserved.

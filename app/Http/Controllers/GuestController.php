@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\News;
+use App\Models\User;
 use App\Models\Contact;
 use App\Mail\ContactMail;
 use App\Models\TopFooter;
@@ -10,8 +11,10 @@ use App\Models\TopHeader;
 use App\Models\TopSection;
 use Illuminate\Http\Request;
 use App\Models\Advertisement;
+use App\Models\AdvertisementContact;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
+use App\Mail\AdvertisementContactMail;
 use Illuminate\Support\Facades\Session;
 
 class GuestController extends Controller
@@ -66,6 +69,26 @@ class GuestController extends Controller
 
         Session::flash('success', 'お問い合わせは正常に送信されました');
         return redirect()->route('guest.contact');
+    }
+
+    public function sendAdvertisementContact(Request $request) {
+        $advertisementContact = AdvertisementContact::create([
+            'advertisement_id' => $request->advertisementId,
+            'subject' => $request->subject,
+            'name' => $request->name,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'content' => $request->content
+        ]);
+
+        $advertisement = Advertisement::where('id', $advertisementContact->advertisement_id)->first();
+        $user = User::where('id', $advertisement->user_id)->first();
+
+        Mail::to(env('MAIL_FROM_ADDRESS'))->send(new AdvertisementContactMail($advertisementContact, $advertisement, $user));
+        Mail::to($user->email)->send(new AdvertisementContactMail($advertisementContact, $advertisement, $user));
+
+        Session::flash('success', 'お問い合わせは正常に送信されました');
+        return redirect()->route('guest.one.page.advertisement', $advertisement->param_name);
     }
 
     public function showOnePageAdvertisement($param) {

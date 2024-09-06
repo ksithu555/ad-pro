@@ -5367,6 +5367,27 @@ input:checked + .slider:before {
     border-color: #BF0731;
 }
 
+/* Transition effect for input fields and textarea */
+.form-group-02 input[type="text"],
+.form-group-02 input[type="email"],
+.form-group-02 input[type="password"],
+.form-group-02 input[type="number"],
+.form-group-02 label.md-file,
+.form-group-02 select,
+.form-group-02 textarea {
+    transition: border-color 0.3s ease-in-out;
+}
+
+/* Change border color on focus */
+.form-group-02 input[type="text"]:focus,
+.form-group-02 input[type="email"]:focus,
+.form-group-02 input[type="password"]:focus,
+.form-group-02 input[type="number"]:focus,
+.md-file-focus,
+.form-group-02 select:focus,
+.form-group-02 textarea:focus {
+    border-color: #000;
+}
 /* Change border color to red when .error element contains text */
 /* .form-group:has(.error:not(:empty)) input[type="text"],
 .form-group:has(.error:not(:empty)) input[type="password"],

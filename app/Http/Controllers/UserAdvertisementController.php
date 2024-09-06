@@ -121,7 +121,20 @@ class UserAdvertisementController extends Controller
     }
 
     public function addSection($id) {
-        $sections = Section::where('status', 1)->get();
+        // Check if there are any advertisement sections of type 'contact'
+        $hasContactSection = AdvertisementSection::where('advertisement_id', $id)
+                            ->whereHas('section', function($query) {
+                                $query->where('type', 'contact');
+                            })
+                            ->exists();
+
+        // Based on the existence of contact sections, fetch the appropriate sections
+        if ($hasContactSection) {
+            $sections = Section::where('type', '!=', 'contact')->where('status', 1)->get();
+        } else {
+            $sections = Section::where('status', 1)->get();
+        }
+
         return view('users.advertisements.add-section', compact('id', 'sections'));
     }
 

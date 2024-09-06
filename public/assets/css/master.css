@@ -140,7 +140,7 @@ border-color: none;box-shadow: none;outline: 0 none;}
 .select-custom select {width: 100%;border: none;box-shadow: none;background-color: transparent;background-image: none;-webkit-appearance: none;-moz-appearance: none;
 appearance: none;cursor: pointer;}
 .md-input, .md-textarea, .md-select select {padding: 14px 20px;font-size: 14px;line-height: normal;border-radius: 0;}
-input, textarea, select {border: 1px solid #eee;font-size: 14px;padding: 8px 15px;width: 100%;margin: 0 0 0 0;max-width: 100%;resize: none;background-color: transparent;color:#fff;}
+input, textarea, select {border: 1px solid #eee;font-size: 14px;padding: 8px 15px;width: 100%;margin: 0 0 0 0;max-width: 100%;resize: none;background-color: transparent;}
 .md-file {
   border: 1px solid #eee;
   padding: 14px 20px;

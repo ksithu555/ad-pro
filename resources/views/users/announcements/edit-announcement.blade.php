@@ -215,6 +215,8 @@
         flatpickr("#endAt", {
             enableTime: true,
             dateFormat: "Y-m-d H:i",
+            defaultHour: 23,
+            defaultMinute: 59,
         });
     </script>
 </x-user-layout>

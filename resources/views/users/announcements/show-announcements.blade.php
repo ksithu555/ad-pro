@@ -23,14 +23,13 @@
                   <tr>
                     <th>#</th>
                     <th style="min-width: 110px;">登録日</th>
-                    <th>種類</th>
+                    <th style="min-width: 110px;">種類</th>
                     <th style="min-width: 110px;">タイトル</th>
                     <th>内容</th>
                     <th style="min-width: 110px;">画像</th>
                     <th style="min-width: 110px;">掲載開始日</th>
                     <th style="min-width: 110px;">掲載終了日</th>
-                    <th>参加者</th>
-                    <th>ビュー</th>
+                    <th style="min-width: 110px;">参加者</th>
                     <th style="min-width: 110px;">アクション</th>
                   </tr>
                 </thead>
@@ -66,15 +65,17 @@
                         <i class="ion-android-person" style="font-size: 1.5em;"></i>
                       </a>
                     </td>
-                    <td>
-                      <a href="{{ route('user.show.announcement', $announcement->id) }}">
-                        <i class="fa fa-eye" style="font-size: 1.5em;"></i>
-                      </a>
-                    </td>
                     <td style="min-width: 110px;">
-                      <a href="{{ route('user.edit.announcement', $announcement->id) }}">
-                        <i class="fa-icon-pencil-square" style="font-size: 1.5em;"></i>
-                      </a>
+                      <div>
+                        <a href="{{ route('user.show.announcement', $announcement->id) }}">
+                          <i class="fa fa-eye" style="font-size: 1.5em;"></i>
+                        </a>
+                      </div>
+                      <div>
+                        <a href="{{ route('user.edit.announcement', $announcement->id) }}">
+                          <i class="fa-icon-pencil-square" style="font-size: 1.5em;"></i>
+                        </a>
+                      </div>
                       <div class="tr-modal-popup">
                         <a href="#modal-popup-{{ $announcement->id }}" data-effect="mfp-newspaper">
                           <i class="fa-icon-trash" style="font-size: 1.5em;"></i>

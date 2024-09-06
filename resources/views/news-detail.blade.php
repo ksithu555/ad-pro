@@ -1,7 +1,7 @@
 <x-guest-layout>
     <!--== Page Title Start ==-->
     <div class="transition-none">
-        <section class="title-hero-bg parallax-effect" style="background-image: url({{ asset('assets/images/all/header-ad-list.webp') }});">
+        <section class="title-hero-bg parallax-effect" style="background-image: url({{ asset('assets/images/all/had.jpg') }});">
             <div class="container">
                 <div class="page-title text-center white-color">
                     <h1>Default Header</h1>

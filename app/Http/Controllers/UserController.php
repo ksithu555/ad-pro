@@ -129,7 +129,8 @@ class UserController extends Controller
         $user = Auth::user();
         $company = Company::with('prefecture')->where('user_id', $user->id)->first();
         $prefectures = Prefecture::all();
-        return view('users.profile', compact('user', 'company', 'prefectures'));
+        $registerSelectors = RegisterSelector::all();
+        return view('users.profile', compact('user', 'company', 'prefectures', 'registerSelectors'));
     }
 
     public function updateProfile(Request $request) {
@@ -154,12 +155,16 @@ class UserController extends Controller
     public function updateCompany(Request $request) {
         $updateData = [
             'name' => $request->companyName,
-            'overview' => $request->companyOverview,
+            'business' => $request->businessType,
+            'purpose' => $request->purposeOfUse,
+            'industry' => $request->industry,
+            'position' => $request->position,
             'phone' => $request->companyPhone,
             'postal_code' => $request->companyPostalCode,
             'prefecture_id' => $request->companyPrefecture,
             'address' => $request->companyAddress,
-            'website' => $request->companyWebsite
+            'website' => $request->companyWebsite,
+            'overview' => $request->companyOverview,
         ];
 
         Company::where('user_id', Auth::user()->id)->update($updateData);

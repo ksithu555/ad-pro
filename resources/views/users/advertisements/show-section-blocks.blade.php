@@ -32,6 +32,11 @@
                 $deleteRoute = 'user.delete.box.block';
                 $showRoute = 'user.show.block.sub.blocks';
             }
+            if ($type == 'contact') {
+                $addRoute = 'user.add.contact.block';
+                $editRoute = 'user.edit.contact.block';
+                $deleteRoute = 'user.delete.contact.block';
+            }
         @endphp
         <div class="row">
           <div class="col-md-3">

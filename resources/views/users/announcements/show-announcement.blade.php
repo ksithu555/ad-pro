@@ -23,7 +23,7 @@
           </div>
           <div class="row mt-20">
               <div class="col-md-12">
-                  <p style="color: #6c757d; line-height: 1.6;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in erat a nisi auctor dictum at vel magna. Praesent enim neque condimentum nec tincidunt.</p>
+                  <p style="color: #6c757d; line-height: 1.6;">{!! nl2br($announcement->user->company->overview) !!}</p>
               </div>
           </div>
         </div>      
@@ -40,7 +40,8 @@
                   <li>
                     <i class="fa fa-calendar"></i> 
                       <span class="badge badge-info">掲載期間</span>
-                      <span class="text-muted">{{ $announcement->start_at }} 〜 {{ $announcement->end_at }}</span>
+                      <span class="text-muted">{{ \Carbon\Carbon::parse($announcement->start_at)->format('Y-m-d') }} 
+                        〜 {{ \Carbon\Carbon::parse($announcement->end_at)->format('Y-m-d') }}</span>
                   </li>
               </ul>
               <p style="color: #333; line-height: 1.6;">{!! nl2br($announcement->description) !!}</p>

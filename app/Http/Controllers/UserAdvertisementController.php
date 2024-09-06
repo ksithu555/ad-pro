@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Icon;
 use App\Models\Section;
 use Illuminate\Http\Request;
 use App\Models\Advertisement;
@@ -13,7 +14,7 @@ use Illuminate\Support\Facades\Session;
 use App\Models\AdvertisementFooterBlock;
 use App\Models\AdvertisementHeaderBlock;
 use App\Models\AdvertisementSubBoxBlock;
-use App\Models\Icon;
+use App\Models\AdvertisementContactBlock;
 
 class UserAdvertisementController extends Controller
 {

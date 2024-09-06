@@ -214,12 +214,14 @@
     <script>
         // Initialize the date-time picker
         flatpickr("#startAt", {
-            enableTime: true,
+            enableTime: false,
             dateFormat: "Y-m-d H:i",
         });
         flatpickr("#endAt", {
             enableTime: true,
             dateFormat: "Y-m-d H:i",
+            defaultHour: 23,
+            defaultMinute: 59,
         });
     </script>
 </x-user-layout>

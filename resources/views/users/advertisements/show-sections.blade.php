@@ -11,7 +11,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-2">
                 <div style="text-align: left;">
                     <a class="btn btn-md btn-dark-outline btn-square margin-left-auto margin-right-auto display-table-sm"
                     href="{{ route('user.get.advertisements') }}">
@@ -19,18 +19,16 @@
                     </a>
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-8">
+                <x-message-box></x-message-box>
+            </div>
+            <div class="col-md-2">
                 <div style="text-align: right;">
                     <a class="btn btn-md btn-dark-outline btn-square margin-left-auto margin-right-auto display-table-sm"
                     href="{{ route('user.add.section', $id) }}">
                         <i class="fa-icon-plus-square"></i> セクション
                     </a>
                 </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <x-message-box></x-message-box>
             </div>
         </div>
         <div class="row mt-10">
@@ -82,16 +80,22 @@
                                     </div>                                  
                                 </td>
                                 <td style="min-width: 110px;">
-                                    <a href="{{ route('user.show.section.blocks', $section->id) }}">
-                                      <i class="fa-icon-plus-square" style="font-size: 1.5em;"></i>
-                                    </a>
-                                    <a href="{{ route('user.edit.section', $section->id) }}">
-                                      <i class="fa-icon-pencil-square" style="font-size: 1.5em;"></i>
-                                    </a>
+                                    @if ($section->section->type != 'contact')
+                                    <div>
+                                        <a href="{{ route('user.show.section.blocks', $section->id) }}">
+                                            <i class="fa-icon-plus-square" style="font-size: 1.5em;"></i>
+                                        </a>
+                                    </div>
+                                    @endif
+                                    <div>
+                                        <a href="{{ route('user.edit.section', $section->id) }}">
+                                            <i class="fa-icon-pencil-square" style="font-size: 1.5em;"></i>
+                                        </a>
+                                    </div>
                                     <div class="tr-modal-popup">
-                                      <a href="#modal-popup-{{ $section->id }}" data-effect="mfp-newspaper">
-                                        <i class="fa-icon-trash" style="font-size: 1.5em;"></i>
-                                      </a>
+                                        <a href="#modal-popup-{{ $section->id }}" data-effect="mfp-newspaper">
+                                            <i class="fa-icon-trash" style="font-size: 1.5em;"></i>
+                                        </a>
                                     </div>
                                 </td>
                             </tr>

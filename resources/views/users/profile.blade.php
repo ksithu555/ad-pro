@@ -172,30 +172,77 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12 col-sm-12 pt-10">
+                                        @php
+                                            $businessTypes = $registerSelectors->where('type', 'business');
+                                        @endphp
                                         <div class="form-group">
-                                            <div class="info-icon-container">
-                                                <i class="ion-information-circled info-icon"></i>
-                                                <div class="guideline-box" id="guideline-box">
-                                                    <p>
-                                                        重要なテキストを強調するために、<code style="color: black;">&lt;strong&gt;<strong>希望するテキスト</strong>&lt;/strong&gt;</code> を使用します。
-                                                    </p>
-                                                    <p>
-                                                        テキストに斜体を適用するには、<code style="color: black;">&lt;span style="font-style: italic;"&gt;<span style="font-style: italic;">希望するテキスト</span>&lt;/span&gt;</code> を使用します。
-                                                    </p>
-                                                    <p>
-                                                        下線を引くには、<code style="color: black;">&lt;span style="text-decoration: underline;"&gt;<span style="text-decoration: underline;">希望するテキスト</span>&lt;/span&gt;</code> を使用します。
-                                                    </p>
-                                                    <p>
-                                                        色を変更するには、<code style="color: black;">&lt;span style="color: red;"&gt;<span style="color: red;">希望するテキスト</span>&lt;/span&gt;</code> を使用します。
-                                                    </p>
-                                                    <p>
-                                                        リンクを作成するには、<code style="color: black;">&lt;a href="希望するURL" target="_blank"&gt;<a href="#" target="_blank">希望するテキスト</a>&lt;/a&gt;</code> を使用します。
-                                                    </p>
-                                                </div>
-                                            </div>
-                                            <label class="sr-only" for="companyOverview">会社概要</label>
-                                            <textarea name="companyOverview" class="md-textarea style-02" id="companyOverview" rows="7" placeholder="会社概要 *">{{ old('companyOverview') ? old('companyOverview') : $company->overview }}</textarea>
-                                            <span class="error" style="color:#BF0731" id="error-companyOverview"></span>
+                                            <select name="businessType" class="md-input">
+                                                <option value="">事業形態を選択してください *</option>
+                                                @foreach ($businessTypes as $business)
+                                                <option value="{{ $business->id }}"
+                                                    @if($company->business == $business->id)selected="selected"@endif>
+                                                    {{ $business->name }}
+                                                </option>
+                                                @endforeach
+                                            </select>
+                                            <span class="error" style="color:#BF0731" id="error-businessType"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12 col-sm-12 pt-10">
+                                        @php
+                                            $purposeOfUses = $registerSelectors->where('type', 'purpose');
+                                        @endphp
+                                        <div class="form-group">
+                                            <select name="purposeOfUse" class="md-input">
+                                                <option value="">利用目的を選択してください *</option>
+                                                @foreach ($purposeOfUses as $purposeOfUse)
+                                                <option value="{{ $purposeOfUse->id }}"
+                                                    @if($company->purpose == $purposeOfUse->id)selected="selected"@endif>
+                                                    {{ $purposeOfUse->name }}
+                                                </option>
+                                                @endforeach
+                                            </select>
+                                            <span class="error" style="color:#BF0731" id="error-purposeOfUse"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12 col-sm-12 pt-10">
+                                        @php
+                                            $industries = $registerSelectors->where('type', 'industry');
+                                        @endphp
+                                        <div class="form-group">
+                                            <select name="industry" class="md-input">
+                                                <option value="">業種を選択してください *</option>
+                                                @foreach ($industries as $industry)
+                                                <option value="{{ $industry->id }}"
+                                                    @if($company->industry == $industry->id)selected="selected"@endif>
+                                                    {{ $industry->name }}
+                                                </option>
+                                                @endforeach
+                                            </select>
+                                            <span class="error" style="color:#BF0731" id="error-industry"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12 col-sm-12 pt-10">
+                                        @php
+                                            $positions = $registerSelectors->where('type', 'position');
+                                        @endphp
+                                        <div class="form-group">
+                                            <select name="position" class="md-input">
+                                                <option value="">役職を選択してください *</option>
+                                                @foreach ($positions as $position)
+                                                <option value="{{ $position->id }}"
+                                                    @if($company->position == $position->id)selected="selected"@endif>
+                                                    {{ $position->name }}
+                                                </option>
+                                                @endforeach
+                                            </select>
+                                            <span class="error" style="color:#BF0731" id="error-position"></span>
                                         </div>
                                     </div>
                                 </div>
@@ -252,6 +299,35 @@
                                             <input type="text" name="companyWebsite" class="md-input style-02" id="companyWebsite" placeholder="URL"
                                             value="{{ old('companyWebsite') ? old('companyWebsite') : $company->website }}">
                                             <span class="error" style="color:#BF0731" id="error-companyWebsite"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12 col-sm-12 pt-10">
+                                        <div class="form-group">
+                                            <div class="info-icon-container">
+                                                <i class="ion-information-circled info-icon"></i>
+                                                <div class="guideline-box" id="guideline-box">
+                                                    <p>
+                                                        重要なテキストを強調するために、<code style="color: black;">&lt;strong&gt;<strong>希望するテキスト</strong>&lt;/strong&gt;</code> を使用します。
+                                                    </p>
+                                                    <p>
+                                                        テキストに斜体を適用するには、<code style="color: black;">&lt;span style="font-style: italic;"&gt;<span style="font-style: italic;">希望するテキスト</span>&lt;/span&gt;</code> を使用します。
+                                                    </p>
+                                                    <p>
+                                                        下線を引くには、<code style="color: black;">&lt;span style="text-decoration: underline;"&gt;<span style="text-decoration: underline;">希望するテキスト</span>&lt;/span&gt;</code> を使用します。
+                                                    </p>
+                                                    <p>
+                                                        色を変更するには、<code style="color: black;">&lt;span style="color: red;"&gt;<span style="color: red;">希望するテキスト</span>&lt;/span&gt;</code> を使用します。
+                                                    </p>
+                                                    <p>
+                                                        リンクを作成するには、<code style="color: black;">&lt;a href="希望するURL" target="_blank"&gt;<a href="#" target="_blank">希望するテキスト</a>&lt;/a&gt;</code> を使用します。
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <label class="sr-only" for="companyOverview">会社概要</label>
+                                            <textarea name="companyOverview" class="md-textarea style-02" id="companyOverview" rows="7" placeholder="会社概要 *">{{ old('companyOverview') ? old('companyOverview') : $company->overview }}</textarea>
+                                            <span class="error" style="color:#BF0731" id="error-companyOverview"></span>
                                         </div>
                                     </div>
                                 </div>
@@ -415,12 +491,16 @@
             document.querySelectorAll('.error').forEach(el => el.textContent = '');
 
             const companyName = document.getElementById('companyName').value.trim();
-            const companyOverview = document.getElementById('companyOverview').value.trim();
+            const businessType = document.querySelector('select[name="businessType"]').value;
+            const purposeOfUse = document.querySelector('select[name="purposeOfUse"]').value;
+            const industry = document.querySelector('select[name="industry"]').value;
+            const position = document.querySelector('select[name="position"]').value;
             const companyPhone = document.getElementById('companyPhone').value.trim();
             const companyPostalCode = document.getElementById('companyPostalCode').value.trim();
             const companyAddress = document.getElementById('companyAddress').value.trim();
             const companyPrefecture = document.querySelector('select[name="companyPrefecture"]').value;
             const companyWebsite = document.getElementById('companyWebsite').value.trim();
+            const companyOverview = document.getElementById('companyOverview').value.trim();
 
             if (!companyName) {
                 isValid = false;
@@ -428,6 +508,26 @@
             } else if (companyName.length > 255) {
                 isValid = false;
                 document.getElementById('error-companyName').textContent = '名前は255文字以内でなければなりません';
+            }
+
+            if (!businessType) {
+                isValid = false;
+                document.getElementById('error-businessType').textContent = '事業形態を選択してください';
+            }
+
+            if (!purposeOfUse) {
+                isValid = false;
+                document.getElementById('error-purposeOfUse').textContent = '利用目的を選択してください';
+            }
+
+            if (!industry) {
+                isValid = false;
+                document.getElementById('error-industry').textContent = '業種を選択してください';
+            }
+
+            if (!position) {
+                isValid = false;
+                document.getElementById('error-position').textContent = '役職を選択してください';
             }
 
             if (!companyPhone) {

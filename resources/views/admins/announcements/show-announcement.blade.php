@@ -23,7 +23,7 @@
             </div>
             <div class="row mt-20">
                 <div class="col-md-12">
-                    <p style="color: #6c757d; line-height: 1.6;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in erat a nisi auctor dictum at vel magna. Praesent enim neque condimentum nec tincidunt.</p>
+                    <p style="color: #6c757d; line-height: 1.6;">{!! $announcement->user->company->overview !!}</p>
                 </div>
             </div>
           </div>      

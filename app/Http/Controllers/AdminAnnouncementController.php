@@ -20,7 +20,8 @@ class AdminAnnouncementController extends Controller
     }
 
     public function showAnnouncement($id) {
-        $announcement = Announcement::with('user')->with('announcementParticipants')->where('id', $id)->first();
+        $announcement = Announcement::with('user')->with('user.company')->with('announcementParticipants')
+        ->where('id', $id)->first();
         return view('admins.announcements.show-announcement', compact('announcement'));
     }
 

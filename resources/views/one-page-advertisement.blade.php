@@ -194,7 +194,7 @@
             @if ($advertisementSection->section->name == 'List01')
             <!--== List01 Start ==-->
             <section class="{{ $sectionBg }} pt-0 pb-0" id="{{ $advertisementSection->name }}">
-                <div class="container-fluid">
+                <div class="container">
                     @foreach ($advertisementSection->advertisementListBlocks as $key => $advertisementListBlock)
                         @if ($advertisementListBlock->status == 1)
                         @if ($key % 2 == 0)
@@ -228,7 +228,7 @@
             @elseif ($advertisementSection->section->name == 'List02')
             <!--== List02 Start ==-->
             <section class="{{ $sectionBg }} pt-0 pb-0" id="{{ $advertisementSection->name }}">
-                <div class="container-fluid">
+                <div class="container">
                     @foreach ($advertisementSection->advertisementListBlocks as $key => $advertisementListBlock)
                         @if ($advertisementListBlock->status == 1)
                         @if ($key % 2 == 0)
@@ -406,6 +406,11 @@
             {{-- Box03 End --}}
             @endif
         {{-- Box Hero End --}}
+        @elseif ($advertisementSection->section->type == 'contact'  && $advertisementSection->status == 1)
+        {{-- Contact Hero Start --}}
+            @if ($advertisementSection->section->name == 'Contact01')
+            @endif
+        {{-- Contact Hero End --}}
         @elseif ($advertisementSection->section->type == 'footer'  && $advertisementSection->status == 1)
         {{-- Footer Hero Start --}}
             @if ($advertisementSection->section->name == 'Footer01')

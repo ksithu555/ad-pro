@@ -193,7 +193,7 @@
         {{-- List Hero Start --}}
             @if ($advertisementSection->section->name == 'List01')
             <!--== List01 Start ==-->
-            <section class="{{ $sectionBg }} pt-0 pb-0" id="{{ $advertisementSection->name }}">
+            <section class="{{ $sectionBg }} pt-50 pb-50" id="{{ $advertisementSection->name }}">
                 <div class="container">
                     @foreach ($advertisementSection->advertisementListBlocks as $key => $advertisementListBlock)
                         @if ($advertisementListBlock->status == 1)
@@ -227,7 +227,7 @@
             <!--== List01 End ==-->
             @elseif ($advertisementSection->section->name == 'List02')
             <!--== List02 Start ==-->
-            <section class="{{ $sectionBg }} pt-0 pb-0" id="{{ $advertisementSection->name }}">
+            <section class="{{ $sectionBg }} pt-50 pb-50" id="{{ $advertisementSection->name }}">
                 <div class="container">
                     @foreach ($advertisementSection->advertisementListBlocks as $key => $advertisementListBlock)
                         @if ($advertisementListBlock->status == 1)
@@ -265,7 +265,7 @@
         {{-- Box Hero Start --}}
             @if ($advertisementSection->section->name == 'Box01')
             <!--== Box01 Start ==-->
-            <section class="{{ $sectionBg }} pt-0 pb-0" id="{{ $advertisementSection->name }}">
+            <section class="{{ $sectionBg }} pt-50 pb-50" id="{{ $advertisementSection->name }}">
                 @foreach ($advertisementSection->advertisementBoxBlocks as $advertisementBoxBlock)
                 @if ($advertisementBoxBlock->status == 1)
                 <div class="container">
@@ -311,7 +311,7 @@
             <!--== Box01 End ==-->
             @elseif ($advertisementSection->section->name == 'Box02')
             {{-- Box02 Start --}}
-            <section class="{{ $sectionBg }} pt-0 pb-0" id="{{ $advertisementSection->name }}">
+            <section class="{{ $sectionBg }} pt-50 pb-50" id="{{ $advertisementSection->name }}">
                 @foreach ($advertisementSection->advertisementBoxBlocks as $advertisementBoxBlock)
                 @if ($advertisementBoxBlock->status == 1)
                 <div class="container">
@@ -352,7 +352,7 @@
             {{-- Box02 End --}}
             @elseif ($advertisementSection->section->name == 'Box03')
             {{-- Box03 Start --}}
-            <section class="{{ $sectionBg }} pt-0 pb-0" id="{{ $advertisementSection->name }}">
+            <section class="{{ $sectionBg }} pt-50 pb-50" id="{{ $advertisementSection->name }}">
                 @foreach ($advertisementSection->advertisementBoxBlocks as $advertisementBoxBlock)
                 @if ($advertisementBoxBlock->status == 1)
                 <div class="container">
@@ -410,7 +410,7 @@
         {{-- Contact Hero Start --}}
             @if ($advertisementSection->section->name == 'Contact01')
             {{-- Contact01 Start --}}
-            <section class="{{ $sectionBg }} pt-20 pb-20" id="{{ $advertisementSection->name }}">
+            <section class="{{ $sectionBg }} pt-50 pb-50" id="{{ $advertisementSection->name }}">
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-8 section-heading">
@@ -497,7 +497,7 @@
             {{-- Contact01 End --}}
             @elseif ($advertisementSection->section->name == 'Contact02')
             {{-- Contact02 Start --}}
-            <section class="default-bg pt-20 pb-20" id="{{ $advertisementSection->name }}">
+            <section class="default-bg pt-50 pb-50" id="{{ $advertisementSection->name }}">
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-8 section-heading white-color">
@@ -703,7 +703,13 @@
                             </div>
                             <div class="col-sm-4 col-xs-12">
                                 <div class="logo display-block height-auto">
-                                    <img class="logo margin-left-auto margin-right-auto" src="{{ asset('assets/images/all/adpro3_blogo.png') }}" alt="ADPRO logo">
+                                    @php
+                                        $logo = $advertisementSection->advertisementFooterBlocks->where('type', 'logo')->first();
+                                        $logoImage = $logo ? $logo->text : null;
+                                    @endphp
+                                    @if ($logo && $logo->status == 1)
+                                    <img class="logo margin-left-auto margin-right-auto" src="{{ asset('assets/images/all/' . $logoImage) }}" alt="ADPRO logo">
+                                    @endif
                                 </div>
                             </div>
                             <div class="col-md-4col-xs-12">

@@ -67,4 +67,48 @@
         </div>
     </section>
     <!--== Company End ==-->
+    <!--== Business Info Start ==-->
+    <section class="dark-bg pt-80 pb-80" style="background-image: url({{ asset('assets/images/background/pattern-bg-dark.jpg') }});">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-6 xs-mb-20 sm-mb-20">
+                    <div class="wow fadeInRight counter-type-2 relative" data-wow-delay="0.1s">
+                    <i class="icon-briefcase default-color font-50px"></i>
+                        @if ($company->businessType)
+                        <h3 class="display-block mt-0 mb-0 line-height-26"><span class="font-700 white-color">事業形態</span></h3>
+                        <h5 class="mt-0 font-600 white-color">{{ $company->businessType->name }}</h5>
+                        @endif
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 xs-mb-20 sm-mb-20">
+                    <div class="wow fadeInRight counter-type-2 relative" data-wow-delay="0.2s">
+                    <i class="icon-target default-color font-50px"></i>
+                        @if ($company->purposeType)
+                        <h3 class="display-block mt-0 mb-0 line-height-26"><span class="font-700 white-color">利用目的</span></h3>
+                        <h5 class="mt-0 font-600 white-color">{{ $company->purposeType->name }}</h5>
+                        @endif
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 xs-mb-20 sm-mb-20">
+                    <div class="wow fadeInRight counter-type-2 relative" data-wow-delay="0.3s">
+                    <i class="icon-globe default-color font-50px"></i>
+                        @if ($company->industryType)
+                        <h3 class="display-block mt-0 mb-0 line-height-26"><span class="font-700 white-color">業種</span></h3>
+                        <h5 class="mt-0 font-600 white-color">{{ $company->industryType->name }}</h5>
+                        @endif
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 xs-mb-20 sm-mb-20">
+                    <div class="wow fadeInRight counter-type-2 relative" data-wow-delay="0.4s">
+                    <i class="icon-profile-male default-color font-50px"></i>
+                        @if ($company->positionType)
+                        <h3 class="display-block mt-0 mb-0 line-height-26"><span class="font-700 white-color">役職</span></h3>
+                        <h5 class="mt-0 font-600 white-color">{{ $company->positionType->name }}</h5>
+                        @endif
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--== Business Info End ==-->
 </x-user-layout>

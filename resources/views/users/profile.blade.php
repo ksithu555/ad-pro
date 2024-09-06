@@ -355,6 +355,43 @@
         </div>
     </section>
     <!--== Company End ==-->
+    <!--== Business Info Start ==-->
+    <section class="dark-bg pt-80 pb-80" id="businessInfoSection"
+     style="background-image: url({{ asset('assets/images/background/pattern-bg-dark.jpg') }});">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-6 xs-mb-20 sm-mb-20">
+                    <div class="wow fadeInRight counter-type-2 relative" data-wow-delay="0.1s">
+                    <i class="icon-briefcase default-color font-50px"></i>
+                        <h3 class="display-block mt-0 mb-0 line-height-26"><span class="font-700 white-color">事業形態</span></h3>
+                        <h5 class="mt-0 font-600 white-color">{{ $company->businessType->name }}</h5>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 xs-mb-20 sm-mb-20">
+                    <div class="wow fadeInRight counter-type-2 relative" data-wow-delay="0.2s">
+                    <i class="icon-target default-color font-50px"></i>
+                        <h3 class="display-block mt-0 mb-0 line-height-26"><span class="font-700 white-color">利用目的</span></h3>
+                        <h5 class="mt-0 font-600 white-color">{{ $company->purposeType->name }}</h5>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 xs-mb-20 sm-mb-20">
+                    <div class="wow fadeInRight counter-type-2 relative" data-wow-delay="0.3s">
+                    <i class="icon-globe default-color font-50px"></i>
+                        <h3 class="display-block mt-0 mb-0 line-height-26"><span class="font-700 white-color">業種</span></h3>
+                        <h5 class="mt-0 font-600 white-color">{{ $company->industryType->name }}</h5>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 xs-mb-20 sm-mb-20">
+                    <div class="wow fadeInRight counter-type-2 relative" data-wow-delay="0.4s">
+                    <i class="icon-profile-male default-color font-50px"></i>
+                        <h3 class="display-block mt-0 mb-0 line-height-26"><span class="font-700 white-color">役職</span></h3>
+                        <h5 class="mt-0 font-600 white-color">{{ $company->positionType->name }}</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--== Business Info End ==-->
 
     <!-- Modal Popup Message Box -->
     <div id="company-modal-popup" class="white-bg all-padding-60 mfp-with-anim mfp-hide centerize-col col-lg-4 col-md-6 col-sm-7 col-xs-11 text-center">
@@ -457,20 +494,24 @@
             var userCompanyDiv = document.getElementById('userCompanyDiv');
             var editUserCompanyDiv = document.getElementById('editUserCompanyDiv');
             var editCompanyBtnDiv = document.getElementById('editCompanyBtnDiv');
+            var businessInfoSection = document.getElementById('businessInfoSection');
 
             userCompanyDiv.style.display = 'none';
             editUserCompanyDiv.style.display = 'block';
             editCompanyBtnDiv.style.display = 'none';
+            businessInfoSection.style.display = 'none';
         }
 
         function showUserCompanyDiv() {
             var userCompanyDiv = document.getElementById('userCompanyDiv');
             var editUserCompanyDiv = document.getElementById('editUserCompanyDiv');
             var editCompanyBtnDiv = document.getElementById('editCompanyBtnDiv');
+            var businessInfoSection = document.getElementById('businessInfoSection');
 
             userCompanyDiv.style.display = 'block';
             editUserCompanyDiv.style.display = 'none';
             editCompanyBtnDiv.style.display = 'block';
+            businessInfoSection.style.display = 'block';
         }
 
         function showCompanyModal() {

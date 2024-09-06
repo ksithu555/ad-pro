@@ -1,7 +1,7 @@
 <x-guest-layout>
     <!--== Page Title Start ==-->
     <div class="transition-none">
-        <section class="title-hero-bg parallax-effect" style="background-image: url({{ asset('assets/images/all/had.jpg') }});">
+        <section class="title-hero-bg parallax-effect" style="background-image: url({{ asset('assets/images/all/second-header-01.jpg') }});">
             <div class="container">
                 <div class="page-title text-center white-color">
                     <h1>会員登録</h1>

@@ -12,7 +12,7 @@ class UserMemberController extends Controller
 {
     public function getMembers() {
         $limit = 10;
-        $users = User::where('id', '!=', Auth::user()->id)->paginate($limit);
+        $users = User::where('id', '!=', Auth::user()->id)->orderBy('created_at', 'desc')->paginate($limit);
         $ttl = $users->total();
         $ttlpage = ceil($ttl/$limit);
         return view('users.members.members', compact('users', 'ttl', 'ttlpage'));

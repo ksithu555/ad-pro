@@ -173,7 +173,8 @@
           </li>
           <li class="dropdown">
             <a href="{{ route('user.get.messages') }}" class="dropdown-toggle" data-toggle="dropdown">
-                <span class="{{ request()->routeIs('user.get.messages')
+                <span class="{{ request()->routeIs('user.get.messages') ||
+                request()->routeIs('user.start.message')
                 ? 'default-color' : '' }}">商談管理</span>
             </a>
           </li>

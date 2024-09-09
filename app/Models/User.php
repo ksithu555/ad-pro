@@ -55,7 +55,7 @@ class User extends Authenticatable
      */
     public function sentMessages()
     {
-        return $this->hasMany(Message::class, 'from_email', 'email');
+        return $this->hasMany(Message::class, 'from_user_id', 'id');
     }
 
     /**
@@ -63,7 +63,7 @@ class User extends Authenticatable
      */
     public function receivedMessages()
     {
-        return $this->hasMany(Message::class, 'to_email', 'email');
+        return $this->hasMany(Message::class, 'to_user_id', 'id');
     }
 
     public function announcements()

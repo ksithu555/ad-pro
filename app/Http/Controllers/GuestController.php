@@ -30,7 +30,7 @@ class GuestController extends Controller
     }
 
     public function advertisements() {
-        $advertisements = Advertisement::with('user')->where('status', 1)->get();
+        $advertisements = Advertisement::with('user')->where('status', 1)->orderBy('created_at', 'desc')->get();
         return view('advertisement-list', compact('advertisements'));
     }
 

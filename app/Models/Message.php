@@ -8,8 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Message extends Model
 {
     protected $fillable = [
-        'from_email',
-        'to_email',
+        'from_user_id',
+        'to_user_id',
         'message',
         'seen'
     ];
@@ -19,7 +19,7 @@ class Message extends Model
      */
     public function sender()
     {
-        return $this->belongsTo(User::class, 'from_email', 'email');
+        return $this->belongsTo(User::class, 'from_user_id', 'id');
     }
 
     /**
@@ -27,6 +27,6 @@ class Message extends Model
      */
     public function receiver()
     {
-        return $this->belongsTo(User::class, 'to_email', 'email');
+        return $this->belongsTo(User::class, 'to_user_id', 'id');
     }
 }

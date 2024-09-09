@@ -13,10 +13,18 @@
                         <img src="{{ asset('assets/images/all/' . $user->image) }}" alt="Digital" style="max-height: 300px">
                     </figure>
                 </div>
-                <div class="col-md-8 col-xs-12" id="userProfileDiv">
+                <div class="col-md-6 col-xs-12" id="userProfileDiv">
                     <h4 class="mt-0 font-700">{{ $user->name }} <span class="badge badge-info">無料</span></h4>
                     <h4 class="default-color font-600">{{ $user->name_furigana }}</h4>
                     <h4 class="mt-0 font-700">{{ $user->email }}</h4>
+                </div>
+                <div class="col-md-2 col-xs-12">
+                    <div class="text-right">
+                        <a class="btn btn-md btn-dark btn-circle margin-left-auto margin-right-auto display-table-sm"
+                         href="{{ route('user.start.message', $user->id) }}">
+                            <span>商談を申し込む <i class="ion-android-arrow-forward"></i></span>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>

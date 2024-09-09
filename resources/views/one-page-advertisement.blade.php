@@ -204,7 +204,7 @@
                                 <div class="col-inner spacer text-center">
                                     <h3 class="mt-20 text-uppercase">{{ $advertisementListBlock->title }}</h3>
                                     <hr class="dark-bg center_line bold-line">
-                                    <h6 class="mt-30">{!! nl2br($advertisementListBlock->body) !!}</h6>
+                                    <p class="mt-30 font-18px dark-color text-left">{!! nl2br($advertisementListBlock->body) !!}</p>
                                 </div>
                             </div>
                         </div>
@@ -214,7 +214,7 @@
                                 <div class="col-inner spacer text-center">
                                     <h3 class="mt-20 text-uppercase">{{ $advertisementListBlock->title }}</h3>
                                     <hr class="dark-bg center_line bold-line">
-                                    <h6 class="mt-30">{!! nl2br($advertisementListBlock->body) !!}</h6>
+                                    <p class="mt-30 font-18px dark-color text-left">{!! nl2br($advertisementListBlock->body) !!}</p>
                                 </div>
                             </div>
                             <div class="col-md-6 col-sm-12 bg-flex-cover" style="background-image: url({{ asset('assets/images/all/' . $advertisementListBlock->image) }});"></div>
@@ -237,7 +237,7 @@
                                 <div class="col-inner spacer text-center">
                                     <h3 class="mt-20 text-uppercase">{{ $advertisementListBlock->title }}</h3>
                                     <hr class="dark-bg center_line bold-line">
-                                    <h6 class="mt-30">{!! nl2br($advertisementListBlock->body) !!}</h6>
+                                    <p class="mt-30 font-18px dark-color text-left">{!! nl2br($advertisementListBlock->body) !!}</p>
                                 </div>
                             </div>
                             <div class="col-md-6 col-sm-12 bg-flex-cover" style="background-image: url({{ asset('assets/images/all/' . $advertisementListBlock->image) }});"></div>
@@ -249,7 +249,7 @@
                                 <div class="col-inner spacer text-center">
                                     <h3 class="mt-20 text-uppercase">{{ $advertisementListBlock->title }}</h3>
                                     <hr class="dark-bg center_line bold-line">
-                                    <h6 class="mt-30">{!! nl2br($advertisementListBlock->body) !!}</h6>
+                                    <p class="mt-30 font-18px dark-color text-left">{!! nl2br($advertisementListBlock->body) !!}</p>
                                 </div>
                             </div>
                         </div>

@@ -10,6 +10,7 @@ use App\Http\Controllers\AdminNewsController;
 use App\Http\Controllers\UserMemberController;
 use App\Http\Controllers\AdminMemberController;
 use App\Http\Controllers\AdminNoticeController;
+use App\Http\Controllers\UserMessageController;
 use App\Http\Controllers\AdminSectionController;
 use App\Http\Controllers\UserMaterialController;
 use App\Http\Controllers\VerificationController;
@@ -138,9 +139,10 @@ Route::get('/user/update/participant/{id}/status/{status}/{reason}', [UserAnnoun
 
 
 // Message
-Route::get('/user/messages', [UserController::class, 'getMessages'])->name('user.get.messages');
-Route::post('/user/messages', [UserController::class, 'sendMessage'])->name('user.send.message');
-Route::post('/user/{id}/seen/message', [UserController::class, 'seenMessage'])->name('user.seen.message');
+Route::get('/user/messages', [UserMessageController::class, 'getMessages'])->name('user.get.messages');
+Route::get('user/start/{id}/message', [UserMessageController::class, 'startMessage'])->name('user.start.message');
+Route::post('/user/send/message', [UserMessageController::class, 'sendMessage'])->name('user.send.message');
+Route::post('/user/{id}/seen/message', [UserMessageController::class, 'seenMessage'])->name('user.seen.message');
 
 // Notice
 Route::get('/user/notices', [UserController::class, 'getNotices'])->name('user.get.notices');

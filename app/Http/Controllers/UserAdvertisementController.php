@@ -607,11 +607,21 @@ class UserAdvertisementController extends Controller
     }
 
     public function storeSubBoxBlock(Request $request) {
+        if ($request->hasFile('icon')) {
+            if (!empty($request->icon)) {
+                $icon = time() . '.' . $request->icon->extension();
+                $request->icon->move(public_path('assets/images/all'), $icon);
+            } else {
+                $icon = '';
+            }
+        } else {
+            $icon = $request->icon;
+        }
         AdvertisementSubBoxBlock::create([
             'advertisement_box_block_id' => $request->advertisementBoxBlockId,
             'title' => $request->title,
             'body' => $request->body,
-            'icon' => $request->icon,
+            'icon' => $icon,
             'status' => 0
         ]);
 
@@ -629,9 +639,18 @@ class UserAdvertisementController extends Controller
     public function updateSubBoxBlock(Request $request) {
         $updateData = [
             'title' => $request->title,
-            'body' => $request->body,
-            'icon' => $request->icon
+            'body' => $request->body
         ];
+
+        if ($request->hasFile('icon')) {
+            if (!empty($request->icon)) {
+                $icon = time() . '.' . $request->icon->extension();
+                $request->icon->move(public_path('assets/images/all'), $icon);
+                $updateData['icon'] = $icon;
+            }
+        } else {
+            $updateData['icon'] = $request->icon;
+        }
 
         $advertisementSubBoxBlock = AdvertisementSubBoxBlock::find($request->id);
         $advertisementSubBoxBlock->update($updateData);

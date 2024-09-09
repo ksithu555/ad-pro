@@ -28,7 +28,7 @@
 
                         <li @if ($page < 2) style="display: none" @endif>
                             <a href="{{ request()->fullUrlWithQuery(['page' => $ppage, 'tab' => 'list']) }}">
-                                <i class="icofont icofont-long-arrow-left mr-5 xs-display-none"></i> Prev</a>
+                                <i class="icofont icofont-long-arrow-left mr-5 xs-display-none"></i> 前へ</a>
                             </a>
                         </li>
         
@@ -44,7 +44,7 @@
         
                         <li @if ($page == $ttlpage) style="display: none" @endif>
                             <a href="{{ request()->fullUrlWithQuery(['page' => $npage, 'tab' => 'list']) }}">
-                                Next <i class="icofont icofont-long-arrow-right ml-5 xs-display-none"></i>
+                                次へ <i class="icofont icofont-long-arrow-right ml-5 xs-display-none"></i>
                             </a>
                         </li>
                     </ul>

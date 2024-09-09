@@ -232,12 +232,16 @@
                                   </label>   
                                 </td>
                                 <td>
-                                    <a href="{{ route($showRoute, ['type' => $type, 'id' => $block->id]) }}">
-                                      <i class="fa-icon-plus-square" style="font-size: 1.5em;"></i>
-                                    </a>
-                                    <a href="{{ route($editRoute, $block->id) }}">
-                                      <i class="fa-icon-pencil-square" style="font-size: 1.5em;"></i>
-                                    </a>
+                                    <div>
+                                        <a href="{{ route($showRoute, ['type' => $type, 'id' => $block->id]) }}">
+                                            <i class="fa-icon-plus-square" style="font-size: 1.5em;"></i>
+                                        </a>
+                                    </div>
+                                    <div>
+                                        <a href="{{ route($editRoute, $block->id) }}">
+                                            <i class="fa-icon-pencil-square" style="font-size: 1.5em;"></i>
+                                        </a>
+                                    </div>
                                     <div class="tr-modal-popup">
                                       <a href="#modal-popup-{{ $block->id }}" data-effect="mfp-newspaper">
                                         <i class="fa-icon-trash" style="font-size: 1.5em;"></i>

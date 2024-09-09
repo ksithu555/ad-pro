@@ -42,7 +42,9 @@
                                 </div>
                             </div>
                         </div>
-                        @elseif ($subBoxBlock->advertisementBoxBlock->advertisementSection->section->name == 'Box02')
+                        @elseif ($subBoxBlock->advertisementBoxBlock->advertisementSection->section->name == 'Box02' ||
+                        $subBoxBlock->advertisementBoxBlock->advertisementSection->section->name == 'Box03' ||
+                        $subBoxBlock->advertisementBoxBlock->advertisementSection->section->name == 'Box04')
                         <div class="row">
                             <div class="col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2">
                                 <div class="form-group">
@@ -67,6 +69,17 @@
                             </div>
                             <div class="col-md-2 col-sm-2 mt-20">
                                 <i id="selected-icon-display" class="{{ $subBoxBlock->icon }} font-40px default-color"></i>
+                            </div>
+                        </div>
+                        @elseif ($subBoxBlock->advertisementBoxBlock->advertisementSection->section->name == 'Box05')
+                        <div class="row">
+                            <div class="col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2">
+                                <div class="form-group">
+                                    <label class="md-file" for="icon" id="file-label">画像 *</label>
+                                    <input type="file" name="icon" id="icon" placeholder="画像 *" style="display: none;" value="{{ old('icon') }}">
+                                    <img id="image-preview" src="{{ asset('assets/images/all/' . $subBoxBlock->icon) }}" alt="Image Preview" style="width: 80px; margin: 10px 0 0 14px;">
+                                    <span class="error" style="color:#BF0731" id="error-icon"></span>
+                                </div>
                             </div>
                         </div>
                         @endif
@@ -160,6 +173,27 @@
                 }
             }
         }
+    </script>
+    {{-- image --}}
+    <script>
+        document.getElementById('icon').addEventListener('change', function() {
+            var fileName = this.files[0].name;
+            var label = document.getElementById('file-label');
+            label.classList.add('selected');
+            label.setAttribute('data-file-name', fileName);
+        });
+        document.getElementById('icon').addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const imagePreview = document.getElementById('image-preview');
+                    imagePreview.src = e.target.result;
+                    imagePreview.style.display = 'block';
+                };
+                reader.readAsDataURL(file);
+            }
+        });
     </script>
     {{-- validate --}}
     <script>

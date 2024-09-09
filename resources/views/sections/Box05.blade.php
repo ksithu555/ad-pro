@@ -12,41 +12,41 @@
             <div class="row mt-0">
                 <div class="col-md-3">
                     <div class="box-icon text-center">
-                        <i class="icon-laptop font-50px default-color"></i>
-                        <div class="title-section">
-                            <h4 class="mt-0 font-600">Unique Demos</h4>
+                        <img src="{{ asset('assets/images/all/header-01.webp') }}" alt="Unique Demos" width="150" height="150">
+                        <div class="title-section mt-20">
+                            <h4 class="mt-10 font-600">Unique Demos</h4>
                             <p class="font-400">Lorem ipsum dolor sit amet consectetur adipiscing elit sed in arcu est vivamus.</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="box-icon text-center">
-                        <i class="icon-tools-2 font-50px default-color"></i>
-                        <div class="title-section">
-                            <h4 class="mt-0 font-600">Parallax Effects</h4>
+                        <img src="{{ asset('assets/images/all/header-01.webp') }}" alt="Parallax Effects" width="150" height="150">
+                        <div class="title-section mt-20">
+                            <h4 class="mt-10 font-600">Parallax Effects</h4>
                             <p class="font-400">Lorem ipsum dolor sit amet consectetur adipiscing elit sed in arcu est vivamus.</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="box-icon text-center">
-                        <i class="icon-anchor font-50px default-color"></i>
-                        <div class="title-section">
-                            <h4 class="mt-0 font-600">Awesome Icons</h4>
+                        <img src="{{ asset('assets/images/all/header-01.webp') }}" alt="Awesome Icons" width="150" height="150">
+                        <div class="title-section mt-20">
+                            <h4 class="mt-10 font-600">Awesome Icons</h4>
                             <p class="font-400">Lorem ipsum dolor sit amet consectetur adipiscing elit sed in arcu est vivamus.</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="box-icon text-center">
-                        <i class="icon-beaker font-50px default-color"></i>
-                        <div class="title-section">
-                            <h4 class="mt-0 font-600">Interactive UI</h4>
+                        <img src="{{ asset('assets/images/all/header-01.webp') }}" alt="Interactive UI" width="150" height="150">
+                        <div class="title-section mt-20">
+                            <h4 class="mt-10 font-600">Interactive UI</h4>
                             <p class="font-400">Lorem ipsum dolor sit amet consectetur adipiscing elit sed in arcu est vivamus.</p>
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>            
         </div>
     </section>
     <!--== Boxed Icons Style 04 End ==-->

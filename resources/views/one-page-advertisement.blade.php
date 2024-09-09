@@ -405,6 +405,92 @@
                 @endforeach
             </section>
             {{-- Box03 End --}}
+            @elseif ($advertisementSection->section->name == 'Box04')
+            {{-- Box04 Start --}}
+            <section class="{{ $sectionBg }} pt-50 pb-50" id="{{ $advertisementSection->name }}">
+                @foreach ($advertisementSection->advertisementBoxBlocks as $advertisementBoxBlock)
+                @if ($advertisementBoxBlock->status == 1)
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-8 section-heading">
+                            <h2 class="font-700">{{ $advertisementBoxBlock->title }}</h2>
+                            <hr class="dark-bg center_line bold-line">
+                            <h4>{{ $advertisementBoxBlock->body }}</h4>
+                        </div>
+                    </div>
+                    <div class="row mt-50">
+                        @foreach ($advertisementBoxBlock->advertisementSubBoxBlocks as $advertisementSubBoxBlock)
+                        @php
+                            $count = $advertisementBoxBlock->advertisementSubBoxBlocks->where('status', 1)->count();
+                            if ($count == 1) {
+                                $col = 12;
+                            } elseif ($count == 2) {
+                                $col = 6;
+                            } else {
+                                $col = 4;
+                            }
+                        @endphp
+                        @if ($advertisementSubBoxBlock->status == 1)
+                        <div class="col-md-{{ $col }} col-sm-{{ $col }} col-xs-12">
+                            <div class="box-icon text-center">
+                                <i class="{{ $advertisementSubBoxBlock->icon }} font-50px default-color"></i>
+                                <div class="title-section">
+                                    <h4 class="mt-0 font-600">{{ $advertisementSubBoxBlock->title }}</h4>
+                                    <p class="font-400">{{ $advertisementSubBoxBlock->body }}</p>
+                                </div>
+                            </div>
+                        </div>
+                        @endif
+                        @endforeach
+                    </div>
+                </div>
+                @endif
+                @endforeach
+            </section>
+            {{-- Box04 End --}}
+            @elseif ($advertisementSection->section->name == 'Box05')
+            {{-- Box05 Start --}}
+            <section class="{{ $sectionBg }} pt-50 pb-50" id="{{ $advertisementSection->name }}">
+                @foreach ($advertisementSection->advertisementBoxBlocks as $advertisementBoxBlock)
+                @if ($advertisementBoxBlock->status == 1)
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-8 section-heading">
+                            <h2 class="font-700">{{ $advertisementBoxBlock->title }}</h2>
+                            <hr class="dark-bg center_line bold-line">
+                            <h4>{{ $advertisementBoxBlock->body }}</h4>
+                        </div>
+                    </div>
+                    <div class="row mt-50">
+                        @foreach ($advertisementBoxBlock->advertisementSubBoxBlocks as $advertisementSubBoxBlock)
+                        @php
+                            $count = $advertisementBoxBlock->advertisementSubBoxBlocks->where('status', 1)->count();
+                            if ($count == 1) {
+                                $col = 12;
+                            } elseif ($count == 2) {
+                                $col = 6;
+                            } else {
+                                $col = 4;
+                            }
+                        @endphp
+                        @if ($advertisementSubBoxBlock->status == 1)
+                        <div class="col-md-{{ $col }} col-sm-{{ $col }} col-xs-12">
+                            <div class="box-icon text-center">
+                                <img src="{{ asset('assets/images/all/' . $advertisementSubBoxBlock->icon) }}" alt="Parallax Effects" width="150" height="150">
+                                <div class="title-section mt-20">
+                                    <h4 class="mt-0 font-600">{{ $advertisementSubBoxBlock->title }}</h4>
+                                    <p class="font-400">{{ $advertisementSubBoxBlock->body }}</p>
+                                </div>
+                            </div>
+                        </div>
+                        @endif
+                        @endforeach
+                    </div>
+                </div>
+                @endif
+                @endforeach
+            </section>
+            {{-- Box05 End --}}
             @endif
         {{-- Box Hero End --}}
         @elseif ($advertisementSection->section->type == 'contact'  && $advertisementSection->status == 1)

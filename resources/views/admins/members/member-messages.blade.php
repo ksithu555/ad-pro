@@ -1,4 +1,4 @@
-<x-user-layout>
+<x-admin-layout>
     <!--== Tabs Style 03 Start ==-->
     <section class="white-bg pt-120 pb-120">
         <div class="container">
@@ -10,6 +10,14 @@
                     </div>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="text-center">
+                        <h3 class="mt-20 text-uppercase">{{ $foucsMember->name }}のすべての商談</h3>
+                        <hr class="dark-bg" style="width: 700px">
+                    </div>
+                </div>
+            </div>
             <div class="row mt-10 tabs-style-03 tabs-style-03-m">
                 <div class="col-md-12">
                     <div class="icon-tabs">
@@ -17,18 +25,6 @@
                             <div class="col-md-3 pr-0">
                                 <!--== Nav tabs ==-->
                                 <ul class="nav nav-tabs text-center" role="tablist">
-                                    @if ($focusUser)
-                                    <li role="presentation" class="active">
-                                        <a href="#message-box-{{ $focusUser->id }}" role="tab" data-toggle="tab">
-                                            <i class="icofont icofont-social-designfloat"></i>{{ $focusUser->name }}
-                                            @if($focusUser->sentMessages->where('seen', 0)->isNotEmpty())
-                                                <span class="label label-danger">未読</span>
-                                            @endif
-                                        </a>
-                                        <div class="line-horizontal grey-bg width-100-percent"></div>
-                                    </li>
-                                    @endif
-
                                     @foreach ($users as $key => $user)
                                     <li role="presentation">
                                         <a href="#message-box-{{ $user->id }}" role="tab" data-toggle="tab">
@@ -46,7 +42,7 @@
                             <div class="col-md-9 pl-0">
                                 <!--== Initail Tab panes ==-->
                                 <div class="tab-content tab-content-m text-center">
-                                    <div role="tabpanel" class="tab-pane fade in @if(!$focusUser) active @endif">
+                                    <div role="tabpanel" class="tab-pane fade in active">
                                         <!--== Testimonails Style 01 Start ==-->
                                         <div class="row row-flex flex-center">
                                             <div class="col-md-6 col-sm-12 bg-flex-cover">
@@ -62,150 +58,6 @@
                                         </div>
                                         <!--== Testimonails Style 01 End ==-->
                                     </div>
-                                    @if ($focusUser)
-                                    <div role="tabpanel" class="tab-pane fade in active" id="message-box-{{ $focusUser->id }}">
-                                        <div class="message-content text-left">
-                                            <!--== Testimonails Style 01 Start ==-->
-                                            <div class="row">
-                                                <div class="slick testimonial">
-                                                    @if ($focusUser->company)
-                                                        @if(!is_null($focusUser->company->business))
-                                                        <div class="col-md-4 col-sm-6 col-xs-12">
-                                                            <!--== Slide ==-->
-                                                            <div class="testimonial-item">
-                                                                <div class="testimonial-content grey-bg">
-                                                                    <h5 class="font-700 mb-0">事業形態</h5>
-                                                                    <span class="grey-color font-14px"></span>
-                                                                    <h4 class="mt-20 font-800">{{ $focusUser->company->businessType->name }}</h4>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        @endif
-                                                        @if(!is_null($focusUser->company->purpose))
-                                                        <div class="col-md-4 col-sm-6 col-xs-12">
-                                                            <!--== Slide ==-->
-                                                            <div class="testimonial-item">
-                                                                <div class="testimonial-content grey-bg">
-                                                                    <h5 class="font-700 mb-0">利用目的</h5>
-                                                                    <span class="grey-color font-14px"></span>
-                                                                    <h4 class="mt-20 font-800">{{ $focusUser->company->purposeType->name }}</h4>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        @endif
-                                                        @if(!is_null($focusUser->company->industry))
-                                                        <div class="col-md-4 col-sm-6 col-xs-12">
-                                                            <!--== Slide ==-->
-                                                            <div class="testimonial-item">
-                                                                <div class="testimonial-content grey-bg">
-                                                                    <h5 class="font-700 mb-0">業種</h5>
-                                                                    <span class="grey-color font-14px"></span>
-                                                                    <h4 class="mt-20 font-800">{{ $focusUser->company->industryType->name }}</h4>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        @endif
-                                                        @if(!is_null($focusUser->company->position))
-                                                        <div class="col-md-4 col-sm-6 col-xs-12">
-                                                            <!--== Slide ==-->
-                                                            <div class="testimonial-item">
-                                                                <div class="testimonial-content grey-bg">
-                                                                    <h5 class="font-700 mb-0">役職</h5>
-                                                                    <span class="grey-color font-14px"></span>
-                                                                    <h4 class="mt-20 font-800">{{ $focusUser->company->positionType->name }}</h4>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        @endif
-                                                        @if(!is_null($focusUser->company->phone))
-                                                        <div class="col-md-4 col-sm-6 col-xs-12">
-                                                            <!--== Slide ==-->
-                                                            <div class="testimonial-item">
-                                                                <div class="testimonial-content grey-bg">
-                                                                    <h5 class="font-700 mb-0">電話番号</h5>
-                                                                    <span class="grey-color font-14px mt-10"></span>
-                                                                    <h4 class="mt-20 font-800">{{ $focusUser->company->phone }}</h4>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        @endif
-                                                        @if(!is_null($focusUser->company->address))
-                                                        <div class="col-md-4 col-sm-6 col-xs-12">
-                                                            <!--== Slide ==-->
-                                                            <div class="testimonial-item">
-                                                                <div class="testimonial-content grey-bg">
-                                                                    <h5 class="font-700 mb-0">住所</h5>
-                                                                    <span class="grey-color font-14px"></span>
-                                                                    <h6 class="mt-20 font-800">{{ $focusUser->company->postal_code }}</h6>
-                                                                    <h6 class="font-800">{{ $focusUser->company->prefecture->name }} {{ $focusUser->company->address }}</h6>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        @endif
-                                                        @if(!is_null($focusUser->company->website))
-                                                        <div class="col-md-4 col-sm-6 col-xs-12">
-                                                            <!--== Slide ==-->
-                                                            <div class="testimonial-item">
-                                                                <div class="testimonial-content grey-bg">
-                                                                    <h5 class="font-700 mb-0">URL</h5>
-                                                                    <span class="grey-color font-14px"></span>
-                                                                    <div class="mt-20 text-center">
-                                                                        <a class="btn btn-sm btn-dark btn-circle margin-left-auto margin-right-auto display-table-sm"
-                                                                        href="{{ $focusUser->company->website }}" target="_blank">
-                                                                            <span>当社のウェブサイト <i class="ion-android-arrow-forward"></i></span>
-                                                                        </a>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        @endif
-                                                        @if(!is_null($focusUser->company->name))
-                                                        <div class="col-md-4 col-sm-6 col-xs-12">
-                                                            <!--== Slide ==-->
-                                                            <div class="testimonial-item">
-                                                                <div class="testimonial-content grey-bg">
-                                                                    <h5 class="font-700 mb-0">会社</h5>
-                                                                    <span class="grey-color font-14px"></span>
-                                                                    <h3 class="mt-20 font-800">{{ $focusUser->company->name }}</h3>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        @endif
-                                                    @endif
-                                                </div>
-                                            </div>
-                                            <!--== Testimonails Style 01 End ==-->
-                                            {{-- Conversation start --}}
-                                            @foreach ($messages as $message)
-                                                @if ($message->to_user_id == Auth::user()->id && $message->from_user_id == $focusUser->id)
-                                                <div class="message received">
-                                                    <p>
-                                                        {!! nl2br($message->message) !!}
-                                                    </p>
-                                                </div>
-                                                <div class="timestamp received">{{ $message->created_at->format('Y-m-d H:i:s') }} {{ $message->seen == 1 ? '既読' : '' }}</div>
-                                                @endif
-                                                @if ($message->from_user_id == Auth::user()->id && $message->to_user_id == $focusUser->id)
-                                                <div class="message sent">
-                                                    <p>
-                                                        {!! nl2br($message->message) !!}
-                                                    </p>
-                                                </div>
-                                                <div class="timestamp sent">{{ $message->created_at->format('Y-m-d H:i:s') }} {{ $message->seen == 1 ? '既読' : '' }}</div>
-                                                @endif
-                                            @endforeach
-                                            {{-- Conversation end --}}
-                                        </div>
-                                        <form method="POST" action="{{ route('user.send.message') }}" class="message-input">
-                                            @csrf
-                                            <input type="hidden" id='toUserId' name='toUserId' value="{{ $focusUser->id }}">
-                                            <textarea type="text" name="message" id="message" class="newsletter-input form-control form-group" placeholder="Type your message"></textarea>
-                                            <button type="submit" class="btn btn-sm btn-dark margin-left-auto margin-right-auto display-table-sm">
-                                                送信
-                                            </button>
-                                        </form>
-                                    </div>
-                                    @endif
 
                                     @foreach ($users as $key => $user)
                                     <div role="tabpanel" class="tab-pane fade in" id="message-box-{{ $user->id }}">
@@ -322,7 +174,7 @@
                                             <!--== Testimonails Style 01 End ==-->
                                             {{-- Conversation start --}}
                                             @foreach ($messages as $message)
-                                                @if ($message->to_user_id == Auth::user()->id && $message->from_user_id == $user->id)
+                                                @if ($message->to_user_id == $foucsMember->id && $message->from_user_id == $user->id)
                                                 <div class="message received">
                                                     <p>
                                                         {!! nl2br($message->message) !!}
@@ -330,7 +182,7 @@
                                                 </div>
                                                 <div class="timestamp received">{{ $message->created_at->format('Y-m-d H:i:s') }} {{ $message->seen == 1 ? '既読' : '' }}</div>
                                                 @endif
-                                                @if ($message->from_user_id == Auth::user()->id && $message->to_user_id == $user->id)
+                                                @if ($message->from_user_id == $foucsMember->id && $message->to_user_id == $user->id)
                                                 <div class="message sent">
                                                     <p>
                                                         {!! nl2br($message->message) !!}
@@ -341,14 +193,6 @@
                                             @endforeach
                                             {{-- Conversation end --}}
                                         </div>
-                                        <form method="POST" action="{{ route('user.send.message') }}" class="message-input">
-                                            @csrf
-                                            <input type="hidden" id='toUserId' name='toUserId' value="{{ $user->id }}">
-                                            <textarea type="text" name="message" id="message" class="newsletter-input form-control form-group" placeholder="Type your message"></textarea>
-                                            <button type="submit" class="btn btn-sm btn-dark margin-left-auto margin-right-auto display-table-sm">
-                                                送信
-                                            </button>
-                                        </form>
                                     </div>
                                     @endforeach
                                 </div>
@@ -368,22 +212,6 @@
                 // Re-initialize the slider for the newly active tab pane
                 testimonialSlider();
                 $('.tab-pane.active .slick').slick('setPosition');
-                // Extract user ID from the href attribute
-                var userId = $(e.target).attr('href').split('-').pop();
-                // Send AJAX request to mark the message as seen
-                $.ajax({
-                    url: '/user/' + userId + '/seen/message',
-                    method: 'POST',
-                    data: {
-                        _token: '{{ csrf_token() }}', // CSRF token for security
-                    },
-                    success: function(response) {
-                        console.log('Message seen status updated for user: ' + userId);
-                    },
-                    error: function(xhr, status, error) {
-                        console.error('Error updating message seen status: ' + error);
-                    }
-                });
             });
         });
 
@@ -435,4 +263,4 @@
             }
         }
     </script>
-</x-user-layout>
+</x-admin-layout>

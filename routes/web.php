@@ -192,8 +192,9 @@ Route::get('/admin/delete/footer/{id}', [AdminHomeController::class, 'deleteFoot
 
 // members
 Route::get('/admin/members', [AdminMemberController::class, 'getMembers'])->name('admin.get.members');
-Route::get('/admin/show/member-detail/{id}', [AdminMemberController::class, 'showMemberDetail'])->name('admin.show.member.detail');
+Route::get('/admin/show/member/{id}/detail', [AdminMemberController::class, 'showMemberDetail'])->name('admin.show.member.detail');
 Route::post('/admin/update/member-status', [AdminMemberController::class, 'updateMemberStatus'])->name('admin.update.member.status');
+Route::get('/admin/check/member/{id}/messages', [AdminMemberController::class, 'checkMemberMessage'])->name('admin.check.member.message');
 
 // advertisements
 Route::get('/admin/advertisements', [AdminAdvertisementController::class, 'getAdvertisements'])->name('admin.get.advertisements');

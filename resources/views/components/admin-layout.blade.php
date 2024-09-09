@@ -128,7 +128,10 @@
           </li>
           <li class="dropdown">
             <a href="{{ route('admin.get.members') }}" class="dropdown-toggle" data-toggle="dropdown">
-                <span class="{{ request()->routeIs('admin.get.members') ? 'default-color' : '' }}">会員リスト</span>
+                <span class="{{ request()->routeIs('admin.get.members') ||
+                request()->routeIs('admin.show.member.detail') ||
+                request()->routeIs('admin.check.member.message')
+                ? 'default-color' : '' }}">会員リスト</span>
             </a>
           </li>
           <li class="dropdown">

@@ -23,7 +23,10 @@ class User extends Authenticatable
         'password',
         'company_name',
         'image',
+        'requested_plan',
         'plan_status',
+        'plan_start',
+        'plan_end',
         'status'
     ];
 

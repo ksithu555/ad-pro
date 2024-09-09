@@ -22,7 +22,17 @@
                     </figure>
                 </div>
                 <div class="col-md-8 col-xs-12" id="userProfileDiv">
-                    <h4 class="mt-0 font-700">{{ $user->name }} <span class="badge badge-info">無料</span></h4>
+                    <h4 class="mt-0 font-700">{{ $user->name }} 
+                        <a href="{{ route('user.get.plans') }}">
+                            @if ($user->plan_status == 0)
+                            <span class="custom-badge free-badge">無料</span>
+                            @elseif ($user->plan_status == 1)
+                            <span class="custom-badge silver-badge">シルバー</span>
+                            @elseif ($user->plan_status == 2)
+                            <span class="custom-badge gold-badge">ゴールド</span>
+                            @endif
+                        </a>
+                    </h4>
                     <h4 class="default-color font-600">{{ $user->name_furigana }}</h4>
                     <h4 class="mt-0 font-700">{{ $user->email }}</h4>
                     <div style="margin-top: 130px;">

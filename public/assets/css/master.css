@@ -5490,3 +5490,24 @@ input:checked + .slider:before {
 .icon-dropdown-item:hover {
   background-color: #f1f1f1;
 }
+
+.custom-badge {
+  padding: 1px 5px;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 10px;
+  color: #fff;
+  display: inline-block;
+}
+
+.free-badge {
+  background-color: #5f9ea0; /* Light blue for free plan */
+}
+
+.silver-badge {
+  background-color: #C0C0C0; /* Grey color for silver plan */
+}
+
+.gold-badge {
+  background-color: #ffc107; /* Golden color for gold plan */
+}

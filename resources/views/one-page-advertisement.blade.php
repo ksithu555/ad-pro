@@ -175,7 +175,8 @@
                                 </div>
                                 <div class="col-md-4 col-sm-4 col-xs-12">
                                     <div class="single-mobile-wrap">
-                                        <img src="{{ asset('assets/images/all/' . $advertisementHeaderBlock->image) }}" />
+                                        <img src="{{ asset('assets/images/all/' . $advertisementHeaderBlock->image) }}"
+                                        style="top:70px" />
                                     </div>
                                 </div>
                             </div>

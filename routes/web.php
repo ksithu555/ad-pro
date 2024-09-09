@@ -67,6 +67,7 @@ Route::post('/user/store/advertisement', [UserAdvertisementController::class, 's
 Route::get('/user/edit/advertisement/{id}', [UserAdvertisementController::class, 'editAdvertisement'])->name('user.edit.advertisement');
 Route::post('/user/update/advertisement', [UserAdvertisementController::class, 'updateAdvertisement'])->name('user.update.advertisement');
 Route::post('/user/update/advertisement-status', [UserAdvertisementController::class, 'updateAdvertisementStatus'])->name('user.update.advertisement.status');
+Route::post('/user/update/menu-bar-status', [UserAdvertisementController::class, 'updateMenuBarStatus'])->name('user.update.menu.bar.status');
 Route::get('/user/delete/advertisement/{id}', [UserAdvertisementController::class, 'deleteAdvertisement'])->name('user.delete.advertisement');
 // Section
 Route::get('/user/show/sections/{id}', [UserAdvertisementController::class, 'showSections'])->name('user.show.sections');

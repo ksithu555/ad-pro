@@ -58,6 +58,7 @@ class UserAdvertisementController extends Controller
             'logo_white' => $logoWhiteName,
             'logo_color' => $logoColorName,
             'param_name' => $request->paramName,
+            'menu_bar_status' => 1,
             'status' => 0
         ]);
 
@@ -106,6 +107,19 @@ class UserAdvertisementController extends Controller
         return response()->json(['success' => false]);
     }
 
+    public function updateMenuBarStatus(Request $request) {
+        $advertisement = Advertisement::find($request->id);
+        if ($advertisement) {
+            $advertisement->menu_bar_status = $request->status;
+            $advertisement->save();
+            
+            Session::flash('success', '広告のメニューバーステータスが正常に更新されました');
+            return response()->json(['success' => true]);
+        }
+        Session::flash('error', '広告のメニューバーステータスの変更に失敗しました');
+        return response()->json(['success' => false]);
+    }
+
     public function deleteAdvertisement($id) {
         Advertisement::where('id', $id)->delete();
         Session::flash('success', 'ページが正常に削除されました');
@@ -114,10 +128,11 @@ class UserAdvertisementController extends Controller
 
     public function showSections($id) {
         $limit = 10;
+        $advertisement = Advertisement::find($id);
         $sections = AdvertisementSection::where('advertisement_id', $id)->orderBy('order')->paginate($limit);
         $ttl = $sections->total();
         $ttlpage = ceil($ttl / $limit);
-        return view('users.advertisements.show-sections', compact('id','sections', 'ttl', 'ttlpage'));
+        return view('users.advertisements.show-sections', compact('advertisement','sections', 'ttl', 'ttlpage'));
     }
 
     public function addSection($id) {

@@ -25,13 +25,34 @@
             <div class="col-md-2">
                 <div style="text-align: right;">
                     <a class="btn btn-md btn-dark-outline btn-square margin-left-auto margin-right-auto display-table-sm"
-                    href="{{ route('user.add.section', $id) }}">
+                    href="{{ route('user.add.section', $advertisement->id) }}">
                         <i class="fa-icon-plus-square"></i> セクション
                     </a>
                 </div>
             </div>
         </div>
         <div class="row mt-10">
+            <div class="col-md-4 col-md-offset-8">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped table-hover shop-cart">
+                        <tbody>
+                            <tr>
+                                <td style="background-color: #BF0731; color: white; font-size: 14px; font-weight: bold;padding: 10px 0 !important;">
+                                    メニューバー
+                                </td>
+                                <td style="padding: 10px 0 !important;">
+                                    <label class="toggle-switch">
+                                        <input type="checkbox" data-id="{{ $advertisement->id }}" class="status-toggle-menu" {{ $advertisement->menu_bar_status == 1 ? 'checked' : '' }}>
+                                        <span class="slider"></span>
+                                    </label>   
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-0">
             <div class="col-md-12">
                 <div class="table-responsive">
                     <table class="table table-bordered table-striped table-hover shop-cart">
@@ -118,6 +139,7 @@
     </section>
     <!--== Products End ==-->
     <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
+    {{-- toggle for table --}}
     <script>
         $(document).ready(function() {
             // Listen for the toggle switch change event
@@ -130,6 +152,40 @@
                 // Send AJAX request to update the section status
                 $.ajax({
                     url: '/user/update/section-status', // The route URL
+                    method: 'POST',
+                    data: {
+                        _token: '{{ csrf_token() }}', // CSRF token for security
+                        id: sectionId,
+                        status: status
+                    },
+                    success: function(response) {
+                        if (response.success) {
+                            window.location.reload();
+                        } else {
+                            window.location.reload();
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('Error updating section status: ' + error);
+                        window.location.reload();
+                    }
+                });
+            });
+        });
+    </script>
+    {{-- toggle for menu --}}
+    <script>
+        $(document).ready(function() {
+            // Listen for the toggle switch change event
+            $('.status-toggle-menu').on('change', function() {
+                // Get the section ID from the data-id attribute
+                var sectionId = $(this).data('id');
+                // Determine the status based on whether the checkbox is checked
+                var status = $(this).is(':checked') ? 1 : 0;
+
+                // Send AJAX request to update the section status
+                $.ajax({
+                    url: '/user/update/menu-bar-status', // The route URL
                     method: 'POST',
                     data: {
                         _token: '{{ csrf_token() }}', // CSRF token for security

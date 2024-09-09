@@ -61,6 +61,7 @@
     @php
         $advertisementSections = $advertisement->advertisementSections->where('status', 1)->sortBy('order');
     @endphp
+    @if ($advertisement->menu_bar_status == 1)
     <!--== Header Start ==-->
     <nav class="navbar navbar-default navbar-fixed navbar-transparent dark bootsnav on no-full" style="height: auto;">
         <div class="container">
@@ -99,6 +100,7 @@
         </div>
     </nav>
     <!--== Header End ==-->
+    @endif
 
     @php
         $bgKey = 0;

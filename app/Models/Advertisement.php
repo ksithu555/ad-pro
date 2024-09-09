@@ -13,6 +13,7 @@ class Advertisement extends Model
         'logo_white',
         'logo_color',
         'param_name',
+        'menu_bar_status',
         'status'
     ];
 

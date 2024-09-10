@@ -37,7 +37,7 @@
             <div class="row">
                 <div class="col-sm-8 section-heading">
                     <h4 class="text-uppercase mt-0">こんなお悩みありませんか？</h4>
-                    <h4 class="text-uppercase mt-0">広告マッチで解決できます！</h4>
+                    <h4 class="text-uppercase mt-0">ADPROでお悩みは解決できます！</h4>
                 </div>
             </div>
             <div class="row mt-0">
@@ -45,8 +45,8 @@
                     <div class="box-icon text-center">
                         <i class="icon-laptop font-50px default-color"></i>
                         <div class="title-section">
-                            <h4 class="mt-0 font-600">Unique Demos</h4>
-                            <p class="font-400">Lorem ipsum dolor sit amet consectetur adipiscing elit sed in arcu est vivamus.</p>
+                            <h4 class="mt-0 font-600">WEBの広告</h4>
+                            <p class="font-400">ウェブの広告ページを作成したいですが、専門知識がなく、他人に依頼するしかない！</p>
                         </div>
                     </div>
                 </div>
@@ -54,8 +54,8 @@
                     <div class="box-icon text-center">
                         <i class="icon-tools-2 font-50px default-color"></i>
                         <div class="title-section">
-                            <h4 class="mt-0 font-600">Parallax Effects</h4>
-                            <p class="font-400">Lorem ipsum dolor sit amet consectetur adipiscing elit sed in arcu est vivamus.</p>
+                            <h4 class="mt-0 font-600">良質な画像</h4>
+                            <p class="font-400">ホームページやチラシ作成に利用できる良質な画像がなかなか見つからない！</p>
                         </div>
                     </div>
                 </div>
@@ -63,8 +63,8 @@
                     <div class="box-icon text-center">
                         <i class="icon-anchor font-50px default-color"></i>
                         <div class="title-section">
-                            <h4 class="mt-0 font-600">Awesome Icons</h4>
-                            <p class="font-400">Lorem ipsum dolor sit amet consectetur adipiscing elit sed in arcu est vivamus.</p>
+                            <h4 class="mt-0 font-600">営業のツール</h4>
+                            <p class="font-400">パートナー会社を簡単に開拓できる無料の営業ツールがなかなか見つからない！</p>
                         </div>
                     </div>
                 </div>
@@ -72,8 +72,9 @@
                     <div class="box-icon text-center">
                         <i class="icon-beaker font-50px default-color"></i>
                         <div class="title-section">
-                            <h4 class="mt-0 font-600">Interactive UI</h4>
-                            <p class="font-400">Lorem ipsum dolor sit amet consectetur adipiscing elit sed in arcu est vivamus.</p>
+                            <h4 class="mt-0 font-600">情報の発信</h4>
+                            <p class="font-400">自社商品とサービスを会員に向け発信できる無料のサイトがなかなか見つからない！
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -87,29 +88,29 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-8 section-heading">
-                    <h4 class="text-uppercase mt-0">広告マッチでこんなことができます！</h4>
+                    <h4 class="text-uppercase mt-0">ADPROでこんなことができます！</h4>
                 </div>
             </div>
             <div class="row mt-0 service-box-style-01">
                 <div class="col-md-4 col-sm-4 col-xs-12">
                     <div class="feature-box text-center mb-50 feature-box-rounded center-feature border-radius-10">
                         <i class="icofont icofont-magic font-40px default-color"></i>
-                        <h4 class="mt-0 font-600">Design</h4>
-                        <p class="font-400 mt-20">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                        <h4 class="mt-0 font-600">広告作成機能の利用</h4>
+                        <p class="font-400 mt-20">ソフトウェア知識が全くなくても、簡単に広告ページを作成しウェブに公開できます！</p>
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-4 col-xs-12">
                     <div class="feature-box text-center mb-50 feature-box-rounded center-feature border-radius-10">
                         <i class="icofont icofont-globe-alt font-40px default-color"></i>
-                        <h4 class="mt-0 font-600">Development</h4>
-                        <p class="font-400 mt-20">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                        <h4 class="mt-0 font-600">無料商談機能の利用</h4>
+                        <p class="font-400 mt-20">無料の商談メッセージ機能を無制限で利用できるので、協業会社を簡単に見つけます！</p>
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-4 col-xs-12">
                     <div class="feature-box text-center mb-50 feature-box-rounded center-feature border-radius-10">
                         <i class="icofont icofont-headphone-alt font-40px default-color"></i>
-                        <h4 class="mt-0 font-600">Marketing</h4>
-                        <p class="font-400 mt-20">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                        <h4 class="mt-0 font-600">無料情報広場の利用</h4>
+                        <p class="font-400 mt-20">無料の情報広場機能を利用し自社商品とサービスをADPRO会員に向け発信できます！</p>
                     </div>
                 </div>
             </div>
@@ -132,8 +133,8 @@
                         <div class="testimonial-item">
                             <div class="testimonial-content">
                                 <img class="img-responsive img-circle text-center" src="{{ asset('assets/images/all/avatar-1.jpg') }}" alt="avatar-1"/>
-                                <p class="mt-20 line-height-26 font-14px">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sodales nec nulla ac aliquet. Duis vel nunc eget.</p>
-                                <h5 class="font-700 mb-0">Felix Lewis</h5>
+                                <p class="mt-20 line-height-26 font-14px">ソフトウェア知識が全くなくても、簡単に広告ページを作成しウェブに公開しました！</p>
+                                <h5 class="font-700 mb-0">A社</h5>
                                 <span class="default-color font-14px">SEO Manager</span>
                                 <ul class="social-default-no-border mt-20 mb-20">
                                     <li><a href="#" class="facebook"><i class="icofont icofont-social-facebook"></i></a></li>
@@ -148,8 +149,8 @@
                         <div class="testimonial-item">
                             <div class="testimonial-content">
                                 <img class="img-responsive img-circle text-center" src="{{ asset('assets/images/all/avatar-2.jpg') }}" alt="avatar-2"/>
-                                <p class="mt-20 line-height-26 font-14px">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sodales nec nulla ac aliquet. Duis vel nunc eget.</p>
-                                <h5 class="font-700 mb-0">Helen Ellis</h5>
+                                <p class="mt-20 line-height-26 font-14px">無料の商談メッセージ機能を利用して愛想がいい協業会社を複数社見つけました！</p>
+                                <h5 class="font-700 mb-0">B社                                </h5>
                                 <span class="default-color font-14px">Head of Product</span>
                                 <ul class="social-default-no-border mt-20 mb-20">
                                     <li><a href="#" class="facebook"><i class="icofont icofont-social-facebook"></i></a></li>
@@ -163,8 +164,8 @@
                         <!--== Slide ==-->
                         <div class="testimonial-item">
                             <div class="testimonial-content"> <img class="img-responsive img-circle" src="{{ asset('assets/images/all/avatar-3.jpg') }}" alt="avatar-1"/>
-                                <p class="mt-20 line-height-26 font-14px">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sodales nec nulla ac aliquet. Duis vel nunc eget.</p>
-                                <h5 class="font-700 mb-0">Daniel Lane</h5>
+                                <p class="mt-20 line-height-26 font-14px">無料の情報広場機能を利用し弊社商品とサービスを情報を発信し注目を集めました！</p>
+                                <h5 class="font-700 mb-0">C社</h5>
                                 <span class="default-color font-14px">CEO / Founder</span>
                                 <ul class="social-default-no-border mt-20 mb-20">
                                     <li><a href="#" class="facebook"><i class="icofont icofont-social-facebook"></i></a></li>
@@ -318,8 +319,8 @@
     <div class="container">
         <div class="row mt-30">
             <div class="col-lg-8 col-md-8 col-sm-10 col-xs-12 centerize-col text-center white-color">
-              <h5 class="text-uppercase font-600 mb-30 font-40px">An Awesome Template For Your Advert.</h5>
-              <a class="btn btn-md btn-light-outline btn-circle" href="{{ route('user.show.login') }}">Start from Now</a>
+              <h5 class="text-uppercase font-600 mb-30 font-40px">専門知識がなくても、貴方に必要な広告ページを簡単に制作し、ウェブに公開できます。</h5>
+              <a class="btn btn-md btn-light-outline btn-circle" href="{{ route('user.show.login') }}">さあ、今すぐ始めましょう！</a>
             </div>
         </div>
     </div>

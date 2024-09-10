@@ -15,6 +15,8 @@ use App\Models\AdvertisementFooterBlock;
 use App\Models\AdvertisementHeaderBlock;
 use App\Models\AdvertisementSubBoxBlock;
 use App\Models\AdvertisementContactBlock;
+use App\Models\AdvertisementAccordionBlock;
+use App\Models\AdvertisementSubAccordionBlock;
 
 class UserAdvertisementController extends Controller
 {
@@ -328,6 +330,9 @@ class UserAdvertisementController extends Controller
         if($type == 'box') {
             $advertisementSectionBlocks = AdvertisementBoxBlock::where('advertisement_section_id', $advertisementSection->id)->get();
         }
+        if($type == 'accordion') {
+            $advertisementSectionBlocks = AdvertisementAccordionBlock::where('advertisement_section_id', $advertisementSection->id)->get();
+        }
 
         return view('users.advertisements.show-section-blocks', compact('id', 'type', 'advertisementSection', 'advertisementSectionBlocks'));
     }
@@ -610,16 +615,74 @@ class UserAdvertisementController extends Controller
         return response()->json(['success' => false]);
     }
 
+    // Accordion
+    public function addAccordionBlock($id) {
+        return view('users.advertisements.add-accordion-block', compact('id'));
+    }
+
+    public function storeAccordionBlock(Request $request) {
+        AdvertisementAccordionBlock::create([
+            'advertisement_section_id' => $request->advertisementSectionId,
+            'title' => $request->title,
+            'status' => 0
+        ]);
+
+        Session::flash('success', 'アコーディオンブロックが正常に追加されました');
+        return redirect()->route('user.show.section.blocks', $request->advertisementSectionId);
+    }
+
+    public function editAccordionBlock($id) {
+        $advertisementAccordionBlock = AdvertisementAccordionBlock::find($id);
+        return view('users.advertisements.edit-accordion-block', compact('advertisementAccordionBlock'));
+    }
+
+    public function updateAccordionBlock(Request $request) {
+        $updateData = [
+            'title' => $request->title,
+        ];
+
+        $advertisementAccordionBlock = AdvertisementAccordionBlock::find($request->id);
+        $advertisementAccordionBlock->update($updateData);
+        Session::flash('success', 'アコーディオンブロックが正常に更新されました');
+        return redirect()->route('user.show.section.blocks', $advertisementAccordionBlock->advertisement_section_id);
+    }
+
+    public function deleteAccordionBlock($id) {
+        $advertisementAccordionBlock = AdvertisementAccordionBlock::find($id);
+        AdvertisementAccordionBlock::where('id', $id)->delete();
+        Session::flash('success', 'アコーディオンブロックが正常に削除されました');
+        return redirect()->route('user.show.section.blocks', $advertisementAccordionBlock->advertisement_section_id);
+
+    }
+
+    public function updateAccordionBlockStatus(Request $request) {
+        $block = AdvertisementAccordionBlock::find($request->id);
+        if ($block) {
+            $block->status = $request->status;
+            $block->save();
+            Session::flash('success', 'アコーディオンブロックのステータスが正常に更新されました');
+            return response()->json(['success' => true]);
+        }
+        Session::flash('error', 'アコーディオンブロックステータスの変更に失敗しました');
+        return response()->json(['success' => false]);
+    }
+
     // Sub Block
     public function showBlockSubBlocks($type, $id) {
         if ($type == 'box') {
             $advertisementBlock = AdvertisementBoxBlock::find($id);
             $advertisementBlockSubBlocks = AdvertisementSubBoxBlock::where('advertisement_box_block_id', $advertisementBlock->id)->get();
         }
+
+        if ($type == 'accordion') {
+            $advertisementBlock = AdvertisementAccordionBlock::find($id);
+            $advertisementBlockSubBlocks = AdvertisementSubAccordionBlock::where('advertisement_accordion_block_id', $advertisementBlock->id)->get();
+        }
         
         return view('users.advertisements.show-block-sub-blocks', compact('id', 'type', 'advertisementBlock', 'advertisementBlockSubBlocks'));
     }
 
+    // Sub Box Block
     public function addSubBoxBlock($id) {
         $advertisementBoxBlock = AdvertisementBoxBlock::with('advertisementSection')->with('advertisementSection.section')->where('id', $id)->first();
         $icons = Icon::where('status', 1)->get();
@@ -694,6 +757,63 @@ class UserAdvertisementController extends Controller
             return response()->json(['success' => true]);
         }
         Session::flash('error', 'サブボックスブロックステータスの変更に失敗しました');
+        return response()->json(['success' => false]);
+    }
+
+    // Sub Accordion Block
+    public function addSubAccordionBlock($id) {
+        $advertisementAccordionBlock = AdvertisementAccordionBlock::with('advertisementSection')->with('advertisementSection.section')->where('id', $id)->first();
+        $icons = Icon::where('status', 1)->get();
+        return view('users.advertisements.add-sub-accordion-block', compact('advertisementAccordionBlock', 'icons'));
+    }
+
+    public function storeSubAccordionBlock(Request $request) {
+        AdvertisementSubAccordionBlock::create([
+            'advertisement_accordion_block_id' => $request->advertisementAccordionBlockId,
+            'title' => $request->title,
+            'body' => $request->body,
+            'status' => 0
+        ]);
+
+        Session::flash('success', 'サブアコーディオンブロックが正常に追加されました');
+        return redirect()->route('user.show.block.sub.blocks', ['type' => 'accordion', 'id' => $request->advertisementAccordionBlockId]);
+    }
+
+    public function editSubAccordionBlock($id) {
+        $subAccordionBlock = AdvertisementSubAccordionBlock::with('advertisementAccordionBlock')->with('advertisementAccordionBlock.advertisementSection')
+        ->with('advertisementAccordionBlock.advertisementSection.section')->find($id);
+        $icons = Icon::where('status', 1)->get();
+        return view('users.advertisements.edit-sub-accordion-block', compact('subAccordionBlock', 'icons'));
+    }
+
+    public function updateSubAccordionBlock(Request $request) {
+        $updateData = [
+            'title' => $request->title,
+            'body' => $request->body
+        ];
+
+        $advertisementSubAccordionBlock = AdvertisementSubAccordionBlock::find($request->id);
+        $advertisementSubAccordionBlock->update($updateData);
+        Session::flash('success', 'サブアコーディオンブロックが正常に更新されました');
+        return redirect()->route('user.show.block.sub.blocks', ['type' => 'accordion', 'id' => $advertisementSubAccordionBlock->advertisement_accordion_block_id]);
+    }
+
+    public function deleteSubAccordionBlock($id) {
+        $advertisementSubAccordionBlock = AdvertisementSubAccordionBlock::find($id);
+        AdvertisementSubAccordionBlock::where('id', $id)->delete();
+        Session::flash('success', 'サブアコーディオンブロックが正常に削除されました');
+        return redirect()->route('user.show.block.sub.blocks', ['type' => 'accordion', 'id' => $advertisementSubAccordionBlock->advertisement_accordion_block_id]);
+    }
+
+    public function updateSubAccordionBlockStatus(Request $request) {
+        $subBlock = AdvertisementSubAccordionBlock::find($request->id);
+        if ($subBlock) {
+            $subBlock->status = $request->status;
+            $subBlock->save();
+            Session::flash('success', 'サブアコーディオンブロックのステータスが正常に更新されました');
+            return response()->json(['success' => true]);
+        }
+        Session::flash('error', 'サブアコーディオンブロックステータスの変更に失敗しました');
         return response()->json(['success' => false]);
     }
 }

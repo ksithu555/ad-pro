@@ -114,6 +114,13 @@ Route::group(['middleware' => ['user']], function () {
     Route::post('/user/update/section/box-block', [UserAdvertisementController::class, 'updateBoxBlock'])->name('user.update.box.block');
     Route::get('/user/delete/section/box-block/{id}', [UserAdvertisementController::class, 'deleteBoxBlock'])->name('user.delete.box.block');
     Route::post('/user/update/section/box-block-status', [UserAdvertisementController::class, 'updateBoxBlockStatus'])->name('user.update.section.box.block.status');
+    // Accordion Block
+    Route::get('/user/add/section/{id}/accordion-block', [UserAdvertisementController::class, 'addAccordionBlock'])->name('user.add.accordion.block');
+    Route::post('/user/store/section/accordion-block', [UserAdvertisementController::class, 'storeAccordionBlock'])->name('user.store.accordion.block');
+    Route::get('/user/edit/section/accordion-block/{id}', [UserAdvertisementController::class, 'editAccordionBlock'])->name('user.edit.accordion.block');
+    Route::post('/user/update/section/accordion-block', [UserAdvertisementController::class, 'updateAccordionBlock'])->name('user.update.accordion.block');
+    Route::get('/user/delete/section/accordion-block/{id}', [UserAdvertisementController::class, 'deleteAccordionBlock'])->name('user.delete.accordion.block');
+    Route::post('/user/update/section/accordion-block-status', [UserAdvertisementController::class, 'updateAccordionBlockStatus'])->name('user.update.section.accordion.block.status');
 
     // Sub Block
     Route::get('/user/show/{type}/block/{id}/sub-blocks', [UserAdvertisementController::class, 'showBlockSubBlocks'])->name('user.show.block.sub.blocks');
@@ -124,6 +131,13 @@ Route::group(['middleware' => ['user']], function () {
     Route::post('/user/update/box-block/sub-box-block', [UserAdvertisementController::class, 'updateSubBoxBlock'])->name('user.update.sub.box.block');
     Route::get('/user/delete/box-block/sub-box-block/{id}', [UserAdvertisementController::class, 'deleteSubBoxBlock'])->name('user.delete.sub.box.block');
     Route::post('/user/update/box-block/sub-box-block-status', [UserAdvertisementController::class, 'updateSubBoxBlockStatus'])->name('user.update.box.block.sub.box.block.status');
+    // Sub Accordion Block
+    Route::get('/user/add/accordion-block/{id}/sub-accordion-block', [UserAdvertisementController::class, 'addSubAccordionBlock'])->name('user.add.sub.accordion.block');
+    Route::post('/user/store/accordion-block/sub-accordion-block', [UserAdvertisementController::class, 'storeSubAccordionBlock'])->name('user.store.sub.accordion.block');
+    Route::get('/user/edit/accordion-block/sub-accordion-block/{id}', [UserAdvertisementController::class, 'editSubAccordionBlock'])->name('user.edit.sub.accordion.block');
+    Route::post('/user/update/accordion-block/sub-accordion-block', [UserAdvertisementController::class, 'updateSubAccordionBlock'])->name('user.update.sub.accordion.block');
+    Route::get('/user/delete/accordion-block/sub-accordion-block/{id}', [UserAdvertisementController::class, 'deleteSubAccordionBlock'])->name('user.delete.sub.accordion.block');
+    Route::post('/user/update/accordion-block/sub-accordion-block-status', [UserAdvertisementController::class, 'updateSubAccordionBlockStatus'])->name('user.update.accordion.block.sub.accordion.block.status');
 
     // Material
     Route::get('/user/materials', [UserMaterialController::class, 'getMaterials'])->name('user.get.materials');

@@ -37,6 +37,12 @@
                 $editRoute = 'user.edit.contact.block';
                 $deleteRoute = 'user.delete.contact.block';
             }
+            if ($type == 'accordion') {
+                $addRoute = 'user.add.accordion.block';
+                $editRoute = 'user.edit.accordion.block';
+                $deleteRoute = 'user.delete.accordion.block';
+                $showRoute = 'user.show.block.sub.blocks';
+            }
         @endphp
         <div class="row">
           <div class="col-md-3">
@@ -224,6 +230,64 @@
                                 </td>   
                                 <td style="min-width: 110px;">
                                     {{ $block->body }}  
+                                </td>
+                                <td style="min-width: 110px;">
+                                  <label class="toggle-switch">
+                                      <input type="checkbox" data-id="{{ $block->id }}" class="status-toggle-box" {{ $block->status == 1 ? 'checked' : '' }}>
+                                      <span class="slider"></span>
+                                  </label>   
+                                </td>
+                                <td>
+                                    <div>
+                                        <a href="{{ route($showRoute, ['type' => $type, 'id' => $block->id]) }}">
+                                            <i class="fa-icon-plus-square" style="font-size: 1.5em;"></i>
+                                        </a>
+                                    </div>
+                                    <div>
+                                        <a href="{{ route($editRoute, $block->id) }}">
+                                            <i class="fa-icon-pencil-square" style="font-size: 1.5em;"></i>
+                                        </a>
+                                    </div>
+                                    <div class="tr-modal-popup">
+                                      <a href="#modal-popup-{{ $block->id }}" data-effect="mfp-newspaper">
+                                        <i class="fa-icon-trash" style="font-size: 1.5em;"></i>
+                                      </a>
+                                    </div>
+                                  </td>
+                            </tr>
+
+                            <!-- Modal Popup Message Box -->
+                            <div id="modal-popup-{{ $block->id }}" class="white-bg all-padding-60 mfp-with-anim mfp-hide centerize-col col-lg-4 col-md-6 col-sm-7 col-xs-11 text-center">
+                                <span class="text-uppercase font-30px font-600 mb-20 display-block dark-color">ブロック削除</span>
+                                <p class="mb-20">ブロックを削除してもよろしいですか?</p>
+                                <a class="btn btn-lg btn-circle btn-color" href="{{ route($deleteRoute, $block->id) }}">Yes</a>
+                                <a class="btn btn-lg btn-circle btn-secondary-color popup-modal-close" href="#">No</a>
+                            </div>
+                            @endforeach
+                        </tbody>
+                    </table>
+                    @elseif ($type == 'accordion')
+                    <table class="table table-bordered table-striped table-hover shop-cart">
+                        <thead>
+                            <tr>
+                            <th>#</th>
+                            <th style="min-width: 110px;">セクション</th>
+                            <th>タイトル</th>
+                            <th>ステータス</th>
+                            <th style="min-width: 110px;">アクション</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($advertisementSectionBlocks as $key => $block)
+                            <tr>
+                                <td>
+                                    {{ $key + 1 }}
+                                </td>
+                                <td>
+                                    {{ $block->advertisementSection->name }}
+                                </td>
+                                <td style="min-width: 110px;">
+                                    {{ $block->title }}
                                 </td>
                                 <td style="min-width: 110px;">
                                   <label class="toggle-switch">

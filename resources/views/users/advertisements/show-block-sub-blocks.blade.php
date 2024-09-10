@@ -16,6 +16,11 @@
                 $editRoute = 'user.edit.sub.box.block';
                 $deleteRoute = 'user.delete.sub.box.block';
             }
+            if ($type == 'accordion') {
+                $addRoute = 'user.add.sub.accordion.block';
+                $editRoute = 'user.edit.sub.accordion.block';
+                $deleteRoute = 'user.delete.sub.accordion.block';
+            }
         @endphp
         <div class="row">
           <div class="col-md-2">

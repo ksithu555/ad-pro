@@ -72,7 +72,7 @@
                             </div>
                             <div class="pull-right mt-30 pl-20">
                                 <span class="font-40px font-600 default-color">Address</span>
-                                <h6 class="mt-0 font-500 white-color">{{ $company->postal_code ?? 'No postal code' }}</h6>
+                                <h6 class="mt-0 font-500 white-color">{{ $company->postal_code ? '〒 ' . $company->postal_code : 'No postal code' }}</h6>
                                 <h6 class="mt-0 font-500 white-color">{{ $company->prefecture->name ?? 'No prefecture' }}</h6>
                                 <h6 class="mt-0 font-500 white-color">{{ $company->address ?? 'No address available' }}</h6>
                             </div>

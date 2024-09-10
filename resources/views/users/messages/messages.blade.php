@@ -76,7 +76,7 @@
                                                                 <div class="testimonial-content grey-bg">
                                                                     <h5 class="font-700 mb-0">事業形態</h5>
                                                                     <span class="grey-color font-14px"></span>
-                                                                    <h4 class="mt-20 font-800">{{ $focusUser->company->businessType->name }}</h4>
+                                                                    <h6 class="mt-20 font-800">{{ $focusUser->company->businessType->name }}</h6>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -88,7 +88,7 @@
                                                                 <div class="testimonial-content grey-bg">
                                                                     <h5 class="font-700 mb-0">利用目的</h5>
                                                                     <span class="grey-color font-14px"></span>
-                                                                    <h4 class="mt-20 font-800">{{ $focusUser->company->purposeType->name }}</h4>
+                                                                    <h6 class="mt-20 font-800">{{ $focusUser->company->purposeType->name }}</h6>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -100,7 +100,7 @@
                                                                 <div class="testimonial-content grey-bg">
                                                                     <h5 class="font-700 mb-0">業種</h5>
                                                                     <span class="grey-color font-14px"></span>
-                                                                    <h4 class="mt-20 font-800">{{ $focusUser->company->industryType->name }}</h4>
+                                                                    <h6 class="mt-20 font-800">{{ $focusUser->company->industryType->name }}</h6>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -112,7 +112,7 @@
                                                                 <div class="testimonial-content grey-bg">
                                                                     <h5 class="font-700 mb-0">役職</h5>
                                                                     <span class="grey-color font-14px"></span>
-                                                                    <h4 class="mt-20 font-800">{{ $focusUser->company->positionType->name }}</h4>
+                                                                    <h6 class="mt-20 font-800">{{ $focusUser->company->positionType->name }}</h6>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -124,7 +124,7 @@
                                                                 <div class="testimonial-content grey-bg">
                                                                     <h5 class="font-700 mb-0">電話番号</h5>
                                                                     <span class="grey-color font-14px mt-10"></span>
-                                                                    <h4 class="mt-20 font-800">{{ $focusUser->company->phone }}</h4>
+                                                                    <h6 class="mt-20 font-800">{{ $focusUser->company->phone }}</h6>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -136,7 +136,7 @@
                                                                 <div class="testimonial-content grey-bg">
                                                                     <h5 class="font-700 mb-0">住所</h5>
                                                                     <span class="grey-color font-14px"></span>
-                                                                    <h6 class="mt-20 font-800">{{ $focusUser->company->postal_code }}</h6>
+                                                                    <h6 class="mt-20 font-800">〒 {{ $focusUser->company->postal_code }}</h6>
                                                                     <h6 class="font-800">{{ $focusUser->company->prefecture->name }} {{ $focusUser->company->address }}</h6>
                                                                 </div>
                                                             </div>
@@ -166,7 +166,7 @@
                                                                 <div class="testimonial-content grey-bg">
                                                                     <h5 class="font-700 mb-0">会社</h5>
                                                                     <span class="grey-color font-14px"></span>
-                                                                    <h3 class="mt-20 font-800">{{ $focusUser->company->name }}</h3>
+                                                                    <h6 class="mt-20 font-800">{{ $focusUser->company->name }}</h6>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -221,7 +221,7 @@
                                                                 <div class="testimonial-content grey-bg">
                                                                     <h5 class="font-700 mb-0">事業形態</h5>
                                                                     <span class="grey-color font-14px"></span>
-                                                                    <h4 class="mt-20 font-800">{{ $user->company->businessType->name }}</h4>
+                                                                    <h6 class="mt-20 font-800">{{ $user->company->businessType->name }}</h6>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -233,7 +233,7 @@
                                                                 <div class="testimonial-content grey-bg">
                                                                     <h5 class="font-700 mb-0">利用目的</h5>
                                                                     <span class="grey-color font-14px"></span>
-                                                                    <h4 class="mt-20 font-800">{{ $user->company->purposeType->name }}</h4>
+                                                                    <h6 class="mt-20 font-800">{{ $user->company->purposeType->name }}</h6>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -245,7 +245,7 @@
                                                                 <div class="testimonial-content grey-bg">
                                                                     <h5 class="font-700 mb-0">業種</h5>
                                                                     <span class="grey-color font-14px"></span>
-                                                                    <h4 class="mt-20 font-800">{{ $user->company->industryType->name }}</h4>
+                                                                    <h6 class="mt-20 font-800">{{ $user->company->industryType->name }}</h6>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -257,7 +257,7 @@
                                                                 <div class="testimonial-content grey-bg">
                                                                     <h5 class="font-700 mb-0">役職</h5>
                                                                     <span class="grey-color font-14px"></span>
-                                                                    <h4 class="mt-20 font-800">{{ $user->company->positionType->name }}</h4>
+                                                                    <h6 class="mt-20 font-800">{{ $user->company->positionType->name }}</h6>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -269,7 +269,7 @@
                                                                 <div class="testimonial-content grey-bg">
                                                                     <h5 class="font-700 mb-0">電話番号</h5>
                                                                     <span class="grey-color font-14px mt-10"></span>
-                                                                    <h4 class="mt-20 font-800">{{ $user->company->phone }}</h4>
+                                                                    <h6 class="mt-20 font-800">{{ $user->company->phone }}</h6>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -281,7 +281,7 @@
                                                                 <div class="testimonial-content grey-bg">
                                                                     <h5 class="font-700 mb-0">住所</h5>
                                                                     <span class="grey-color font-14px"></span>
-                                                                    <h6 class="mt-20 font-800">{{ $user->company->postal_code }}</h6>
+                                                                    <h6 class="mt-20 font-800">〒 {{ $user->company->postal_code }}</h6>
                                                                     <h6 class="font-800">{{ $user->company->prefecture->name }} {{ $user->company->address }}</h6>
                                                                 </div>
                                                             </div>
@@ -311,7 +311,7 @@
                                                                 <div class="testimonial-content grey-bg">
                                                                     <h5 class="font-700 mb-0">会社</h5>
                                                                     <span class="grey-color font-14px"></span>
-                                                                    <h3 class="mt-20 font-800">{{ $user->company->name }}</h3>
+                                                                    <h6 class="mt-20 font-800">{{ $user->company->name }}</h6>
                                                                 </div>
                                                             </div>
                                                         </div>

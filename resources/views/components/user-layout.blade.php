@@ -24,7 +24,17 @@
 <link rel="stylesheet" type="text/css" href="{{ asset('revolution/fonts/font-awesome/css/font-awesome.min.css') }}">
 {{-- Date Time Picker --}}
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-
+<style>
+  .tr-modal-pop-a{
+    display: block;
+    padding: 3px 15px;
+    clear: both;
+    font-weight: normal;
+    line-height: 1.42857143;
+    color: #BF0731;
+    white-space: nowrap
+}
+</style>
 </head>
 <body>
 
@@ -94,7 +104,11 @@
               <li><a href="{{ route('user.show.announcements') }}">情報広場管理</a></li>
               <li><a href="{{ route('user.get.plans') }}">アップグレード</a></li>
               <li><a href="{{ route('user.change.password') }}">パスワード変更</a></li>
-              <li><a href="{{ route('user.logout') }}">ログアウト</a></li>
+              <li>
+                <div class="tr-modal-popup">
+                  <a href="#modal-popup" class="tr-modal-pop-a" data-effect="mfp-newspaper">ログアウト</a>
+                </div>
+              </li>
             </ul>
           </li>
         </ul>
@@ -190,6 +204,14 @@
     </div>
   </nav>
   <!--== Header End ==-->
+
+  <!-- Modal Popup Message Box -->
+  <div id="modal-popup" class="white-bg all-padding-60 mfp-with-anim mfp-hide centerize-col col-lg-4 col-md-6 col-sm-7 col-xs-11 text-center">
+    <span class="text-uppercase font-30px font-600 mb-20 display-block dark-color">ログアウト</span>
+    <p class="mb-20">ログアウトしてもよろしいですか?</p>
+    <a class="btn btn-lg btn-circle btn-color" href="{{ route('user.logout') }}" >Yes</a>
+    <a class="btn btn-lg btn-circle btn-secondary-color popup-modal-close" href="#">No</a>
+  </div>
 
   {{ $slot }}
 

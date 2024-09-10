@@ -319,7 +319,7 @@
         <div class="row mt-30">
             <div class="col-lg-8 col-md-8 col-sm-10 col-xs-12 centerize-col text-center white-color">
               <h5 class="text-uppercase font-600 mb-30 font-40px">An Awesome Template For Your Advert.</h5>
-              <a class="btn btn-md btn-light-outline btn-circle">Start from Now</a>
+              <a class="btn btn-md btn-light-outline btn-circle" href="{{ route('user.show.login') }}">Start from Now</a>
             </div>
         </div>
     </div>

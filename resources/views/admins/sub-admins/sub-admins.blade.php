@@ -1,30 +1,28 @@
 <x-admin-layout>
     <!--== Products Start ==-->
-    <section>
-        <div class="white-bg pt-120 pb-120">
-            <div class="row">
-                <div class="col-sm-8 section-heading">
-                    <div class="search-box">
-                        <input type="text" placeholder="Search...">
-                        <button type="submit"><i class="fa fa-search"></i></button>
-                    </div>
-                </div>
+    <section class="white-bg pt-120 pb-120">
+        <div class="container">
+          <div class="row">
+              <div class="col-sm-8 section-heading">
+                  <div class="search-box">
+                      <input type="text" placeholder="Search...">
+                      <button type="submit"><i class="fa fa-search"></i></button>
+                  </div>
+              </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="text-right">
+                  <a class="btn btn-md btn-dark-outline btn-square margin-left-auto margin-right-auto display-table-sm"
+                    href="{{ route('admin.add.sub.admin') }}">
+                    <i class="fa-icon-plus-square"></i> 管理者登録
+                  </a>
+              </div>
+              <x-message-box></x-message-box>
             </div>
-            <div class="row">
-                <div class="col-md-8 col-md-offset-2">
-                    <x-message-box></x-message-box>
-                </div>
-                <div class="col-md-2">
-                    <div class="text-right">
-                        <a class="btn btn-md btn-dark-outline btn-square margin-left-auto margin-right-auto display-table-sm"
-                            href="{{ route('admin.add.sub.admin') }}">
-                            <i class="fa-icon-plus-square"></i> 管理者登録
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="row mt-10">
-                <div class="col-md-12">
+          </div>
+          <div class="row mt-10">
+            <div class="col-md-12">
                 <div class="table-responsive">
                     <table class="table table-bordered table-striped table-hover shop-cart">
                         <thead>
@@ -76,12 +74,12 @@
                         </tbody>
                     </table>
                 </div>
-                @include('components.pagination')
+              @include('components.pagination')
             </div>
           </div>
         </div>
-      </section>
-      <!--== Products End ==-->
+    </section>
+    <!--== Products End ==-->
     <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
     <script>
         $(document).ready(function() {

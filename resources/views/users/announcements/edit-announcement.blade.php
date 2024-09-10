@@ -21,6 +21,8 @@
                                     <option value="">タイプを選択してください*</option>
                                     <option value="セミナー" @if($announcement->type == 'セミナー')selected="selected"@endif>セミナー</option>
                                     <option value="募集" @if($announcement->type == '募集')selected="selected"@endif>募集</option>
+                                    <option value="販売" @if($announcement->type == '販売')selected="selected"@endif>販売</option>
+                                    <option value="購入" @if($announcement->type == '購入')selected="selected"@endif>購入</option>
                                     <option value="その他" @if($announcement->type == 'その他')selected="selected"@endif>その他</option>
                                 </select>
                                 <span class="error" style="color:#BF0731" id="error-type"></span>

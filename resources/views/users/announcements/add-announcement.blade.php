@@ -20,6 +20,8 @@
                                     <option value="" selected="selected">タイプを選択してください*</option>
                                     <option value="セミナー">セミナー</option>
                                     <option value="募集">募集</option>
+                                    <option value="販売">販売</option>
+                                    <option value="購入">購入</option>
                                     <option value="その他">その他</option>
                                 </select>
                                 <span class="error" style="color:#BF0731" id="error-type"></span>

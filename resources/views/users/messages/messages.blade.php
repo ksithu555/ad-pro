@@ -164,7 +164,7 @@
                                                             <!--== Slide ==-->
                                                             <div class="testimonial-item">
                                                                 <div class="testimonial-content grey-bg">
-                                                                    <h5 class="font-700 mb-0">会社</h5>
+                                                                    <h5 class="font-700 mb-0">会社名</h5>
                                                                     <span class="grey-color font-14px"></span>
                                                                     <h6 class="mt-20 font-800">{{ $focusUser->company->name }}</h6>
                                                                 </div>
@@ -309,7 +309,7 @@
                                                             <!--== Slide ==-->
                                                             <div class="testimonial-item">
                                                                 <div class="testimonial-content grey-bg">
-                                                                    <h5 class="font-700 mb-0">会社</h5>
+                                                                    <h5 class="font-700 mb-0">会社名</h5>
                                                                     <span class="grey-color font-14px"></span>
                                                                     <h6 class="mt-20 font-800">{{ $user->company->name }}</h6>
                                                                 </div>

@@ -97,7 +97,7 @@ class UserMessageController extends Controller
 
         $alarm = Alarm::where('from_user_id', Auth::user()->id)
                   ->where('to_user_id', $message->receiver->id)
-                  ->where('type', 'メッセージ')
+                  ->where('type', '商談管理')
                   ->first();
 
         if ($alarm) {
@@ -108,7 +108,7 @@ class UserMessageController extends Controller
         } else {
             // Create a new alarm
             Alarm::create([
-                'type' => 'メッセージ',
+                'type' => '商談管理',
                 'alarm' => 'メッセージがあります',
                 'from_user_id' => Auth::user()->id,
                 'to_user_id' => $message->receiver->id,

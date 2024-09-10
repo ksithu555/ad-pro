@@ -29,7 +29,7 @@
                                             <table class="table table-bordered table-striped table-hover shop-cart">
                                                 <thead>
                                                     <tr>
-                                                    <th>タイプ</th>
+                                                    <th>機能種類</th>
                                                     <th>アラーム</th>
                                                     <th>送信者</th>
                                                     <th>日付</th>

@@ -117,11 +117,45 @@ class UserMessageController extends Controller
             ]);
         }
 
-        return redirect()->route('user.get.messages');
+        // return redirect()->route('user.get.messages');
+        return response()->json([
+            'message' => nl2br(e($message->message)),
+            'created_at' => $message->created_at->format('Y-m-d H:i:s'),
+            'from_user' => Auth::user()->name
+        ]);
     }
 
     public function seenMessage($id) {
         Message::where('from_user_id', $id)->where('to_user_id', Auth::user()->id)->update(['seen' => 1]);
         return response()->json(['status' => 'success']);
+    }
+
+    public function receivedMessage() {
+        $newMessages = Message::where('to_user_id', Auth::user()->id)
+                            ->whereNull('auto_load')
+                            ->where('seen', 0)
+                            ->get();
+    
+        Message::where('to_user_id', Auth::user()->id)
+        ->whereNull('auto_load')
+        ->where('seen', 0)
+        ->update(['auto_load' => 1]);
+
+        // return response()->json([
+        //     'newMessages' => $newMessages,
+        // ]);
+        $formattedMessages = $newMessages->map(function($message) {
+            return [
+                'from_user_id' => $message->from_user_id,
+                'to_user_id' => $message->to_user_id,
+                'message' => nl2br(e($message->message)),
+                'created_at' => $message->created_at->format('Y-m-d H:i:s'),
+                'seen' => $message->seen == 1 ? '既読' : ''
+            ];
+        });
+    
+        return response()->json([
+            'newMessages' => $formattedMessages,
+        ]);
     }
 }

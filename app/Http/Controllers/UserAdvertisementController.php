@@ -308,6 +308,11 @@ class UserAdvertisementController extends Controller
         }
     }
 
+    public function previewSection($id) {
+        $section = Section::where('id', $id)->first();
+        return view('sections.' . $section->name);
+    }
+
     public function showSectionBlocks($id) {
         $advertisementSection = AdvertisementSection::find($id);
         $type = $advertisementSection->section->type;

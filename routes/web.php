@@ -82,6 +82,7 @@ Route::group(['middleware' => ['user']], function () {
     Route::post('/user/section/order-up/{id}', [UserAdvertisementController::class, 'orderUpSection'])->name('user.section.order-up');
     Route::post('/user/section/order-down/{id}', [UserAdvertisementController::class, 'orderDownSection'])->name('user.section.order-down');
     Route::get('/user/delete/section/{id}', [UserAdvertisementController::class, 'deleteSection'])->name('user.delete.section');
+    Route::get('/user/preview/section/{id}', [UserAdvertisementController::class, 'previewSection'])->name('user.preview.section');
 
     // Block
     Route::get('/user/show/section/{id}/blocks', [UserAdvertisementController::class, 'showSectionBlocks'])->name('user.show.section.blocks');
@@ -147,6 +148,7 @@ Route::group(['middleware' => ['user']], function () {
     Route::get('user/start/{id}/message', [UserMessageController::class, 'startMessage'])->name('user.start.message');
     Route::post('/user/send/message', [UserMessageController::class, 'sendMessage'])->name('user.send.message');
     Route::post('/user/{id}/seen/message', [UserMessageController::class, 'seenMessage'])->name('user.seen.message');
+    Route::get('/user/received/message', [UserMessageController::class, 'receivedMessage'])->name('user.received.message');
 
     // Notice
     Route::get('/user/notices', [UserController::class, 'getNotices'])->name('user.get.notices');

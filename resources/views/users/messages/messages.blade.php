@@ -46,7 +46,7 @@
                             <div class="col-md-9 pl-0">
                                 <!--== Initail Tab panes ==-->
                                 <div class="tab-content tab-content-m text-center">
-                                    <div role="tabpanel" class="tab-pane fade in @if(!$focusUser) active @endif">
+                                    <div role="tabpanel" class="tab-pane fade in @if(!$focusUser) active @endif" style="max-width: 90%;">
                                         <!--== Testimonails Style 01 Start ==-->
                                         <div class="row row-flex flex-center">
                                             <div class="col-md-6 col-sm-12 bg-flex-cover">
@@ -64,10 +64,10 @@
                                     </div>
                                     @if ($focusUser)
                                     <div role="tabpanel" class="tab-pane fade in active" id="message-box-{{ $focusUser->id }}">
-                                        <div class="message-content text-left">
+                                        <div class="message-content text-left" id="message-content-{{ $focusUser->id }}">
                                             <!--== Testimonails Style 01 Start ==-->
-                                            <div class="row">
-                                                <div class="slick testimonial">
+                                            <div class="row" style="max-width: 99%">
+                                                <div class="slick testimonial" style="padding-left: 20px;">
                                                     @if ($focusUser->company)
                                                         @if(!is_null($focusUser->company->business))
                                                         <div class="col-md-4 col-sm-6 col-xs-12">
@@ -196,23 +196,23 @@
                                             @endforeach
                                             {{-- Conversation end --}}
                                         </div>
-                                        <form method="POST" action="{{ route('user.send.message') }}" class="message-input">
+                                        <form id="messageForm-{{ $focusUser->id }}" method="POST" class="message-input">
                                             @csrf
                                             <input type="hidden" id='toUserId' name='toUserId' value="{{ $focusUser->id }}">
-                                            <textarea type="text" name="message" id="message" class="newsletter-input form-control form-group" placeholder="Type your message"></textarea>
+                                            <textarea name="message" id="message" class="newsletter-input form-control form-group" placeholder="メッセージを入力してください"></textarea>
                                             <button type="submit" class="btn btn-sm btn-dark margin-left-auto margin-right-auto display-table-sm">
                                                 送信
                                             </button>
-                                        </form>
+                                        </form>                                        
                                     </div>
                                     @endif
 
                                     @foreach ($users as $key => $user)
                                     <div role="tabpanel" class="tab-pane fade in" id="message-box-{{ $user->id }}">
-                                        <div class="message-content text-left">
+                                        <div class="message-content text-left" id="message-content-{{ $user->id }}">
                                             <!--== Testimonails Style 01 Start ==-->
-                                            <div class="row">
-                                                <div class="slick testimonial">
+                                            <div class="row" style="max-width: 99%">
+                                                <div class="slick testimonial" style="padding-left: 20px;">
                                                     @if ($user->company)
                                                         @if(!is_null($user->company->business))
                                                         <div class="col-md-4 col-sm-6 col-xs-12">
@@ -341,14 +341,14 @@
                                             @endforeach
                                             {{-- Conversation end --}}
                                         </div>
-                                        <form method="POST" action="{{ route('user.send.message') }}" class="message-input">
+                                        <form id="messageForm-{{ $user->id }}" method="POST" class="message-input">
                                             @csrf
                                             <input type="hidden" id='toUserId' name='toUserId' value="{{ $user->id }}">
-                                            <textarea type="text" name="message" id="message" class="newsletter-input form-control form-group" placeholder="Type your message"></textarea>
+                                            <textarea name="message" id="message" class="newsletter-input form-control form-group" placeholder="メッセージを入力してください"></textarea>
                                             <button type="submit" class="btn btn-sm btn-dark margin-left-auto margin-right-auto display-table-sm">
                                                 送信
                                             </button>
-                                        </form>
+                                        </form>                                        
                                     </div>
                                     @endforeach
                                 </div>
@@ -378,6 +378,10 @@
                         _token: '{{ csrf_token() }}', // CSRF token for security
                     },
                     success: function(response) {
+                        // Remove the "未読" label for the active tab
+                        var tabLink = $('a[href="#message-box-' + userId + '"]');
+                        tabLink.find('span.label.label-danger').remove();
+
                         console.log('Message seen status updated for user: ' + userId);
                     },
                     error: function(xhr, status, error) {
@@ -434,5 +438,78 @@
                 });
             }
         }
+    </script>
+    {{-- Send Message --}}
+    <script>
+        $(document).ready(function() {
+        // AJAX submission for each message form
+        $('form[id^="messageForm-"]').on('submit', function(e) {
+            e.preventDefault(); // Prevent the form from submitting normally
+
+            let form = $(this);
+            let formData = {
+                _token: $("input[name='_token']").val(),
+                toUserId: form.find('input[name="toUserId"]').val(),
+                message: form.find('textarea[name="message"]').val(),
+            };
+
+            // Remove the "未読" label for the active tab
+            var tabLink = $('a[href="#message-box-' + form.find('input[name="toUserId"]').val() + '"]');
+            tabLink.find('span.label.label-danger').remove();
+
+            $.ajax({
+                url: "{{ route('user.send.message') }}", // Your send message route
+                method: 'POST',
+                data: formData,
+                success: function(response) {
+                    // Clear the textarea after success
+                    form.find('textarea[name="message"]').val('');
+
+                    // Append the new message to the conversation
+                    let messageHtml = '<div class="message sent">' +
+                                    '<p>' + response.message + '</p>' +
+                                    '</div>' +
+                                    '<div class="timestamp sent">' + response.created_at + '</div>';
+
+                    // form.closest('.message-content').append(messageHtml);
+                    $('#message-content-' + form.find('input[name="toUserId"]').val()).append(messageHtml);
+                },
+                error: function(xhr, status, error) {
+                    console.error('Error sending message: ' + error);
+                }
+            });
+        });
+    });
+    </script>
+    {{-- Received Message --}}
+    <script>
+        // Poll for new messages every 5 seconds
+        setInterval(function() {
+            $.ajax({
+                url: '/user/received/message',
+                method: 'GET',
+                success: function(response) {
+                    if (response.newMessages.length > 0) {
+                        response.newMessages.forEach(function(message) {
+                            let messageHtml = '<div class="message received">' +
+                                            '<p>' + message.message + '</p>' +
+                                            '</div>' +
+                                            '<div class="timestamp received">' + message.created_at + '</div>';
+                            
+                            $('#message-content-' + message.from_user_id).append(messageHtml);
+
+                            // Check if the "未読" label already exists, if not, add it
+                            var tabLink = $('a[href="#message-box-' + message.from_user_id + '"]');
+                            if (tabLink.find('span.label.label-danger').length === 0) {
+                                tabLink.append('<span class="label label-danger">未読</span>');
+                            }
+                        });
+                    }
+                },
+                error: function(xhr, status, error) {
+                    console.error('Error fetching new messages: ' + error);
+                }
+            });
+        }, 5000); // 5000ms = 5 seconds
     </script>
 </x-user-layout>

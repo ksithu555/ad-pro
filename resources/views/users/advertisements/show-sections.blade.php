@@ -84,7 +84,7 @@
                                     {{ $section->section->note }}  
                                 </td>                              
                                 <td style="min-width: 110px;">
-                                    <a href="{{ route('admin.preview.section', $section->section_id) }}" target="_blank">
+                                    <a href="{{ route('user.preview.section', $section->section_id) }}" target="_blank">
                                       <i class="fa fa-eye" style="font-size: 1.5em;"></i>
                                     </a>
                                 </td>

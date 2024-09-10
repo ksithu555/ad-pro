@@ -11,7 +11,8 @@ class Message extends Model
         'from_user_id',
         'to_user_id',
         'message',
-        'seen'
+        'seen',
+        'auto_load'
     ];
 
     /**

@@ -69,12 +69,12 @@
         }
 
         function submitForm() {
-            document.getElementById('confirmed').value = '1';
+            document.getElementById('confirmed').value = '1';console.log("here");
             document.getElementById('add-notice-form').submit();
         }
 
         function validateAddNoticeForm() {
-            let isValid = true;console.log(isValid);
+            let isValid = true;
             document.querySelectorAll('.error').forEach(el => el.textContent = '');
 
             const title = document.getElementById('title').value.trim();

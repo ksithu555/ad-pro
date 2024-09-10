@@ -5130,7 +5130,7 @@ input:checked + .slider:before {
 }
 
 .tabs-style-03-m .nav-tabs {
-  max-height: 550px; /* Adjust the max-height as needed */
+  max-height: 500px; /* Adjust the max-height as needed */
   overflow-y: auto;
 }
 

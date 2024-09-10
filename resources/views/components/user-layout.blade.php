@@ -106,7 +106,7 @@
               <li><a href="{{ route('user.change.password') }}">パスワード変更</a></li>
               <li>
                 <div class="tr-modal-popup">
-                  <a href="#modal-popup" class="tr-modal-pop-a" data-effect="mfp-newspaper">ログアウト</a>
+                  <a href="#logout-modal-popup" class="tr-modal-pop-a" data-effect="mfp-newspaper">ログアウト</a>
                 </div>
               </li>
             </ul>
@@ -206,7 +206,7 @@
   <!--== Header End ==-->
 
   <!-- Modal Popup Message Box -->
-  <div id="modal-popup" class="white-bg all-padding-60 mfp-with-anim mfp-hide centerize-col col-lg-4 col-md-6 col-sm-7 col-xs-11 text-center">
+  <div id="logout-modal-popup" class="white-bg all-padding-60 mfp-with-anim mfp-hide centerize-col col-lg-4 col-md-6 col-sm-7 col-xs-11 text-center">
     <span class="text-uppercase font-30px font-600 mb-20 display-block dark-color">ログアウト</span>
     <p class="mb-20">ログアウトしてもよろしいですか?</p>
     <a class="btn btn-lg btn-circle btn-color" href="{{ route('user.logout') }}" >Yes</a>

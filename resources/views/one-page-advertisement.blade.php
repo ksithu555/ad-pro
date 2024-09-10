@@ -677,6 +677,51 @@
                 @endforeach
             </section>
             {{-- Accordion04 End --}}
+            @elseif ($advertisementSection->section->name == 'Accordion05')
+            {{-- Accordion05 Start --}}
+            <section class="default-bg pt-50 pb-50" id="{{ $advertisementSection->name }}">
+                @foreach ($advertisementSection->advertisementAccordionBlocks as $advertisementAccordionBlock)
+                @if ($advertisementAccordionBlock->status == 1)
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-8 section-heading white-color">
+                        <h4 class="text-uppercase mt-0">{{ $advertisementAccordionBlock->title }}</h4>
+                        </div>
+                    </div>
+                    <div class="row mt-50">
+                        <div class="col-md-8 col-sm-12 centerize-col">
+                            <div class="panel-group accordion-style-02" id="accordion-style-02">
+                                @foreach ($advertisementAccordionBlock->advertisementSubAccordionBlocks as $key => $advertisementSubAccordionBlock)
+                                <div class="panel">
+                                    <div class="panel-heading">
+                                        <a data-toggle="collapse" data-parent="#accordion-style" href="#defaultstyle-{{ $key }}" aria-expanded="false" class="collapsed">
+                                            <div class="panel-title text-uppercase white-color">
+                                                {{ $advertisementSubAccordionBlock->title }} 
+                                                <span class="pull-right">
+                                                    @if ($key == 0)
+                                                    <i class="ion-android-remove"></i>
+                                                    @else
+                                                    <i class="ion-android-add"></i>
+                                                    @endif
+                                                </span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div id="defaultstyle-{{ $key }}" class="panel-collapse collapse {{ $key == 0 ? 'in' : '' }}" aria-expanded="false" role="tablist">
+                                        <div class="panel-body white-color">
+                                            {!! nl2br($advertisementSubAccordionBlock->body) !!}
+                                        </div>
+                                    </div>
+                                </div>
+                                @endforeach
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @endif
+                @endforeach
+            </section>
+            {{-- Accordion05 End --}}
             @endif
         {{-- Accordion Hero End --}}
         @elseif ($advertisementSection->section->type == 'contact'  && $advertisementSection->status == 1)

@@ -37,7 +37,6 @@
             <div class="row">
                 <div class="col-sm-8 section-heading">
                     <h4 class="text-uppercase mt-0">こんなお悩みありませんか？</h4>
-                    <h4 class="text-uppercase mt-0">ADPROでお悩みは解決できます！</h4>
                 </div>
             </div>
             <div class="row mt-0">
@@ -319,7 +318,7 @@
     <div class="container">
         <div class="row mt-30">
             <div class="col-lg-8 col-md-8 col-sm-10 col-xs-12 centerize-col text-center white-color">
-              <h5 class="text-uppercase font-600 mb-30 font-40px">専門知識がなくても、貴方に必要な広告ページを簡単に制作し、ウェブに公開できます。</h5>
+              <h5 class="text-uppercase font-600 mb-30 font-40px">ソフトウェア開発知識が全くなくても広告ページを簡単に作成しウェブに公開できます。</h5>
               <a class="btn btn-md btn-light-outline btn-circle" href="{{ route('user.show.login') }}">さあ、今すぐ始めましょう！</a>
             </div>
         </div>

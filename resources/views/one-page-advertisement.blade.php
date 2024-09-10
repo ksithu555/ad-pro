@@ -495,6 +495,190 @@
             {{-- Box05 End --}}
             @endif
         {{-- Box Hero End --}}
+        @elseif ($advertisementSection->section->type == 'accordion'  && $advertisementSection->status == 1)
+        {{-- Accordion Hero Start --}}
+            @if ($advertisementSection->section->name == 'Accordion01')
+            {{-- Accordion01 Start --}}
+            <section class="{{ $sectionBg }} pt-50 pb-50" id="{{ $advertisementSection->name }}">
+                @foreach ($advertisementSection->advertisementAccordionBlocks as $advertisementAccordionBlock)
+                @if ($advertisementAccordionBlock->status == 1)
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-8 section-heading">
+                        <h4 class="text-uppercase mt-0">{{ $advertisementAccordionBlock->title }}</h4>
+                        </div>
+                    </div>
+                    <div class="row mt-50">
+                        <div class="col-md-8 col-sm-12 centerize-col">
+                            <div class="panel-group accordion-style-01" id="accordion-style">
+                                @foreach ($advertisementAccordionBlock->advertisementSubAccordionBlocks as $key => $advertisementSubAccordionBlock)
+                                <div class="panel">
+                                    <div class="panel-heading">
+                                        <a data-toggle="collapse" data-parent="#accordion-style" href="#question-{{ $key }}" aria-expanded="false" class="collapsed">
+                                            <div class="panel-title text-uppercase">
+                                                {{ $advertisementSubAccordionBlock->title }} 
+                                                <span class="pull-right">
+                                                    @if ($key == 0)
+                                                    <i class="ion-android-remove"></i>
+                                                    @else
+                                                    <i class="ion-android-add"></i>
+                                                    @endif
+                                                </span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div id="question-{{ $key }}" class="panel-collapse collapse {{ $key == 0 ? 'in' : '' }}" aria-expanded="false" role="tablist">
+                                        <div class="panel-body">
+                                            {!! nl2br($advertisementSubAccordionBlock->body) !!}
+                                        </div>
+                                    </div>
+                                </div>
+                                @endforeach
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @endif
+                @endforeach
+            </section>
+            {{-- Accordion01 End --}}
+            @elseif ($advertisementSection->section->name == 'Accordion02')
+            {{-- Accordion02 Start --}}
+            <section class="dark-bg pt-50 pb-50" id="{{ $advertisementSection->name }}">
+                @foreach ($advertisementSection->advertisementAccordionBlocks as $advertisementAccordionBlock)
+                @if ($advertisementAccordionBlock->status == 1)
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-8 section-heading white-color">
+                        <h4 class="text-uppercase mt-0">{{ $advertisementAccordionBlock->title }}</h4>
+                        </div>
+                    </div>
+                    <div class="row mt-50">
+                        <div class="col-md-8 col-sm-12 centerize-col">
+                            <div class="panel-group accordion-style-02" id="accordion-style-02">
+                                @foreach ($advertisementAccordionBlock->advertisementSubAccordionBlocks as $key => $advertisementSubAccordionBlock)
+                                <div class="panel">
+                                    <div class="panel-heading">
+                                        <a data-toggle="collapse" data-parent="#accordion-style" href="#dark-{{ $key }}" aria-expanded="false" class="collapsed">
+                                            <div class="panel-title text-uppercase white-color">
+                                                {{ $advertisementSubAccordionBlock->title }} 
+                                                <span class="pull-right">
+                                                    @if ($key == 0)
+                                                    <i class="ion-android-remove"></i>
+                                                    @else
+                                                    <i class="ion-android-add"></i>
+                                                    @endif
+                                                </span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div id="dark-{{ $key }}" class="panel-collapse collapse {{ $key == 0 ? 'in' : '' }}" aria-expanded="false" role="tablist">
+                                        <div class="panel-body">
+                                            {!! nl2br($advertisementSubAccordionBlock->body) !!}
+                                        </div>
+                                    </div>
+                                </div>
+                                @endforeach
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @endif
+                @endforeach
+            </section>
+            {{-- Accordion02 End --}}
+            @elseif ($advertisementSection->section->name == 'Accordion03')
+            {{-- Accordion03 Start --}}
+            <section class="{{ $sectionBg }} pt-50 pb-50" id="{{ $advertisementSection->name }}">
+                @foreach ($advertisementSection->advertisementAccordionBlocks as $advertisementAccordionBlock)
+                @if ($advertisementAccordionBlock->status == 1)
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-8 section-heading">
+                        <h4 class="text-uppercase mt-0">{{ $advertisementAccordionBlock->title }}</h4>
+                        </div>
+                    </div>
+                    <div class="row mt-50">
+                        <div class="col-md-8 col-sm-12 centerize-col">
+                            <div class="panel-group accordion-style-03" id="accordion-style-03">
+                                @foreach ($advertisementAccordionBlock->advertisementSubAccordionBlocks as $key => $advertisementSubAccordionBlock)
+                                <div class="panel">
+                                    <div class="panel-heading">
+                                        <a data-toggle="collapse" data-parent="#accordion-style" href="#light-{{ $key }}" aria-expanded="false" class="collapsed">
+                                            <div class="panel-title text-uppercase white-color">
+                                                {{ $advertisementSubAccordionBlock->title }} 
+                                                <span class="pull-right">
+                                                    @if ($key == 0)
+                                                    <i class="ion-chevron-up"></i>
+                                                    @else
+                                                    <i class="ion-chevron-down"></i>
+                                                    @endif
+                                                </span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div id="light-{{ $key }}" class="panel-collapse collapse {{ $key == 0 ? 'in' : '' }}" aria-expanded="false" role="tablist">
+                                        <div class="panel-body">
+                                            {!! nl2br($advertisementSubAccordionBlock->body) !!}
+                                        </div>
+                                    </div>
+                                </div>
+                                @endforeach
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @endif
+                @endforeach
+            </section>
+            {{-- Accordion03 End --}}
+            @elseif ($advertisementSection->section->name == 'Accordion04')
+            {{-- Accordion04 Start --}}
+            <section class="dark-bg pt-50 pb-50" id="{{ $advertisementSection->name }}">
+                @foreach ($advertisementSection->advertisementAccordionBlocks as $advertisementAccordionBlock)
+                @if ($advertisementAccordionBlock->status == 1)
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-8 section-heading white-color">
+                        <h4 class="text-uppercase mt-0">{{ $advertisementAccordionBlock->title }}</h4>
+                        </div>
+                    </div>
+                    <div class="row mt-50">
+                        <div class="col-md-8 col-sm-12 centerize-col">
+                            <div class="panel-group accordion-style-04" id="accordion-style-04">
+                                @foreach ($advertisementAccordionBlock->advertisementSubAccordionBlocks as $key => $advertisementSubAccordionBlock)
+                                <div class="panel">
+                                    <div class="panel-heading">
+                                        <a data-toggle="collapse" data-parent="#accordion-style" href="#darkstyle-{{ $key }}" aria-expanded="false" class="collapsed">
+                                            <div class="panel-title text-uppercase">
+                                                {{ $advertisementSubAccordionBlock->title }} 
+                                                <span class="pull-right">
+                                                    @if ($key == 0)
+                                                    <i class="ion-chevron-up"></i>
+                                                    @else
+                                                    <i class="ion-chevron-down"></i>
+                                                    @endif
+                                                </span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div id="darkstyle-{{ $key }}" class="panel-collapse collapse {{ $key == 0 ? 'in' : '' }}" aria-expanded="false" role="tablist">
+                                        <div class="panel-body">
+                                            {!! nl2br($advertisementSubAccordionBlock->body) !!}
+                                        </div>
+                                    </div>
+                                </div>
+                                @endforeach
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @endif
+                @endforeach
+            </section>
+            {{-- Accordion04 End --}}
+            @endif
+        {{-- Accordion Hero End --}}
         @elseif ($advertisementSection->section->type == 'contact'  && $advertisementSection->status == 1)
         {{-- Contact Hero Start --}}
             @if ($advertisementSection->section->name == 'Contact01')

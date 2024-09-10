@@ -291,7 +291,7 @@
                                 </td>
                                 <td style="min-width: 110px;">
                                   <label class="toggle-switch">
-                                      <input type="checkbox" data-id="{{ $block->id }}" class="status-toggle-box" {{ $block->status == 1 ? 'checked' : '' }}>
+                                      <input type="checkbox" data-id="{{ $block->id }}" class="status-toggle-accordion" {{ $block->status == 1 ? 'checked' : '' }}>
                                       <span class="slider"></span>
                                   </label>   
                                 </td>
@@ -467,6 +467,40 @@
                 });
             });
         });
-      </script>
+    </script>
+    {{-- accordion toggle --}}
+    <script>
+        $(document).ready(function() {
+            // Listen for the toggle switch change event
+            $('.status-toggle-accordion').on('change', function() {
+                // Get the section ID from the data-id attribute
+                var blockId = $(this).data('id');
+                // Determine the status based on whether the checkbox is checked
+                var status = $(this).is(':checked') ? 1 : 0;
+  
+                // Send AJAX request to update the section status
+                $.ajax({
+                    url: '/user/update/section/accordion-block-status', // The route URL
+                    method: 'POST',
+                    data: {
+                        _token: '{{ csrf_token() }}', // CSRF token for security
+                        id: blockId,
+                        status: status
+                    },
+                    success: function(response) {
+                        if (response.success) {
+                            window.location.reload();
+                        } else {
+                            window.location.reload();
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('Error updating section status: ' + status);
+                        // window.location.reload();
+                    }
+                });
+            });
+        });
+    </script>
   </x-user-layout>
   

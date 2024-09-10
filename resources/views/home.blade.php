@@ -131,7 +131,7 @@
                         <!--== Slide ==-->
                         <div class="testimonial-item">
                             <div class="testimonial-content">
-                                <img class="img-responsive img-circle text-center" src="{{ asset('assets/images/all/avatar-1.jpg') }}" alt="avatar-1"/>
+                                <img class="img-responsive img-circle text-center" src="{{ asset('assets/images/clients/co01.png') }}" alt="avatar-1"/>
                                 <p class="mt-20 line-height-26 font-14px">ソフトウェア知識が全くなくても、簡単に広告ページを作成しウェブに公開しました！</p>
                                 <h5 class="font-700 mb-0">A社</h5>
                                 <span class="default-color font-14px">SEO Manager</span>
@@ -147,7 +147,7 @@
                         <!--== Slide ==-->
                         <div class="testimonial-item">
                             <div class="testimonial-content">
-                                <img class="img-responsive img-circle text-center" src="{{ asset('assets/images/all/avatar-2.jpg') }}" alt="avatar-2"/>
+                                <img class="img-responsive img-circle text-center" src="{{ asset('assets/images/clients/co02.png') }}" alt="avatar-2"/>
                                 <p class="mt-20 line-height-26 font-14px">無料の商談メッセージ機能を利用して愛想がいい協業会社を複数社見つけました！</p>
                                 <h5 class="font-700 mb-0">B社                                </h5>
                                 <span class="default-color font-14px">Head of Product</span>
@@ -162,7 +162,7 @@
                     <div class="col-md-4 col-sm-6 col-xs-12">
                         <!--== Slide ==-->
                         <div class="testimonial-item">
-                            <div class="testimonial-content"> <img class="img-responsive img-circle" src="{{ asset('assets/images/all/avatar-3.jpg') }}" alt="avatar-1"/>
+                            <div class="testimonial-content"> <img class="img-responsive img-circle" src="{{ asset('assets/images/clients/co03.png') }}" alt="avatar-1"/>
                                 <p class="mt-20 line-height-26 font-14px">無料の情報広場機能を利用し弊社商品とサービスを情報を発信し注目を集めました！</p>
                                 <h5 class="font-700 mb-0">C社</h5>
                                 <span class="default-color font-14px">CEO / Founder</span>

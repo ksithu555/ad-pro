@@ -13,14 +13,18 @@
             <div class="row mt-10">
                 <div class="col-md-12 col-sm-12">
                     @foreach ($notices as $key => $notice)
-                    <div class="row {{ $key != 0 ? 'mt-20' : ''}}">
-                        <div class="col-md-4 col-sm-12 default-bg" style="margin-top: 25px;">
-                            <div class="post-date-box" style="width: 100%;height: 100%;">
-                                {{ $notice->created_at->format('d') }}
-                                <span>{{ $notice->created_at->format('m, Y') }}</span>
+                    <div class="row {{ $key != 0 ? 'mt-20' : ''}}" style="display: flex; align-items: stretch;">
+                        <div class="col-md-2 col-sm-2 default-bg" style="display: flex; align-items: center; justify-content: center;">
+                            <div style="text-align: center; color: white;">
+                                <div style="font-size: 36px;">
+                                    {{ $notice->created_at->format('d') }}
+                                </div>
+                                <span style="font-size: 16px;">
+                                    {{ $notice->created_at->format('m, Y') }}
+                                </span>
                             </div>
                         </div>                
-                        <div class="col-md-8 col-sm-12">
+                        <div class="col-md-10 col-sm-12 grey-bg" style="display: flex; flex-direction: column; justify-content: center;">
                             <div class="content">
                                 <h4 class="mt-20 text-uppercase">{!! nl2br($notice->title) !!}</h4>
                                 <hr class="dark-bg" style="background-color: #BF0731;">
@@ -30,7 +34,7 @@
                             </div>
                         </div>
                     </div>
-                    @endforeach
+                @endforeach
                 </div>
             </div>
             @include('components.pagination')

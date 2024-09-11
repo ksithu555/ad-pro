@@ -114,7 +114,7 @@
                             </li>
                             <li class="dropdown">
                                 <a href="{{ route('guest.faqs') }}" class="dropdown-toggle active" data-toggle="dropdown">
-                                    <span class="{{ request()->routeIs('guest.faqs') ? 'default-color' : '' }}">よくある質問</span>
+                                    <span class="{{ request()->routeIs('guest.faqs') ? 'default-color' : '' }}">よくあるご質問</span>
                                 </a>
                             </li>
                             <li class="dropdown">

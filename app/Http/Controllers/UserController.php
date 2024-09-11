@@ -197,10 +197,10 @@ class UserController extends Controller
 
     public function getNotices() {
         $limit = 10;
-        $notices = Notice::paginate($limit);
+        $notices = Notice::orderBy('created_at', 'desc')->paginate($limit);
         $ttl = $notices->total();
         $ttlpage = ceil($ttl/$limit);
-        return view('users.notices', compact('notices', 'ttl', 'ttlpage'));
+        return view('users.notices.notices', compact('notices', 'ttl', 'ttlpage'));
     }
 
     public function getPlans() {

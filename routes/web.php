@@ -171,6 +171,7 @@ Route::group(['middleware' => ['user']], function () {
     // Plan
     Route::get('user/plans', [UserController::class, 'getPlans'])->name('user.get.plans');
     Route::get('/user/purchase/plan/{id}', [UserController::class, 'purchasePlan'])->name('user.purchase.plan');
+    Route::post('/user/bank-transfer-payment', [UserController::class, 'bankTransferPayment'])->name('user.bank.transfer.payment');
 });
 
 // Admin

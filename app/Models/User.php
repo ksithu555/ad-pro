@@ -23,10 +23,7 @@ class User extends Authenticatable
         'password',
         'company_name',
         'image',
-        'requested_plan',
         'plan_status',
-        'plan_start',
-        'plan_end',
         'status'
     ];
 
@@ -97,5 +94,10 @@ class User extends Authenticatable
     public function sentAlarms()
     {
         return $this->hasMany(Alarm::class, 'from_user_id', 'id');
+    }
+
+    public function userPayments()
+    {
+        return $this->hasMany(UserPayment::class);
     }
 }

@@ -190,13 +190,13 @@
                             <div class="panel-heading">
                                 <a data-toggle="collapse" data-parent="#accordion-style" href="#question1" aria-expanded="false" class="collapsed">
                                     <div class="panel-title text-uppercase">
-                                        完全無料のマッチング機能のご利用<span class="pull-right"><i class="ion-android-remove"></i></span> 
+                                        会員情報を完全無料で検索できます。<span class="pull-right"><i class="ion-android-remove"></i></span> 
                                     </div>
                                 </a> 
                             </div>
                             <div id="question1" class="panel-collapse collapse in" aria-expanded="false" role="tablist">
                                 <div class="panel-body">
-                                    会員同士はメッセンジャー機能を完全無料でご利用し自由にやり取りができます。
+                                    会員になると会員同士の情報を完全無料で検索できます。
                                 </div>
                             </div>
                         </div>
@@ -204,11 +204,25 @@
                             <div class="panel-heading">
                                 <a data-toggle="collapse" data-parent="#accordion-style" href="#question2" aria-expanded="false" class="collapsed">
                                     <div class="panel-title text-uppercase">
-                                        完全無料の情報広場機能のご利用<span class="pull-right"><i class="ion-android-add"></i></span>
+                                        ビジネスマッチング機能が完全無料で利用できます。<span class="pull-right"><i class="ion-android-add"></i></span>
                                     </div>
                                 </a> 
                             </div>
                             <div id="question2" class="panel-collapse collapse" aria-expanded="false" role="tablist">
+                                <div class="panel-body">
+                                    会員同士やり取りのメッセンジャー機能を完全無料でご利用いただけます。
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel">
+                            <div class="panel-heading">
+                                <a data-toggle="collapse" data-parent="#accordion-style" href="#question3" aria-expanded="false" class="collapsed">
+                                <div class="panel-title text-uppercase">
+                                    情報広場機能を完全無料で利用できます。<span class="pull-right"><i class="ion-android-add"></i></span>
+                                </div>
+                                </a>
+                            </div>
+                            <div id="question3" class="panel-collapse collapse" aria-expanded="false" role="tablist">
                                 <div class="panel-body">
                                     セミナー、募集、販売、購入などの案件情報掲載を完全無料でご利用いただけます。<br>
                                     買い手、売り手とも完全無料です。
@@ -217,29 +231,15 @@
                         </div>
                         <div class="panel">
                             <div class="panel-heading">
-                                <a data-toggle="collapse" data-parent="#accordion-style" href="#question3" aria-expanded="false" class="collapsed">
-                                <div class="panel-title text-uppercase">
-                                    自ら御社広告ページの制作が可能<span class="pull-right"><i class="ion-android-add"></i></span>
-                                </div>
-                                </a>
-                            </div>
-                            <div id="question3" class="panel-collapse collapse" aria-expanded="false" role="tablist">
-                                <div class="panel-body">
-                                    IT知識が全くない方でも簡単に広告ページの制作と配布が可能です。
-                                </div>
-                            </div>
-                        </div>
-                        <div class="panel">
-                            <div class="panel-heading">
                                 <a data-toggle="collapse" data-parent="#accordion-style" href="#question4" aria-expanded="false" class="collapsed">
                                 <div class="panel-title text-uppercase">
-                                    有料サービスの適正価格の設定<span class="pull-right"><i class="ion-android-add"></i></span>
+                                    広告ページの制作が誰でも簡単にできます。<span class="pull-right"><i class="ion-android-add"></i></span>
                                 </div>
                                 </a> 
                             </div>
                             <div id="question4" class="panel-collapse collapse" aria-expanded="false" role="tablist">
                                 <div class="panel-body">
-                                    一部有料サービスの価額は業界最低水準の適正価額で設定しています。
+                                    IT知識が全くない方でも簡単に広告ページの制作と配布が可能です。
                                 </div>
                             </div>
                         </div>

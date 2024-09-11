@@ -14,4 +14,9 @@ class BankAccount extends Model
         'account_name',
         'status'
     ];
+
+    public function userPayments()
+    {
+        return $this->hasMany(UserPayment::class);
+    }
 }

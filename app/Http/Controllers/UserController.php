@@ -5,24 +5,27 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Alarm;
 use App\Models\Notice;
+use App\Models\Company;
 use App\Models\Message;
 use App\Models\Section;
 use App\Mail\VerifyEmail;
+use App\Models\Prefecture;
+use App\Models\BankAccount;
+use App\Models\UserPayment;
 use App\Models\Announcement;
 use Illuminate\Http\Request;
 use App\Models\Advertisement;
+use App\Models\RegisterSelector;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\URL;
 use App\Models\AdvertisementSection;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
+use App\Mail\RequestBankTransferEmail;
 use Illuminate\Support\Facades\Session;
 use App\Models\AdvertisementFooterBlock;
 use App\Models\AdvertisementHeaderBlock;
-use App\Models\Company;
-use App\Models\Prefecture;
-use App\Models\RegisterSelector;
 
 class UserController extends Controller
 {
@@ -208,6 +211,26 @@ class UserController extends Controller
     }
 
     public function purchasePlan($id) {
-        return view('users.purchase-plan');
+        $bankAccounts = BankAccount::all();
+        $requestedPlan = $id;
+        return view('users.purchase-plan', compact('bankAccounts', 'requestedPlan'));
+    }
+
+    public function bankTransferPayment(Request $request) {
+        $userPaymentId = UserPayment::create([
+            'user_id' => Auth::user()->id,
+            'bank_account_id' => $request->bankAccountId,
+            'transfer_name' => $request->transferName,
+            'transfer_at' => $request->transferAt,
+            'requested_plan' => $request->requestedPlan,
+            'status' => 0
+        ]);
+
+        $userPayment = UserPayment::with('user')->with('bankAccount')->where('id', $userPaymentId->id)->first();
+
+        Mail::to(Auth::user()->email)->send(new RequestBankTransferEmail($userPayment));
+        
+        Session::flash('warning', 'プランのアップグレードは保留中です。お支払いが完了すると、管理者が承認します。');
+        return redirect()->route('user.show.profile');
     }
 }

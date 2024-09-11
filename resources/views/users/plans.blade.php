@@ -59,7 +59,7 @@
               </div>
               @else
               <div class="pricing-box-bottom">
-                <a class="btn btn-color btn-md btn-default full-width">今すぐお試しください</a>
+                <a class="btn btn-color btn-md btn-default full-width" href="{{ route('user.purchase.plan', 1) }}">今すぐお試しください</a>
               </div>
               @endif
             </div>
@@ -93,7 +93,7 @@
               </div>
               @else
               <div class="pricing-box-bottom">
-                <a class="btn btn-color btn-md btn-default full-width">今すぐお試しください</a>
+                <a class="btn btn-color btn-md btn-default full-width" href="{{ route('user.purchase.plan', 2) }}">今すぐお試しください</a>
               </div>
               @endif
             </div>

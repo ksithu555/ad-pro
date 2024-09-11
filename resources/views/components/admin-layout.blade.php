@@ -100,7 +100,7 @@
             </a>
             <ul class="dropdown-menu">
               <li><a href="shop-standard.html">One</a></li>
-              <li><a href="shop-fullwidth.html">Two</a></li>
+              <li><a href="{{ route('admin.get.bank.accounts') }}">銀行口座</a></li>
               <li><a href="{{ route('admin.change.password') }}">パスワード変更</a></li>
               <li>
                 <div class="tr-modal-popup">

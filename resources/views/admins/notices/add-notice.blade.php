@@ -69,7 +69,7 @@
         }
 
         function submitForm() {
-            document.getElementById('confirmed').value = '1';console.log("here");
+            document.getElementById('confirmed').value = '1';
             document.getElementById('add-notice-form').submit();
         }
 

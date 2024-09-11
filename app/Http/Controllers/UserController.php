@@ -206,4 +206,8 @@ class UserController extends Controller
     public function getPlans() {
         return view('users.plans');
     }
+
+    public function purchasePlan($id) {
+        return view('users.purchase-plan');
+    }
 }

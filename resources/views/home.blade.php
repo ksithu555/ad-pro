@@ -131,14 +131,14 @@
                         <!--== Slide ==-->
                         <div class="testimonial-item">
                             <div class="testimonial-content">
-                                <img class="img-responsive img-circle text-center" src="{{ asset('assets/images/clients/co01.png') }}" alt="avatar-1"/>
+                                <img class="img-responsive img-circle text-center" src="{{ asset('assets/images/clients/com01.png') }}" alt="avatar-1"/>
                                 <p class="mt-20 line-height-26 font-14px">ソフトウェア知識が全くなくても、簡単に広告ページを作成しウェブに公開しました！</p>
                                 <h5 class="font-700 mb-0">A社</h5>
                                 <span class="default-color font-14px">SEO Manager</span>
                                 <ul class="social-default-no-border mt-20 mb-20">
-                                    <li><a href="#" class="facebook"><i class="icofont icofont-social-facebook"></i></a></li>
-                                    <li><a href="#" class="twitter"><i class="icofont icofont-social-twitter"></i></a></li>
-                                    <li><a href="#" class="behance"><i class="icofont icofont-social-behance"></i></a></li>
+                                    <li><a href="https://www.facebook.com/" target="_blank" class="facebook"><i class="icofont icofont-social-facebook"></i></a></li>
+                                    <li><a href="https://x.com/" target="_blank" class="twitter"><i class="icofont icofont-social-twitter"></i></a></li>
+                                    <li><a href="https://www.instagram.com/" target="_blank" class="instagram"><i class="icofont icofont-social-instagram"></i></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -147,14 +147,14 @@
                         <!--== Slide ==-->
                         <div class="testimonial-item">
                             <div class="testimonial-content">
-                                <img class="img-responsive img-circle text-center" src="{{ asset('assets/images/clients/co02.png') }}" alt="avatar-2"/>
+                                <img class="img-responsive img-circle text-center" src="{{ asset('assets/images/clients/com02.png') }}" alt="avatar-2"/>
                                 <p class="mt-20 line-height-26 font-14px">無料の商談メッセージ機能を利用して愛想がいい協業会社を複数社見つけました！</p>
                                 <h5 class="font-700 mb-0">B社                                </h5>
                                 <span class="default-color font-14px">Head of Product</span>
                                 <ul class="social-default-no-border mt-20 mb-20">
-                                    <li><a href="#" class="facebook"><i class="icofont icofont-social-facebook"></i></a></li>
-                                    <li><a href="#" class="twitter"><i class="icofont icofont-social-twitter"></i></a></li>
-                                    <li><a href="#" class="behance"><i class="icofont icofont-social-behance"></i></a></li>
+                                    <li><a href="https://www.facebook.com/" target="_blank" class="facebook"><i class="icofont icofont-social-facebook"></i></a></li>
+                                    <li><a href="https://x.com/" target="_blank" class="twitter"><i class="icofont icofont-social-twitter"></i></a></li>
+                                    <li><a href="https://www.instagram.com/" target="_blank" class="instagram"><i class="icofont icofont-social-instagram"></i></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -162,14 +162,14 @@
                     <div class="col-md-4 col-sm-6 col-xs-12">
                         <!--== Slide ==-->
                         <div class="testimonial-item">
-                            <div class="testimonial-content"> <img class="img-responsive img-circle" src="{{ asset('assets/images/clients/co03.png') }}" alt="avatar-1"/>
+                            <div class="testimonial-content"> <img class="img-responsive img-circle" src="{{ asset('assets/images/clients/com03.png') }}" alt="avatar-1"/>
                                 <p class="mt-20 line-height-26 font-14px">無料の情報広場機能を利用し弊社商品とサービスを情報を発信し注目を集めました！</p>
                                 <h5 class="font-700 mb-0">C社</h5>
                                 <span class="default-color font-14px">CEO / Founder</span>
                                 <ul class="social-default-no-border mt-20 mb-20">
-                                    <li><a href="#" class="facebook"><i class="icofont icofont-social-facebook"></i></a></li>
-                                    <li><a href="#" class="twitter"><i class="icofont icofont-social-twitter"></i></a></li>
-                                    <li><a href="#" class="behance"><i class="icofont icofont-social-behance"></i></a></li>
+                                    <li><a href="https://www.facebook.com/" target="_blank" class="facebook"><i class="icofont icofont-social-facebook"></i></a></li>
+                                    <li><a href="https://x.com/" target="_blank" class="twitter"><i class="icofont icofont-social-twitter"></i></a></li>
+                                    <li><a href="https://www.instagram.com/" target="_blank" class="instagram"><i class="icofont icofont-social-instagram"></i></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -318,7 +318,7 @@
     <div class="container">
         <div class="row mt-30">
             <div class="col-lg-8 col-md-8 col-sm-10 col-xs-12 centerize-col text-center white-color">
-              <h5 class="text-uppercase font-600 mb-30 font-40px">ソフトウェア開発知識が全くなくても広告ページを簡単に作成しウェブに公開できます。</h5>
+              <h5 class="text-uppercase font-600 mb-30" style="font-size: 34px;">ソフトウェア開発知識が全くなくても広告ページを簡単に作成しウェブに公開できます。</h5>
               <a class="btn btn-md btn-light-outline btn-circle" href="{{ route('user.show.login') }}">さあ、今すぐ始めましょう！</a>
             </div>
         </div>

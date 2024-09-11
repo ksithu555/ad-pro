@@ -169,6 +169,7 @@ Route::group(['middleware' => ['user']], function () {
 
     // Plan
     Route::get('user/plans', [UserController::class, 'getPlans'])->name('user.get.plans');
+    Route::get('/user/purchase/plan/{id}', [UserController::class, 'purchasePlan'])->name('user.purchase.plan');
 });
 
 // Admin
@@ -267,10 +268,18 @@ Route::group(['middleware' => ['admin']], function () {
     
     // sub admins
     Route::get('/admin/sub-admins', [AdminSubAdminController::class, 'getSubAdmins'])->name('admin.get.sub.admins');
-    Route::get('/admin/add/sub-admins', [AdminSubAdminController::class, 'addSubAdmin'])->name('admin.add.sub.admin');
-    Route::post('/admin/store/sub-admins', [AdminSubAdminController::class, 'storeSubAdmin'])->name('admin.store.sub.admin');
-    Route::get('/admin/edit/sub-admins/{id}', [AdminSubAdminController::class, 'editSubAdmin'])->name('admin.edit.sub.admin');
-    Route::post('/admin/update/sub-admins', [AdminSubAdminController::class, 'updateSubAdmin'])->name('admin.update.sub.admin');
-    Route::get('/admin/delete/sub-admins/{id}', [AdminSubAdminController::class, 'deleteSubAdmin'])->name('admin.delete.sub.admin');
+    Route::get('/admin/add/sub-admin', [AdminSubAdminController::class, 'addSubAdmin'])->name('admin.add.sub.admin');
+    Route::post('/admin/store/sub-admin', [AdminSubAdminController::class, 'storeSubAdmin'])->name('admin.store.sub.admin');
+    Route::get('/admin/edit/sub-admin/{id}', [AdminSubAdminController::class, 'editSubAdmin'])->name('admin.edit.sub.admin');
+    Route::post('/admin/update/sub-admin', [AdminSubAdminController::class, 'updateSubAdmin'])->name('admin.update.sub.admin');
+    Route::get('/admin/delete/sub-admin/{id}', [AdminSubAdminController::class, 'deleteSubAdmin'])->name('admin.delete.sub.admin');
     Route::post('/admin/update/sub-admin-status', [AdminSubAdminController::class, 'updateSubAdminStatus'])->name('admin.update.sub.admin.status');
+    // bank accounts
+    Route::get('/admin/bank-accounts', [AdminController::class, 'getBankAccounts'])->name('admin.get.bank.accounts');
+    Route::get('/admin/add/bank-account', [AdminController::class, 'addBankAccount'])->name('admin.add.bank.account');
+    Route::post('/admin/store/bank-account', [AdminController::class, 'storeBankAccount'])->name('admin.store.bank.account');
+    Route::get('/admin/edit/bank-account/{id}', [AdminController::class, 'editBankAccount'])->name('admin.edit.bank.account');
+    Route::post('/admin/update/bank-account', [AdminController::class, 'updateBankAccount'])->name('admin.update.bank.account');
+    Route::get('/admin/delete/bank-account/{id}', [AdminController::class, 'deleteBankAccount'])->name('admin.delete.bank.account');
+    Route::post('/admin/update/bank-account-status', [AdminController::class, 'updateBankAccountStatus'])->name('admin.update.bank.account.status');
 });

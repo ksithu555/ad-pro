@@ -1,9 +1,4 @@
 <x-guest-layout>
-    <style>
-        .testimonial-item .testimonial-content {
-            padding: 0 !important;
-        }
-    </style>
     <!--== Top Header Start ==-->
     <section class="pt-0 pb-0 dark-block">
         <div class="service-slider-2 slick height-650px" style="margin-bottom: 0px;">
@@ -126,13 +121,13 @@
                 </div>
             </div>
             <div class="row mt-0">
-                <div class="testimonial-style-3">
+                <div class="slick testimonial">
                     <div class="col-md-4 col-sm-6 col-xs-12">
                         <!--== Slide ==-->
                         <div class="testimonial-item">
                             <div class="testimonial-content">
                                 <img class="img-responsive img-circle text-center" src="{{ asset('assets/images/clients/com01.png') }}" alt="avatar-1"/>
-                                <p class="mt-20 line-height-26 font-14px">ソフトウェア知識が全くなくても、簡単に広告ページを作成しウェブに公開しました！</p>
+                                <p class="mt-20 line-height-26 font-14px">ソフトウェア知識が全くなくても、簡単に 広告ページを作成しウェブに公開しました！</p>
                                 <h5 class="font-700 mb-0">A社</h5>
                                 <span class="default-color font-14px">SEO Manager</span>
                                 <ul class="social-default-no-border mt-20 mb-20">
@@ -148,7 +143,7 @@
                         <div class="testimonial-item">
                             <div class="testimonial-content">
                                 <img class="img-responsive img-circle text-center" src="{{ asset('assets/images/clients/com02.png') }}" alt="avatar-2"/>
-                                <p class="mt-20 line-height-26 font-14px">無料の商談メッセージ機能を利用して愛想がいい協業会社を複数社見つけました！</p>
+                                <p class="mt-20 line-height-26 font-14px">無料の商談メッセージ機能を利用して愛想が いい協業会社を複数社見つけました！</p>
                                 <h5 class="font-700 mb-0">B社                                </h5>
                                 <span class="default-color font-14px">Head of Product</span>
                                 <ul class="social-default-no-border mt-20 mb-20">

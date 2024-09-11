@@ -190,13 +190,13 @@
                             <div class="panel-heading">
                                 <a data-toggle="collapse" data-parent="#accordion-style" href="#question1" aria-expanded="false" class="collapsed">
                                     <div class="panel-title text-uppercase">
-                                        Can I customize the fonts? <span class="pull-right"><i class="ion-android-remove"></i></span> 
+                                        完全無料のマッチング機能のご利用<span class="pull-right"><i class="ion-android-remove"></i></span> 
                                     </div>
                                 </a> 
                             </div>
                             <div id="question1" class="panel-collapse collapse in" aria-expanded="false" role="tablist">
                                 <div class="panel-body">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt maiores placeat obcaecati, beatae. Facilis dolore ipsam facere perferendis deserunt  commodi blanditiis nisi accusamus omnis, animi vel tenetur cumque, sed veritatis? 
+                                    会員同士はメッセンジャー機能を完全無料でご利用し自由にやり取りができます。
                                 </div>
                             </div>
                         </div>
@@ -204,13 +204,14 @@
                             <div class="panel-heading">
                                 <a data-toggle="collapse" data-parent="#accordion-style" href="#question2" aria-expanded="false" class="collapsed">
                                     <div class="panel-title text-uppercase">
-                                        What about blog options? <span class="pull-right"><i class="ion-android-add"></i></span>
+                                        完全無料の情報広場機能のご利用<span class="pull-right"><i class="ion-android-add"></i></span>
                                     </div>
                                 </a> 
                             </div>
                             <div id="question2" class="panel-collapse collapse" aria-expanded="false" role="tablist">
                                 <div class="panel-body">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt maiores placeat obcaecati, beatae. Facilis dolore ipsam facere perferendis deserunt  commodi blanditiis nisi accusamus omnis, animi vel tenetur cumque, sed veritatis?
+                                    セミナー、募集、販売、購入などの案件情報掲載を完全無料でご利用いただけます。<br>
+                                    買い手、売り手とも完全無料です。
                                 </div>
                             </div>
                         </div>
@@ -218,13 +219,13 @@
                             <div class="panel-heading">
                                 <a data-toggle="collapse" data-parent="#accordion-style" href="#question3" aria-expanded="false" class="collapsed">
                                 <div class="panel-title text-uppercase">
-                                    Is this template Responsive? <span class="pull-right"><i class="ion-android-add"></i></span>
+                                    自ら御社広告ページの制作が可能<span class="pull-right"><i class="ion-android-add"></i></span>
                                 </div>
                                 </a>
                             </div>
                             <div id="question3" class="panel-collapse collapse" aria-expanded="false" role="tablist">
                                 <div class="panel-body">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt maiores placeat obcaecati, beatae. Facilis dolore ipsam facere perferendis deserunt  commodi blanditiis nisi accusamus omnis, animi vel tenetur cumque, sed veritatis?
+                                    IT知識が全くない方でも簡単に広告ページの制作と配布が可能です。
                                 </div>
                             </div>
                         </div>
@@ -232,13 +233,13 @@
                             <div class="panel-heading">
                                 <a data-toggle="collapse" data-parent="#accordion-style" href="#question4" aria-expanded="false" class="collapsed">
                                 <div class="panel-title text-uppercase">
-                                    We're ready to start now? <span class="pull-right"><i class="ion-android-add"></i></span>
+                                    有料サービスの適正価格の設定<span class="pull-right"><i class="ion-android-add"></i></span>
                                 </div>
                                 </a> 
                             </div>
                             <div id="question4" class="panel-collapse collapse" aria-expanded="false" role="tablist">
                                 <div class="panel-body">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt maiores placeat obcaecati, beatae. Facilis dolore ipsam facere perferendis deserunt  commodi blanditiis nisi accusamus omnis, animi vel tenetur cumque, sed veritatis?
+                                    一部有料サービスの価額は業界最低水準の適正価額で設定しています。
                                 </div>
                             </div>
                         </div>

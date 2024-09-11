@@ -91,6 +91,10 @@ class GuestController extends Controller
         return redirect()->route('guest.one.page.advertisement', $advertisement->param_name);
     }
 
+    public function privacyPolicy() {
+        return view('privacy-policy');
+    }
+
     public function showOnePageAdvertisement($param) {
         $advertisement = Advertisement::with('advertisementSections')->with('advertisementSections.advertisement')
         ->with('advertisementSections.section')->with('advertisementSections.advertisementHeaderBlocks')

@@ -320,5 +320,4 @@
     </div>
   </section>
   <!--== Call to Actions Style 03 End ==-->
-
 </x-guest-layout>

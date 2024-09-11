@@ -30,6 +30,7 @@ Route::get('/faqs', [GuestController::class, 'faqs'])->name('guest.faqs');
 Route::get('/contact', [GuestController::class, 'contact'])->name('guest.contact');
 Route::post('/send/contact', [GuestController::class, 'sendContact'])->name('guest.send.contact');
 Route::post('/send/advertisement-contact', [GuestController::class, 'sendAdvertisementContact'])->name('guest.send.advertisement.contact');
+Route::get('/privacy-policy', [GuestController::class, 'privacyPolicy'])->name('guest.privacy.policy');
 
 Route::get('/ad/{param}', [GuestController::class, 'showOnePageAdvertisement'])->name('guest.one.page.advertisement');
 Route::get('/one-page', [GuestController::class, 'onePage']);

@@ -214,7 +214,11 @@
                                         <div class="form-group">
                                             <div class="custom-checkbox">
                                                 <input type="checkbox" id="terms" name="terms">
-                                                <label for="terms" class="pt-10">プライバシーポリシーに同意します *</label>
+                                                <label for="terms" class="pt-10">
+                                                    <a href="{{ route('guest.privacy.policy') }}">
+                                                        プライバシーポリシーに同意します *
+                                                    </a>
+                                                </label>
                                             </div>
                                             <span class="error" style="color:#BF0731" id="error-terms"></span>
                                         </div>

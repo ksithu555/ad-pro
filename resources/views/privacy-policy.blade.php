@@ -40,16 +40,11 @@
             <div class="row mt-25">
                 <div class="col-md-12 col-sm-12">
                     <div id="JapaneseVersion">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <h3>プライバシーポリシー</h3>
-                            </div>
-                        </div>
                         <div class="row mb-10">
                             <div class="col-md-12 col-sm-12">
                                 <div class="content grey-bg" style="padding: 10px 15px 10px 20px;">
-                                    <p class="mt-20" style="color: black;">
-                                        アジア人材開発株式会社（以下、当社）は個人情報保護の重要性を認識しており、
+                                    <p class="mt-20" style="color: black;font-size: 15px;">
+                                        アジア人材開発株式会社&nb（以下、当社）は個人情報保護の重要性を認識しており、
                                         関係法令および規範を遵守し、以下の個人情報保護方針を定め確実な履行に努めて参ります。
                                     </p>
                                 </div>

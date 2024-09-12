@@ -63,82 +63,84 @@ Route::group(['middleware' => ['user']], function () {
     Route::get('/user/members', [UserMemberController::class, 'getMembers'])->name('user.get.members');
     Route::get('/user/show/member-detail/{id}', [UserMemberController::class, 'showMemberDetail'])->name('user.show.member.detail');
 
-    // Advertisement
-    Route::get('/user/advertisements', [UserAdvertisementController::class, 'getAdvertisements'])->name('user.get.advertisements');
-    Route::get('/user/add/advertisement', [UserAdvertisementController::class, 'addAdvertisement'])->name('user.add.advertisement');
-    // Route::get('/user/show/advertisement', [UserAdvertisementController::class, 'showAdvertisement'])->name('user.show.advertisement');
-    Route::post('/user/store/advertisement', [UserAdvertisementController::class, 'storeAdvertisement'])->name('user.store.advertisement');
-    Route::get('/user/edit/advertisement/{id}', [UserAdvertisementController::class, 'editAdvertisement'])->name('user.edit.advertisement');
-    Route::post('/user/update/advertisement', [UserAdvertisementController::class, 'updateAdvertisement'])->name('user.update.advertisement');
-    Route::post('/user/update/advertisement-status', [UserAdvertisementController::class, 'updateAdvertisementStatus'])->name('user.update.advertisement.status');
-    Route::post('/user/update/menu-bar-status', [UserAdvertisementController::class, 'updateMenuBarStatus'])->name('user.update.menu.bar.status');
-    Route::get('/user/delete/advertisement/{id}', [UserAdvertisementController::class, 'deleteAdvertisement'])->name('user.delete.advertisement');
-    // Section
-    Route::get('/user/show/sections/{id}', [UserAdvertisementController::class, 'showSections'])->name('user.show.sections');
-    Route::get('/user/add/section/{id}', [UserAdvertisementController::class, 'addSection'])->name('user.add.section');
-    Route::post('/user/store/section', [UserAdvertisementController::class, 'storeSection'])->name('user.store.section');
-    Route::get('/user/edit/section/{id}', [UserAdvertisementController::class, 'editSection'])->name('user.edit.section');
-    Route::post('/user/update/section', [UserAdvertisementController::class, 'updateSection'])->name('user.update.section');
-    Route::post('/user/update/section-status', [UserAdvertisementController::class, 'updateSectionStatus'])->name('user.update.section.status');
-    Route::post('/user/section/order-up/{id}', [UserAdvertisementController::class, 'orderUpSection'])->name('user.section.order-up');
-    Route::post('/user/section/order-down/{id}', [UserAdvertisementController::class, 'orderDownSection'])->name('user.section.order-down');
-    Route::get('/user/delete/section/{id}', [UserAdvertisementController::class, 'deleteSection'])->name('user.delete.section');
-    Route::get('/user/preview/section/{id}', [UserAdvertisementController::class, 'previewSection'])->name('user.preview.section');
+    Route::group(['middleware' => ['user:1']], function() {
+        // Advertisement
+        Route::get('/user/advertisements', [UserAdvertisementController::class, 'getAdvertisements'])->name('user.get.advertisements');
+        Route::get('/user/add/advertisement', [UserAdvertisementController::class, 'addAdvertisement'])->name('user.add.advertisement');
+        // Route::get('/user/show/advertisement', [UserAdvertisementController::class, 'showAdvertisement'])->name('user.show.advertisement');
+        Route::post('/user/store/advertisement', [UserAdvertisementController::class, 'storeAdvertisement'])->name('user.store.advertisement');
+        Route::get('/user/edit/advertisement/{id}', [UserAdvertisementController::class, 'editAdvertisement'])->name('user.edit.advertisement');
+        Route::post('/user/update/advertisement', [UserAdvertisementController::class, 'updateAdvertisement'])->name('user.update.advertisement');
+        Route::post('/user/update/advertisement-status', [UserAdvertisementController::class, 'updateAdvertisementStatus'])->name('user.update.advertisement.status');
+        Route::post('/user/update/menu-bar-status', [UserAdvertisementController::class, 'updateMenuBarStatus'])->name('user.update.menu.bar.status');
+        Route::get('/user/delete/advertisement/{id}', [UserAdvertisementController::class, 'deleteAdvertisement'])->name('user.delete.advertisement');
+        // Section
+        Route::get('/user/show/sections/{id}', [UserAdvertisementController::class, 'showSections'])->name('user.show.sections');
+        Route::get('/user/add/section/{id}', [UserAdvertisementController::class, 'addSection'])->name('user.add.section');
+        Route::post('/user/store/section', [UserAdvertisementController::class, 'storeSection'])->name('user.store.section');
+        Route::get('/user/edit/section/{id}', [UserAdvertisementController::class, 'editSection'])->name('user.edit.section');
+        Route::post('/user/update/section', [UserAdvertisementController::class, 'updateSection'])->name('user.update.section');
+        Route::post('/user/update/section-status', [UserAdvertisementController::class, 'updateSectionStatus'])->name('user.update.section.status');
+        Route::post('/user/section/order-up/{id}', [UserAdvertisementController::class, 'orderUpSection'])->name('user.section.order-up');
+        Route::post('/user/section/order-down/{id}', [UserAdvertisementController::class, 'orderDownSection'])->name('user.section.order-down');
+        Route::get('/user/delete/section/{id}', [UserAdvertisementController::class, 'deleteSection'])->name('user.delete.section');
+        Route::get('/user/preview/section/{id}', [UserAdvertisementController::class, 'previewSection'])->name('user.preview.section');
 
-    // Block
-    Route::get('/user/show/section/{id}/blocks', [UserAdvertisementController::class, 'showSectionBlocks'])->name('user.show.section.blocks');
-    // Header Block
-    Route::get('/user/add/section/{id}/header-block', [UserAdvertisementController::class, 'addHeaderBlock'])->name('user.add.header.block');
-    Route::post('/user/store/section/header-block', [UserAdvertisementController::class, 'storeHeaderBlock'])->name('user.store.header.block');
-    Route::get('/user/edit/section/header-block/{id}', [UserAdvertisementController::class, 'editHeaderBlock'])->name('user.edit.header.block');
-    Route::post('/user/update/section/header-block', [UserAdvertisementController::class, 'updateHeaderBlock'])->name('user.update.header.block');
-    Route::get('/user/delete/section/header-block/{id}', [UserAdvertisementController::class, 'deleteHeaderBlock'])->name('user.delete.header.block');
-    Route::post('/user/update/section/header-block-status', [UserAdvertisementController::class, 'updateHeaderBlockStatus'])->name('user.update.section.header.block.status');
-    // Footer Block
-    Route::get('/user/add/section/{id}/footer-block', [UserAdvertisementController::class, 'addFooterBlock'])->name('user.add.footer.block');
-    Route::post('/user/store/section/footer-block', [UserAdvertisementController::class, 'storeFooterBlock'])->name('user.store.footer.block');
-    Route::get('/user/edit/section/footer-block/{id}', [UserAdvertisementController::class, 'editFooterBlock'])->name('user.edit.footer.block');
-    Route::post('/user/update/section/footer-block', [UserAdvertisementController::class, 'updateFooterBlock'])->name('user.update.footer.block');
-    Route::get('/user/delete/section/footer-block/{id}', [UserAdvertisementController::class, 'deleteFooterBlock'])->name('user.delete.footer.block');
-    Route::post('/user/update/section/footer-block-status', [UserAdvertisementController::class, 'updateFooterBlockStatus'])->name('user.update.section.footer.block.status');
-    // List Block
-    Route::get('/user/add/section/{id}/list-block', [UserAdvertisementController::class, 'addListBlock'])->name('user.add.list.block');
-    Route::post('/user/store/section/list-block', [UserAdvertisementController::class, 'storeListBlock'])->name('user.store.list.block');
-    Route::get('/user/edit/section/list-block/{id}', [UserAdvertisementController::class, 'editListBlock'])->name('user.edit.list.block');
-    Route::post('/user/update/section/list-block', [UserAdvertisementController::class, 'updateListBlock'])->name('user.update.list.block');
-    Route::get('/user/delete/section/list-block/{id}', [UserAdvertisementController::class, 'deleteListBlock'])->name('user.delete.list.block');
-    Route::post('/user/update/section/list-block-status', [UserAdvertisementController::class, 'updateListBlockStatus'])->name('user.update.section.list.block.status');
-    // Box Block
-    Route::get('/user/add/section/{id}/box-block', [UserAdvertisementController::class, 'addBoxBlock'])->name('user.add.box.block');
-    Route::post('/user/store/section/box-block', [UserAdvertisementController::class, 'storeBoxBlock'])->name('user.store.box.block');
-    Route::get('/user/edit/section/box-block/{id}', [UserAdvertisementController::class, 'editBoxBlock'])->name('user.edit.box.block');
-    Route::post('/user/update/section/box-block', [UserAdvertisementController::class, 'updateBoxBlock'])->name('user.update.box.block');
-    Route::get('/user/delete/section/box-block/{id}', [UserAdvertisementController::class, 'deleteBoxBlock'])->name('user.delete.box.block');
-    Route::post('/user/update/section/box-block-status', [UserAdvertisementController::class, 'updateBoxBlockStatus'])->name('user.update.section.box.block.status');
-    // Accordion Block
-    Route::get('/user/add/section/{id}/accordion-block', [UserAdvertisementController::class, 'addAccordionBlock'])->name('user.add.accordion.block');
-    Route::post('/user/store/section/accordion-block', [UserAdvertisementController::class, 'storeAccordionBlock'])->name('user.store.accordion.block');
-    Route::get('/user/edit/section/accordion-block/{id}', [UserAdvertisementController::class, 'editAccordionBlock'])->name('user.edit.accordion.block');
-    Route::post('/user/update/section/accordion-block', [UserAdvertisementController::class, 'updateAccordionBlock'])->name('user.update.accordion.block');
-    Route::get('/user/delete/section/accordion-block/{id}', [UserAdvertisementController::class, 'deleteAccordionBlock'])->name('user.delete.accordion.block');
-    Route::post('/user/update/section/accordion-block-status', [UserAdvertisementController::class, 'updateAccordionBlockStatus'])->name('user.update.section.accordion.block.status');
+        // Block
+        Route::get('/user/show/section/{id}/blocks', [UserAdvertisementController::class, 'showSectionBlocks'])->name('user.show.section.blocks');
+        // Header Block
+        Route::get('/user/add/section/{id}/header-block', [UserAdvertisementController::class, 'addHeaderBlock'])->name('user.add.header.block');
+        Route::post('/user/store/section/header-block', [UserAdvertisementController::class, 'storeHeaderBlock'])->name('user.store.header.block');
+        Route::get('/user/edit/section/header-block/{id}', [UserAdvertisementController::class, 'editHeaderBlock'])->name('user.edit.header.block');
+        Route::post('/user/update/section/header-block', [UserAdvertisementController::class, 'updateHeaderBlock'])->name('user.update.header.block');
+        Route::get('/user/delete/section/header-block/{id}', [UserAdvertisementController::class, 'deleteHeaderBlock'])->name('user.delete.header.block');
+        Route::post('/user/update/section/header-block-status', [UserAdvertisementController::class, 'updateHeaderBlockStatus'])->name('user.update.section.header.block.status');
+        // Footer Block
+        Route::get('/user/add/section/{id}/footer-block', [UserAdvertisementController::class, 'addFooterBlock'])->name('user.add.footer.block');
+        Route::post('/user/store/section/footer-block', [UserAdvertisementController::class, 'storeFooterBlock'])->name('user.store.footer.block');
+        Route::get('/user/edit/section/footer-block/{id}', [UserAdvertisementController::class, 'editFooterBlock'])->name('user.edit.footer.block');
+        Route::post('/user/update/section/footer-block', [UserAdvertisementController::class, 'updateFooterBlock'])->name('user.update.footer.block');
+        Route::get('/user/delete/section/footer-block/{id}', [UserAdvertisementController::class, 'deleteFooterBlock'])->name('user.delete.footer.block');
+        Route::post('/user/update/section/footer-block-status', [UserAdvertisementController::class, 'updateFooterBlockStatus'])->name('user.update.section.footer.block.status');
+        // List Block
+        Route::get('/user/add/section/{id}/list-block', [UserAdvertisementController::class, 'addListBlock'])->name('user.add.list.block');
+        Route::post('/user/store/section/list-block', [UserAdvertisementController::class, 'storeListBlock'])->name('user.store.list.block');
+        Route::get('/user/edit/section/list-block/{id}', [UserAdvertisementController::class, 'editListBlock'])->name('user.edit.list.block');
+        Route::post('/user/update/section/list-block', [UserAdvertisementController::class, 'updateListBlock'])->name('user.update.list.block');
+        Route::get('/user/delete/section/list-block/{id}', [UserAdvertisementController::class, 'deleteListBlock'])->name('user.delete.list.block');
+        Route::post('/user/update/section/list-block-status', [UserAdvertisementController::class, 'updateListBlockStatus'])->name('user.update.section.list.block.status');
+        // Box Block
+        Route::get('/user/add/section/{id}/box-block', [UserAdvertisementController::class, 'addBoxBlock'])->name('user.add.box.block');
+        Route::post('/user/store/section/box-block', [UserAdvertisementController::class, 'storeBoxBlock'])->name('user.store.box.block');
+        Route::get('/user/edit/section/box-block/{id}', [UserAdvertisementController::class, 'editBoxBlock'])->name('user.edit.box.block');
+        Route::post('/user/update/section/box-block', [UserAdvertisementController::class, 'updateBoxBlock'])->name('user.update.box.block');
+        Route::get('/user/delete/section/box-block/{id}', [UserAdvertisementController::class, 'deleteBoxBlock'])->name('user.delete.box.block');
+        Route::post('/user/update/section/box-block-status', [UserAdvertisementController::class, 'updateBoxBlockStatus'])->name('user.update.section.box.block.status');
+        // Accordion Block
+        Route::get('/user/add/section/{id}/accordion-block', [UserAdvertisementController::class, 'addAccordionBlock'])->name('user.add.accordion.block');
+        Route::post('/user/store/section/accordion-block', [UserAdvertisementController::class, 'storeAccordionBlock'])->name('user.store.accordion.block');
+        Route::get('/user/edit/section/accordion-block/{id}', [UserAdvertisementController::class, 'editAccordionBlock'])->name('user.edit.accordion.block');
+        Route::post('/user/update/section/accordion-block', [UserAdvertisementController::class, 'updateAccordionBlock'])->name('user.update.accordion.block');
+        Route::get('/user/delete/section/accordion-block/{id}', [UserAdvertisementController::class, 'deleteAccordionBlock'])->name('user.delete.accordion.block');
+        Route::post('/user/update/section/accordion-block-status', [UserAdvertisementController::class, 'updateAccordionBlockStatus'])->name('user.update.section.accordion.block.status');
 
-    // Sub Block
-    Route::get('/user/show/{type}/block/{id}/sub-blocks', [UserAdvertisementController::class, 'showBlockSubBlocks'])->name('user.show.block.sub.blocks');
-    // Sub Box Block
-    Route::get('/user/add/box-block/{id}/sub-box-block', [UserAdvertisementController::class, 'addSubBoxBlock'])->name('user.add.sub.box.block');
-    Route::post('/user/store/box-block/sub-box-block', [UserAdvertisementController::class, 'storeSubBoxBlock'])->name('user.store.sub.box.block');
-    Route::get('/user/edit/box-block/sub-box-block/{id}', [UserAdvertisementController::class, 'editSubBoxBlock'])->name('user.edit.sub.box.block');
-    Route::post('/user/update/box-block/sub-box-block', [UserAdvertisementController::class, 'updateSubBoxBlock'])->name('user.update.sub.box.block');
-    Route::get('/user/delete/box-block/sub-box-block/{id}', [UserAdvertisementController::class, 'deleteSubBoxBlock'])->name('user.delete.sub.box.block');
-    Route::post('/user/update/box-block/sub-box-block-status', [UserAdvertisementController::class, 'updateSubBoxBlockStatus'])->name('user.update.box.block.sub.box.block.status');
-    // Sub Accordion Block
-    Route::get('/user/add/accordion-block/{id}/sub-accordion-block', [UserAdvertisementController::class, 'addSubAccordionBlock'])->name('user.add.sub.accordion.block');
-    Route::post('/user/store/accordion-block/sub-accordion-block', [UserAdvertisementController::class, 'storeSubAccordionBlock'])->name('user.store.sub.accordion.block');
-    Route::get('/user/edit/accordion-block/sub-accordion-block/{id}', [UserAdvertisementController::class, 'editSubAccordionBlock'])->name('user.edit.sub.accordion.block');
-    Route::post('/user/update/accordion-block/sub-accordion-block', [UserAdvertisementController::class, 'updateSubAccordionBlock'])->name('user.update.sub.accordion.block');
-    Route::get('/user/delete/accordion-block/sub-accordion-block/{id}', [UserAdvertisementController::class, 'deleteSubAccordionBlock'])->name('user.delete.sub.accordion.block');
-    Route::post('/user/update/accordion-block/sub-accordion-block-status', [UserAdvertisementController::class, 'updateSubAccordionBlockStatus'])->name('user.update.accordion.block.sub.accordion.block.status');
+        // Sub Block
+        Route::get('/user/show/{type}/block/{id}/sub-blocks', [UserAdvertisementController::class, 'showBlockSubBlocks'])->name('user.show.block.sub.blocks');
+        // Sub Box Block
+        Route::get('/user/add/box-block/{id}/sub-box-block', [UserAdvertisementController::class, 'addSubBoxBlock'])->name('user.add.sub.box.block');
+        Route::post('/user/store/box-block/sub-box-block', [UserAdvertisementController::class, 'storeSubBoxBlock'])->name('user.store.sub.box.block');
+        Route::get('/user/edit/box-block/sub-box-block/{id}', [UserAdvertisementController::class, 'editSubBoxBlock'])->name('user.edit.sub.box.block');
+        Route::post('/user/update/box-block/sub-box-block', [UserAdvertisementController::class, 'updateSubBoxBlock'])->name('user.update.sub.box.block');
+        Route::get('/user/delete/box-block/sub-box-block/{id}', [UserAdvertisementController::class, 'deleteSubBoxBlock'])->name('user.delete.sub.box.block');
+        Route::post('/user/update/box-block/sub-box-block-status', [UserAdvertisementController::class, 'updateSubBoxBlockStatus'])->name('user.update.box.block.sub.box.block.status');
+        // Sub Accordion Block
+        Route::get('/user/add/accordion-block/{id}/sub-accordion-block', [UserAdvertisementController::class, 'addSubAccordionBlock'])->name('user.add.sub.accordion.block');
+        Route::post('/user/store/accordion-block/sub-accordion-block', [UserAdvertisementController::class, 'storeSubAccordionBlock'])->name('user.store.sub.accordion.block');
+        Route::get('/user/edit/accordion-block/sub-accordion-block/{id}', [UserAdvertisementController::class, 'editSubAccordionBlock'])->name('user.edit.sub.accordion.block');
+        Route::post('/user/update/accordion-block/sub-accordion-block', [UserAdvertisementController::class, 'updateSubAccordionBlock'])->name('user.update.sub.accordion.block');
+        Route::get('/user/delete/accordion-block/sub-accordion-block/{id}', [UserAdvertisementController::class, 'deleteSubAccordionBlock'])->name('user.delete.sub.accordion.block');
+        Route::post('/user/update/accordion-block/sub-accordion-block-status', [UserAdvertisementController::class, 'updateSubAccordionBlockStatus'])->name('user.update.accordion.block.sub.accordion.block.status');
+    });
 
     // Material
     Route::get('/user/materials', [UserMaterialController::class, 'getMaterials'])->name('user.get.materials');

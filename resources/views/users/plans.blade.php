@@ -8,6 +8,11 @@
         	</div>
         </div>
         <div class="row">
+            <div class="col-sm-8 section-heading">
+                <x-message-box></x-message-box>
+            </div>
+          </div>
+        <div class="row">
           <div class="col-md-4 pricing-table col-sm-4">
             <div class="pricing-box">
               <h3 style="color: #5f9ea0;">無料</h3>

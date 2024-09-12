@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Auth;
 class UserMaterialController extends Controller
 {
     public function getMaterials() {
-        $materials = Material::where('required_plan', '<=', Auth::user()->plan_status)->where('status', 1)->get();
+        $materials = Material::where('status', 1)->get();
         $types = $materials->pluck('type')->unique();
         return view('users.materials.materials', compact('materials', 'types'));
     }

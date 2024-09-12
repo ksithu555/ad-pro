@@ -10,6 +10,7 @@ class Material extends Model
         'type',
         'name',
         'image',
+        'required_plan',
         'status'
     ];
 }

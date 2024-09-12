@@ -38,6 +38,7 @@
                             <th style="min-width: 110px;">タイプ</th>
                             <th>名前</th>
                             <th>画像</th>
+                            <th>必要なプラン</th>
                             <th>ステータス</th>
                             <th style="min-width: 110px;">アクション</th>
                             </tr>
@@ -59,6 +60,19 @@
                                 </td>
                                 <td>
                                     <img src="{{ asset('assets/images/all/' . $material->image ) }}" alt=""> 
+                                </td>
+                                <td>
+                                    @switch($material->required_plan)
+                                        @case(0)
+                                            <span class="custom-badge free-badge">無料</span>
+                                            @break
+                                        @case(1)
+                                            <span class="custom-badge silver-badge">シルバー</span>
+                                            @break
+                                        @case(2)
+                                            <span class="custom-badge gold-badge">ゴールド</span>
+                                            @break
+                                    @endswitch
                                 </td>
                                 <td style="min-width: 110px;">
                                     <label class="toggle-switch">

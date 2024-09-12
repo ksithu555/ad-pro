@@ -21,7 +21,7 @@ class AdminMaterialController extends Controller
         return view('admins.materials.add-material');
     }
 
-    public function storeMaterial(Request $request) {
+    public function storeMaterial(Request $request) {dd($request->all());
         if (!empty($request->image)) {
             $originalName = pathinfo($request->image->getClientOriginalName(), PATHINFO_FILENAME);
             $imageName = $originalName . '_' . time() . '.' . $request->image->extension();
@@ -34,6 +34,7 @@ class AdminMaterialController extends Controller
             'type' => $request->type,
             'name' => $request->name,
             'image' => $imageName,
+            'required_plan' => $request->requiredPlan,
             'status' => 0
         ]);
         Session::flash('success', '素材が正常に追加されました');
@@ -48,7 +49,8 @@ class AdminMaterialController extends Controller
     public function updateMaterial(Request $request) {
         $updateData = [
             'type' => $request->type,
-            'name' => $request->name
+            'name' => $request->name,
+            'required_plan' => $request->requiredPlan,
         ];
 
         if (!empty($request->image)) {

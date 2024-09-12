@@ -44,6 +44,18 @@
                     </div>
                     <div class="row">
                         <div class="col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2">
+                            <div class="form-group">
+                                <select name="requiredPlan" class="orderby type md-input">
+                                    <option value="0" @if($material->required_plan == '0')selected="selected"@endif>無料</option>
+                                    <option value="1" @if($material->required_plan == '1')selected="selected"@endif>シルバー</option>
+                                    <option value="2" @if($material->required_plan == '2')selected="selected"@endif>ゴールド</option>
+                                </select>
+                                <span class="error" style="color:#BF0731" id="error-type"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2">
                             <div class="text-center">
                                 <input type="hidden" id="confirmed" name="confirmed" value="0">
                                 <div class="tr-modal-popup">

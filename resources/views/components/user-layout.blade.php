@@ -103,7 +103,14 @@
                     $defaultColor = 'default-color';
                   }
               @endphp
-              <i class="icofont icofont-user-alt-4 {{ $defaultColor }}"></i> {{ Auth::user()->name }}
+              <i class="icofont icofont-user-alt-4 {{ $defaultColor }}"></i>
+              @if (Auth::user()->plan_status == 0)
+                <span class="custom-badge free-badge">{{ Auth::user()->name }}</span>
+              @elseif (Auth::user()->plan_status == 1)
+                <span class="custom-badge silver-badge">{{ Auth::user()->name }}</span>
+              @elseif (Auth::user()->plan_status == 2)
+                <span class="custom-badge gold-badge">{{ Auth::user()->name }}</span>
+              @endif
             </a>
             <ul class="dropdown-menu">
               <li><a href="{{ route('user.show.profile') }}">プロフィール</a></li>

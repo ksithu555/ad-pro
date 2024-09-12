@@ -54,9 +54,12 @@
                                                 src="{{ asset('assets/images/all/message-theme.webp') }}" alt=""/></div>
                                             <div class="col-md-6 col-sm-12">
                                                 <div class="col-inner spacer text-center">
-                                                    <h3 class="mt-20 text-uppercase">商談するためメッセージ</h3>
+                                                    <h3 class="mt-20 text-uppercase">商談コーナー</h3>
                                                     <hr class="dark-bg center_line bold-line">
-                                                    <h6 class="mt-30">「商談するためのメッセージ」は、ビジネスにおいて重要なコミュニケーション手段です。効率的な商談は、相手との信頼関係を築き、ビジネスチャンスを最大限に引き出すために不可欠です。適切なメッセージのやり取りは、迅速で正確な情報共有を可能にし、交渉をスムーズに進める助けとなります。</h6>
+                                                    <h6 class="mt-30">メッセンジャーは、ビジネスにおいて重要なコミュニケーションツールです。
+                                                        メッセンジャーやり取りで、相手方と信頼関係を築き、新しいビジネスチャンスを引き出すことができます。
+                                                        当サービスを利用して相手方とビジネス情報を共有してみてください。
+                                                        </h6>
                                                 </div>
                                             </div>
                                         </div>

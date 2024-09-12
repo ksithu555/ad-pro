@@ -128,14 +128,14 @@
                 <div class="content-wrap">
                   <i class="icon-map-pin font-40px default-color"></i>
                   <h4 class="font-600">Contact Address</h4>
-                  <p class="font-400 mt-20">4-27-5 Ikebukuro,<br> Toshima-ku, Tokyo</p>
+                  <p class="font-400 mt-20">東京都豊島区池袋4-27-5</p>
                 </div>
               </div>
               <div class="box-back height-300px grey-bg">
                 <div class="content-wrap">
                   <i class="icon-map-pin font-40px default-color"></i>
                   <h4 class="font-600">Contact Address</h4>
-                  <p class="font-400 mt-20">4-27-5 Ikebukuro,<br> Toshima-ku, Tokyo</p>
+                  <p class="font-400 mt-20">東京都豊島区池袋4-27-5</p>
                 </div>
               </div>
             </div>

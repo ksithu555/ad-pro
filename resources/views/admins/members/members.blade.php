@@ -26,6 +26,7 @@
                                     <th>会社前</th>
                                     <th>会員前</th>
                                     <th>メール</th>
+                                    <th>プラン</th>
                                     <th>ステータス</th>
                                     <th style="min-width: 110px;">ビュー</th>
                                 </tr>
@@ -48,6 +49,53 @@
                                     <td>
                                         {{ $user->email }}
                                     </td>
+                                    <td>
+                                        @php
+                                            $userPayment = $user->userPayments
+                                                ->whereNull('plan_start')
+                                                ->whereNull('plan_end')
+                                                ->first();
+                                        @endphp
+                                    
+                                        @if ($userPayment)
+                                            @switch($userPayment->requested_plan)
+                                                @case(1)
+                                                    <div class="tr-modal-popup">
+                                                        <a href="#modal-popup-{{ $user->id }}" data-effect="mfp-newspaper">
+                                                            <span class="custom-badge silver-badge">承認待ち（シルバー）</span>
+                                                        </a>
+                                                    </div>
+                                                    @break
+                                                @case(2)
+                                                    <div class="tr-modal-popup">
+                                                        <a href="#modal-popup-{{ $user->id }}" data-effect="mfp-newspaper">
+                                                            <span class="custom-badge gold-badge">承認待ち（ゴールド）</span>
+                                                        </a>
+                                                    </div>
+                                                    @break
+                                            @endswitch
+                                            <!-- Modal Popup Message Box -->
+                                            <div id="modal-popup-{{ $user->id }}" class="white-bg all-padding-60 mfp-with-anim mfp-hide centerize-col col-lg-4 col-md-6 col-sm-7 col-xs-11 text-center">
+                                                <span class="text-uppercase font-30px font-600 mb-20 display-block dark-color">プランのアップグレード承認</span>
+                                                <p class="mb-20">プランのアップグレードを承認してもよろしいですか?</p>
+                                                <a class="btn btn-md btn-circle btn-dark" href="{{ route('admin.reject.bank.transfer', $userPayment->id) }}">Reject</a>
+                                                <a class="btn btn-md btn-circle btn-color" href="{{ route('admin.approve.bank.transfer', $userPayment->id) }}">Yes</a>
+                                                <a class="btn btn-md btn-circle btn-secondary-color popup-modal-close" href="#">No</a>
+                                            </div>
+                                        @else
+                                            @switch($user->plan_status)
+                                                @case(0)
+                                                    <span class="custom-badge free-badge">無料</span>
+                                                    @break
+                                                @case(1)
+                                                    <span class="custom-badge silver-badge">シルバー</span>
+                                                    @break
+                                                @case(2)
+                                                    <span class="custom-badge gold-badge">ゴールド</span>
+                                                    @break
+                                            @endswitch
+                                        @endif
+                                    </td>                                    
                                     <td>
                                         <label class="toggle-switch">
                                             <input type="checkbox" data-id="{{ $user->id }}" class="status-toggle" {{ $user->status == 1 ? 'checked' : '' }}>

@@ -46,7 +46,11 @@
                                                             {{ $alarm->alarm }}
                                                         </td>
                                                         <td>
-                                                            {{ $alarm->sender->name }}
+                                                            @if ($alarm->sender)
+                                                                {{ $alarm->sender->name }}
+                                                            @else
+                                                                管理者
+                                                            @endif
                                                         </td>
                                                         <td>
                                                             {{ $alarm->updated_at->format('Y-m-d H:i:s') }}

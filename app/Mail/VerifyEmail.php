@@ -32,7 +32,7 @@ class VerifyEmail extends Mailable
     public function build()
     {
         return $this->view('emails.verify-email')
-                    ->subject('Email Verification')
+                    ->subject('メール認証')
                     ->with([
                         'user' => $this->user,
                         'verificationUrl' => $this->verificationUrl,

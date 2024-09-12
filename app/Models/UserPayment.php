@@ -14,6 +14,8 @@ class UserPayment extends Model
         'requested_plan',
         'plan_start',
         'plan_end',
+        'amount',
+        'paid',
         'status'
     ];
 

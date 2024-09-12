@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Request For Bank Transfer</title>
+    <title>Bank Transfer Alert</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -53,14 +53,17 @@
 <body>
     <div class="email-container">
         <div class="header">
-            ADPROからの銀行振込依頼
+            ADPROからの銀行振込アラート
         </div>
         <div class="content">
             <div class="important-info">
                 <p>
-                    <strong>{{ $userPayment->requested_plan == 1 ? 'シルバープラン' : 'ゴールドプラン' }}
-                        の合計金額は{{ $userPayment->requested_plan == 1 ? '¥ 3,300' : '¥ 5,500' }}です。
-                        以下の銀行口座にお振込みください。
+                    <strong>
+                        会員{{ $userPayment->user->name }}様が{{ $userPayment->requested_plan == 1 ? 'シルバープラン（¥3,300）' : 'ゴールドプラン（¥5,500）' }}を申し込みされました。
+                        お客様は「{{ $userPayment->transfer_name }}」の名義で
+                        {{ \Carbon\Carbon::parse($userPayment->transfer_at)->format('Y-m-d') }} に
+                        合計金額（¥ {{ number_format($userPayment->amount) }}）を銀行振込を予定しています。
+                        振込先の銀行口座情報は以下の通りです。
                     </strong>
                 </p>
             </div>
@@ -74,17 +77,7 @@
             </div>
 
             <div class="important-info">
-                <p><strong>振込者名が以下の口座名義と一致していることを確認してください。</strong></p>
-            </div>
-
-            <div class="bank-details">
-                <p><strong>振込者名:</strong> {{ $userPayment->transfer_name }}</p>
-                <p><strong>予定振込日:</strong> {{ \Carbon\Carbon::parse($userPayment->transfer_at)->format('Y-m-d') }} </p>
-                <p><strong>合計金額:</strong> ¥ {{ number_format($userPayment->amount) }}</p>
-            </div>
-
-            <div class="important-info">
-                <p>振込手続きが完了した後、管理者があなたのリクエストを承認します。</p>
+                <p><strong>お振込の確認をお願いいたします。</strong></p>
             </div>
         </div>
         <div class="footer">

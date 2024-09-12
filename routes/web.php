@@ -172,6 +172,7 @@ Route::group(['middleware' => ['user']], function () {
     Route::get('user/plans', [UserController::class, 'getPlans'])->name('user.get.plans');
     Route::get('/user/purchase/plan/{id}', [UserController::class, 'purchasePlan'])->name('user.purchase.plan');
     Route::post('/user/bank-transfer-payment', [UserController::class, 'bankTransferPayment'])->name('user.bank.transfer.payment');
+    Route::post('/user/complete-payment', [UserController::class, 'completePayment'])->name('user.complete.payment');
 });
 
 // Admin
@@ -222,6 +223,8 @@ Route::group(['middleware' => ['admin']], function () {
     Route::get('/admin/show/member/{id}/detail', [AdminMemberController::class, 'showMemberDetail'])->name('admin.show.member.detail');
     Route::post('/admin/update/member-status', [AdminMemberController::class, 'updateMemberStatus'])->name('admin.update.member.status');
     Route::get('/admin/check/member/{id}/messages', [AdminMemberController::class, 'checkMemberMessage'])->name('admin.check.member.message');
+    Route::get('/admin/approve/bank-transfer/{id}', [AdminMemberController::class, 'approveBankTransfer'])->name('admin.approve.bank.transfer');
+    Route::get('/admin/reject/bank-transfer/{id}', [AdminMemberController::class, 'rejectBankTransfer'])->name('admin.reject.bank.transfer');
     
     // advertisements
     Route::get('/admin/advertisements', [AdminAdvertisementController::class, 'getAdvertisements'])->name('admin.get.advertisements');

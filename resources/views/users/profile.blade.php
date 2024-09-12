@@ -31,6 +31,24 @@
                             @elseif ($user->plan_status == 2)
                             <span class="custom-badge gold-badge">ゴールド</span>
                             @endif
+
+                            @php
+                                $userPayment = $user->userPayments
+                                    ->whereNull('plan_start')
+                                    ->whereNull('plan_end')
+                                    ->first();
+                            @endphp
+                        
+                            @if ($userPayment)
+                                @switch($userPayment->requested_plan)
+                                    @case(1)
+                                        <span class="custom-badge silver-badge">承認待ち（シルバー）</span>
+                                        @break
+                                    @case(2)
+                                        <span class="custom-badge gold-badge">承認待ち（ゴールド）</span>
+                                        @break
+                                @endswitch
+                            @endif
                         </a>
                     </h4>
                     <h4 class="default-color font-600">{{ $user->name_furigana }}</h4>

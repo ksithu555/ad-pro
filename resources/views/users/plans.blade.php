@@ -19,7 +19,7 @@
               </h2>
               <ul class="pricing-list">
                 <li>
-                    <span class="feature-label">会員メッセンジャーやり取り</span>
+                    <span class="feature-label">ビジネス商談機能</span>
                     <span class="feature-check">◯</span>
                 </li>
                 <li>
@@ -35,7 +35,7 @@
                     <span class="feature-check">ー</span>
                 </li>
                 <li>
-                    <span class="feature-label">画像やアイコンのダウンロード</span>
+                    <span class="feature-label">有料素材のダウンロード</span>
                     <span class="feature-check">ー</span>
                 </li>
               </ul>
@@ -47,6 +47,13 @@
             </div>
           </div>          
 
+
+          @php
+            $userPayment = Auth::user()->userPayments
+                ->whereNull('plan_start')
+                ->whereNull('plan_end')
+                ->first();
+          @endphp
           <div class="col-md-4 pricing-table col-sm-4">
             <div class="pricing-box">
               <h3 style="color: #7e7e7e;">シルバー</h3>
@@ -59,7 +66,7 @@
               <div class="pricicng-feature">
                 <ul class="pricing-list">
                   <li>
-                      <span class="feature-label">会員メッセンジャーやり取り</span>
+                      <span class="feature-label">ビジネス商談機能</span>
                       <span class="feature-check">◯</span>
                   </li>
                   <li>
@@ -75,21 +82,32 @@
                       <span class="feature-check">◯</span>
                   </li>
                   <li>
-                      <span class="feature-label">画像やアイコンのダウンロード</span>
+                      <span class="feature-label">有料素材のダウンロード</span>
                       <span class="feature-check">ー</span>
                   </li>
                 </ul>
               </div>
-              @if (Auth::user()->plan_status == 1)
-              <div class="pricing-box-bottom">
-                <a class="btn btn-dark btn-md btn-default full-width">現在ご利用中のプラン
-                  <span style="color: #BF0731; font-size: 12px; font-weight: bold;">（残り 365 日）</span>
-                </a>
-              </div>
-              @else
-              <div class="pricing-box-bottom">
-                <a class="btn btn-color btn-md btn-default full-width" href="{{ route('user.purchase.plan', 1) }}">今すぐお試しください</a>
-              </div>
+              @if ($userPayment)
+                @if ($userPayment->requested_plan == 1)
+                <div class="pricing-box-bottom">
+                  <a class="btn btn-light btn-md btn-default full-width" style="background-color: #7e7e7e">承認待ち
+                  </a>
+                </div>
+                @endif
+              @elseif (Auth::user()->plan_status == 1)
+                @php
+                    $planEnd = Auth::user()->plan_end;
+                    $daysLeft = \Carbon\Carbon::now()->diffInDays($planEnd, false); // Calculate the remaining days
+                @endphp
+                <div class="pricing-box-bottom">
+                  <a class="btn btn-dark btn-md btn-default full-width">現在ご利用中のプラン
+                    <span style="color: #BF0731; font-size: 12px; font-weight: bold;">（残り {{ $daysLeft }} 日）</span>
+                  </a>
+                </div>
+              @elseif (Auth::user()->plan_status != 2)
+                <div class="pricing-box-bottom">
+                  <a class="btn btn-color btn-md btn-default full-width" href="{{ route('user.purchase.plan', 1) }}">今すぐお試しください</a>
+                </div>
               @endif
             </div>
           </div>          
@@ -105,7 +123,7 @@
               </h2>
               <ul class="pricing-list">
                 <li>
-                    <span class="feature-label">会員メッセンジャーやり取り</span>
+                    <span class="feature-label">ビジネス商談機能</span>
                     <span class="feature-check">◯</span>
                 </li>
                 <li>
@@ -121,20 +139,31 @@
                     <span class="feature-check">◯</span>
                 </li>
                 <li>
-                    <span class="feature-label">画像やアイコンのダウンロード</span>
+                    <span class="feature-label">有料素材のダウンロード</span>
                     <span class="feature-check">◯</span>
                 </li>
               </ul>
-              @if (Auth::user()->plan_status == 2)
-              <div class="pricing-box-bottom">
-                <a class="btn btn-dark btn-md btn-default full-width">現在ご利用中のプラン 
-                  <span style="color: #BF0731; font-size: 12px; font-weight: bold;">（残り 365 日）</span>
-                </a>
-              </div>
+              @if ($userPayment)
+                @if ($userPayment->requested_plan == 2)
+                <div class="pricing-box-bottom">
+                  <a class="btn btn-light btn-md btn-default full-width" style="background-color: #ffc107">承認待ち
+                  </a>
+                </div>
+                @endif
+              @elseif (Auth::user()->plan_status == 2)
+                @php
+                    $planEnd = Auth::user()->plan_end;
+                    $daysLeft = \Carbon\Carbon::now()->diffInDays($planEnd, false); // Calculate the remaining days
+                @endphp
+                <div class="pricing-box-bottom">
+                  <a class="btn btn-dark btn-md btn-default full-width">現在ご利用中のプラン 
+                    <span style="color: #BF0731; font-size: 12px; font-weight: bold;">（残り {{ $daysLeft }} 日）</span>
+                  </a>
+                </div>
               @else
-              <div class="pricing-box-bottom">
-                <a class="btn btn-color btn-md btn-default full-width" href="{{ route('user.purchase.plan', 2) }}">今すぐお試しください</a>
-              </div>
+                <div class="pricing-box-bottom">
+                  <a class="btn btn-color btn-md btn-default full-width" href="{{ route('user.purchase.plan', 2) }}">今すぐお試しください</a>
+                </div>
               @endif
             </div>
           </div>          

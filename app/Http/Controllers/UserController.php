@@ -18,6 +18,7 @@ use App\Models\Advertisement;
 use App\Models\RegisterSelector;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\URL;
+use App\Mail\BankTransferAlertEmail;
 use App\Models\AdvertisementSection;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -223,14 +224,55 @@ class UserController extends Controller
             'transfer_name' => $request->transferName,
             'transfer_at' => $request->transferAt,
             'requested_plan' => $request->requestedPlan,
+            'amount' => $request->finalAmount,
+            'paid' => 0,
             'status' => 0
         ]);
 
         $userPayment = UserPayment::with('user')->with('bankAccount')->where('id', $userPaymentId->id)->first();
 
         Mail::to(Auth::user()->email)->send(new RequestBankTransferEmail($userPayment));
+        Mail::to(env('MAIL_FROM_ADDRESS'))->send(new BankTransferAlertEmail($userPayment));
         
         Session::flash('warning', 'プランのアップグレードは保留中です。お支払いが完了すると、管理者が承認します。');
         return redirect()->route('user.show.profile');
+    }
+
+    public function completePayment(Request $request) {
+        UserPayment::where('user_id', Auth::user()->id)->where('status', 1)->update(['status' => 0]);
+
+        $today = now()->startOfDay(); // Get the start of today (00:00:00)
+        $nextMonthEnd = now()->addMonth()->endOfDay(); // Get the end of the day next month (23:59:59)
+
+        $userPayment = UserPayment::create([
+            'user_id' => Auth::user()->id,
+            'bank_account_id' => 0,
+            'transfer_name' => Auth::user()->name,
+            'transfer_at' => now(),
+            'requested_plan' => $request->requestedPlan,
+            'plan_start' => $today,
+            'plan_end' => $nextMonthEnd,
+            'amount' => $request->finalAmount,
+            'paid' => 1,
+            'status' => 1
+        ]);
+
+        $user = User::find(Auth::user()->id);
+        $user->plan_status = $userPayment->requested_plan;
+        $user->plan_start = $today;
+        $user->plan_end = $nextMonthEnd;
+        $user->save();
+
+        Alarm::create([
+            'type' => 'アップグレード',
+            'alarm' => 'プランのアップグレードに成功しました',
+            'from_user_id' => 0,
+            'to_user_id' => $user->id,
+            'related_id' => $userPayment->id,
+            'status' => 0,
+        ]);
+
+        Session::flash('success', 'プランのアップグレードに成功しました');
+        return response()->json(['success' => true]);
     }
 }

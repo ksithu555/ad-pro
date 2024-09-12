@@ -7,7 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class RequestBankTransferEmail extends Mailable
+class BankTransferAlertEmail extends Mailable
 {
     use Queueable, SerializesModels;
     public $userPayment;
@@ -29,8 +29,8 @@ class RequestBankTransferEmail extends Mailable
      */
     public function build()
     {
-        return $this->view('emails.request-bank-transfer-email')
-                    ->subject('銀行振込の依頼')
+        return $this->view('emails.bank-transfer-alert-email')
+                    ->subject('銀行振込アラート')
                     ->with([
                         'userPayment' => $this->userPayment
                     ]);

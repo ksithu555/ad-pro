@@ -93,7 +93,13 @@
                 $defaultColor = '';
                   if (request()->routeIs('user.get.plans') ||
                   request()->routeIs('user.change.password') ||
-                  request()->routeIs('user.show.profile')) {
+                  request()->routeIs('user.show.profile') ||
+                  request()->routeIs('user.show.announcements') ||
+                  request()->routeIs('user.add.announcement') ||
+                  request()->routeIs('user.edit.announcement') ||
+                  request()->routeIs('user.show.announcement.participants') ||
+                  request()->routeIs('user.show.announcement') ||
+                  request()->routeIs('user.purchase.plan')) {
                     $defaultColor = 'default-color';
                   }
               @endphp
@@ -177,11 +183,7 @@
           <li class="dropdown">
             <a href="{{ route('user.get.announcements') }}" class="dropdown-toggle" data-toggle="dropdown">
                 <span class="{{ request()->routeIs('user.get.announcements') ||
-                request()->routeIs('user.show.announcements') ||
-                request()->routeIs('user.add.announcement') ||
-                request()->routeIs('user.show.announcement') ||
-                request()->routeIs('user.edit.announcement') ||
-                request()->routeIs('user.show.announcement.participants')
+                request()->routeIs('user.show.announcement')
                 ? 'default-color' : '' }}">情報広場</span>
             </a>
           </li>

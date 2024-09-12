@@ -74,8 +74,8 @@
                                 </a> 
                             </div>
                             <div id="light4" class="panel-collapse collapse" aria-expanded="false" role="tablist">
-                                <div class="panel-body dark-color">ADPRO会員になると無料の商談機能と情報発信機能がご利用いただけます。
-                                    また有料会員の場合、広告ページ作成機能と画像のダウンロード機能もご利用いただけます。</div>
+                                <div class="panel-body dark-color">ADPRO会員になると商談機能と情報広場機能を完全無料でご利用いただけます。
+                                    また有料会員の場合、広告ページの制作機能と高品質の素材のダウンロード機能もご利用いただけます。</div>
                             </div>
                         </div>
                     </div>

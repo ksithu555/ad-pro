@@ -40,7 +40,7 @@
                         <i class="icon-laptop font-50px default-color"></i>
                         <div class="title-section">
                             <h4 class="mt-0 font-600">WEBの広告</h4>
-                            <p class="font-400">ウェブの広告ページを作成したいですが、専門知識がなく、他人に依頼するしかない！</p>
+                            <p class="font-400">ウェブの広告ページを作成したいですが、専門知識がなく、他社に制作を依頼してしまう！</p>
                         </div>
                     </div>
                 </div>
@@ -48,8 +48,8 @@
                     <div class="box-icon text-center">
                         <i class="icon-tools-2 font-50px default-color"></i>
                         <div class="title-section">
-                            <h4 class="mt-0 font-600">良質な画像</h4>
-                            <p class="font-400">ホームページやチラシ作成に利用できる良質な画像がなかなか見つからない！</p>
+                            <h4 class="mt-0 font-600">高品質素材</h4>
+                            <p class="font-400">ホームページやチラシの作成に利用できる高品質の画像がなかなか見つからない！</p>
                         </div>
                     </div>
                 </div>
@@ -89,22 +89,22 @@
                 <div class="col-md-4 col-sm-4 col-xs-12">
                     <div class="feature-box text-center mb-50 feature-box-rounded center-feature border-radius-10">
                         <i class="icofont icofont-magic font-40px default-color"></i>
-                        <h4 class="mt-0 font-600">広告作成機能の利用</h4>
+                        <h4 class="mt-0 font-600">広告ページ制作と公開</h4>
                         <p class="font-400 mt-20">ソフトウェア知識が全くなくても、簡単に広告ページを作成しウェブに公開できます！</p>
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-4 col-xs-12">
                     <div class="feature-box text-center mb-50 feature-box-rounded center-feature border-radius-10">
                         <i class="icofont icofont-globe-alt font-40px default-color"></i>
-                        <h4 class="mt-0 font-600">無料商談機能の利用</h4>
-                        <p class="font-400 mt-20">無料の商談メッセージ機能を無制限で利用できるので、協業会社を簡単に見つけます！</p>
+                        <h4 class="mt-0 font-600">商談機能の無料利用</h4>
+                        <p class="font-400 mt-20">無料の商談メッセンジャー機能を無制限で利用できるので、協力会社を見つけられます！</p>
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-4 col-xs-12">
                     <div class="feature-box text-center mb-50 feature-box-rounded center-feature border-radius-10">
                         <i class="icofont icofont-headphone-alt font-40px default-color"></i>
-                        <h4 class="mt-0 font-600">無料情報広場の利用</h4>
-                        <p class="font-400 mt-20">無料の情報広場機能を利用し自社商品とサービスをADPRO会員に向け発信できます！</p>
+                        <h4 class="mt-0 font-600">情報広場の無料利用</h4>
+                        <p class="font-400 mt-20">無料の情報発信機能を利用し自社商品とサービスをADPRO会員に向け発信できます！</p>
                     </div>
                 </div>
             </div>
@@ -127,7 +127,7 @@
                         <div class="testimonial-item">
                             <div class="testimonial-content">
                                 <img class="img-responsive img-circle text-center" src="{{ asset('assets/images/clients/com01.png') }}" alt="avatar-1"/>
-                                <p class="mt-20 line-height-26 font-14px">ソフトウェア知識が全くなくても、簡単に 広告ページを作成しウェブに公開しました！</p>
+                                <p class="mt-20 line-height-26 font-14px">ソフトウェア知識があんまりない私ですが、広告ページを簡単に作成しウェブに公開しました！</p>
                                 <h5 class="font-700 mb-0">A社</h5>
                                 <span class="default-color font-14px">SEO Manager</span>
                                 <ul class="social-default-no-border mt-20 mb-20">
@@ -143,8 +143,8 @@
                         <div class="testimonial-item">
                             <div class="testimonial-content">
                                 <img class="img-responsive img-circle text-center" src="{{ asset('assets/images/clients/com02.png') }}" alt="avatar-2"/>
-                                <p class="mt-20 line-height-26 font-14px">無料の商談メッセージ機能を利用して愛想が いい協業会社を複数社見つけました！</p>
-                                <h5 class="font-700 mb-0">B社                                </h5>
+                                <p class="mt-20 line-height-26 font-14px">無料の商談のメッセンジャー機能を使って条件に合う協力会社を複数社見つけました！</p>
+                                <h5 class="font-700 mb-0">B社</h5>
                                 <span class="default-color font-14px">Head of Product</span>
                                 <ul class="social-default-no-border mt-20 mb-20">
                                     <li><a href="https://www.facebook.com/" target="_blank" class="facebook"><i class="icofont icofont-social-facebook"></i></a></li>
@@ -158,7 +158,7 @@
                         <!--== Slide ==-->
                         <div class="testimonial-item">
                             <div class="testimonial-content"> <img class="img-responsive img-circle" src="{{ asset('assets/images/clients/com03.png') }}" alt="avatar-1"/>
-                                <p class="mt-20 line-height-26 font-14px">無料の情報広場機能を利用し弊社商品とサービスを情報を発信し注目を集めました！</p>
+                                <p class="mt-20 line-height-26 font-14px">無料の情報発信機能を利用し弊社商品とサービス情報を発信し注目を集めました！</p>
                                 <h5 class="font-700 mb-0">C社</h5>
                                 <span class="default-color font-14px">CEO / Founder</span>
                                 <ul class="social-default-no-border mt-20 mb-20">
@@ -190,13 +190,13 @@
                             <div class="panel-heading">
                                 <a data-toggle="collapse" data-parent="#accordion-style" href="#question1" aria-expanded="false" class="collapsed">
                                     <div class="panel-title text-uppercase">
-                                        会員情報を完全無料で検索できます。<span class="pull-right"><i class="ion-android-remove"></i></span> 
+                                        会員の企業情報を完全無料で検索できます。<span class="pull-right"><i class="ion-android-remove"></i></span> 
                                     </div>
                                 </a> 
                             </div>
                             <div id="question1" class="panel-collapse collapse in" aria-expanded="false" role="tablist">
                                 <div class="panel-body">
-                                    会員になると会員同士の情報を完全無料で検索できます。
+                                    会員になると会員の企業情報を完全無料で検索できます。
                                 </div>
                             </div>
                         </div>
@@ -210,7 +210,7 @@
                             </div>
                             <div id="question2" class="panel-collapse collapse" aria-expanded="false" role="tablist">
                                 <div class="panel-body">
-                                    会員同士やり取りのメッセンジャー機能を完全無料でご利用いただけます。
+                                    商談のメッセンジャー機能を完全無料でご利用いただけます。
                                 </div>
                             </div>
                         </div>
@@ -239,7 +239,7 @@
                             </div>
                             <div id="question4" class="panel-collapse collapse" aria-expanded="false" role="tablist">
                                 <div class="panel-body">
-                                    IT知識が全くない方でも簡単に広告ページの制作と配布が可能です。
+                                    IT知識が全くない方でも簡単に広告ページの制作と公開が可能です。
                                 </div>
                             </div>
                         </div>
@@ -314,7 +314,7 @@
     <div class="container">
         <div class="row mt-30">
             <div class="col-lg-8 col-md-8 col-sm-10 col-xs-12 centerize-col text-center white-color">
-              <h5 class="text-uppercase font-600 mb-30 font-40px">IT開発知識が全くなくても広告ページを簡単に作成しウェブに公開できます！</h5>
+              <h5 class="text-uppercase font-600 mb-30 font-40px">ソフトウェア開発知識が全くなくても誰でも簡単に広告ページを作成しウェブに公開できます！</h5>
               <a class="btn btn-md btn-light-outline btn-circle" href="{{ route('user.show.login') }}">さあ、今すぐ始めましょう！</a>
             </div>
         </div>

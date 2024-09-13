@@ -101,9 +101,10 @@
                                                         <p class="mb-20 default-color">残り素材をダウンロード：{{ Auth::user()->paidUserDownloadLimitation ? Auth::user()->paidUserDownloadLimitation->count : '10' }}回</p>
                                                         @if (Auth::user()->paidUserDownloadLimitation && Auth::user()->paidUserDownloadLimitation->count != 0)
                                                             <p class="mb-20">素材をダウンロードしてもよろしいですか?</p>
-                                                            <form id="downloadForm" action="{{ route('user.download.material', $material->id) }}" method="GET" style="display: none;"></form>
-                                                            <a class="btn btn-lg btn-circle btn-color" href="javascript:void(0);" 
-                                                            onclick="downloadAndReload()">Yes</a>
+                                                            <form id="downloadForm" action="{{ route('user.download.material', $material->id) }}" method="GET" target="downloadIframe" style="display: none;"></form>
+                                                            <!-- Hidden iframe to handle the download -->
+                                                            <iframe id="downloadIframe" name="downloadIframe" style="display:none;"></iframe>
+                                                            <a class="btn btn-lg btn-circle btn-color popup-modal-close" href="javascript:void(0);" onclick="downloadAndReload()">Yes</a>
                                                             <a class="btn btn-lg btn-circle btn-secondary-color popup-modal-close" href="#">No</a>
                                                         @else
                                                             <p class="mb-20">素材を10回ダウンロードしました<br>これ以上のダウンロードはできません</p>
@@ -144,13 +145,13 @@
 {{-- Download and Reload --}}
 <script>
     function downloadAndReload() {
-        // Submit the form to initiate the download
+        // Submit the form to initiate the download in the hidden iframe
         document.getElementById('downloadForm').submit();
 
         // Reload the page after a short delay (adjust delay as needed)
         setTimeout(function() {
             window.location.reload();
-        }, 1000); // Adjust the delay as necessary
+        }, 3000); // Adjust the delay to give time for download
     }
 </script>
 

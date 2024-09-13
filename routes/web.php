@@ -146,9 +146,9 @@ Route::group(['middleware' => ['user']], function () {
     Route::get('/user/materials', [UserMaterialController::class, 'getMaterials'])->name('user.get.materials');
     Route::get('/user/material-icons', [UserMaterialController::class, 'getMaterialIcons'])->name('user.get.material.icons');
     Route::get('/user/download/material/{id}', [UserMaterialController::class, 'downloadMaterial'])->name('user.download.material');
+    // user material management
+    Route::get('/user/show/materials', [UserMaterialController::class, 'showMaterials'])->name('user.show.materials');
     Route::group(['middleware' => ['user:2']], function() {
-        // user material management
-        Route::get('/user/show/materials', [UserMaterialController::class, 'showMaterials'])->name('user.show.materials');
         Route::get('/user/add/material', [UserMaterialController::class, 'addMaterial'])->name('user.add.material');
         Route::post('/user/store/material', [UserMaterialController::class, 'storeMaterial'])->name('user.store.material');
         Route::get('/user/edit/material/{id}', [UserMaterialController::class, 'editMaterial'])->name('user.edit.material');

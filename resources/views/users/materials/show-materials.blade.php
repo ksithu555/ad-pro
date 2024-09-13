@@ -20,6 +20,10 @@
                 href="{{ route('user.add.material') }}">
                     <i class="fa-icon-plus-square"></i> 素材
                 </a>
+                <a class="btn btn-md btn-dark-outline btn-square margin-left-auto margin-right-auto display-table-sm"
+                href="">
+                販売履歴 <i class="ion-android-arrow-forward"></i>
+                </a>
             </div>
           </div>
         </div>
@@ -35,6 +39,7 @@
                             <th>名前</th>
                             <th>画像</th>
                             <th>必要なプラン</th>
+                            {{-- <th style="min-width: 110px;">ダウンロード数</th> --}}
                             <th>ステータス</th>
                             <th style="min-width: 110px;">アクション</th>
                             </tr>
@@ -64,6 +69,13 @@
                                             @break
                                         @case(1)
                                             <span class="custom-badge gold-badge">有料</span>
+                                            @php
+                                                $counts = 0;
+                                                if ($material->paidMaterialDownloadHistories->isNotEmpty()) {
+                                                    $counts = $material->paidMaterialDownloadHistories->count();
+                                                }
+                                            @endphp
+                                            <h6>ダウンロード数：{{ $counts }}回</h6>
                                             @break
                                     @endswitch
                                 </td>

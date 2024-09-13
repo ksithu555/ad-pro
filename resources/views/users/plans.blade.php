@@ -43,6 +43,10 @@
                     <span class="feature-label">有料素材のダウンロード</span>
                     <span class="feature-check">ー</span>
                 </li>
+                <li>
+                    <span class="feature-label">素材の販売</span>
+                    <span class="feature-check">ー</span>
+                </li>
               </ul>
               @if (Auth::user()->plan_status == 0)
               <div class="pricing-box-bottom">
@@ -89,6 +93,10 @@
                   <li>
                       <span class="feature-label">有料素材のダウンロード</span>
                       <span class="feature-check">◯</span>
+                  </li>
+                  <li>
+                      <span class="feature-label">素材の販売</span>
+                      <span class="feature-check">ー</span>
                   </li>
                 </ul>
               </div>
@@ -140,11 +148,15 @@
                     <span class="feature-check">◯</span>
                 </li>
                 <li>
-                    <span class="feature-label">広告ページ制作と素材販売</span>
+                    <span class="feature-label">広告ページ制作</span>
                     <span class="feature-check">◯</span>
                 </li>
                 <li>
                     <span class="feature-label">有料素材のダウンロード</span>
+                    <span class="feature-check">◯</span>
+                </li>
+                <li>
+                    <span class="feature-label">素材の販売</span>
                     <span class="feature-check">◯</span>
                 </li>
               </ul>

@@ -1,4 +1,4 @@
-<x-admin-layout>
+<x-user-layout>
     <!--== Contact Form Style 01 Start ==-->
     <section class="white-bg pt-120 pb-120">
         <div class="container">
@@ -9,7 +9,7 @@
             </div>
             <div class="row mt-50">
                 <div class="col-md-12">
-                <form name="add-material-form" id="add-material-form" action="{{ route('admin.store.material') }}" method="POST" 
+                <form name="add-material-form" id="add-material-form" action="{{ route('user.store.material') }}" method="POST" 
                     class="contact-form-style-01" enctype="multipart/form-data">
                     @csrf
                     <div class="messages"></div>
@@ -144,4 +144,4 @@
             return isValid;
         }
     </script>
-</x-admin-layout>
+</x-user-layout>

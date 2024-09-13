@@ -41,17 +41,17 @@
                 <div class="col-md-12 col-sm-12">
                     <div id="JapaneseVersion">
                         <div class="row mb-10">
-                            <div class="col-md-12 col-sm-12">
+                            <div class="col-md-8 col-md-offset-2 col-sm-12">
                                 <div class="content grey-bg" style="padding: 10px 15px 10px 20px;">
                                     <p class="mt-20" style="color: black;font-size: 15px;">
-                                        アジア人材開発株式会社&nb（以下、当社）は個人情報保護の重要性を認識しており、
+                                        アジア人材開発株式会社（以下、当社）は個人情報保護の重要性を認識しており、
                                         関係法令および規範を遵守し、以下の個人情報保護方針を定め確実な履行に努めて参ります。
                                     </p>
                                 </div>
                             </div>
                         </div>
                         <div class="row mb-10">
-                            <div class="col-md-12 col-sm-12">
+                            <div class="col-md-8 col-md-offset-2 col-sm-12">
                                 <div class="content grey-bg" style="padding: 10px 15px 10px 20px;">
                                     <h6 class="mt-20 text-uppercase">１．個人情報の収集・利用・提供</h6>
                                     <hr class="dark-bg" style="background-color: #BF0731;">
@@ -64,7 +64,7 @@
                             </div>
                         </div>
                         <div class="row mb-10">
-                            <div class="col-md-12 col-sm-12">
+                            <div class="col-md-8 col-md-offset-2 col-sm-12">
                                 <div class="content grey-bg" style="padding: 10px 15px 10px 20px;">
                                     <h6 class="mt-20 text-uppercase">２．法令・規範の遵守</h6>
                                     <hr class="dark-bg" style="background-color: #BF0731;">
@@ -75,7 +75,7 @@
                             </div>
                         </div>
                         <div class="row mb-10">
-                            <div class="col-md-12 col-sm-12">
+                            <div class="col-md-8 col-md-offset-2 col-sm-12">
                                 <div class="content grey-bg" style="padding: 10px 15px 10px 20px;">
                                     <h6 class="mt-20 text-uppercase">３．安全対策の実施</h6>
                                     <hr class="dark-bg" style="background-color: #BF0731;">
@@ -88,7 +88,7 @@
                             </div>
                         </div>
                         <div class="row mb-10">
-                            <div class="col-md-12 col-sm-12">
+                            <div class="col-md-8 col-md-offset-2 col-sm-12">
                                 <div class="content grey-bg" style="padding: 10px 15px 10px 20px;">
                                     <h6 class="mt-20 text-uppercase">４．個人情報に関する本人の権利遵重</h6>
                                     <hr class="dark-bg" style="background-color: #BF0731;">
@@ -101,7 +101,7 @@
                             </div>
                         </div>
                         <div class="row mb-10">
-                            <div class="col-md-12 col-sm-12">
+                            <div class="col-md-8 col-md-offset-2 col-sm-12">
                                 <div class="content grey-bg" style="padding: 10px 15px 10px 20px;">
                                     <h6 class="mt-20 text-uppercase">５．コンプライアンス・プログラムの策定及び継続的改善</h6>
                                     <hr class="dark-bg" style="background-color: #BF0731;">

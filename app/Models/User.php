@@ -6,6 +6,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Auth;
 
 class User extends Authenticatable
 {
@@ -88,16 +89,37 @@ class User extends Authenticatable
 
     public function receivedAlarms()
     {
-        return $this->hasMany(Alarm::class, 'to_user_id', 'id');
+        return $this->hasMany(Alarm::class, 'to_user_id', 'id')->where('to_user_id', '!=', 0);
     }
 
     public function sentAlarms()
     {
-        return $this->hasMany(Alarm::class, 'from_user_id', 'id');
+        return $this->hasMany(Alarm::class, 'from_user_id', 'id')->where('from_user_id', '!=', 0);
     }
 
     public function userPayments()
     {
         return $this->hasMany(UserPayment::class);
+    }
+
+    public function materials()
+    {
+        return $this->hasMany(Material::class)->where('user_id', '!=', 0);
+    }
+
+    public function paidMaterialDownloadHistories()
+    {
+        return $this->hasMany(PaidMaterialDownloadHistory::class);
+    }
+
+    public function paidUserDownloadLimitations()
+    {
+        return $this->hasMany(PaidUserDownloadLimitation::class);
+    }
+
+    public function paidUserDownloadLimitation()
+    {
+        return $this->hasOne(PaidUserDownloadLimitation::class)->where('plan_start', Auth::user()->plan_start)
+        ->where('plan_end', Auth::user()->plan_end);
     }
 }

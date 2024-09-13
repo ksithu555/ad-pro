@@ -1,4 +1,4 @@
-<x-admin-layout>
+<x-user-layout>
     <!--== Products Start ==-->
     <section class="white-bg pt-120 pb-120">
       <div class="container">
@@ -17,12 +17,8 @@
             <div class="col-md-3">
                 <div style="text-align: right;">
                 <a class="btn btn-md btn-dark-outline btn-square margin-left-auto margin-right-auto display-table-sm"
-                href="{{ route('admin.add.material') }}">
+                href="{{ route('user.add.material') }}">
                     <i class="fa-icon-plus-square"></i> 素材
-                </a>
-                <a class="btn btn-md btn-dark-outline btn-square margin-left-auto margin-right-auto display-table-sm"
-                href="{{ route('admin.get.material.icons') }}">
-                アイコン <i class="ion-android-arrow-forward"></i>
                 </a>
             </div>
           </div>
@@ -39,7 +35,6 @@
                             <th>名前</th>
                             <th>画像</th>
                             <th>必要なプラン</th>
-                            <th>作成者</th>
                             <th>ステータス</th>
                             <th style="min-width: 110px;">アクション</th>
                             </tr>
@@ -72,13 +67,6 @@
                                             @break
                                     @endswitch
                                 </td>
-                                <td>
-                                    @if ($material->user)
-                                    {{ $material->user->name }}
-                                    @else
-                                    管理者
-                                    @endif
-                                </td>
                                 <td style="min-width: 110px;">
                                     <label class="toggle-switch">
                                         <input type="checkbox" data-id="{{ $material->id }}" class="status-toggle" {{ $material->status == 1 ? 'checked' : '' }}>
@@ -86,7 +74,7 @@
                                     </label>   
                                 </td>
                                 <td>
-                                    <a href="{{ route('admin.edit.material', $material->id) }}">
+                                    <a href="{{ route('user.edit.material', $material->id) }}">
                                       <i class="fa-icon-pencil-square" style="font-size: 1.5em;"></i>
                                     </a>
                                     <div class="tr-modal-popup">
@@ -101,7 +89,7 @@
                             <div id="modal-popup-{{ $material->id }}" class="white-bg all-padding-60 mfp-with-anim mfp-hide centerize-col col-lg-4 col-md-6 col-sm-7 col-xs-11 text-center">
                                 <span class="text-uppercase font-30px font-600 mb-20 display-block dark-color">素材削除</span>
                                 <p class="mb-20">素材を削除してもよろしいですか?</p>
-                                <a class="btn btn-lg btn-circle btn-color" href="{{ route('admin.delete.material', $material->id) }}">Yes</a>
+                                <a class="btn btn-lg btn-circle btn-color" href="{{ route('user.delete.material', $material->id) }}">Yes</a>
                                 <a class="btn btn-lg btn-circle btn-secondary-color popup-modal-close" href="#">No</a>
                             </div>
                             @endforeach
@@ -126,7 +114,7 @@
 
                 // Send AJAX request to update the section status
                 $.ajax({
-                    url: '/admin/update/material-status', // The route URL
+                    url: '/user/update/material-status', // The route URL
                     method: 'POST',
                     data: {
                         _token: '{{ csrf_token() }}', // CSRF token for security
@@ -148,5 +136,5 @@
             });
         });
     </script>
-  </x-admin-layout>
+  </x-user-layout>
   

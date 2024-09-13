@@ -9,7 +9,7 @@
             // Initialize refundAmount to avoid undefined variable issues
             $refundAmount = 0;
             $totalAmount = 3300; // Silver Plan total amount
-            $finalAmount = 5500; // Gold Plan total amount
+            $finalAmount = 6600; // Gold Plan total amount
             $paypalBtnColor = 'gold';
 
             // Check if the current plan is Silver
@@ -30,7 +30,7 @@
             }
 
             // Calculate the total amount after the refund
-            $finalAmount = 5500 - $refundAmount;
+            $finalAmount = 6600 - $refundAmount;
         @endphp
     @endif
     <!--== Tabs Style 02 Start ==-->
@@ -69,7 +69,7 @@
                                             @if ($requestedPlan == 1)
                                                 * シルバープラン : ¥ 3,300
                                             @else
-                                                * ゴールドプラン : ¥ 5,500
+                                                * ゴールドプラン : ¥ 6,600
                                         
                                                 @if (Auth::user()->plan_status == 1)
                                                     <br>* シルバープランの払い戻し : ¥ {{ number_format($refundAmount) }}
@@ -127,7 +127,7 @@
                                                 @if ($requestedPlan == 1)
                                                     * シルバープラン : ¥ 3,300
                                                 @else
-                                                    * ゴールドプラン : ¥ 5,500
+                                                    * ゴールドプラン : ¥ 6,600
                                             
                                                     @if (Auth::user()->plan_status == 1)
                                                         <br>* シルバープランの払い戻し : ¥ {{ number_format($refundAmount) }}
@@ -220,7 +220,7 @@
                                         @if ($requestedPlan == 1)
                                             * シルバープラン : ¥ 3,300
                                         @else
-                                            * ゴールドプラン : ¥ 5,500
+                                            * ゴールドプラン : ¥ 6,600
                                     
                                             @if (Auth::user()->plan_status == 1)
                                                 <br>* シルバープランの払い戻し : ¥ {{ number_format($refundAmount) }}

@@ -47,8 +47,7 @@
                             <div class="form-group">
                                 <select name="requiredPlan" class="orderby type md-input">
                                     <option value="0" @if($material->required_plan == '0')selected="selected"@endif>無料</option>
-                                    <option value="1" @if($material->required_plan == '1')selected="selected"@endif>シルバー</option>
-                                    <option value="2" @if($material->required_plan == '2')selected="selected"@endif>ゴールド</option>
+                                    <option value="1" @if($material->required_plan == '1')selected="selected"@endif>有料</option>
                                 </select>
                                 <span class="error" style="color:#BF0731" id="error-type"></span>
                             </div>

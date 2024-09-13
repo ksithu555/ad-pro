@@ -28,7 +28,10 @@
     <section class="white-bg dark-block pt-120 pb-120">
         <div class="container">
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-8 col-md-offset-2">
+                    <x-message-box></x-message-box>
+                </div>
+                <div class="col-md-2">
                     <div style="text-align: right;">
                         <a class="btn btn-md btn-dark-outline btn-square margin-left-auto margin-right-auto display-table-sm"
                         href="{{ route('user.get.material.icons') }}">
@@ -54,46 +57,14 @@
             <div class="row">
                 <div class="col-md-12">
                     <div id="portfolio-gallery" class="cbp">
-                        {{-- @foreach ($materials as $material)
-                        <div class="cbp-item {{ $material->type }} col-md-4 col-sm-6 with-spacing text-center">
-                            <div class="cbp-caption">
-                                <div class="cbp-caption-defaultWrap">
-                                    <img src="{{ asset('assets/images/all/' . $material->image) }}" alt="">
-                                </div>
-                                <div class="cbp-caption-activeWrap dark">
-                                    <div class="cbp-l-caption-alignCenter">
-                                        <div class="cbp-l-caption-body">
-                                            <a href="{{ asset('assets/images/all/' . $material->image) }}" 
-                                                class="cbp-l-caption-buttonLeft" 
-                                                download="{{ $material->image }}" 
-                                                rel="nofollow">
-                                                <i class="icon-download"></i>
-                                            </a>
-                                            <a href="{{ asset('assets/images/all/' . $material->image) }}" 
-                                                class="cbp-lightbox cbp-l-caption-buttonRight" 
-                                                data-title="{{ $material->name }}<br>by Designs ADPRO">
-                                                <i class="icofont icofont-search"></i>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="cbp-l-grid-projects-title dark-color font-500 text-uppercase">{{ $material->name }}</div>
-                            <div class="cbp-l-grid-projects-desc default-color font-14px">{{ $material->type }}</div>
-                        </div>
-                        @endforeach --}}
                         @foreach ($materials as $material)
                         <div class="cbp-item {{ $material->type }} col-md-4 col-sm-6 with-spacing text-center">
                             <div class="cbp-caption">
                                 <div class="cbp-caption-defaultWrap image-container">
                                     <div class="image-overlay"></div>
                                     @if ($material->required_plan == 1)
-                                    <div class="post-date-box" style="background-color: #7e7e7e;width:60px;height:60px;">
-                                        <span class="font-600">シルバー</span>
-                                    </div>
-                                    @elseif ($material->required_plan == 2)
                                     <div class="post-date-box" style="background-color: #ffc107;width:60px;height:60px;">
-                                        <span class="font-600">ゴールド</span>
+                                        <span class="font-600">有料</span>
                                     </div>
                                     @endif
                                     <div class="image" style="background-image: url('{{ asset('assets/images/all/' . $material->image) }}');"></div>
@@ -102,14 +73,48 @@
                                     <div class="cbp-l-caption-alignCenter">
                                         <div class="cbp-l-caption-body">
                                             @if (Auth::user()->plan_status >= $material->required_plan)
-                                                <a href="{{ asset('assets/images/all/' . $material->image) }}" rel="nofollow"
-                                                class="cbp-l-caption-buttonLeft" download="{{ $material->image }}">
-                                                    <i class="icon-download"></i>
-                                                </a>
-                                                <a href="{{ asset('assets/images/all/' . $material->image) }}" 
-                                                class="cbp-lightbox cbp-l-caption-buttonRight" 
-                                                data-title="{{ $material->name }}<br>by Designs ADPRO">
-                                                    <i class="icofont icofont-search"></i>
+                                                @if ($material->required_plan == 0 || $material->user_id == Auth::user()->id)
+                                                    <a href="{{ route('user.download.material', $material->id) }}" rel="nofollow"
+                                                    class="cbp-l-caption-buttonLeft">
+                                                        <i class="icon-download"></i>
+                                                    </a>
+                                                    <a href="{{ asset('assets/images/all/' . $material->image) }}" 
+                                                    class="cbp-lightbox cbp-l-caption-buttonRight" 
+                                                    data-title="{{ $material->name }}<br>by Designs ADPRO">
+                                                        <i class="icofont icofont-search"></i>
+                                                    </a>
+                                                @else
+                                                    <div class="tr-modal-popup">
+                                                        <a href="#modal-popup-{{ $material->id }}" data-effect="mfp-newspaper" rel="nofollow"
+                                                            class="cbp-l-caption-buttonLeft">
+                                                            <i class="icon-download"></i>
+                                                        </a>
+                                                        <a href="{{ asset('assets/images/all/' . $material->image) }}" 
+                                                        class="cbp-lightbox cbp-l-caption-buttonRight" 
+                                                        data-title="{{ $material->name }}<br>by Designs ADPRO">
+                                                            <i class="icofont icofont-search"></i>
+                                                        </a>
+                                                    </div>
+                                                    <!-- Modal Popup Message Box -->
+                                                    <div id="modal-popup-{{ $material->id }}" class="white-bg all-padding-60 mfp-with-anim mfp-hide centerize-col col-lg-4 col-md-6 col-sm-7 col-xs-11 text-center">
+                                                        <span class="text-uppercase font-30px font-600 mb-20 display-block dark-color">素材ダウンロード</span>
+                                                        <p class="mb-20 default-color">残り素材をダウンロード：{{ Auth::user()->paidUserDownloadLimitation ? Auth::user()->paidUserDownloadLimitation->count : '10' }}回</p>
+                                                        @if (Auth::user()->paidUserDownloadLimitation && Auth::user()->paidUserDownloadLimitation->count != 0)
+                                                            <p class="mb-20">素材をダウンロードしてもよろしいですか?</p>
+                                                            <form id="downloadForm" action="{{ route('user.download.material', $material->id) }}" method="GET" style="display: none;"></form>
+                                                            <a class="btn btn-lg btn-circle btn-color" href="javascript:void(0);" 
+                                                            onclick="downloadAndReload()">Yes</a>
+                                                            <a class="btn btn-lg btn-circle btn-secondary-color popup-modal-close" href="#">No</a>
+                                                        @else
+                                                            <p class="mb-20">素材を10回ダウンロードしました<br>これ以上のダウンロードはできません</p>
+                                                            <a class="btn btn-lg btn-circle btn-secondary-color popup-modal-close" href="#">Close</a>
+                                                        @endif
+                                                    </div>
+                                                @endif
+                                            @else
+                                                <a href="{{ route('user.get.plans') }}" 
+                                                    class="cbp-l-caption-buttonLeft" rel="nofollow">
+                                                    <i class="ion-arrow-graph-up-right"></i>
                                                 </a>
                                             @endif
                                         </div>
@@ -135,6 +140,18 @@
             e.preventDefault();
         }
     });
+</script>
+{{-- Download and Reload --}}
+<script>
+    function downloadAndReload() {
+        // Submit the form to initiate the download
+        document.getElementById('downloadForm').submit();
+
+        // Reload the page after a short delay (adjust delay as needed)
+        setTimeout(function() {
+            window.location.reload();
+        }, 1000); // Adjust the delay as necessary
+    }
 </script>
 
 </x-user-layout>

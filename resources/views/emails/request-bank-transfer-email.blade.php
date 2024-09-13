@@ -59,7 +59,7 @@
             <div class="important-info">
                 <p>
                     <strong>{{ $userPayment->requested_plan == 1 ? 'シルバープラン' : 'ゴールドプラン' }}
-                        の合計金額は{{ $userPayment->requested_plan == 1 ? '¥ 3,300' : '¥ 5,500' }}です。
+                        の合計金額は{{ $userPayment->requested_plan == 1 ? '¥ 3,300' : '¥ 6,600' }}です。
                         以下の銀行口座にお振込みください。
                     </strong>
                 </p>

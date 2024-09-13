@@ -88,7 +88,7 @@
                   </li>
                   <li>
                       <span class="feature-label">有料素材のダウンロード</span>
-                      <span class="feature-check">ー</span>
+                      <span class="feature-check">◯</span>
                   </li>
                 </ul>
               </div>
@@ -123,7 +123,7 @@
               {{-- <h4 class="grey-color text-uppercase">最高の機能を備えたプレミアムウェブサイトを作成</h4> --}}
               <h2 class="roboto-font font-60px default-color pricing-header">
                 <sup>¥</sup>
-                <span>5,500</span>
+                <span>6,600</span>
                 <span class="font-12px">（税込）<br>（月額利用料）</span>
               </h2>
               <ul class="pricing-list">
@@ -140,7 +140,7 @@
                     <span class="feature-check">◯</span>
                 </li>
                 <li>
-                    <span class="feature-label">広告ページ制作機能</span>
+                    <span class="feature-label">広告ページ制作と素材販売</span>
                     <span class="feature-check">◯</span>
                 </li>
                 <li>

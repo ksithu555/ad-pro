@@ -42,40 +42,82 @@
                 <div class="col-md-8 col-sm-12 centerize-col">
                     <div class="panel-group accordion-style-03" id="accordion-style-03">
                         <div class="panel">
-                            <div class="panel-heading"> <a data-toggle="collapse" data-parent="#accordion-style" href="#light1" aria-expanded="false" class="collapsed">
-                                <div class="panel-title text-uppercase white-color">会員登録は有料ですか？ <span class="pull-right"><i class="ion-chevron-up"></i></span> </div>
+                            <div class="panel-heading">
+                                <a data-toggle="collapse" data-parent="#accordion-style" href="#light1" aria-expanded="false" class="collapsed">
+                                    <div class="panel-title text-uppercase white-color">
+                                        会員登録は有料ですか？ 
+                                        <span class="pull-right"><i class="ion-chevron-up"></i></span>
+                                    </div>
                                 </a> 
                             </div>
                             <div id="light1" class="panel-collapse collapse in" aria-expanded="false" role="tablist">
-                                <div class="panel-body dark-color">いいえ、会員登録は完全無料です。</div>
+                                <div class="panel-body dark-color">
+                                    いいえ、会員登録は完全無料です。
+                                </div>
                             </div>
                         </div>
                         <div class="panel">
-                            <div class="panel-heading"> <a data-toggle="collapse" data-parent="#accordion-style" href="#light2" aria-expanded="false" class="collapsed">
-                                <div class="panel-title text-uppercase white-color">会員登録後いつからサービスを利用できますか？ <span class="pull-right"><i class="ion-chevron-down"></i></span> </div>
+                            <div class="panel-heading">
+                                <a data-toggle="collapse" data-parent="#accordion-style" href="#light2" aria-expanded="false" class="collapsed">
+                                    <div class="panel-title text-uppercase white-color">
+                                        会員登録後いつからサービスを利用できますか？ 
+                                        <span class="pull-right"><i class="ion-chevron-down"></i></span>
+                                    </div>
                                 </a> 
                             </div>
                             <div id="light2" class="panel-collapse collapse" aria-expanded="false" role="tablist">
-                                <div class="panel-body dark-color">会員登録完了後からすぐご利用いただけます。</div>
+                                <div class="panel-body dark-color">
+                                    会員登録完了後からすぐご利用いただけます。
+                                </div>
                             </div>
                         </div>
                         <div class="panel">
-                            <div class="panel-heading"> <a data-toggle="collapse" data-parent="#accordion-style" href="#light3" aria-expanded="false" class="collapsed">
-                                <div class="panel-title text-uppercase white-color">IT開発知識がなくても広告ページが容易に作れますか？<span class="pull-right"><i class="ion-chevron-down"></i></span> </div>
+                            <div class="panel-heading">
+                                <a data-toggle="collapse" data-parent="#accordion-style" href="#light3" aria-expanded="false" class="collapsed">
+                                    <div class="panel-title text-uppercase white-color">
+                                        IT開発知識がなくても広告ページが容易に作れますか？
+                                        <span class="pull-right"><i class="ion-chevron-down"></i></span>
+                                    </div>
                                 </a> 
                             </div>
                             <div id="light3" class="panel-collapse collapse" aria-expanded="false" role="tablist">
-                                <div class="panel-body dark-color">はい。ADPROには広告ページを作成する為の様々なセッションのテンプレートが用意されており、そのセッションテンプレートを組み合わせる操作だけで広告ページが生成されるので、IT開発知識が全くなくても誰でも簡単に広告ページを作成し外部に公開できます。</div>
+                                <div class="panel-body dark-color">
+                                    はい。ADPROには広告ページを作成する為の様々なセッションのテンプレートが用意されており、
+                                    そのセッションテンプレートを組み合わせる操作だけで広告ページが生成されるので、
+                                    IT開発知識が全くなくても誰でも簡単に広告ページを作成し外部に公開できます。
+                                </div>
                             </div>
                         </div>
                         <div class="panel">
-                            <div class="panel-heading"> <a data-toggle="collapse" data-parent="#accordion-style" href="#light4" aria-expanded="false" class="collapsed">
-                                <div class="panel-title text-uppercase white-color">ADPRO会員になると何ができますか？<span class="pull-right"><i class="ion-chevron-down"></i></span> </div>
+                            <div class="panel-heading">
+                                <a data-toggle="collapse" data-parent="#accordion-style" href="#light4" aria-expanded="false" class="collapsed">
+                                    <div class="panel-title text-uppercase white-color">
+                                        ADPRO会員になると何ができますか？
+                                        <span class="pull-right"><i class="ion-chevron-down"></i></span>
+                                    </div>
                                 </a> 
                             </div>
                             <div id="light4" class="panel-collapse collapse" aria-expanded="false" role="tablist">
-                                <div class="panel-body dark-color">ADPRO会員になると商談機能と情報広場機能を完全無料でご利用いただけます。
-                                    また有料会員の場合、広告ページの制作機能と高品質の素材のダウンロード機能もご利用いただけます。</div>
+                                <div class="panel-body dark-color">
+                                    ADPRO会員になると商談機能と情報広場機能が完全無料でご利用いただけます。
+                                    また有料会員の場合、広告ページの制作と、毎月MAX10枚の高品質素材のダウンロードができます。
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel">
+                            <div class="panel-heading">
+                                <a data-toggle="collapse" data-parent="#accordion-style" href="#light5" aria-expanded="false" class="collapsed">
+                                    <div class="panel-title text-uppercase white-color">
+                                        素材を販売したいですが、どうすればいいでしょうか？
+                                        <span class="pull-right"><i class="ion-chevron-down"></i></span>
+                                    </div>
+                                </a> 
+                            </div>
+                            <div id="light5" class="panel-collapse collapse" aria-expanded="false" role="tablist">
+                                <div class="panel-body dark-color">
+                                    素材を販売する為には、有料のゴールド会員になる必要があります。ゴールド会員になると、
+                                    素材の管理と販売ができます。
+                                </div>
                             </div>
                         </div>
                     </div>

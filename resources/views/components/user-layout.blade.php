@@ -99,7 +99,10 @@
                   request()->routeIs('user.edit.announcement') ||
                   request()->routeIs('user.show.announcement.participants') ||
                   request()->routeIs('user.show.announcement') ||
-                  request()->routeIs('user.purchase.plan')) {
+                  request()->routeIs('user.purchase.plan') ||
+                  request()->routeIs('user.show.materials') ||
+                  request()->routeIs('user.add.material') ||
+                  request()->routeIs('user.edit.material')) {
                     $defaultColor = 'default-color';
                   }
               @endphp
@@ -114,6 +117,7 @@
             </a>
             <ul class="dropdown-menu">
               <li><a href="{{ route('user.show.profile') }}">プロフィール</a></li>
+              <li><a href="{{ route('user.show.materials') }}">素材管理</a></li>
               <li><a href="{{ route('user.show.announcements') }}">情報広場管理</a></li>
               <li><a href="{{ route('user.get.plans') }}">アップグレード</a></li>
               <li><a href="{{ route('user.change.password') }}">パスワード変更</a></li>

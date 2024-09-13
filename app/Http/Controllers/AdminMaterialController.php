@@ -11,7 +11,7 @@ class AdminMaterialController extends Controller
 {
     public function getMaterials() {
         $limit = 10;
-        $materials = Material::paginate($limit);
+        $materials = Material::with('user')->paginate($limit);
         $ttl = $materials->total();
         $ttlpage = ceil($ttl / $limit);
         return view('admins.materials.materials', compact('materials', 'ttl', 'ttlpage'));
@@ -21,7 +21,7 @@ class AdminMaterialController extends Controller
         return view('admins.materials.add-material');
     }
 
-    public function storeMaterial(Request $request) {dd($request->all());
+    public function storeMaterial(Request $request) {
         if (!empty($request->image)) {
             $originalName = pathinfo($request->image->getClientOriginalName(), PATHINFO_FILENAME);
             $imageName = $originalName . '_' . time() . '.' . $request->image->extension();
@@ -31,6 +31,7 @@ class AdminMaterialController extends Controller
         }        
 
         Material::create([
+            'user_id' => 0,
             'type' => $request->type,
             'name' => $request->name,
             'image' => $imageName,

@@ -145,6 +145,17 @@ Route::group(['middleware' => ['user']], function () {
     // Material
     Route::get('/user/materials', [UserMaterialController::class, 'getMaterials'])->name('user.get.materials');
     Route::get('/user/material-icons', [UserMaterialController::class, 'getMaterialIcons'])->name('user.get.material.icons');
+    Route::get('/user/download/material/{id}', [UserMaterialController::class, 'downloadMaterial'])->name('user.download.material');
+    Route::group(['middleware' => ['user:2']], function() {
+        // user material management
+        Route::get('/user/show/materials', [UserMaterialController::class, 'showMaterials'])->name('user.show.materials');
+        Route::get('/user/add/material', [UserMaterialController::class, 'addMaterial'])->name('user.add.material');
+        Route::post('/user/store/material', [UserMaterialController::class, 'storeMaterial'])->name('user.store.material');
+        Route::get('/user/edit/material/{id}', [UserMaterialController::class, 'editMaterial'])->name('user.edit.material');
+        Route::post('/user/update/material', [UserMaterialController::class, 'updateMaterial'])->name('user.update.material');
+        Route::get('/user/material/delete/{id}', [UserMaterialController::class, 'deleteMaterial'])->name('user.delete.material');
+        Route::post('/user/update/material-status', [UserMaterialController::class, 'updateMaterialStatus'])->name('user.update.material.status');
+    });
 
     // Announcement
     Route::get('/user/announcements', [UserAnnouncementController::class, 'getAnnouncements'])->name('user.get.announcements');

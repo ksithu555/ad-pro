@@ -40,7 +40,7 @@
                         <i class="icon-laptop font-50px default-color"></i>
                         <div class="title-section">
                             <h4 class="mt-0 font-600">WEBの広告</h4>
-                            <p class="font-400">ウェブの広告ページを作成したいですが、専門知識がなく、他社に制作を依頼してしまう！</p>
+                            <p class="font-400">ウェブの広告ページを作成したいが、専門知識がなく、他社に制作を依頼してしまう！</p>
                         </div>
                     </div>
                 </div>
@@ -240,6 +240,20 @@
                             <div id="question4" class="panel-collapse collapse" aria-expanded="false" role="tablist">
                                 <div class="panel-body">
                                     IT知識が全くない方でも簡単に広告ページの制作と公開が可能です。
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel">
+                            <div class="panel-heading">
+                                <a data-toggle="collapse" data-parent="#accordion-style" href="#question5" aria-expanded="false" class="collapsed">
+                                <div class="panel-title text-uppercase">
+                                    素材のダウンロードができます。<span class="pull-right"><i class="ion-android-add"></i></span>
+                                </div>
+                                </a> 
+                            </div>
+                            <div id="question5" class="panel-collapse collapse" aria-expanded="false" role="tablist">
+                                <div class="panel-body">
+                                    プロが制作した高品質の素材（画像、ロゴ等）のダウンロードができます。
                                 </div>
                             </div>
                         </div>

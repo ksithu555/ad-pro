@@ -47,6 +47,11 @@ class UserController extends Controller
             return redirect()->back()->withInput();
         }
     
+        if ($loginUser->status == 0) {
+            Session::flash('error', 'アカウントは無効になりました');
+            return redirect()->back()->withInput();
+        }
+    
         Auth::login($loginUser);
         $request->session()->regenerate();
     
@@ -178,8 +183,10 @@ class UserController extends Controller
     }
 
     public function getAlarms() {
-        $alarms = Alarm::with('sender')->where('to_user_id', Auth::user()->id)->where('status', 0)->get();
-        $checkedAlarms = Alarm::with('sender')->where('to_user_id', Auth::user()->id)->where('status', 1)->get();
+        $alarms = Alarm::with('sender')->where('to_user_id', Auth::user()->id)->where('status', 0)
+        ->orderBy('created_at', 'desc')->get();
+        $checkedAlarms = Alarm::with('sender')->where('to_user_id', Auth::user()->id)->where('status', 1)
+        ->orderBy('created_at', 'desc')->get();
         return view('users.alarms', compact('alarms', 'checkedAlarms'));
     }
 
@@ -269,6 +276,7 @@ class UserController extends Controller
             'from_user_id' => 0,
             'to_user_id' => $user->id,
             'related_id' => $userPayment->id,
+            'model' => 'UserPayment',
             'status' => 0,
         ]);
 

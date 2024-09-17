@@ -118,7 +118,8 @@ class UserAnnouncementController extends Controller
                 'alarm' => '参加者があります',
                 'from_user_id' => Auth::user()->id,
                 'to_user_id' => $announcementParticipant->announcement->user->id,
-                'related_id' => $announcementParticipant->id,
+                'related_id' => $announcementParticipant->announcement->id,
+                'model' => 'Announcement',
                 'status' => 0,
             ]);
         }
@@ -173,7 +174,8 @@ class UserAnnouncementController extends Controller
                 'alarm' => $alarmMessage,
                 'from_user_id' => Auth::user()->id,
                 'to_user_id' => $announcementParticipant->user_id,
-                'related_id' => $announcementParticipant->id,
+                'related_id' => $announcementParticipant->announcement->id,
+                'model' => 'Announcement',
                 'status' => 0,
             ]);
         }

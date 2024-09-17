@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Icon;
+use App\Models\Alarm;
 use App\Models\Material;
-use App\Models\PaidMaterialDownloadHistory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use App\Models\PaidMaterialDownloadHistory;
 
 class AdminMaterialController extends Controller
 {
@@ -107,7 +108,17 @@ class AdminMaterialController extends Controller
 
         PaidMaterialDownloadHistory::whereIn('id', $selectedDownloadHistories)->update(['paid' => 1]);
 
-        $paidMaterialDownloadHistory = PaidMaterialDownloadHistory::find($selectedDownloadHistories[0]);
+        $paidMaterialDownloadHistory = PaidMaterialDownloadHistory::with('material')->where('id',$selectedDownloadHistories[0])->first();
+        
+        Alarm::create([
+            'type' => '素材支払う',
+            'alarm' => 'ダウンロードした素材の数に応じて支払いました',
+            'from_user_id' => 0,
+            'to_user_id' => $paidMaterialDownloadHistory->material->user_id,
+            'related_id' => $paidMaterialDownloadHistory->material->id,
+            'model' => 'Material',
+            'status' => 0,
+        ]);
 
         Session::flash('success', '選択したダウンロードの支払いが完了しました');
         return redirect()->route('admin.pay.user.for.material.downloads', $paidMaterialDownloadHistory->material_id);

@@ -113,6 +113,7 @@ class UserMessageController extends Controller
                 'from_user_id' => Auth::user()->id,
                 'to_user_id' => $message->receiver->id,
                 'related_id' => $message->id,
+                'model' => 'Message',
                 'status' => 0,
             ]);
         }

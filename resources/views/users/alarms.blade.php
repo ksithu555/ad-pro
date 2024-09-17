@@ -33,6 +33,7 @@
                                                     <th>アラーム</th>
                                                     <th>送信者</th>
                                                     <th>日付</th>
+                                                    <th>チェック</th>
                                                     <th>チェックしましたか?</th>
                                                     </tr>
                                                 </thead>
@@ -54,6 +55,27 @@
                                                         </td>
                                                         <td>
                                                             {{ $alarm->updated_at->format('Y-m-d H:i:s') }}
+                                                        </td>
+                                                        @php
+                                                            if ($alarm->model == 'Message') {
+                                                                $route = route('user.start.message', $alarm->from_user_id);
+                                                            } elseif ($alarm->model == 'UserPayment') {
+                                                                $route = route('user.show.profile');
+                                                            } elseif ($alarm->model == 'Material') {
+                                                                $route = route('user.show.sale.histories');
+                                                            } elseif ($alarm->model == 'Announcement') {
+                                                                if ($alarm->alarm != '参加者があります') {
+                                                                    $route = route('user.show.announcement', $alarm->related_id);
+                                                                } else {
+                                                                    $route = route('user.show.announcement.participants', $alarm->related_id);
+                                                                }
+                                                            }
+                                                        @endphp
+                                                        <td>
+                                                            <a class="btn btn-sm btn-dark-outline btn-circle margin-left-auto margin-right-auto display-table-sm"
+                                                            href="{{ $route }}">
+                                                                チェック <i class="ion-android-arrow-forward"></i>
+                                                            </a>
                                                         </td>
                                                         <td>
                                                             <div class="tr-modal-popup">
@@ -87,11 +109,11 @@
                                             <table class="table table-bordered table-striped table-hover shop-cart">
                                                 <thead>
                                                     <tr>
-                                                    <th>タイプ</th>
+                                                    <th>機能種類</th>
                                                     <th>アラーム</th>
                                                     <th>送信者</th>
                                                     <th>日付</th>
-                                                    <th>チェックしましたか?</th>
+                                                    <th>削除しますか?</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -104,7 +126,11 @@
                                                             {{ $checkedAlarm->alarm }}
                                                         </td>
                                                         <td>
-                                                            {{ $checkedAlarm->sender->name }}
+                                                            @if ($alarm->sender)
+                                                                {{ $alarm->sender->name }}
+                                                            @else
+                                                                管理者
+                                                            @endif
                                                         </td>
                                                         <td>
                                                             {{ $checkedAlarm->updated_at->format('Y-m-d H:i:s') }}

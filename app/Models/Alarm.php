@@ -10,6 +10,7 @@ class Alarm extends Model
     protected $fillable = [
         'type',
         'related_id',
+        'model',
         'alarm',
         'from_user_id',
         'to_user_id',

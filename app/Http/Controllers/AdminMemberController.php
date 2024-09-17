@@ -97,6 +97,7 @@ class AdminMemberController extends Controller
             'from_user_id' => 0,
             'to_user_id' => $user->id,
             'related_id' => $userPayment->id,
+            'model' => 'UserPayment',
             'status' => 0,
         ]);
 

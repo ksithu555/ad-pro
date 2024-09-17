@@ -41,8 +41,8 @@
                                     <option value="商業用_その他">商業用_その他</option>
                                     <option value="アート風_静物">アート風_静物</option>
                                     <option value="アート風_白黒">アート風_白黒</option>
-                                    <option value="アート風_若術">アート風_若術</option>
-                                    <option value="アート風_多重露光">アート風_多重露光</option>
+                                    <option value="アート風_芸術">アート風_芸術</option>
+                                    <option value="アート風_二重露光">アート風_二重露光</option>
                                     <option value="アート風_シュルレアリスム">アート風_シュルレアリスム</option>
                                     <option value="アート風_抽象">アート風_抽象</option>
                                 </select>

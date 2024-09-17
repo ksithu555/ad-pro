@@ -36,6 +36,11 @@ class AdminController extends Controller
             return redirect()->back()->withInput();
         }
     
+        if ($loginAdmin->status == 0) {
+            Session::flash('error', 'アカウントは無効になりました');
+            return redirect()->back()->withInput();
+        }
+    
         Auth::guard('admin')->login($loginAdmin);
         $request->session()->regenerate();
     

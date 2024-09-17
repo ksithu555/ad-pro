@@ -98,8 +98,8 @@
                                                     <!-- Modal Popup Message Box -->
                                                     <div id="modal-popup-{{ $material->id }}" class="white-bg all-padding-60 mfp-with-anim mfp-hide centerize-col col-lg-4 col-md-6 col-sm-7 col-xs-11 text-center">
                                                         <span class="text-uppercase font-30px font-600 mb-20 display-block dark-color">素材ダウンロード</span>
-                                                        <p class="mb-20 default-color">残り素材ダウンロード：{{ Auth::user()->paidUserDownloadLimitation ? Auth::user()->paidUserDownloadLimitation->count : '10' }}回</p>
-                                                        @if (Auth::user()->paidUserDownloadLimitation && Auth::user()->paidUserDownloadLimitation->count != 0)
+                                                        <p class="mb-20 default-color">残り素材ダウンロード：{{ Auth::user()->paidUserDownloadLimitation ? Auth::user()->paidUserDownloadLimitation->count : '3' }}回</p>
+                                                        @if ((!Auth::user()->paidUserDownloadLimitation) || (Auth::user()->paidUserDownloadLimitation && Auth::user()->paidUserDownloadLimitation->count != 0))
                                                             <p class="mb-20">素材をダウンロードしてもよろしいですか?</p>
                                                             <form id="downloadForm" action="{{ route('user.download.material', $material->id) }}" method="GET" target="downloadIframe" style="display: none;"></form>
                                                             <!-- Hidden iframe to handle the download -->

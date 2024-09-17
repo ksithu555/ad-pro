@@ -148,6 +148,7 @@ Route::group(['middleware' => ['user']], function () {
     Route::get('/user/download/material/{id}', [UserMaterialController::class, 'downloadMaterial'])->name('user.download.material');
     // user material management
     Route::get('/user/show/materials', [UserMaterialController::class, 'showMaterials'])->name('user.show.materials');
+    Route::get('/user/show/sale/histories', [UserMaterialController::class, 'showSaleHistories'])->name('user.show.sale.histories');
     Route::group(['middleware' => ['user:2']], function() {
         Route::get('/user/add/material', [UserMaterialController::class, 'addMaterial'])->name('user.add.material');
         Route::post('/user/store/material', [UserMaterialController::class, 'storeMaterial'])->name('user.store.material');
@@ -251,6 +252,10 @@ Route::group(['middleware' => ['admin']], function () {
     Route::get('/admin/material/delete/{id}', [AdminMaterialController::class, 'deleteMaterial'])->name('admin.delete.material');
     Route::post('/admin/update/material-status', [AdminMaterialController::class, 'updateMaterialStatus'])->name('admin.update.material.status');
     Route::get('/admin/material-icons', [AdminMaterialController::class, 'getMaterialIcons'])->name('admin.get.material.icons');
+    Route::get('/admin/pay/user/for-material-downloads/{id}', [AdminMaterialController::class, 'payForMaterialDownloads'])->name('admin.pay.user.for.material.downloads');
+    Route::get('/admin/paid/user/for-material-downloads/{id}', [AdminMaterialController::class, 'paidForMaterialDownloads'])->name('admin.paid.user.for.material.downloads');
+    Route::post('/admin/pay/user/for-selected-material-downloads', [AdminMaterialController::class, 'payForSelectedMaterialDownloads'])->name('admin.pay.user.for.selected.material.downloads');
+    Route::post('/admin/unpaid/user/for-selected-material-downloads', [AdminMaterialController::class, 'unpaidForSelectedMaterialDownloads'])->name('admin.unpaid.user.for.selected.material.downloads');
     
     // sections
     Route::get('/admin/sections', [AdminSectionController::class, 'getSections'])->name('admin.get.sections');

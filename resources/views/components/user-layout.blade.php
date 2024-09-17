@@ -88,7 +88,7 @@
       <div class="attr-nav hidden-xs sm-display-none">
         <ul>
           <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <a href="#">
               @php
                 $defaultColor = '';
                   if (request()->routeIs('user.get.plans') ||
@@ -102,7 +102,8 @@
                   request()->routeIs('user.purchase.plan') ||
                   request()->routeIs('user.show.materials') ||
                   request()->routeIs('user.add.material') ||
-                  request()->routeIs('user.edit.material')) {
+                  request()->routeIs('user.edit.material') ||
+                  request()->routeIs('user.show.sale.histories')) {
                     $defaultColor = 'default-color';
                   }
               @endphp
@@ -145,25 +146,25 @@
       <div class="collapse navbar-collapse" id="navbar-menu">
         <ul class="nav navbar-nav navbar-right" data-in="fadeIn" data-out="fadeOut">
           <li class="dropdown">
-            <a href="{{ route('user.get.alarms') }}" class="dropdown-toggle" data-toggle="dropdown">
+            <a href="{{ route('user.get.alarms') }}">
                 <span class="{{ request()->routeIs('user.get.alarms') ? 'default-color' : '' }}">To Do</span>
             </a>
           </li>
           <li class="dropdown">
-            <a href="{{ route('user.get.members') }}" class="dropdown-toggle" data-toggle="dropdown">
+            <a href="{{ route('user.get.members') }}">
                 <span class="{{ request()->routeIs('user.get.members') ||
                 request()->routeIs('user.show.member.detail')
                 ? 'default-color' : '' }}">会員リスト</span>
             </a>
           </li>
           {{-- <li class="dropdown">
-            <a href="{{ route('user.get.advertisements') }}" class="dropdown-toggle" data-toggle="dropdown">
+            <a href="{{ route('user.get.advertisements') }}">
                 <span class="{{ request()->routeIs('user.get.advertisements')
                 ? 'default-color' : '' }}">広告配布</span>
             </a>
           </li> --}}
           <li class="dropdown">
-            <a href="{{ route('user.get.advertisements') }}" class="dropdown-toggle" data-toggle="dropdown">
+            <a href="{{ route('user.get.advertisements') }}">
                 <span class="{{ request()->routeIs('user.get.advertisements') ||
                 request()->routeIs('user.show.advertisement') ||
                 request()->routeIs('user.add.advertisement') ||
@@ -185,28 +186,28 @@
             </a>
           </li>
           <li class="dropdown">
-            <a href="{{ route('user.get.materials') }}" class="dropdown-toggle" data-toggle="dropdown">
+            <a href="{{ route('user.get.materials') }}">
                 <span class="{{ request()->routeIs('user.get.materials') ||
                 request()->routeIs('user.get.material.icons')
                 ? 'default-color' : '' }}">素材集</span>
             </a>
           </li>
           <li class="dropdown">
-            <a href="{{ route('user.get.announcements') }}" class="dropdown-toggle" data-toggle="dropdown">
+            <a href="{{ route('user.get.announcements') }}">
                 <span class="{{ request()->routeIs('user.get.announcements') ||
                 request()->routeIs('user.show.announcement')
                 ? 'default-color' : '' }}">情報広場</span>
             </a>
           </li>
           <li class="dropdown">
-            <a href="{{ route('user.get.messages') }}" class="dropdown-toggle" data-toggle="dropdown">
+            <a href="{{ route('user.get.messages') }}">
                 <span class="{{ request()->routeIs('user.get.messages') ||
                 request()->routeIs('user.start.message')
                 ? 'default-color' : '' }}">商談管理</span>
             </a>
           </li>
           <li class="dropdown">
-            <a href="{{ route('user.get.notices') }}" class="dropdown-toggle" data-toggle="dropdown">
+            <a href="{{ route('user.get.notices') }}">
                 <span class="{{ request()->routeIs('user.get.notices')
                 ? 'default-color' : '' }}">お知らせ</span>
             </a>

@@ -127,7 +127,7 @@
                         <div class="testimonial-item">
                             <div class="testimonial-content">
                                 <img class="img-responsive img-circle text-center" src="{{ asset('assets/images/clients/com01.png') }}" alt="avatar-1"/>
-                                <p class="mt-20 line-height-26 font-14px">ソフトウェア知識があんまりない私ですが、広告ページを簡単に作成しウェブに公開しました！</p>
+                                <p class="mt-20 line-height-26 font-14px">ソフトウェア開発知識がなくても、簡単に広告ページを作成しウェブに公開しました！</p>
                                 <h5 class="font-700 mb-0">A社</h5>
                                 <span class="default-color font-14px">SEO Manager</span>
                                 <ul class="social-default-no-border mt-20 mb-20">
@@ -224,7 +224,7 @@
                             </div>
                             <div id="question3" class="panel-collapse collapse" aria-expanded="false" role="tablist">
                                 <div class="panel-body">
-                                    セミナー、募集、販売、購入などの案件情報掲載を完全無料でご利用いただけます。<br>
+                                    セミナー、交流会、募集、販売、購入などの案件情報掲載を完全無料でご利用いただけます。<br>
                                     買い手、売り手とも完全無料です。
                                 </div>
                             </div>

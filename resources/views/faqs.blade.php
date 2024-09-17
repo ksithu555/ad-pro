@@ -100,7 +100,7 @@
                             <div id="light4" class="panel-collapse collapse" aria-expanded="false" role="tablist">
                                 <div class="panel-body dark-color">
                                     ADPRO会員になると商談機能と情報広場機能が完全無料でご利用いただけます。
-                                    また有料会員の場合、広告ページの制作と、毎月MAX10枚の高品質素材のダウンロードができます。
+                                    また有料会員の場合、広告ページの制作と高品質の有料素材を月3回までダウンロードできます。
                                 </div>
                             </div>
                         </div>
@@ -108,15 +108,15 @@
                             <div class="panel-heading">
                                 <a data-toggle="collapse" data-parent="#accordion-style" href="#light5" aria-expanded="false" class="collapsed">
                                     <div class="panel-title text-uppercase white-color">
-                                        素材を販売したいですが、どうすればいいでしょうか？
+                                        素材を販売したいが、どうすればいいでしょうか？
                                         <span class="pull-right"><i class="ion-chevron-down"></i></span>
                                     </div>
                                 </a> 
                             </div>
                             <div id="light5" class="panel-collapse collapse" aria-expanded="false" role="tablist">
                                 <div class="panel-body dark-color">
-                                    素材を販売する為には、有料のゴールド会員になる必要があります。ゴールド会員になると、
-                                    素材の管理と販売ができます。
+                                    素材を販売する為には、有料のゴールド会員になる必要があります。ゴールド会員になると、素材の販売ができます。
+                                    会員の1回ダウンロードで、1,100円（税込）の収益が発生します。
                                 </div>
                             </div>
                         </div>

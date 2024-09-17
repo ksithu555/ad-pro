@@ -24,7 +24,7 @@
               </h2>
               <ul class="pricing-list">
                 <li>
-                    <span class="feature-label">ビジネス商談機能</span>
+                    <span class="feature-label">ビジネス商談</span>
                     <span class="feature-check">◯</span>
                 </li>
                 <li>
@@ -36,7 +36,7 @@
                     <span class="feature-check">◯</span>
                 </li>
                 <li>
-                    <span class="feature-label">広告ページ制作機能</span>
+                    <span class="feature-label">広告ページ制作</span>
                     <span class="feature-check">ー</span>
                 </li>
                 <li>
@@ -69,13 +69,13 @@
               {{-- <h4 class="grey-color text-uppercase">拡張機能を備えた高度なウェブサイトを作成</h4> --}}
               <h2 class="roboto-font font-60px default-color pricing-header">
                 <sup>¥</sup>
-                <span>3,300</span>
+                <span>5,500</span>
                 <span class="font-12px">（税込）<br>（月額利用料）</span>
               </h2>
               <div class="pricicng-feature">
                 <ul class="pricing-list">
                   <li>
-                      <span class="feature-label">ビジネス商談機能</span>
+                      <span class="feature-label">ビジネス商談</span>
                       <span class="feature-check">◯</span>
                   </li>
                   <li>
@@ -87,7 +87,7 @@
                       <span class="feature-check">◯</span>
                   </li>
                   <li>
-                      <span class="feature-label">広告ページ制作機能</span>
+                      <span class="feature-label">広告ページ制作</span>
                       <span class="feature-check">◯</span>
                   </li>
                   <li>
@@ -136,7 +136,7 @@
               </h2>
               <ul class="pricing-list">
                 <li>
-                    <span class="feature-label">ビジネス商談機能</span>
+                    <span class="feature-label">ビジネス商談</span>
                     <span class="feature-check">◯</span>
                 </li>
                 <li>

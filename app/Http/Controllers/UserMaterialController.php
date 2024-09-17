@@ -43,13 +43,14 @@ class UserMaterialController extends Controller
                     'user_id' => Auth::user()->id,
                     'plan_start' => Auth::user()->plan_start,
                     'plan_end' => Auth::user()->plan_end,
-                    'count' => 9
+                    'count' => 2
                 ]);
             }
 
             $paidMaterialDownloadHistory = PaidMaterialDownloadHistory::create([
                 'user_id' => Auth::user()->id,
-                'material_id' => $material->id
+                'material_id' => $material->id,
+                'paid' => 0
             ]);
         }
     
@@ -74,6 +75,14 @@ class UserMaterialController extends Controller
         $ttl = $materials->total();
         $ttlpage = ceil($ttl / $limit);
         return view('users.materials.show-materials', compact('materials', 'ttl', 'ttlpage'));
+    }
+
+    public function showSaleHistories() {
+        $limit = 10;
+        $materials = Material::with('paidMaterialDownloadHistories')->where('user_id', Auth::user()->id)->where('required_plan', 1)->paginate($limit);
+        $ttl = $materials->total();
+        $ttlpage = ceil($ttl / $limit);
+        return view('users.materials.show-sale-histories', compact('materials', 'ttl', 'ttlpage'));
     }
 
     public function addMaterial() {

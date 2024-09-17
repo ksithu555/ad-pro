@@ -36,9 +36,9 @@
                             <th>#</th>
                             <th>登録日</th>
                             <th style="min-width: 110px;">タイプ</th>
-                            <th>名前</th>
+                            <th>素材名</th>
                             <th>画像</th>
-                            <th>必要なプラン</th>
+                            <th style="min-width: 170px;">必要なプラン</th>
                             <th>作成者</th>
                             <th>ステータス</th>
                             <th style="min-width: 110px;">アクション</th>
@@ -62,19 +62,34 @@
                                 <td>
                                     <img src="{{ asset('assets/images/all/' . $material->image ) }}" alt=""> 
                                 </td>
-                                <td>
+                                <td style="min-width: 170px;">
                                     @switch($material->required_plan)
                                         @case(0)
                                             <span class="custom-badge free-badge">無料</span>
                                             @break
                                         @case(1)
                                             <span class="custom-badge gold-badge">有料</span>
+                                            @if ($material->user_id != 0)
+                                                @php
+                                                    $counts = 0;
+                                                    if ($material->paidMaterialDownloadHistories->isNotEmpty()) {
+                                                        $counts = $material->paidMaterialDownloadHistories->count();
+                                                    }
+                                                @endphp
+                                                <h6>
+                                                    ダウンロード数：{{ $counts }}回
+                                                </h6>
+                                            @endif
                                             @break
                                     @endswitch
                                 </td>
                                 <td>
                                     @if ($material->user)
-                                    {{ $material->user->name }}
+                                        {{ $material->user->name }}
+                                        <a href="{{ route('admin.pay.user.for.material.downloads', $material->id) }}" style="display: block;margin-top: 5px;" 
+                                         class="btn btn-xs btn-dark-outline btn-circle margin-left-auto margin-right-auto display-table-sm">
+                                            支払う
+                                        </a>
                                     @else
                                     管理者
                                     @endif

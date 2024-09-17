@@ -95,45 +95,43 @@
                     <!--== Collect the nav links, forms, and other content for toggling ==-->
                     <div class="collapse navbar-collapse" id="navbar-menu">
                         <ul class="nav navbar-nav navbar-right" data-in="fadeIn" data-out="fadeOut">
-                            <li class="dropdown">
-                                <a href="{{ route('guest.home') }}" class="dropdown-toggle" data-toggle="dropdown">
+                            <li>
+                                <a href="{{ route('guest.home') }}">
                                     <span class="{{ request()->routeIs('guest.home') ? 'default-color' : '' }}">ホーム</span>
                                 </a>
                             </li>
-                            <li class="dropdown">
-                                <a href="{{ route('guest.advertisement.list') }}" class="dropdown-toggle active" data-toggle="dropdown">
+                            <li>
+                                <a href="{{ route('guest.advertisement.list') }}" class="active">
                                     <span class="{{ request()->routeIs('guest.advertisement.list') ? 'default-color' : '' }}">広告一覧</span>
                                 </a>
                             </li>
-                            <li class="dropdown">
-                                <a href="{{ route('guest.news') }}" class="dropdown-toggle active" data-toggle="dropdown">
-                                    <span class="{{ request()->routeIs('guest.news') ||
-                                    request()->routeIs('guest.show.news')
-                                    ? 'default-color' : '' }}">新着情報</span>
+                            <li>
+                                <a href="{{ route('guest.news') }}">
+                                    <span class="{{ request()->routeIs('guest.news') || request()->routeIs('guest.show.news') ? 'default-color' : '' }}">新着情報</span>
                                 </a>
                             </li>
-                            <li class="dropdown">
-                                <a href="{{ route('guest.faqs') }}" class="dropdown-toggle active" data-toggle="dropdown">
+                            <li>
+                                <a href="{{ route('guest.faqs') }}">
                                     <span class="{{ request()->routeIs('guest.faqs') ? 'default-color' : '' }}">よくあるご質問</span>
                                 </a>
                             </li>
-                            <li class="dropdown">
-                                <a href="{{ route('guest.contact') }}" class="dropdown-toggle" data-toggle="dropdown">
+                            <li>
+                                <a href="{{ route('guest.contact') }}">
                                     <span class="{{ request()->routeIs('guest.contact') ? 'default-color' : '' }}">お問合せ</span>
                                 </a>
                             </li>
-                            <li class="dropdown">
-                                <a href="{{ route('user.show.login') }}" class="dropdown-toggle" data-toggle="dropdown">
+                            <li>
+                                <a href="{{ route('user.show.login') }}">
                                     <span class="{{ request()->routeIs('user.show.login') ? 'default-color' : '' }}">ログイン</span>
                                 </a>
                             </li>
-                            <li class="dropdown">
-                                <a href="{{ route('user.show.register') }}" class="dropdown-toggle" data-toggle="dropdown">
+                            <li>
+                                <a href="{{ route('user.show.register') }}">
                                     <span class="{{ request()->routeIs('user.show.register') ? 'default-color' : '' }}">会員登録</span>
                                 </a>
                             </li>
                         </ul>
-                    </div>
+                    </div>                    
                 <!--== /.navbar-collapse ==-->
                 </div>
             </nav>

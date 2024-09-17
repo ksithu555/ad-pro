@@ -89,7 +89,7 @@
             <a href="#" id="search-button"><i class="icofont icofont-search"></i></a>
           </li> --}}
           <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <a href="#">
               @php
                 $defaultColor = '';
                   if (request()->routeIs('admin.change.password')) {
@@ -129,7 +129,7 @@
       <div class="collapse navbar-collapse" id="navbar-menu">
         <ul class="nav navbar-nav navbar-right" data-in="fadeIn" data-out="fadeOut">
           <li class="">
-            <a href="{{ route('admin.get.home') }}" class="dropdown-toggle" data-toggle="dropdown">
+            <a href="{{ route('admin.get.home') }}">
                 <span class="{{ request()->routeIs('admin.get.home') ||
                 request()->routeIs('admin.add.header') ||
                 request()->routeIs('admin.edit.headers') ||
@@ -141,7 +141,7 @@
             </a>
           </li>
           <li class="dropdown">
-            <a href="{{ route('admin.get.members') }}" class="dropdown-toggle" data-toggle="dropdown">
+            <a href="{{ route('admin.get.members') }}">
                 <span class="{{ request()->routeIs('admin.get.members') ||
                 request()->routeIs('admin.show.member.detail') ||
                 request()->routeIs('admin.check.member.message')
@@ -149,21 +149,23 @@
             </a>
           </li>
           <li class="dropdown">
-            <a href="{{ route('admin.get.advertisements') }}" class="dropdown-toggle" data-toggle="dropdown">
+            <a href="{{ route('admin.get.advertisements') }}">
                 <span class="{{ request()->routeIs('admin.get.advertisements') ? 'default-color' : '' }}">広告一覧</span>
             </a>
           </li>
           <li class="dropdown">
-            <a href="{{ route('admin.get.materials') }}" class="dropdown-toggle" data-toggle="dropdown">
+            <a href="{{ route('admin.get.materials') }}">
                 <span class="{{ request()->routeIs('admin.get.materials') ||
                 request()->routeIs('admin.add.material') ||
                 request()->routeIs('admin.edit.material') ||
-                request()->routeIs('admin.get.material.icons')
+                request()->routeIs('admin.get.material.icons') ||
+                request()->routeIs('admin.pay.user.for.material.downloads') ||
+                request()->routeIs('admin.paid.user.for.material.downloads')
                 ? 'default-color' : '' }}">素材一覧</span>
             </a>
           </li>
           <li class="dropdown">
-            <a href="{{ route('admin.get.sections') }}" class="dropdown-toggle" data-toggle="dropdown">
+            <a href="{{ route('admin.get.sections') }}">
                 <span class="{{ request()->routeIs('admin.get.sections') ||
                 request()->routeIs('admin.add.section') ||
                 request()->routeIs('admin.edit.section')
@@ -171,7 +173,7 @@
             </a>
           </li>
           <li class="dropdown">
-            <a href="{{ route('admin.get.announcements') }}" class="dropdown-toggle" data-toggle="dropdown">
+            <a href="{{ route('admin.get.announcements') }}">
                 <span class="{{ request()->routeIs('admin.get.announcements') ||
                 request()->routeIs('admin.show.announcement') ||
                 request()->routeIs('admin.show.announcement.participants')
@@ -179,7 +181,7 @@
             </a>
           </li>
           <li class="dropdown">
-            <a href="{{ route('admin.get.news') }}" class="dropdown-toggle" data-toggle="dropdown">
+            <a href="{{ route('admin.get.news') }}">
                 <span class="{{ request()->routeIs('admin.get.news') ||
                 request()->routeIs('admin.add.news') ||
                 request()->routeIs('admin.edit.news')
@@ -187,7 +189,7 @@
             </a>
           </li>
           <li class="dropdown">
-            <a href="{{ route('admin.get.notices') }}" class="dropdown-toggle" data-toggle="dropdown">
+            <a href="{{ route('admin.get.notices') }}">
                 <span class="{{ request()->routeIs('admin.get.notices') ||
                 request()->routeIs('admin.add.notice') ||
                 request()->routeIs('admin.edit.notice')
@@ -196,7 +198,7 @@
           </li>
           @if (Auth::guard('admin')->user()->role == 'admin')
           <li class="dropdown">
-            <a href="{{ route('admin.get.sub.admins') }}" class="dropdown-toggle" data-toggle="dropdown">
+            <a href="{{ route('admin.get.sub.admins') }}">
                 <span class="{{ request()->routeIs('admin.get.sub.admins') ||
                 request()->routeIs('admin.add.sub.admin') ||
                 request()->routeIs('admin.edit.sub.admin')

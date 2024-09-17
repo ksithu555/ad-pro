@@ -38,12 +38,12 @@ class UserController extends Controller
         $loginUser = User::where('email', $request->email)->first();
     
         if (!$loginUser) {
-            Session::flash('error', 'Email is Incorrect');
+            Session::flash('error', '正しいメールアドレスとパスワードを入力してください');
             return redirect()->back()->withInput();
         }
     
         if (!Hash::check($request->password, $loginUser->password)) {
-            Session::flash('error', 'Email or Password is Incorrect');
+            Session::flash('error', '正しいメールアドレスとパスワードを入力してください');
             return redirect()->back()->withInput();
         }
     

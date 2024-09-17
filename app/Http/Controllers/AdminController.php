@@ -27,12 +27,12 @@ class AdminController extends Controller
         $loginAdmin = Admin::where('email', $request->email)->first();
     
         if (!$loginAdmin) {
-            Session::flash('error', 'Email is Incorrect');
+            Session::flash('error', '正しいメールアドレスとパスワードを入力してください');
             return redirect()->back()->withInput();
         }
     
         if (!Hash::check($request->password, $loginAdmin->password)) {
-            Session::flash('error', 'Email or Password is Incorrect');
+            Session::flash('error', '正しいメールアドレスとパスワードを入力してください');
             return redirect()->back()->withInput();
         }
     

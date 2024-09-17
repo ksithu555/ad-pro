@@ -8,7 +8,8 @@ class PaidMaterialDownloadHistory extends Model
 {
     protected $fillable = [
         'user_id',
-        'material_id'
+        'material_id',
+        'paid'
     ];
 
     public function user()

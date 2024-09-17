@@ -20,6 +20,7 @@
                                 <select name="type" class="orderby type md-input">
                                     <option value="">タイプを選択してください*</option>
                                     <option value="セミナー" @if($announcement->type == 'セミナー')selected="selected"@endif>セミナー</option>
+                                    <option value="交流会" @if($announcement->type == '交流会')selected="selected"@endif>交流会</option>
                                     <option value="募集" @if($announcement->type == '募集')selected="selected"@endif>募集</option>
                                     <option value="販売" @if($announcement->type == '販売')selected="selected"@endif>販売</option>
                                     <option value="購入" @if($announcement->type == '購入')selected="selected"@endif>購入</option>

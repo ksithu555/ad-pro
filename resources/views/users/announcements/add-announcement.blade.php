@@ -19,6 +19,7 @@
                                 <select name="type" class="orderby type md-input">
                                     <option value="" selected="selected">タイプを選択してください*</option>
                                     <option value="セミナー">セミナー</option>
+                                    <option value="交流会">交流会</option>
                                     <option value="募集">募集</option>
                                     <option value="販売">販売</option>
                                     <option value="購入">購入</option>

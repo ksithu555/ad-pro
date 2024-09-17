@@ -21,7 +21,7 @@
                     <i class="fa-icon-plus-square"></i> 素材
                 </a>
                 <a class="btn btn-md btn-dark-outline btn-square margin-left-auto margin-right-auto display-table-sm"
-                href="">
+                href="{{ route('user.show.sale.histories') }}">
                 販売履歴 <i class="ion-android-arrow-forward"></i>
                 </a>
             </div>
@@ -35,8 +35,8 @@
                             <tr>
                             <th>#</th>
                             <th>登録日</th>
-                            <th style="min-width: 110px;">タイプ</th>
-                            <th>名前</th>
+                            <th style="min-width: 110px;">ジャンル</th>
+                            <th>素材名</th>
                             <th>画像</th>
                             <th>必要なプラン</th>
                             {{-- <th style="min-width: 110px;">ダウンロード数</th> --}}

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Icon;
 use App\Models\Material;
+use App\Models\PaidMaterialDownloadHistory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
@@ -87,5 +88,35 @@ class AdminMaterialController extends Controller
     public function getMaterialIcons() {
         $icons = Icon::where('status', 1)->get();
         return view('admins.materials.material-icons', compact('icons'));
+    }
+
+    public function payForMaterialDownloads($id) {
+        $downloadHistories = PaidMaterialDownloadHistory::with('user')->with('material')->where('material_id', $id)->where('paid', 0)->get();
+        $ttl = $downloadHistories->count();
+        return view('admins.materials.pay-for-material-downloads', compact('id', 'downloadHistories', 'ttl'));
+    }
+
+    public function paidForMaterialDownloads($id) {
+        $downloadHistories = PaidMaterialDownloadHistory::with('user')->with('material')->where('material_id', $id)->where('paid', 1)->get();
+        $ttl = $downloadHistories->count();
+        return view('admins.materials.paid-for-material-downloads', compact('id', 'downloadHistories', 'ttl'));
+    }
+
+    public function payForSelectedMaterialDownloads(Request $request) {
+        $selectedDownloadHistories = $request->input('paid');
+
+        PaidMaterialDownloadHistory::whereIn('id', $selectedDownloadHistories)->update(['paid' => 1]);
+
+        Session::flash('success', '選択したダウンロードの支払いが完了しました');
+        return redirect()->route('admin.get.materials');
+    }
+
+    public function unpaidForSelectedMaterialDownloads(Request $request) {
+        $selectedDownloadHistories = $request->input('paid');
+
+        PaidMaterialDownloadHistory::whereIn('id', $selectedDownloadHistories)->update(['paid' => 0]);
+
+        Session::flash('success', '選択したダウンロードの支払い修正が完了しました');
+        return redirect()->route('admin.get.materials');
     }
 }

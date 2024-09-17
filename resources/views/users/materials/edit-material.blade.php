@@ -17,8 +17,35 @@
                     <div class="row">
                         <div class="col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2">
                             <div class="form-group">
-                                <label class="sr-only" for="type">タイプ</label>
-                                <input type="text" name="type" class="md-input" id="type" placeholder="タイプ *" value="{{ old('type') ? old('type') : $material->type }}">
+                                <select name="type" class="orderby type md-input">
+                                    <option value="自然_風景" @if($material->type == '自然_風景')selected="selected"@endif>自然/風景</option>
+                                    <option value="自然_天体" @if($material->type == '自然_天体')selected="selected"@endif>自然/天体</option>
+                                    <option value="自然_ペット" @if($material->type == '自然_ペット')selected="selected"@endif>自然/ペット</option>
+                                    <option value="自然_マクロ" @if($material->type == '自然_マクロ')selected="selected"@endif>自然/マクロ</option>
+                                    <option value="自然_花" @if($material->type == '自然_花')selected="selected"@endif>自然/花</option>
+                                    <option value="都市風景_建築物" @if($material->type == '都市風景_建築物')selected="selected"@endif>都市風景/建築物</option>
+                                    <option value="都市風景_不動産" @if($material->type == '都市風景_不動産')selected="selected"@endif>都市風景/不動産</option>
+                                    <option value="都市風景_ドローン撮影" @if($material->type == '都市風景_ドローン撮影')selected="selected"@endif>都市風景/ドローン撮影</option>
+                                    <option value="都市風景_航空" @if($material->type == '都市風景_航空')selected="selected"@endif>都市風景/航空</option>
+                                    <option value="人物_ポートレート" @if($material->type == '人物_ポートレート')selected="selected"@endif>人物/ポートレート</option>
+                                    <option value="人物_顔" @if($material->type == '人物_顔')selected="selected"@endif>人物/顔</option>
+                                    <option value="人物_ファッション" @if($material->type == '人物_ファッション')selected="selected"@endif>人物/ファッション</option>
+                                    <option value="人物_スポーツ" @if($material->type == '人物_スポーツ')selected="selected"@endif>人物/スポーツ</option>
+                                    <option value="人物_ドキュメンタリー" @if($material->type == '人物_ドキュメンタリー')selected="selected"@endif>人物/ドキュメンタリー</option>
+                                    <option value="ライフスタイル_ストリート" @if($material->type == 'ライフスタイル_ストリート')selected="selected"@endif>ライフスタイル/ストリート</option>
+                                    <option value="ライフスタイル_ライフスタイル" @if($material->type == 'ライフスタイル_ライフスタイル')selected="selected"@endif>ライフスタイル/ライフスタイル</option>
+                                    <option value="ライフスタイル_ウェディング" @if($material->type == 'ライフスタイル_ウェディング')selected="selected"@endif>ライフスタイル/ウェディング</option>
+                                    <option value="商業用_食べもの" @if($material->type == '商業用_食べもの')selected="selected"@endif>商業用/食べもの</option>
+                                    <option value="商業用_製品" @if($material->type == '商業用_製品')selected="selected"@endif>商業用/製品</option>
+                                    <option value="商業用_ロゴ" @if($material->type == '商業用_ロゴ')selected="selected"@endif>商業用/ロゴ</option>
+                                    <option value="商業用_その他" @if($material->type == '商業用_その他')selected="selected"@endif>商業用/その他</option>
+                                    <option value="アート風_静物" @if($material->type == 'アート風_静物')selected="selected"@endif>アート風/静物</option>
+                                    <option value="アート風_白黒" @if($material->type == 'アート風_白黒')selected="selected"@endif>アート風/白黒</option>
+                                    <option value="アート風_若術" @if($material->type == 'アート風_若術')selected="selected"@endif>アート風/若術</option>
+                                    <option value="アート風_多重露光" @if($material->type == 'アート風_多重露光')selected="selected"@endif>アート風/多重露光</option>
+                                    <option value="アート風_シュルレアリスム" @if($material->type == 'アート風_シュルレアリスム')selected="selected"@endif>アート風/シュルレアリスム</option>
+                                    <option value="アート風_抽象" @if($material->type == 'アート風_抽象')selected="selected"@endif>アート風/抽象</option>
+                                </select>
                                 <span class="error" style="color:#BF0731" id="error-type"></span>
                             </div>
                         </div>
@@ -26,8 +53,8 @@
                     <div class="row">
                         <div class="col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2">
                             <div class="form-group">
-                                <label class="sr-only" for="name">名前</label>
-                                <input type="text" name="name" class="md-input" id="name" placeholder="名前 *" value="{{ old('name') ? old('name') : $material->name }}">
+                                <label class="sr-only" for="name">素材名</label>
+                                <input type="text" name="name" class="md-input" id="name" placeholder="素材名 *" value="{{ old('name') ? old('name') : $material->name }}">
                                 <span class="error" style="color:#BF0731" id="error-name"></span>
                             </div>
                         </div>
@@ -120,19 +147,16 @@
             let isValid = true;
             document.querySelectorAll('.error').forEach(el => el.textContent = '');
 
-            const type = document.getElementById('type').value.trim();
+            const type = document.querySelector('.type').value;
             const name = document.getElementById('name').value.trim();
 
             if (!type) {
-                document.getElementById('error-type').textContent = 'タイプを入力してください';
-                isValid = false;
-            } else if (/[^a-zA-Z0-9-_]/.test(type)) {
-                document.getElementById('error-type').textContent = 'タイプにはスペースや特殊文字を含めることはできません';
+                document.getElementById('error-type').textContent = 'ジャンルを選択してください';
                 isValid = false;
             }
 
             if (!name) {
-                document.getElementById('error-name').textContent = '名前を入力してください';
+                document.getElementById('error-name').textContent = '素材名を入力してください';
                 isValid = false;
             }
 

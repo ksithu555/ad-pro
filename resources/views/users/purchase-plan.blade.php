@@ -1,14 +1,14 @@
 <x-user-layout>
     @if ($requestedPlan == 1)
         @php
-            $finalAmount = 3300; // Silver Plan total amount
+            $finalAmount = 5500; // Silver Plan total amount
             $paypalBtnColor = 'silver';
         @endphp
     @else
         @php
             // Initialize refundAmount to avoid undefined variable issues
             $refundAmount = 0;
-            $totalAmount = 3300; // Silver Plan total amount
+            $totalAmount = 5500; // Silver Plan total amount
             $finalAmount = 6600; // Gold Plan total amount
             $paypalBtnColor = 'gold';
 
@@ -67,7 +67,7 @@
                                     <div class="col-md-10 col-sm-10 col-md-offset-1 col-sm-offset-1">
                                         <p style="color:red; font-size:16px; margin-left: 20px;">
                                             @if ($requestedPlan == 1)
-                                                * シルバープラン : ¥ 3,300
+                                                * シルバープラン : ¥ 5,500
                                             @else
                                                 * ゴールドプラン : ¥ 6,600
                                         
@@ -125,7 +125,7 @@
                                         <div class="row">
                                             <p style="color:red; font-size:16px; margin-left: 20px;">
                                                 @if ($requestedPlan == 1)
-                                                    * シルバープラン : ¥ 3,300
+                                                    * シルバープラン : ¥ 5,500
                                                 @else
                                                     * ゴールドプラン : ¥ 6,600
                                             
@@ -179,12 +179,12 @@
                                 <div class="row mt-20">
                                     <div class="col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2">
                                         <p style="color:red; font-size:12px;">
-                                            * 正しい振込人名を入力してください。この名前は、支払いが行われたかどうかを確認するために、
+                                            * 正しい振込依頼人名を入力してください。この名前は、支払いが行われたかどうかを確認するために、
                                             振込確認で使用されます。
                                         </p>
                                         <div class="form-group">
-                                            <label class="sr-only" for="transferName">銀行口座名</label>
-                                            <input type="text" name="transferName" class="md-input" id="transferName" placeholder="銀行口座名 *" value="{{ old('transferName') }}">
+                                            <label class="sr-only" for="transferName">振込依頼人名</label>
+                                            <input type="text" name="transferName" class="md-input" id="transferName" placeholder="振込依頼人名 *" value="{{ old('transferName') }}">
                                             <span class="error" style="color:#BF0731" id="error-transferName"></span>
                                         </div>
                                     </div>
@@ -218,7 +218,7 @@
                                 <div class="col-md-6 col-sm-6 col-md-offset-3 col-sm-offset-3">
                                     <p style="color:red; font-size:16px;">
                                         @if ($requestedPlan == 1)
-                                            * シルバープラン : ¥ 3,300
+                                            * シルバープラン : ¥ 5,500
                                         @else
                                             * ゴールドプラン : ¥ 6,600
                                     
@@ -281,7 +281,7 @@
 
             // Validate name
             if (!transferName) {
-                document.getElementById('error-transferName').textContent = '銀行口座名を入力してください';
+                document.getElementById('error-transferName').textContent = '振込依頼人名を入力してください';
                 isValid = false;
             }
 

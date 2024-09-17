@@ -107,8 +107,10 @@ class AdminMaterialController extends Controller
 
         PaidMaterialDownloadHistory::whereIn('id', $selectedDownloadHistories)->update(['paid' => 1]);
 
+        $paidMaterialDownloadHistory = PaidMaterialDownloadHistory::find($selectedDownloadHistories[0]);
+
         Session::flash('success', '選択したダウンロードの支払いが完了しました');
-        return redirect()->route('admin.get.materials');
+        return redirect()->route('admin.pay.user.for.material.downloads', $paidMaterialDownloadHistory->material_id);
     }
 
     public function unpaidForSelectedMaterialDownloads(Request $request) {
@@ -116,7 +118,9 @@ class AdminMaterialController extends Controller
 
         PaidMaterialDownloadHistory::whereIn('id', $selectedDownloadHistories)->update(['paid' => 0]);
 
+        $paidMaterialDownloadHistory = PaidMaterialDownloadHistory::find($selectedDownloadHistories[0]);
+
         Session::flash('success', '選択したダウンロードの支払い修正が完了しました');
-        return redirect()->route('admin.get.materials');
+        return redirect()->route('admin.paid.user.for.material.downloads', $paidMaterialDownloadHistory->material_id);
     }
 }

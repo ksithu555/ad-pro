@@ -83,6 +83,9 @@
                         @endforeach
                     </div>
                 </div>
+                @if ($advertisements->isEmpty())
+                <h1 class="mt-20 mb-20 text-center">広告がありません</h1>
+                @endif
             </div>
         </div>
     </section>

@@ -62,6 +62,9 @@
                     </div>
                     @endforeach
                 </div>
+                @if ($news->isEmpty())
+                <h1 class="mt-20 mb-20 text-center">新着情報がありません</h1>
+                @endif
             </div>
             @include('components.pagination')
         </div>

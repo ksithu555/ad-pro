@@ -262,6 +262,10 @@ class UserController extends Controller
     }
 
     public function getPlans() {
+        $gotoplan = request()->query('upgrade') === 'yes';
+        if ($gotoplan) {
+            Session::flash('warning', 'この資料をダウンロードするには、プランをアップグレードしてください');
+        }
         return view('users.plans');
     }
 

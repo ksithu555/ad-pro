@@ -113,7 +113,7 @@
                                                     </div>
                                                 @endif
                                             @else
-                                                <a href="{{ route('user.get.plans') }}" 
+                                                <a href="{{ route('user.get.plans', ['upgrade' => 'yes']) }}" 
                                                     class="cbp-l-caption-buttonLeft" rel="nofollow">
                                                     <i class="ion-arrow-graph-up-right"></i>
                                                 </a>

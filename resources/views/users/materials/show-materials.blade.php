@@ -113,7 +113,7 @@
             @include('components.pagination')
             </div>
             @if ($materials->isEmpty())
-            <h1 class="mt-120 mb-60 text-center">素材はありません</h1>
+            <h1 class="mt-120 mb-60 text-center">登録した素材はありません</h1>
             @endif
         </div>
       </div>

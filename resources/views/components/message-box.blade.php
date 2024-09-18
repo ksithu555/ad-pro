@@ -47,7 +47,7 @@
     <div class="col-lg-8 col-md-10 col-xs-12 centerize-col">
         <div class="alert alert-danger alert-dismissible" role="alert">
             <button type="button" class="close" data-dismiss="alert" aria-label="Close"><i class="icofont icofont-close-line"></i></button>
-            Something wrong with this form
+            このフォームに問題があります
           </div>
     </div>
 </div>

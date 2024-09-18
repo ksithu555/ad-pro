@@ -54,7 +54,6 @@ class UpdateUserPlan extends Command
 
             UserPayment::where('user_id', $user->id)->where('status', 1)->update(['status' => 0]);
             Material::where('user_id', $user->id)->where('status', 1)->update(['status' => 0]);
-            Advertisement::where('user_id', $user->id)->where('status', 1)->update(['status' => 0]);
         }
 
         $this->info('Plan end dates set to null for records that ended yesterday at 23:59:59.');

@@ -83,8 +83,8 @@
                     <div id="modal-popup-{{ $bankAccount->id }}" class="white-bg all-padding-60 mfp-with-anim mfp-hide centerize-col col-lg-4 col-md-6 col-sm-7 col-xs-11 text-center">
                       <span class="text-uppercase font-30px font-600 mb-20 display-block dark-color">銀行口座削除</span>
                       <p class="mb-20">銀行口座を削除してもよろしいですか?</p>
-                        <a class="btn btn-lg btn-circle btn-color" href="{{ route('admin.delete.bank.account', $bankAccount->id) }}">Yes</a>
-                        <a class="btn btn-lg btn-circle btn-secondary-color popup-modal-close" href="#">No</a>
+                        <a class="btn btn-lg btn-circle btn-color" href="{{ route('admin.delete.bank.account', $bankAccount->id) }}">はい</a>
+                        <a class="btn btn-lg btn-circle btn-secondary-color popup-modal-close" href="#">いいえ</a>
                     </div>
                     @endforeach
                   </tbody>

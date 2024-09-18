@@ -104,11 +104,11 @@
                                                             <form id="downloadForm" action="{{ route('user.download.material', $material->id) }}" method="GET" target="downloadIframe" style="display: none;"></form>
                                                             <!-- Hidden iframe to handle the download -->
                                                             <iframe id="downloadIframe" name="downloadIframe" style="display:none;"></iframe>
-                                                            <a class="btn btn-lg btn-circle btn-color popup-modal-close" href="javascript:void(0);" onclick="downloadAndReload()">Yes</a>
-                                                            <a class="btn btn-lg btn-circle btn-secondary-color popup-modal-close" href="#">No</a>
+                                                            <a class="btn btn-lg btn-circle btn-color popup-modal-close" href="javascript:void(0);" onclick="downloadAndReload()">はい</a>
+                                                            <a class="btn btn-lg btn-circle btn-secondary-color popup-modal-close" href="#">いいえ</a>
                                                         @else
                                                             <p class="mb-20">素材を10回ダウンロードしました<br>これ以上のダウンロードはできません</p>
-                                                            <a class="btn btn-lg btn-circle btn-secondary-color popup-modal-close" href="#">Close</a>
+                                                            <a class="btn btn-lg btn-circle btn-secondary-color popup-modal-close" href="#">閉じる</a>
                                                         @endif
                                                     </div>
                                                 @endif

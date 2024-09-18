@@ -16,7 +16,7 @@ class AdminMemberController extends Controller
 
     public function getMembers() {
         $limit = 10;
-        $users = User::with('userPayments')->paginate($limit);
+        $users = User::with('userPayments')->orderBy('created_at', 'desc')->paginate($limit);
         $ttl = $users->total();
         $ttlpage = ceil($ttl/$limit);
         return view('admins.members.members', compact('users', 'ttl', 'ttlpage'));

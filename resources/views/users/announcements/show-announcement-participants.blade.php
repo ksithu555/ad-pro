@@ -69,9 +69,9 @@
                         <p class="mb-20">参加者を承認してもよろしいですか?</p>
                         <a class="btn btn-lg btn-circle btn-color"
                          href="{{ route('user.update.participant.status', ['id' => $participant->id, 'status' => 1, 'reason' => 'Accepted']) }}">
-                            Yes
+                            はい
                         </a>
-                        <a class="btn btn-lg btn-circle btn-secondary-color popup-modal-close" href="#">No</a>
+                        <a class="btn btn-lg btn-circle btn-secondary-color popup-modal-close" href="#">いいえ</a>
                     </div>
 
                     <div id="reject-modal-popup-{{ $participant->id }}" class="white-bg all-padding-60 mfp-with-anim mfp-hide centerize-col col-lg-4 col-md-6 col-sm-7 col-xs-11 text-center">
@@ -82,9 +82,9 @@
                             <span class="error" style="color:#BF0731" id="error-reason"></span>
                         </div>
                         <a class="btn btn-lg btn-circle btn-color" href="#" onclick="rejected({{ $participant->id }})">
-                         Yes
+                         はい
                         </a>
-                        <a class="btn btn-lg btn-circle btn-secondary-color popup-modal-close" href="#">No</a>
+                        <a class="btn btn-lg btn-circle btn-secondary-color popup-modal-close" href="#">いいえ</a>
                     </div>
                   @endforeach
                 </tbody>

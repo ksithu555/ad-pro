@@ -42,6 +42,11 @@ Route::get('/user/register', [UserController::class, 'showRegister'])->name('use
 Route::post('/user/register', [UserController::class, 'storeRegister'])->name('user.store.register');
 Route::get('email/verify/{id}/{hash}', [VerificationController::class, 'verify'])->name('verification.verify');
 Route::post('email/resend', [VerificationController::class, 'resend'])->name('verification.resend');
+Route::get('/user/forgot-password', [UserController::class, 'forgotPassword'])->name('user.forgot.password');
+Route::post('/user/reset-password-link', [UserController::class, 'resetPasswordLink'])->name('user.reset.password.link');
+Route::get('/user/reset-password/{token}', [UserController::class, 'showResetForm'])->name('user.reset.password');
+Route::post('/user/update-password', [UserController::class, 'updateForgotPassword'])->name('user.update.forgot.password');
+
 
 // User-specific routes
 Route::group(['middleware' => ['user']], function () {

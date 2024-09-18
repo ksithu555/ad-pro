@@ -78,9 +78,9 @@
                                             <div id="modal-popup-{{ $user->id }}" class="white-bg all-padding-60 mfp-with-anim mfp-hide centerize-col col-lg-4 col-md-6 col-sm-7 col-xs-11 text-center">
                                                 <span class="text-uppercase font-30px font-600 mb-20 display-block dark-color">プランのアップグレード承認</span>
                                                 <p class="mb-20">プランのアップグレードを承認してもよろしいですか?</p>
-                                                <a class="btn btn-md btn-circle btn-dark" href="{{ route('admin.reject.bank.transfer', $userPayment->id) }}">Reject</a>
-                                                <a class="btn btn-md btn-circle btn-color" href="{{ route('admin.approve.bank.transfer', $userPayment->id) }}">Yes</a>
-                                                <a class="btn btn-md btn-circle btn-secondary-color popup-modal-close" href="#">No</a>
+                                                <a class="btn btn-md btn-circle btn-dark" href="{{ route('admin.reject.bank.transfer', $userPayment->id) }}">拒否する</a>
+                                                <a class="btn btn-md btn-circle btn-color" href="{{ route('admin.approve.bank.transfer', $userPayment->id) }}">はい</a>
+                                                <a class="btn btn-md btn-circle btn-secondary-color popup-modal-close" href="#">いいえ</a>
                                             </div>
                                         @else
                                             @switch($user->plan_status)

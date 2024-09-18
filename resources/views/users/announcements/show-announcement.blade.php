@@ -99,15 +99,15 @@
   <div id="modal-popup" class="white-bg all-padding-60 mfp-with-anim mfp-hide centerize-col col-lg-4 col-md-6 col-sm-7 col-xs-11 text-center">
     <span class="text-uppercase font-30px font-600 mb-20 display-block dark-color">情報広場参加</span>
     <p class="mb-20">情報広場を参加してもよろしいですか?</p>
-      <a class="btn btn-lg btn-circle btn-color" href="{{ route('user.request.announcement', $announcement->id) }}">Yes</a>
-      <a class="btn btn-lg btn-circle btn-secondary-color popup-modal-close" href="#">No</a>
+      <a class="btn btn-lg btn-circle btn-color" href="{{ route('user.request.announcement', $announcement->id) }}">はい</a>
+      <a class="btn btn-lg btn-circle btn-secondary-color popup-modal-close" href="#">いいえ</a>
   </div>
 
   @if ($announcement->created_by != Auth::user()->id && $check)
   <div id="reason-modal-popup" class="white-bg all-padding-60 mfp-with-anim mfp-hide centerize-col col-lg-4 col-md-6 col-sm-7 col-xs-11 text-center">
     <span class="text-uppercase font-30px font-600 mb-20 display-block dark-color">拒否理由</span>
     <p class="mb-20">{!! $check->reason !!}</p>
-    <a class="btn btn-lg btn-circle btn-secondary-color popup-modal-close" href="#">Close</a>
+    <a class="btn btn-lg btn-circle btn-secondary-color popup-modal-close" href="#">閉じる</a>
   </div>
   @endif
 </x-user-layout>

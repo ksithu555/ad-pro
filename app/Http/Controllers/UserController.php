@@ -27,6 +27,7 @@ use App\Mail\RequestBankTransferEmail;
 use Illuminate\Support\Facades\Session;
 use App\Models\AdvertisementFooterBlock;
 use App\Models\AdvertisementHeaderBlock;
+use Illuminate\Support\Facades\Password;
 
 class UserController extends Controller
 {
@@ -99,6 +100,41 @@ class UserController extends Controller
         Mail::to($user->email)->send(new VerifyEmail($user, $verificationUrl));
     
         return view('auth.user-register-verify-email', ['user' => $user]);
+    }
+
+    public function forgotPassword() {
+        return view('auth.user-forgot-password');
+    }
+
+    public function resetPasswordLink(Request $request) {
+        $status = Password::sendResetLink(
+            $request->only('email')
+        );
+
+        return $status === Password::RESET_LINK_SENT
+                    ? back()->with(['status' => __($status)])
+                    : back()->withErrors(['email' => __($status)]);
+    }
+
+    public function showResetForm($token)
+    {
+        return view('auth.user-reset-password', ['token' => $token]);
+    }
+
+    // Method to handle password update
+    public function updateForgotPassword(Request $request)
+    {
+        $status = Password::reset(
+            $request->only('email', 'password', 'password_confirmation', 'token'),
+            function ($user, $password) {
+                $user->password = Hash::make($password);
+                $user->save();
+            }
+        );
+
+        return $status === Password::PASSWORD_RESET
+                    ? redirect()->route('user.show.login')->with('status', __($status))
+                    : back()->withErrors(['email' => [__($status)]]);
     }
 
     public function logout(Request $request) {

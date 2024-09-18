@@ -15,8 +15,7 @@ class AdminHomeController extends Controller
     public function getHome() {
         $headers = TopHeader::all();
         $footers = TopFooter::all();
-        $sections = TopSection::orderBy('order')->get();
-        return view('admins.homes.home', compact('headers', 'footers', 'sections'));
+        return view('admins.homes.home', compact('headers', 'footers'));
     }
 
     public function addHeader() {

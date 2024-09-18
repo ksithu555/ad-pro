@@ -197,6 +197,10 @@ Route::group(['middleware' => ['user']], function () {
 // Admin
 Route::get('/admin/login', [AdminController::class, 'showLogin'])->name('admin.show.login');
 Route::post('/admin/login', [AdminController::class, 'storeLogin'])->name('admin.store.login');
+Route::get('/admin/forgot-password', [AdminController::class, 'forgotPassword'])->name('admin.forgot.password');
+Route::post('/admin/reset-password-link', [AdminController::class, 'resetPasswordLink'])->name('admin.reset.password.link');
+Route::get('/admin/reset-password/{token}', [AdminController::class, 'showResetForm'])->name('admin.reset.password');
+Route::post('/admin/update-password', [AdminController::class, 'updateForgotPassword'])->name('admin.update.forgot.password');
 
 // Admin-specific routes
 Route::group(['middleware' => ['admin']], function () {

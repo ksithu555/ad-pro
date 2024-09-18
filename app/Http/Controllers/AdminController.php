@@ -5,17 +5,18 @@ namespace App\Http\Controllers;
 use App\Models\News;
 use App\Models\User;
 use App\Models\Admin;
-use App\Models\Announcement;
-use App\Models\BankAccount;
 use App\Models\Notice;
 use App\Models\Section;
 use App\Models\TopFooter;
 use App\Models\TopHeader;
 use App\Models\TopSection;
+use App\Models\BankAccount;
+use App\Models\Announcement;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Password;
 
 class AdminController extends Controller
 {
@@ -45,6 +46,41 @@ class AdminController extends Controller
         $request->session()->regenerate();
     
         return redirect()->route('admin.get.home');
+    }
+
+    public function forgotPassword() {
+        return view('auth.admin-forgot-password');
+    }
+
+    public function resetPasswordLink(Request $request) {
+        $status = Password::broker('admins')->sendResetLink(
+            $request->only('email')
+        );
+
+        return $status === Password::RESET_LINK_SENT
+                    ? back()->with(['status' => __($status)])
+                    : back()->withErrors(['email' => __($status)]);
+    }
+
+    public function showResetForm($token)
+    {
+        return view('auth.admin-reset-password', ['token' => $token]);
+    }
+
+    // Method to handle password update
+    public function updateForgotPassword(Request $request)
+    {
+        $status = Password::broker('admins')->reset(
+            $request->only('email', 'password', 'password_confirmation', 'token'),
+            function ($admin, $password) {
+                $admin->password = Hash::make($password);
+                $admin->save();
+            }
+        );
+    
+        return $status === Password::PASSWORD_RESET
+            ? redirect()->route('admin.show.login')->with('status', __($status))
+            : back()->withErrors(['email' => [__($status)]]);
     }
 
     public function logout(Request $request) {

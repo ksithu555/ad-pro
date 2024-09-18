@@ -11,9 +11,24 @@ use App\Models\PaidMaterialDownloadHistory;
 
 class AdminMaterialController extends Controller
 {
-    public function getMaterials() {
+    public function getMaterials(Request $request) {
         $limit = 10;
-        $materials = Material::with('user')->paginate($limit);
+        $search = $request->input('search');
+
+        $materialsQuery = Material::with('user');
+
+        if ($search) {
+            $materialsQuery->where(function($query) use ($search) {
+                $query->where('type', 'like', "%{$search}%")
+                      ->orWhere('name', 'like', "%{$search}%")
+                      ->orWhereHas('user', function($query) use ($search) {
+                          $query->where('name', 'like', "%{$search}%")
+                                ->orWhere('company_name', 'like', "%{$search}%");
+                      });
+            });
+        }
+
+        $materials = $materialsQuery->paginate($limit);
         $ttl = $materials->total();
         $ttlpage = ceil($ttl / $limit);
         return view('admins.materials.materials', compact('materials', 'ttl', 'ttlpage'));

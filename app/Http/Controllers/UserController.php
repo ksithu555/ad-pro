@@ -242,9 +242,20 @@ class UserController extends Controller
         return redirect()->route('user.get.alarms');
     }
 
-    public function getNotices() {
+    public function getNotices(Request $request) {
         $limit = 10;
-        $notices = Notice::orderBy('created_at', 'desc')->paginate($limit);
+        $search = $request->input('search');
+
+        $noticesQuery = Notice::orderBy('created_at', 'desc');
+
+        if ($search) {
+            $noticesQuery->where(function($query) use ($search) {
+                $query->where('title', 'like', "%{$search}%")
+                      ->orWhere('body', 'like', "%{$search}%");
+            });
+        }
+
+        $notices = $noticesQuery->paginate($limit);
         $ttl = $notices->total();
         $ttlpage = ceil($ttl/$limit);
         return view('users.notices.notices', compact('notices', 'ttl', 'ttlpage'));

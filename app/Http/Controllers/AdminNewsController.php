@@ -9,9 +9,23 @@ use Illuminate\Support\Facades\Session;
 
 class AdminNewsController extends Controller
 {
-    public function getNews() {
+    public function getNews(Request $request) {
         $limit = 10;
-        $news = News::orderBy('created_at', 'desc')->paginate($limit);
+        $search = $request->input('search');
+
+        $newsQuery = News::query();
+
+        if ($search) {
+            $newsQuery->where(function($query) use ($search) {
+                $query->where('title', 'like', "%{$search}%")
+                      ->orWhere('body', 'like', "%{$search}%")
+                      ->orWhereHas('admin', function($query) use ($search) {
+                          $query->where('name', 'like', "%{$search}%");
+                      });
+            });
+        }
+
+        $news = $newsQuery->orderBy('created_at', 'desc')->paginate($limit);
         $ttl = $news->total();
         $ttlpage = (ceil($ttl / $limit));
         return view('admins.news.news', compact('news', 'ttl', 'ttlpage'));

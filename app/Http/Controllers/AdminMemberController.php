@@ -14,9 +14,20 @@ use Illuminate\Support\Facades\Session;
 class AdminMemberController extends Controller
 {
 
-    public function getMembers() {
+    public function getMembers(Request $request) {
         $limit = 10;
-        $users = User::with('userPayments')->orderBy('created_at', 'desc')->paginate($limit);
+        $search = $request->input('search');
+
+        $usersQuery = User::with('userPayments')->orderBy('created_at', 'desc');
+
+        if ($search) {
+            $usersQuery->where(function($query) use ($search) {
+                $query->where('name', 'like', "%{$search}%")
+                      ->orWhere('company_name', 'like', "%{$search}%");
+            });
+        }
+
+        $users = $usersQuery->paginate($limit);
         $ttl = $users->total();
         $ttlpage = ceil($ttl/$limit);
         return view('admins.members.members', compact('users', 'ttl', 'ttlpage'));

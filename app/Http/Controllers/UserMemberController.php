@@ -10,13 +10,27 @@ use Illuminate\Support\Facades\Auth;
 
 class UserMemberController extends Controller
 {
-    public function getMembers() {
+    public function getMembers(Request $request) {
         $limit = 10;
-        $users = User::where('id', '!=', Auth::user()->id)->where('status', 1)->orderBy('created_at', 'desc')->paginate($limit);
+        $search = $request->input('search');
+        
+        $usersQuery = User::where('id', '!=', Auth::user()->id)
+            ->where('status', 1)
+            ->orderBy('created_at', 'desc');
+
+        if ($search) {
+            $usersQuery->where(function($query) use ($search) {
+                $query->where('name', 'like', "%{$search}%")
+                      ->orWhere('company_name', 'like', "%{$search}%");
+            });
+        }
+    
+        $users = $usersQuery->paginate($limit);
         $ttl = $users->total();
         $ttlpage = ceil($ttl/$limit);
-        return view('users.members.members', compact('users', 'ttl', 'ttlpage'));
-    }
+        
+        return view('users.members.members', compact('users', 'ttl', 'ttlpage', 'search'));
+    }    
 
     public function showMemberDetail($id) {
         $user = User::with('company')->where('id', $id)->first();

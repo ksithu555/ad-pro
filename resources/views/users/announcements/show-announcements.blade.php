@@ -3,6 +3,16 @@
     <section class="white-bg pt-120 pb-120">
       <div class="container">
         <div class="row">
+          <div class="col-sm-8 section-heading">
+              <form action="{{ route('user.show.announcements') }}" method="GET">
+                  <div class="search-box">
+                      <input type="text" name="search" placeholder="検索..." value="{{ request()->input('search') }}">
+                      <button type="submit"><i class="fa fa-search"></i></button>
+                  </div>
+              </form>
+          </div>
+        </div>
+        <div class="row">
           <div class="col-md-8 col-md-offset-2">
             <x-message-box></x-message-box>
           </div>
@@ -97,7 +107,7 @@
             @include('components.pagination')
           </div>
           @if ($announcements->isEmpty())
-          <h1 class="mt-120 mb-120 text-center">情報はありません</h1>
+          <h1 class="mt-120 mb-70 text-center">情報はありません</h1>
           @endif
         </div>
       </div>

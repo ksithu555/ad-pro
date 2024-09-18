@@ -10,9 +10,19 @@ use Illuminate\Support\Facades\Session;
 
 class AdminSubAdminController extends Controller
 {
-    public function getSubAdmins() {
+    public function getSubAdmins(Request $request) {
         $limit = 10;
-        $subAdmins = Admin::where('role', 'sub-admin')->paginate($limit);
+        $search = $request->input('search');
+
+        $subAdminsQuery = Admin::where('role', 'sub-admin');
+
+        if ($search) {
+            $subAdminsQuery->where(function($query) use ($search) {
+                $query->where('name', 'like', "%{$search}%");
+            });
+        }
+
+        $subAdmins = $subAdminsQuery->paginate($limit);
         $ttl = $subAdmins->total();
         $ttlpage = ceil($ttl / $limit);
         return view('admins.sub-admins.sub-admins', compact('subAdmins', 'ttl', 'ttlpage'));

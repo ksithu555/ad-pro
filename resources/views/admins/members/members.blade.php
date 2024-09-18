@@ -4,12 +4,14 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-8 section-heading">
-                    <div class="search-box">
-                        <input type="text" placeholder="Search...">
-                        <button type="submit"><i class="fa fa-search"></i></button>
-                    </div>
+                    <form action="{{ route('admin.get.members') }}" method="GET">
+                        <div class="search-box">
+                            <input type="text" name="search" placeholder="検索..." value="{{ request()->input('search') }}">
+                            <button type="submit"><i class="fa fa-search"></i></button>
+                        </div>
+                    </form>
                 </div>
-            </div>
+            </div>  
             <div class="row">
                 <div class="col-md-8 col-md-offset-2">
                     <x-message-box></x-message-box>
@@ -23,8 +25,8 @@
                                 <tr>
                                     <th>#</th>
                                     <th style="min-width: 110px;">登録日</th>
-                                    <th>会社前</th>
-                                    <th>会員前</th>
+                                    <th>会社名</th>
+                                    <th>会員名</th>
                                     <th>メール</th>
                                     <th>プラン</th>
                                     <th>ステータス</th>

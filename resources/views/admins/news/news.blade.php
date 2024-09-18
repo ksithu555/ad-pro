@@ -3,12 +3,14 @@
     <section class="white-bg pt-120 pb-120">
       <div class="container">
         <div class="row">
-            <div class="col-sm-8 section-heading">
-                <div class="search-box">
-                    <input type="text" placeholder="Search...">
-                    <button type="submit"><i class="fa fa-search"></i></button>
-                </div>
-            </div>
+          <div class="col-sm-8 section-heading">
+              <form action="{{ route('admin.get.news') }}" method="GET">
+                  <div class="search-box">
+                      <input type="text" name="search" placeholder="検索..." value="{{ request()->input('search') }}">
+                      <button type="submit"><i class="fa fa-search"></i></button>
+                  </div>
+              </form>
+          </div>
         </div>
         <div class="row">
           <div class="col-md-8 col-md-offset-2">

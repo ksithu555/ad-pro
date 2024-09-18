@@ -4,12 +4,14 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-8 section-heading">
-                    <div class="search-box">
-                        <input type="text" placeholder="Search...">
-                        <button type="submit"><i class="fa fa-search"></i></button>
-                    </div>
+                    <form action="{{ route('user.get.messages') }}" method="GET">
+                        <div class="search-box">
+                            <input type="text" name="search" placeholder="検索..." value="{{ request()->input('search') }}">
+                            <button type="submit"><i class="fa fa-search"></i></button>
+                        </div>
+                    </form>
                 </div>
-            </div>
+            </div>  
             <div class="row mt-10 tabs-style-03 tabs-style-03-m">
                 <div class="col-md-12">
                     <div class="icon-tabs">
@@ -476,6 +478,11 @@
 
                     // form.closest('.message-content').append(messageHtml);
                     $('#message-content-' + form.find('input[name="toUserId"]').val()).append(messageHtml);
+                    // Scroll the tab-content to the bottom after the message is added
+                    let tabContent = $('.tab-content'); // Select the tab-content div
+                    tabContent.animate({
+                        scrollTop: tabContent[0].scrollHeight
+                    }, 800); // Smooth scrolling over 800ms
                 },
                 error: function(xhr, status, error) {
                     console.error('Error sending message: ' + error);
@@ -500,6 +507,12 @@
                                             '<div class="timestamp received">' + message.created_at + '</div>';
                             
                             $('#message-content-' + message.from_user_id).append(messageHtml);
+
+                            // Scroll the tab-content to the bottom after the new message is added
+                            let tabContent = $('.tab-content');
+                            tabContent.animate({
+                                scrollTop: tabContent[0].scrollHeight
+                            }, 800); // Smooth scrolling over 800ms
 
                             // Check if the "未読" label already exists, if not, add it
                             var tabLink = $('a[href="#message-box-' + message.from_user_id + '"]');

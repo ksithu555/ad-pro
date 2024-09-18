@@ -116,9 +116,23 @@ class AdminController extends Controller
         return redirect()->route('admin.show.login');
     }
 
-    public function getBankAccounts() {
+    public function getBankAccounts(Request $request) {
         $limit = 10;
-        $bankAccounts = BankAccount::paginate($limit);
+        $search = $request->input('search');
+
+        $bankAccountsQuery = BankAccount::query();
+
+        if ($search) {
+            $bankAccountsQuery->where(function($query) use ($search) {
+                $query->where('bank_name', 'like', "%{$search}%")
+                    ->orWhere('branch_name', 'like', "%{$search}%")
+                    ->orWhere('account_type', 'like', "%{$search}%")
+                    ->orWhere('account_number', 'like', "%{$search}%")
+                    ->orWhere('account_name', 'like', "%{$search}%");
+            });
+        }
+
+        $bankAccounts = $bankAccountsQuery->paginate($limit);
         $ttl = $bankAccounts->total();
         $ttlpage = ceil($ttl / $limit);
         return view('admins.bank-accounts', compact('bankAccounts', 'ttl', 'ttlpage'));

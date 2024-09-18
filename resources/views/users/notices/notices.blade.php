@@ -4,12 +4,14 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-8 section-heading">
-                    <div class="search-box">
-                        <input type="text" placeholder="Search...">
-                        <button type="submit"><i class="fa fa-search"></i></button>
-                    </div>
+                    <form action="{{ route('user.get.notices') }}" method="GET">
+                        <div class="search-box">
+                            <input type="text" name="search" placeholder="検索..." value="{{ request()->input('search') }}">
+                            <button type="submit"><i class="fa fa-search"></i></button>
+                        </div>
+                    </form>
                 </div>
-            </div>
+            </div>   
             <div class="row mt-10">
                 <div class="col-md-12 col-sm-12">
                     @foreach ($notices as $key => $notice)

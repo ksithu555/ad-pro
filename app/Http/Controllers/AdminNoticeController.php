@@ -9,9 +9,20 @@ use Illuminate\Support\Facades\Session;
 class AdminNoticeController extends Controller
 {
 
-    public function getNotices() {
+    public function getNotices(Request $request) {
         $limit = 10;
-        $notices = Notice::paginate($limit);
+        $search = $request->input('search');
+
+        $noticesQuery = Notice::query();
+
+        if ($search) {
+            $noticesQuery->where(function($query) use ($search) {
+                $query->where('title', 'like', "%{$search}%")
+                      ->orWhere('body', 'like', "%{$search}%");
+            });
+        }
+
+        $notices = $noticesQuery->paginate($limit);
         $ttl = $notices->total();
         $ttlpage = (ceil($ttl / $limit));
         return view('admins.notices.notices', compact('notices', 'ttl', 'ttlpage'));

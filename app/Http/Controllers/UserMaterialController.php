@@ -69,17 +69,39 @@ class UserMaterialController extends Controller
         return response()->download($filePath, $cleanFileName, $headers);
     }
 
-    public function showMaterials() {
+    public function showMaterials(Request $request) {
         $limit = 10;
-        $materials = Material::with('user')->where('user_id', Auth::user()->id)->paginate($limit);
+        $search = $request->input('search');
+
+        $materialsQuery = Material::with('user')->where('user_id', Auth::user()->id);
+
+        if ($search) {
+            $materialsQuery->where(function($query) use ($search) {
+                $query->where('type', 'like', "%{$search}%")
+                      ->orWhere('name', 'like', "%{$search}%");
+            });
+        }
+
+        $materials = $materialsQuery->paginate($limit);
         $ttl = $materials->total();
         $ttlpage = ceil($ttl / $limit);
         return view('users.materials.show-materials', compact('materials', 'ttl', 'ttlpage'));
     }
 
-    public function showSaleHistories() {
+    public function showSaleHistories(Request $request) {
         $limit = 10;
-        $materials = Material::with('paidMaterialDownloadHistories')->where('user_id', Auth::user()->id)->where('required_plan', 1)->paginate($limit);
+        $search = $request->input('search');
+
+        $materialsQuery = Material::with('paidMaterialDownloadHistories')->where('user_id', Auth::user()->id)->where('required_plan', 1);
+
+        if ($search) {
+            $materialsQuery->where(function($query) use ($search) {
+                $query->where('type', 'like', "%{$search}%")
+                      ->orWhere('name', 'like', "%{$search}%");
+            });
+        }
+
+        $materials = $materialsQuery->paginate($limit);
         $ttl = $materials->total();
         $ttlpage = ceil($ttl / $limit);
         return view('users.materials.show-sale-histories', compact('materials', 'ttl', 'ttlpage'));

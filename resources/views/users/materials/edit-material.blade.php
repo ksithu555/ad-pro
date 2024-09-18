@@ -42,7 +42,7 @@
                                     <option value="アート風_静物" @if($material->type == 'アート風_静物')selected="selected"@endif>アート風/静物</option>
                                     <option value="アート風_白黒" @if($material->type == 'アート風_白黒')selected="selected"@endif>アート風/白黒</option>
                                     <option value="アート風_芸術" @if($material->type == 'アート風_芸術')selected="selected"@endif>アート風/若術</option>
-                                    <option value="アート風_二重露光" @if($material->type == 'アート風_二重露光')selected="selected"@endif>アート風/多重露光</option>
+                                    <option value="アート風_二重露光" @if($material->type == 'アート風_二重露光')selected="selected"@endif>アート風_二重露光</option>
                                     <option value="アート風_シュルレアリスム" @if($material->type == 'アート風_シュルレアリスム')selected="selected"@endif>アート風/シュルレアリスム</option>
                                     <option value="アート風_抽象" @if($material->type == 'アート風_抽象')selected="selected"@endif>アート風/抽象</option>
                                 </select>

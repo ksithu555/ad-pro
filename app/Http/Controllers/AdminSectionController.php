@@ -9,9 +9,20 @@ use Illuminate\Support\Facades\Session;
 class AdminSectionController extends Controller
 {
 
-    public function getSections() {
+    public function getSections(Request $request) {
         $limit = 10;
-        $sections = Section::paginate($limit);
+        $search = $request->input('search');
+
+        $sectionsQuery = Section::query();
+
+        if ($search) {
+            $sectionsQuery->where(function($query) use ($search) {
+                $query->where('type', 'like', "%{$search}%")
+                      ->orWhere('name', 'like', "%{$search}%");
+            });
+        }
+
+        $sections = $sectionsQuery->paginate($limit);
         $ttl = $sections->total();
         $ttlpage = ceil($ttl / $limit);
         return view('admins.sections.sections', compact('sections', 'ttl', 'ttlpage'));

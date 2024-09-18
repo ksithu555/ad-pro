@@ -13,19 +13,47 @@ use Illuminate\Support\Facades\Session;
 class UserAnnouncementController extends Controller
 {
 
-    public function getAnnouncements() {
+    public function getAnnouncements(Request $request) {
         $now = now();
-        $announcements = Announcement::with('user')->where('created_by', '!=', Auth::user()->id)
+        $limit = 10;
+        $search = $request->input('search');
+
+        $announcementsQuery = Announcement::with('user')->where('created_by', '!=', Auth::user()->id)
         ->where('start_at', '<', $now)
         ->where('end_at', '>', $now)
-        ->orderBy('created_at', 'desc')
-        ->get();
-        return view('users.announcements.announcements', compact('announcements'));
+        ->orderBy('created_at', 'desc');
+
+        if ($search) {
+            $announcementsQuery->where(function($query) use ($search) {
+                $query->where('type', 'like', "%{$search}%")
+                      ->orWhere('title', 'like', "%{$search}%")
+                      ->orWhereHas('user', function($query) use ($search) {
+                          $query->where('company_name', 'like', "%{$search}%");
+                      });
+            });
+        }
+
+        $announcements = $announcementsQuery->paginate($limit);
+        $ttl = $announcements->total();
+        $ttlpage = ceil($ttl/$limit);
+
+        return view('users.announcements.announcements', compact('announcements', 'ttl', 'ttlpage'));
     }
 
-    public function showAnnouncements() {
+    public function showAnnouncements(Request $request) {
         $limit = 10;
-        $announcements = Announcement::where('created_by', Auth::user()->id)->paginate($limit);
+        $search = $request->input('search');
+
+        $announcementsQuery = Announcement::where('created_by', Auth::user()->id);
+
+        if ($search) {
+            $announcementsQuery->where(function($query) use ($search) {
+                $query->where('type', 'like', "%{$search}%")
+                      ->orWhere('title', 'like', "%{$search}%");
+            });
+        }
+
+        $announcements = $announcementsQuery->paginate($limit);
         $ttl = $announcements->total();
         $ttlpage = ceil($ttl / $limit);
         return view('users.announcements.show-announcements', compact('announcements', 'ttl', 'ttlpage'));

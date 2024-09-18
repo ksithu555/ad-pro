@@ -11,9 +11,24 @@ use Illuminate\Support\Facades\Session;
 class AdminAnnouncementController extends Controller
 {
 
-    public function getAnnouncements() {
+    public function getAnnouncements(Request $request) {
         $limit = 10;
-        $announcements = Announcement::orderBy('created_at', 'desc')->paginate($limit);
+        $search = $request->input('search');
+
+        $announcementsQuery = Announcement::query();
+
+        if ($search) {
+            $announcementsQuery->where(function($query) use ($search) {
+                $query->where('type', 'like', "%{$search}%")
+                      ->orWhere('title', 'like', "%{$search}%")
+                      ->orWherehas('user', function($query) use ($search) {
+                        $query->where('name', 'like', "%{$search}%")
+                              ->orWhere('company_name', 'like', "%{$search}%");
+                      });
+            });
+        }
+
+        $announcements = $announcementsQuery->orderBy('created_at', 'desc')->paginate($limit);
         $ttl = $announcements->total();
         $ttlpage = ceil($ttl / $limit);
         return view('admins.announcements.announcements', compact('announcements', 'ttl', 'ttlpage'));

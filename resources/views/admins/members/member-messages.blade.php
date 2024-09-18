@@ -5,7 +5,7 @@
             <div class="row">
                 <div class="col-sm-8 section-heading">
                     <div class="search-box">
-                        <input type="text" placeholder="Search...">
+                        <input type="text" placeholder="検索...">
                         <button type="submit"><i class="fa fa-search"></i></button>
                     </div>
                 </div>

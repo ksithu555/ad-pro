@@ -20,11 +20,23 @@ use App\Models\AdvertisementSubAccordionBlock;
 
 class UserAdvertisementController extends Controller
 {
-    public function getAdvertisements() {
+    public function getAdvertisements(Request $request) {
         $limit = 10;
-        $advertisements = Advertisement::where('user_id', Auth::user()->id)->paginate($limit);
+        $search = $request->input('search');
+
+        $advertisementsQuery = Advertisement::where('user_id', Auth::user()->id);
+
+        if ($search) {
+            $advertisementsQuery->where(function($query) use ($search) {
+                $query->where('name', 'like', "%{$search}%")
+                      ->orWhere('param_name', 'like', "%{$search}%");
+            });
+        }
+
+        $advertisements = $advertisementsQuery->paginate($limit);
         $ttl = $advertisements->total();
         $ttlpage = ceil($ttl / $limit);
+        
         return view('users.advertisements.advertisements', compact('advertisements', 'ttl', 'ttlpage'));
     }
 

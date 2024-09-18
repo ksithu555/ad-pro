@@ -22,7 +22,7 @@ class AdminNoticeController extends Controller
             });
         }
 
-        $notices = $noticesQuery->paginate($limit);
+        $notices = $noticesQuery->orderBy('created_at', 'desc')->paginate($limit);
         $ttl = $notices->total();
         $ttlpage = (ceil($ttl / $limit));
         return view('admins.notices.notices', compact('notices', 'ttl', 'ttlpage'));

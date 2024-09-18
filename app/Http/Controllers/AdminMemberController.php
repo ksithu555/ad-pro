@@ -55,8 +55,9 @@ class AdminMemberController extends Controller
 
     public function checkMemberMessage($id) {
         $userId = $id;
+        $search = request()->input('search');
         $foucsMember = User::find($id);
-        $users = User::with('company')->with('company.businessType')->with('company.purposeType')->with('company.industryType')
+        $usersQuery = User::with('company')->with('company.businessType')->with('company.purposeType')->with('company.industryType')
         ->with('company.positionType')->with('company.prefecture')->where('id', '!=', $userId)
         ->where(function ($query) use ($userId) {
             $query->whereHas('sentMessages', function ($query) use ($userId) {
@@ -74,8 +75,16 @@ class AdminMemberController extends Controller
         }, 'receivedMessages' => function ($query) use ($userId) {
             $query->where('to_user_id', $userId)
                 ->orWhere('from_user_id', $userId);
-        }])
-        ->get()
+        }]);
+
+        if ($search) {
+            $usersQuery->where(function($query) use ($search) {
+                $query->where('name', 'like', "%{$search}%")
+                      ->orWhere('company_name', 'like', "%{$search}%");
+            });
+        }
+
+        $users = $usersQuery->get()
         ->sortByDesc(function ($user) {
             return $user->sentMessages->merge($user->receivedMessages)->max('created_at');
         });

@@ -132,7 +132,7 @@ class AdminController extends Controller
             });
         }
 
-        $bankAccounts = $bankAccountsQuery->paginate($limit);
+        $bankAccounts = $bankAccountsQuery->orderBy('created_at', 'desc')->paginate($limit);
         $ttl = $bankAccounts->total();
         $ttlpage = ceil($ttl / $limit);
         return view('admins.bank-accounts', compact('bankAccounts', 'ttl', 'ttlpage'));

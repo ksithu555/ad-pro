@@ -28,7 +28,7 @@ class AdminMaterialController extends Controller
             });
         }
 
-        $materials = $materialsQuery->paginate($limit);
+        $materials = $materialsQuery->orderBy('created_at', 'desc')->paginate($limit);
         $ttl = $materials->total();
         $ttlpage = ceil($ttl / $limit);
         return view('admins.materials.materials', compact('materials', 'ttl', 'ttlpage'));

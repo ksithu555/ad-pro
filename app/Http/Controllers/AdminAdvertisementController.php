@@ -18,7 +18,7 @@ class AdminAdvertisementController extends Controller
             $advertisementsQuery->where('name', 'like', "%{$search}%");
         }
 
-        $advertisements = $advertisementsQuery->paginate($limit);
+        $advertisements = $advertisementsQuery->orderBy('created_at', 'desc')->paginate($limit);
         $ttl = $advertisements->total();
         $ttlpage = ceil($ttl / $limit);
         return view('admins.advertisements.advertisements', compact('advertisements', 'ttl', 'ttlpage'));

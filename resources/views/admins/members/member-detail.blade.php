@@ -16,12 +16,26 @@
                 <div class="col-md-6 col-xs-12" id="userProfileDiv">
                     <h4 class="mt-0 font-700">{{ $user->name }} 
                         @if ($user->plan_status == 0)
-                        <span class="custom-badge free-badge">無料</span>
-                        @elseif ($user->plan_status == 1)
-                        <span class="custom-badge silver-badge">シルバー</span>
-                        @elseif ($user->plan_status == 2)
-                        <span class="custom-badge gold-badge">ゴールド</span>
-                        @endif
+                            <span class="custom-badge free-badge">無料</span>
+                            @elseif ($user->plan_status == 1)
+                            <span class="custom-badge silver-badge">シルバー</span>
+                            <span class="custom-badge silver-badge default-color">
+                                （
+                                    {{ \Carbon\Carbon::parse($user->plan_start)->format('Y-m-d') }}
+                                    　〜　
+                                    {{ \Carbon\Carbon::parse($user->plan_end)->format('Y-m-d') }}
+                                ）
+                            </span>
+                            @elseif ($user->plan_status == 2)
+                            <span class="custom-badge gold-badge">ゴールド</span>
+                            <span class="custom-badge gold-badge default-color">
+                                （
+                                    {{ \Carbon\Carbon::parse($user->plan_start)->format('Y-m-d') }}
+                                    　〜　
+                                    {{ \Carbon\Carbon::parse($user->plan_end)->format('Y-m-d') }}
+                                ）
+                            </span>
+                            @endif
                     </h4>
                     <h4 class="default-color font-600">{{ $user->name_furigana }}</h4>
                     <h4 class="mt-0 font-700">{{ $user->email }}</h4>

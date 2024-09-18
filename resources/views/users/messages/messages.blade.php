@@ -18,26 +18,63 @@
                         <div class="row">
                             <div class="col-md-3 pr-0">
                                 <!--== Nav tabs ==-->
-                                <ul class="nav nav-tabs text-center" role="tablist">
+                                <ul class="nav nav-tabs" role="tablist">
                                     @if ($focusUser)
                                     <li role="presentation" class="active">
-                                        <a href="#message-box-{{ $focusUser->id }}" role="tab" data-toggle="tab">
-                                            <i class="icofont icofont-social-designfloat"></i>{{ $focusUser->name }}
-                                            @if($focusUser->sentMessages->where('seen', 0)->isNotEmpty())
-                                                <span class="label label-danger">未読</span>
-                                            @endif
+                                        <a href="#message-box-{{ $focusUser->id }}" role="tab" data-toggle="tab" style="display: flex; align-items: center; width: 100%; text-decoration: none;">
+                                            <!-- First part: Image -->
+                                            <div style="flex: 0 0 75px; text-align: center;">
+                                                <img src="{{ asset('assets/images/all/' . $focusUser->image) }}" alt="" width="75px" height="75px" style="border-radius: 50%;">
+                                            </div>
+
+                                            <!-- Second part: Company name and user name -->
+                                            <div style="flex: 1; padding-left: 15px; overflow: hidden;">
+                                                @if($focusUser->sentMessages->where('seen', 0)->isNotEmpty())
+                                                <span class="label label-danger" style="font-size: 12px; padding: 4px 6px;">未読</span>
+                                                @endif
+
+                                                <!-- Company name and name -->
+                                                <div style="display: flex; flex-direction: column; justify-content: center;">
+                                                    <!-- Company Name -->
+                                                    <span style="font-weight: bold; font-size: 14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                                                        {{ $focusUser->company_name }}
+                                                    </span>
+                                                    <!-- User Name -->
+                                                    <span style="font-size: 13px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                                                        {{ $focusUser->name }}
+                                                    </span>
+                                                </div>
+                                            </div>
                                         </a>
                                         <div class="line-horizontal grey-bg width-100-percent"></div>
                                     </li>
                                     @endif
-
                                     @foreach ($users as $key => $user)
                                     <li role="presentation">
-                                        <a href="#message-box-{{ $user->id }}" role="tab" data-toggle="tab">
-                                            <i class="icofont icofont-social-designfloat"></i>{{ $user->name }}
-                                            @if($user->sentMessages->where('seen', 0)->isNotEmpty())
-                                                <span class="label label-danger">未読</span>
-                                            @endif
+                                        <a href="#message-box-{{ $user->id }}" role="tab" data-toggle="tab" style="display: flex; align-items: center; width: 100%; text-decoration: none;">
+                                            <!-- First part: Image -->
+                                            <div style="flex: 0 0 75px; text-align: center;">
+                                                <img src="{{ asset('assets/images/all/' . $user->image) }}" alt="" width="75px" height="75px" style="border-radius: 50%;">
+                                            </div>
+
+                                            <!-- Second part: Company name and user name -->
+                                            <div style="flex: 1; padding-left: 15px; overflow: hidden;">
+                                                @if($user->sentMessages->where('seen', 0)->isNotEmpty())
+                                                <span class="label label-danger" style="font-size: 12px; padding: 4px 6px;">未読</span>
+                                                @endif
+
+                                                <!-- Company name and name -->
+                                                <div style="display: flex; flex-direction: column; justify-content: center;">
+                                                    <!-- Company Name -->
+                                                    <span style="font-weight: bold; font-size: 14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                                                        {{ $user->company_name }}
+                                                    </span>
+                                                    <!-- User Name -->
+                                                    <span style="font-size: 13px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                                                        {{ $user->name }}
+                                                    </span>
+                                                </div>
+                                            </div>
                                         </a>
                                         <div class="line-horizontal grey-bg width-100-percent"></div>
                                     </li>

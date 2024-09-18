@@ -22,7 +22,7 @@ class AdminSubAdminController extends Controller
             });
         }
 
-        $subAdmins = $subAdminsQuery->paginate($limit);
+        $subAdmins = $subAdminsQuery->orderBy('created_at', 'desc')->paginate($limit);
         $ttl = $subAdmins->total();
         $ttlpage = ceil($ttl / $limit);
         return view('admins.sub-admins.sub-admins', compact('subAdmins', 'ttl', 'ttlpage'));

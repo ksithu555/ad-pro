@@ -9,7 +9,7 @@
 <!-- keywords -->
 <meta name="keywords" content="creative, animation, business, photography, portfolio, one page, bootstrap responsive, start-up, ui/ux, html5, css3, studio, branding, creative design, multipurpose, parallax, personal, masonry, grid, coming soon, carousel, career">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>Maintenance | ADPRO - Creative Agency, Business Multi-purpose template</title>
+<title>Maintenance | ADPRO - 広告制作とマーケティングのアドプロ</title>
 <link rel="shortcut icon" href="{{ asset('assets/images/all/adpro_slogo.png') }}">
 
 <!-- Core Style Sheets -->

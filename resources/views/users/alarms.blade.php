@@ -74,14 +74,14 @@
                                                         <td>
                                                             <a class="btn btn-sm btn-dark-outline btn-circle margin-left-auto margin-right-auto display-table-sm"
                                                             href="{{ $route }}">
-                                                                チェック <i class="ion-android-arrow-forward"></i>
+                                                            チェック <i class="ion-android-arrow-forward"></i>
                                                             </a>
                                                         </td>
                                                         <td>
                                                             <div class="tr-modal-popup">
                                                                 <a class="btn btn-sm btn-light btn-circle margin-left-auto margin-right-auto display-table-sm" style="border: 1px solid black;"
                                                                     href="#modal-popup-{{ $alarm->id }}" data-effect="mfp-newspaper">
-                                                                    終わり
+                                                                    チェックをする
                                                                 </a>
                                                             </div>
                                                         </td>
@@ -89,7 +89,7 @@
                                                     <!-- Modal Popup Message Box -->
                                                     <div id="modal-popup-{{ $alarm->id }}" class="white-bg all-padding-60 mfp-with-anim mfp-hide centerize-col col-lg-4 col-md-6 col-sm-7 col-xs-11 text-center">
                                                         <span class="text-uppercase font-30px font-600 mb-20 display-block dark-color">チェック</span>
-                                                        <p class="mb-20">終わりましたか?</p>
+                                                        <p class="mb-20">チェック済みにしますか？</p>
                                                         <a class="btn btn-lg btn-circle btn-color" href="{{ route('user.check.alarm', $alarm->id) }}">はい</a>
                                                         <a class="btn btn-lg btn-circle btn-secondary-color popup-modal-close" href="#">いいえ</a>
                                                     </div>

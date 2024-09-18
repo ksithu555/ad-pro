@@ -5104,7 +5104,7 @@ input:checked + .slider:before {
 }
 
 /* Media query for responsive adjustments */
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
   .table thead {
     display: none;
   }
@@ -5128,7 +5128,7 @@ input:checked + .slider:before {
     color: #BF0731;
     flex-basis: 50%;
   }
-}
+} */
 
 .tabs-style-03-m .nav-tabs {
   max-height: 500px; /* Adjust the max-height as needed */

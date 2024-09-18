@@ -238,7 +238,7 @@
             document.getElementById('error-phone').textContent = '電話番号を入力してください';
         } else if (!/^[\d()+-\s]+$/.test(phone)) {
             isValid = false;
-            document.getElementById('error-phone').textContent = '電話番号は数字、+、(、)、-、スペースのみを含めることができます';
+            document.getElementById('error-phone').textContent = '電話番号は半角数字、+、(、)、-、スペースで入力してください';
         }
 
         if (!content) {

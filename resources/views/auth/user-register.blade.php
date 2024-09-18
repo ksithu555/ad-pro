@@ -325,7 +325,7 @@
                 document.getElementById('error-companyPhone').textContent = '電話番号を入力してください';
             } else if (!/^[\d()+-\s]+$/.test(companyPhone)) {
                 isValid = false;
-                document.getElementById('error-companyPhone').textContent = '電話番号は数字、+、(、)、-、スペースのみを含めることができます';
+                document.getElementById('error-companyPhone').textContent = '電話番号は半角数字、+、(、)、-、スペースで入力してください';
             }
 
             if (companyWebsite && /\s/.test(companyWebsite)) {
@@ -338,7 +338,7 @@
                 document.getElementById('error-companyPostalCode').textContent = '郵便番号を入力してください';
             } else if (!/^\d+$/.test(companyPostalCode)) {
                 isValid = false;
-                document.getElementById('error-companyPostalCode').textContent = '郵便番号は数字のみでなければなりません';
+                document.getElementById('error-companyPostalCode').textContent = '郵便番号は半角数字のみで入力してください';
             }
 
             if (!businessType) {

@@ -102,6 +102,9 @@
                 </div>
             @include('components.pagination')
             </div>
+            @if ($advertisements->isEmpty())
+            <h1 class="mt-120 mb-60 text-center">広告はありません</h1>
+            @endif
         </div>
       </div>
     </section>

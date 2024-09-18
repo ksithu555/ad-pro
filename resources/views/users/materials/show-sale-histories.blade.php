@@ -73,6 +73,9 @@
                 </div>
             @include('components.pagination')
             </div>
+            @if ($materials->isEmpty())
+            <h1 class="mt-120 mb-90 text-center">販売履歴はありません</h1>
+            @endif
         </div>
       </div>
     </section>

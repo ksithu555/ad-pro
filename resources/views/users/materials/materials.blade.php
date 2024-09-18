@@ -128,6 +128,9 @@
                     @endforeach
                     </div>
                 </div>
+                @if ($materials->isEmpty())
+                <h1 class="mt-110 mb-30 text-center">材料がありません</h1>
+                @endif
             </div>
         </div>
     </section>

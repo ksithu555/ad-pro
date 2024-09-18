@@ -50,6 +50,9 @@
                     </div>
                 @include('components.pagination')
                 </div>
+                @if ($users->isEmpty())
+                <h1 class="mt-120 mb-100 text-center">会員メンバーがいません</h1>
+                @endif
             </div>
         </div>
       </section>

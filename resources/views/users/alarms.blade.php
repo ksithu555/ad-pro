@@ -98,6 +98,9 @@
                                             </table>
                                         </div>
                                     </div>
+                                    @if ($alarms->isEmpty())
+                                    <h1 class="mt-120 mb-50">アラームはありません</h1>
+                                    @endif
                                 </div>
                             </div>
 
@@ -156,6 +159,9 @@
                                             </table>
                                         </div>
                                     </div>
+                                    @if ($checkedAlarms->isEmpty())
+                                    <h1 class="mt-120 mb-50">チェック済みアラームはありません</h1>
+                                    @endif
                                 </div>
                             </div>
                         </div>

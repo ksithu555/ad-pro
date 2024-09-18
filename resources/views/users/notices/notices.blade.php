@@ -36,6 +36,9 @@
                     </div>
                 @endforeach
                 </div>
+                @if ($notices->isEmpty())
+                <h1 class="mt-120 mb-90 text-center">お知らせはありません</h1>
+                @endif
             </div>
             @include('components.pagination')
         </div>

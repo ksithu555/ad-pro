@@ -85,35 +85,35 @@
     <!--== End Top Search ==-->
     <div class="container">
       <!--== Start Atribute Navigation ==-->
-      <div class="attr-nav hidden-xs sm-display-none">
+      <div class="attr-nav">
         <ul>
           <li class="dropdown">
-            <a href="#">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
               @php
                 $defaultColor = '';
-                  if (request()->routeIs('user.get.plans') ||
-                  request()->routeIs('user.change.password') ||
-                  request()->routeIs('user.show.profile') ||
-                  request()->routeIs('user.show.announcements') ||
-                  request()->routeIs('user.add.announcement') ||
-                  request()->routeIs('user.edit.announcement') ||
-                  request()->routeIs('user.show.announcement.participants') ||
-                  request()->routeIs('user.show.announcement') ||
-                  request()->routeIs('user.purchase.plan') ||
-                  request()->routeIs('user.show.materials') ||
-                  request()->routeIs('user.add.material') ||
-                  request()->routeIs('user.edit.material') ||
-                  request()->routeIs('user.show.sale.histories')) {
-                    $defaultColor = 'default-color';
-                  }
+                if (request()->routeIs('user.get.plans') ||
+                request()->routeIs('user.change.password') ||
+                request()->routeIs('user.show.profile') ||
+                request()->routeIs('user.show.announcements') ||
+                request()->routeIs('user.add.announcement') ||
+                request()->routeIs('user.edit.announcement') ||
+                request()->routeIs('user.show.announcement.participants') ||
+                request()->routeIs('user.show.announcement') ||
+                request()->routeIs('user.purchase.plan') ||
+                request()->routeIs('user.show.materials') ||
+                request()->routeIs('user.add.material') ||
+                request()->routeIs('user.edit.material') ||
+                request()->routeIs('user.show.sale.histories')) {
+                  $defaultColor = 'default-color';
+                }
               @endphp
               <i class="icofont icofont-user-alt-4 {{ $defaultColor }}"></i>
               @if (Auth::user()->plan_status == 0)
-                <span class="custom-badge free-badge">{{ Auth::user()->name }}</span>
+                <span class="custom-badge free-badge hidden-xs sm-display-none">{{ Auth::user()->name }}</span>
               @elseif (Auth::user()->plan_status == 1)
-                <span class="custom-badge silver-badge">{{ Auth::user()->name }}</span>
+                <span class="custom-badge silver-badge hidden-xs sm-display-none">{{ Auth::user()->name }}</span>
               @elseif (Auth::user()->plan_status == 2)
-                <span class="custom-badge gold-badge">{{ Auth::user()->name }}</span>
+                <span class="custom-badge gold-badge hidden-xs sm-display-none">{{ Auth::user()->name }}</span>
               @endif
             </a>
             <ul class="dropdown-menu">
@@ -130,7 +130,7 @@
             </ul>
           </li>
         </ul>
-      </div>
+      </div>      
       <!--== End Atribute Navigation ==-->
 
       <!--== Start Header Navigation ==-->

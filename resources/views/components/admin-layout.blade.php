@@ -83,18 +83,18 @@
     <!--== End Top Search ==-->
     <div class="container">
       <!--== Start Atribute Navigation ==-->
-      <div class="attr-nav hidden-xs sm-display-none">
+      <div class="attr-nav">
         <ul>
-          {{-- <li class="search">
-            <a href="#" id="search-button"><i class="icofont icofont-search"></i></a>
-          </li> --}}
           <li class="dropdown">
-            <a href="#">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
               @php
                 $defaultColor = '';
-                  if (request()->routeIs('admin.change.password')) {
-                    $defaultColor = 'default-color';
-                  }
+                if (request()->routeIs('admin.change.password') ||
+                request()->routeIs('admin.get.bank.accounts') ||
+                request()->routeIs('admin.add.bank.account') ||
+                request()->routeIs('admin.edit.bank.account')) {
+                  $defaultColor = 'default-color';
+                }
               @endphp
               <i class="icofont icofont-user-alt-4 {{ $defaultColor }}"></i>
             </a>
@@ -110,7 +110,7 @@
             </ul>
           </li>
         </ul>
-      </div>
+      </div>      
       <!--== End Atribute Navigation ==-->
 
       <!--== Start Header Navigation ==-->

@@ -51,6 +51,10 @@
                                                     <span style="font-size: 13px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
                                                         {{ $user->name }}
                                                     </span>
+                                                    <!-- Position -->
+                                                    <span style="font-size: 10px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                                                        {{ $user->company->positionType->name }}
+                                                    </span>
                                                 </div>
                                             </div>
                                         </a>
@@ -154,8 +158,7 @@
                                                                 <div class="testimonial-content grey-bg">
                                                                     <h5 class="font-700 mb-0">住所</h5>
                                                                     <span class="grey-color font-14px"></span>
-                                                                    <h6 class="mt-20 font-800">〒 {{ $user->company->postal_code }}</h6>
-                                                                    <h6 class="font-800">{{ $user->company->prefecture->name }} {{ $user->company->address }}</h6>
+                                                                    <h6 class="mt-20 font-800">{{ $user->company->prefecture->name }} {{ $user->company->address }}</h6>
                                                                 </div>
                                                             </div>
                                                         </div>

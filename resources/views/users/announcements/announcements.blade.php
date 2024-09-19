@@ -39,7 +39,7 @@
                                 <p style="font-size: 14px; color: #666;">
                                     {!! nl2br(Str::limit($announcement->description, 150, '...')) !!} <!-- Assuming you have a description field -->
                                 </p>
-                                <a href="{{ route('user.show.announcement', $announcement->id) }}" class="btn btn-color" style="padding: 10px 20px; text-transform: uppercase; text-decoration: none;">Read More</a>
+                                <a href="{{ route('user.show.announcement', $announcement->id) }}" class="btn btn-color" style="padding: 10px 20px; text-transform: uppercase; text-decoration: none;">もっと。。。</a>
                             </div>
                         </div>
                     </div>

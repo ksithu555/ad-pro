@@ -43,6 +43,10 @@
                                                     <span style="font-size: 13px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
                                                         {{ $focusUser->name }}
                                                     </span>
+                                                    <!-- Position -->
+                                                    <span style="font-size: 10px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                                                        {{ $focusUser->company->positionType->name }}
+                                                    </span>
                                                 </div>
                                             </div>
                                         </a>
@@ -72,6 +76,10 @@
                                                     <!-- User Name -->
                                                     <span style="font-size: 13px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
                                                         {{ $user->name }}
+                                                    </span>
+                                                    <!-- Position -->
+                                                    <span style="font-size: 10px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                                                        {{ $user->company->positionType->name }}
                                                     </span>
                                                 </div>
                                             </div>
@@ -171,6 +179,7 @@
                                                             </div>
                                                         </div>
                                                         @endif
+                                                        @endif
                                                         @if(!is_null($focusUser->company->address))
                                                         <div class="col-md-4 col-sm-6 col-xs-12">
                                                             <!--== Slide ==-->
@@ -178,12 +187,10 @@
                                                                 <div class="testimonial-content grey-bg">
                                                                     <h5 class="font-700 mb-0">住所</h5>
                                                                     <span class="grey-color font-14px"></span>
-                                                                    <h6 class="mt-20 font-800">〒 {{ $focusUser->company->postal_code }}</h6>
-                                                                    <h6 class="font-800">{{ $focusUser->company->prefecture->name }} {{ $focusUser->company->address }}</h6>
+                                                                    <h6 class="mt-20 font-800">{{ $focusUser->company->prefecture->name }} {{ $focusUser->company->address }}</h6>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        @endif
                                                         @if(!is_null($focusUser->company->website))
                                                         <div class="col-md-4 col-sm-6 col-xs-12">
                                                             <!--== Slide ==-->
@@ -316,6 +323,7 @@
                                                             </div>
                                                         </div>
                                                         @endif
+                                                        @endif
                                                         @if(!is_null($user->company->address))
                                                         <div class="col-md-4 col-sm-6 col-xs-12">
                                                             <!--== Slide ==-->
@@ -323,12 +331,10 @@
                                                                 <div class="testimonial-content grey-bg">
                                                                     <h5 class="font-700 mb-0">住所</h5>
                                                                     <span class="grey-color font-14px"></span>
-                                                                    <h6 class="mt-20 font-800">〒 {{ $user->company->postal_code }}</h6>
-                                                                    <h6 class="font-800">{{ $user->company->prefecture->name }} {{ $user->company->address }}</h6>
+                                                                    <h6 class="mt-20 font-800">{{ $user->company->prefecture->name }} {{ $user->company->address }}</h6>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        @endif
                                                         @if(!is_null($user->company->website))
                                                         <div class="col-md-4 col-sm-6 col-xs-12">
                                                             <!--== Slide ==-->

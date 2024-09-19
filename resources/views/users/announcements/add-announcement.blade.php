@@ -81,7 +81,7 @@
                         <div class="col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2">
                             <div class="form-group">
                                 <label class="sr-only" for="startAt">掲載開始日</label>
-                                <input type="text" name="startAt" class="md-input" id="startAt" placeholder="開始日時 *" value="{{ old('startAt') }}">
+                                <input type="text" name="startAt" class="md-input" id="startAt" placeholder="掲載開始日 *" value="{{ old('startAt') }}">
                                 <span class="error" style="color:#BF0731" id="error-startAt"></span>
                             </div>
                         </div>
@@ -90,7 +90,7 @@
                         <div class="col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2">
                             <div class="form-group">
                                 <label class="sr-only" for="endAt">掲載終了日</label>
-                                <input type="text" name="endAt" class="md-input" id="endAt" placeholder="終了日時 *" value="{{ old('endAt') }}">
+                                <input type="text" name="endAt" class="md-input" id="endAt" placeholder="掲載終了日 *" value="{{ old('endAt') }}">
                                 <span class="error" style="color:#BF0731" id="error-endAt"></span>
                             </div>
                         </div>
@@ -190,12 +190,12 @@
             }
 
             if (!startAt) {
-                document.getElementById('error-startAt').textContent = '開始日時を入力してください';
+                document.getElementById('error-startAt').textContent = '掲載開始日を入力してください';
                 isValid = false;
             }
 
             if (!endAt) {
-                document.getElementById('error-endAt').textContent = '終了日時を入力してください';
+                document.getElementById('error-endAt').textContent = '掲載終了日を入力してください';
                 isValid = false;
             }
 
@@ -205,7 +205,7 @@
 
                 // Check if endAt is earlier than startAt
                 if (endDateTime <= startDateTime) {
-                    document.getElementById('error-endAt').textContent = '終了日時は開始日時より後に設定してください';
+                    document.getElementById('error-endAt').textContent = '掲載終了日は掲載開始日より後に設定してください';
                     isValid = false;
                 }
             }

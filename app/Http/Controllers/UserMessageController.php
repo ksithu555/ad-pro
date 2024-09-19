@@ -47,6 +47,8 @@ class UserMessageController extends Controller
             return $user->sentMessages->merge($user->receivedMessages)->max('created_at');
         });
         $messages = Message::where('from_user_id', $userId)->orWhere('to_user_id', $userId)->get();
+        $messageIds = $messages->pluck('id');
+        Message::whereIn('id', $messageIds)->update(['auto_load' => 1]);
         return view('users.messages.messages', compact('focusUser', 'users', 'messages'));
     }
 
@@ -80,6 +82,8 @@ class UserMessageController extends Controller
         });
 
         $messages = Message::where('from_user_id', $userId)->orWhere('to_user_id', $userId)->get();
+        $messageIds = $messages->pluck('id');
+        Message::whereIn('id', $messageIds)->update(['auto_load' => 1]);
         return view('users.messages.messages', compact('focusUser', 'users', 'messages'));
 
         // $conversationExists = Message::

@@ -14,7 +14,10 @@
                 <thead>
                   <tr>
                     <th>#</th>
-                    <th style="min-width: 110px;">参加者</th>
+                    <th style="min-width: 110px;">申込日</th>
+                    <th style="min-width: 110px;">会社名</th>
+                    <th style="min-width: 110px;">参加者名</th>
+                    <th style="min-width: 110px;">役職</th>
                     <th style="min-width: 110px;">ステータス</th>
                   </tr>
                 </thead>
@@ -25,7 +28,16 @@
                         {{ $ttl + 1 - ($participants->firstItem() + $key) }}
                         </td>
                         <td style="min-width: 110px;">
-                        {{ $participant->user->name }}
+                          {{ $participant->created_at }}
+                        </td>
+                        <td style="min-width: 110px;">
+                          {{ $participant->user->company_name }}
+                        </td>
+                        <td style="min-width: 110px;">
+                          {{ $participant->user->name }}
+                        </td>
+                        <td style="min-width: 110px;">
+                          {{ $participant->user->company->positionType->name }}
                         </td>
                         <td style="min-width: 110px;">
                             <div class="tr-modal-popup">
@@ -78,7 +90,7 @@
                         <span class="text-uppercase font-30px font-600 mb-20 display-block dark-color">拒否</span>
                         <p class="mb-20">参加者を拒否してもよろしいですか?</p>
                         <div class="row">
-                            <textarea name="reason" class="md-textarea" id="reason" rows="7" placeholder="拒否理由 *" style="background-color: gray;">{{ old('reason') }}</textarea>
+                            <textarea name="reason" class="md-textarea" id="reason" rows="7" placeholder="拒否理由 *" style="background-color: gray; color: #000;">{{ old('reason') }}</textarea>
                             <span class="error" style="color:#BF0731" id="error-reason"></span>
                         </div>
                         <a class="btn btn-lg btn-circle btn-color" href="#" onclick="rejected({{ $participant->id }})">

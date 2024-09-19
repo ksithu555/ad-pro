@@ -63,7 +63,7 @@
               $check = $announcement->announcementParticipants->where('announcement_id', $announcement->id)
               ->where('user_id', Auth::user()->id)->first();
               if (!$check) {
-                $btnName = 'この情報広場を申し込む';
+                $btnName = 'この情報に申し込む';
                 $btnColor = '#BF0731';
                 $popUp = '#modal-popup';
               } elseif ($check->status == 0) {
@@ -71,7 +71,7 @@
                 $btnColor = '#FFC107';
                 $popUp = '';
               } elseif ($check->status == 1) {
-                $btnName = '承認済み';
+                $btnName = '申し込みが承認されました';
                 $btnColor = '#28A745';
                 $popUp = '';
               } elseif ($check->status == 2) {
@@ -97,8 +97,8 @@
 
   <!-- Modal Popup Message Box -->
   <div id="modal-popup" class="white-bg all-padding-60 mfp-with-anim mfp-hide centerize-col col-lg-4 col-md-6 col-sm-7 col-xs-11 text-center">
-    <span class="text-uppercase font-30px font-600 mb-20 display-block dark-color">情報広場参加</span>
-    <p class="mb-20">情報広場を参加してもよろしいですか?</p>
+    <span class="text-uppercase font-30px font-600 mb-20 display-block dark-color">情報に申し込む</span>
+    <p class="mb-20">この情報に申し込みしてもよろしいですか？</p>
       <a class="btn btn-lg btn-circle btn-color" href="{{ route('user.request.announcement', $announcement->id) }}">はい</a>
       <a class="btn btn-lg btn-circle btn-secondary-color popup-modal-close" href="#">いいえ</a>
   </div>

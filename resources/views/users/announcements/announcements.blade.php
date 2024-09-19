@@ -32,14 +32,14 @@
                                 </div>
                                 <div style="font-size: 14px; color: #555; margin-top: 5px;">
                                     <i class="fa fa-calendar"></i> 
-                                    {{ $announcement->start_at }} 〜 {{ $announcement->end_at }}
+                                    {{ \Carbon\Carbon::parse($announcement->start_at)->format('Y-m-d') }}
                                 </div>
                                 <h3 class="mt-20 text-uppercase" style="font-size: 24px; color: #333; font-weight: bold; margin-top: 15px;">{{ $announcement->title }}</h3>
                                 <hr class="dark-bg" style="background-color: #BF0731;">
                                 <p style="font-size: 14px; color: #666;">
                                     {!! nl2br(Str::limit($announcement->description, 150, '...')) !!} <!-- Assuming you have a description field -->
                                 </p>
-                                <a href="{{ route('user.show.announcement', $announcement->id) }}" class="btn btn-color" style="padding: 10px 20px; text-transform: uppercase; text-decoration: none;">もっと。。。</a>
+                                <a href="{{ route('user.show.announcement', $announcement->id) }}" class="btn btn-color" style="padding: 10px 20px; text-transform: uppercase; text-decoration: none;">もっと見る。。。</a>
                             </div>
                         </div>
                     </div>

@@ -221,9 +221,9 @@ class UserController extends Controller
 
     public function getAlarms() {
         $alarms = Alarm::with('sender')->where('to_user_id', Auth::user()->id)->where('status', 0)
-        ->orderBy('created_at', 'desc')->get();
+        ->orderBy('updated_at', 'desc')->get();
         $checkedAlarms = Alarm::with('sender')->where('to_user_id', Auth::user()->id)->where('status', 1)
-        ->orderBy('created_at', 'desc')->get();
+        ->orderBy('updated_at', 'desc')->get();
         return view('users.alarms', compact('alarms', 'checkedAlarms'));
     }
 
@@ -233,7 +233,7 @@ class UserController extends Controller
             $alarm->status = 1;
             $alarm->save();
         }
-        Session::flash('success', 'アラームチェック終わりました');
+        Session::flash('success', 'アラームをチェックしました');
         return redirect()->route('user.get.alarms');
     }
 

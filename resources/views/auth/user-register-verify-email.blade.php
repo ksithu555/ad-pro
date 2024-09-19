@@ -39,9 +39,13 @@
     <section class="white-bg">
         <div class="container">
             <div class="row mt-25">
-                <div class="col-lg-4 col-md-5 col-xs-12 centerize-col text-center">
+                <div class="col-md-8 centerize-col text-center">
                 <x-message-box></x-message-box>
-                <h6 class="mb-30 font-30px roboto-font font-100 mt-0">あなたのメールアドレスを確認するために、{{ $user->email }} にメールを送信しました。</h6>
+                <h6 class="mb-30 font-20px roboto-font font-300 mt-0">ご登録、ありがとうございます。
+                    認証確認のメールが{{ $user->email }}に送信されました。
+                    メールの中のリンクをクリックして、認証処理を完了してください。
+                    もし、再送信が必要な場合、下のボタンをクリックしてください 。                
+                </h6>
                 <form method="POST" action="{{ route('verification.resend') }}">
                     @csrf
                     <input type="hidden" name="email" value="{{ $user->email }}">

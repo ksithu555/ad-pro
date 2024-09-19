@@ -32,7 +32,7 @@ class VerificationController extends Controller
         $user->save();
 
         Session::flash('success', 'メールの確認に成功しました');
-        return redirect()->route('user.show.login')->with('success', 'Email verified successfully');
+        return redirect()->route('user.show.login')->with('success', 'メールの確認に成功しました');
     }
 
     public function resend(Request $request)

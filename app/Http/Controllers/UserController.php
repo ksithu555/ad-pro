@@ -6,27 +6,19 @@ use App\Models\User;
 use App\Models\Alarm;
 use App\Models\Notice;
 use App\Models\Company;
-use App\Models\Message;
-use App\Models\Section;
 use App\Mail\VerifyEmail;
 use App\Models\Prefecture;
 use App\Models\BankAccount;
 use App\Models\UserPayment;
-use App\Models\Announcement;
 use Illuminate\Http\Request;
-use App\Models\Advertisement;
 use App\Models\RegisterSelector;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\URL;
 use App\Mail\BankTransferAlertEmail;
-use App\Models\AdvertisementSection;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\RequestBankTransferEmail;
 use Illuminate\Support\Facades\Session;
-use App\Models\AdvertisementFooterBlock;
-use App\Models\AdvertisementHeaderBlock;
 use Illuminate\Support\Facades\Password;
 
 class UserController extends Controller
@@ -62,7 +54,8 @@ class UserController extends Controller
     public function showRegister() {
         $registerSelectors = RegisterSelector::all();
         $prefectures = Prefecture::all();
-        return view('auth.user-register', compact('registerSelectors', 'prefectures'));
+        // return view('auth.user-register', compact('registerSelectors', 'prefectures'));
+        return view('coming-soon');
     }
 
     public function storeRegister(Request $request) {
@@ -111,6 +104,17 @@ class UserController extends Controller
             $request->only('email')
         );
 
+        $lastResend = session('last_resend_' . $request->email);
+
+        if ($lastResend && now()->diffInSeconds($lastResend) < 300) { // 300 seconds = 5 minutes
+            Session::flash('warning', 'パスワードリセットメールを再送信するには5分待つ必要があります');
+            return redirect()->back();
+        }
+
+        // Update the last resend time
+        session(['last_resend_' . $request->email => now()]);
+
+        Session::flash('success', 'パスワードリセットメールが正常に送信されました。メールをご確認ください');
         return $status === Password::RESET_LINK_SENT
                     ? back()->with(['status' => __($status)])
                     : back()->withErrors(['email' => __($status)]);
@@ -131,10 +135,14 @@ class UserController extends Controller
                 $user->save();
             }
         );
-
-        return $status === Password::PASSWORD_RESET
-                    ? redirect()->route('user.show.login')->with('status', __($status))
-                    : back()->withErrors(['email' => [__($status)]]);
+        
+        if ($status === Password::PASSWORD_RESET) {
+            Session::flash('success', 'パスワードをリセットしました');
+            return redirect()->route('user.show.login');
+        } else {
+            Session::flash('error', '正しいメールアドレスを入力してください');
+            return redirect()->back();
+        }
     }
 
     public function logout(Request $request) {

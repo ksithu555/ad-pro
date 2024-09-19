@@ -152,7 +152,7 @@ class UserAnnouncementController extends Controller
             ]);
         }
 
-        Session::flash('success', 'この情報に申し込みました');
+        Session::flash('success', 'この情報に申し込みしました');
         return redirect()->route('user.show.announcement', $id);
     }
 

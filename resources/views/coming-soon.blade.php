@@ -2,11 +2,11 @@
     <style>
         @media (max-width: 768px) {
             .layerOne {
-                font-size: 19px !important;
+                font-size: 16px !important;
                 line-height: 150px !important;
             }
             .layerTwo {
-                font-size: 20px !important;
+                font-size: 18px !important;
                 line-height: 300px !important;
             }
             .layerThree {

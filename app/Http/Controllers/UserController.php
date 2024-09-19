@@ -213,6 +213,7 @@ class UserController extends Controller
         ];
 
         Company::where('user_id', Auth::user()->id)->update($updateData);
+        User::where('id', Auth::user()->id)->update(['company_name' => $request->companyName]);
 
         Session::flash('success', '会社情報が正常に更新されました');
         return redirect()->route('user.show.profile');

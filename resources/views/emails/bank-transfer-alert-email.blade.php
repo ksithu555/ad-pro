@@ -59,7 +59,9 @@
             <div class="important-info">
                 <p>
                     <strong>
-                        会員{{ $userPayment->user->name }}様が{{ $userPayment->requested_plan == 1 ? 'シルバープラン（¥5,500）' : 'ゴールドプラン（¥6,600）' }}を申し込みされました。
+                        会員{{ $userPayment->user->name }}様が
+                        {{ $userPayment->requested_plan == 1 ? 'シルバープラン（¥5,500）' : 'ゴールドプラン（¥6,600）' }}
+                        を申し込みがありました。
                         お客様は「{{ $userPayment->transfer_name }}」の名義で
                         {{ \Carbon\Carbon::parse($userPayment->transfer_at)->format('Y-m-d') }} に
                         合計金額（¥ {{ number_format($userPayment->amount) }}）を銀行振込を予定しています。

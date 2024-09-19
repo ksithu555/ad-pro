@@ -308,7 +308,7 @@ class UserController extends Controller
         Mail::to(Auth::user()->email)->send(new RequestBankTransferEmail($userPayment));
         Mail::to(env('MAIL_FROM_ADDRESS'))->send(new BankTransferAlertEmail($userPayment));
         
-        Session::flash('warning', 'プランのアップグレードは保留中です。お支払いが完了すると、管理者が承認します。');
+        Session::flash('warning', 'プランのアップグレード申請は保留中です。支払いの確認次第、担当者より承認いたします。');
         return redirect()->route('user.show.profile');
     }
 

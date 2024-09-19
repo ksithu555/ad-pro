@@ -74,17 +74,17 @@
             </div>
 
             <div class="important-info">
-                <p><strong>振込者名が以下の口座名義と一致していることを確認してください。</strong></p>
+                <p><strong>振込人名が以下の内容と一致していることを確認してください。</strong></p>
             </div>
 
             <div class="bank-details">
-                <p><strong>振込者名:</strong> {{ $userPayment->transfer_name }}</p>
-                <p><strong>予定振込日:</strong> {{ \Carbon\Carbon::parse($userPayment->transfer_at)->format('Y-m-d') }} </p>
+                <p><strong>振込人名:</strong> {{ $userPayment->transfer_name }}</p>
+                <p><strong>振込予定日:</strong> {{ \Carbon\Carbon::parse($userPayment->transfer_at)->format('Y-m-d') }} </p>
                 <p><strong>合計金額:</strong> ¥ {{ number_format($userPayment->amount) }}</p>
             </div>
 
             <div class="important-info">
-                <p>振込手続きが完了した後、管理者があなたのリクエストを承認します。</p>
+                <p>支払いの確認次第、担当者より貴方のリクエストを承認します。</p>
             </div>
         </div>
         <div class="footer">

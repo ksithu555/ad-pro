@@ -47,7 +47,7 @@
                     @include('components.pagination')
                 </div>
                 @if ($announcements->isEmpty())
-                <h1 class="mt-120 mb-100 text-center">情報はありません</h1>
+                <h1 class="mt-120 mb-100 text-center">案件情報はありません</h1>
                 @endif
             </div>
         </div>

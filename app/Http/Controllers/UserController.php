@@ -52,10 +52,17 @@ class UserController extends Controller
     }
 
     public function showRegister() {
-        $registerSelectors = RegisterSelector::all();
-        $prefectures = Prefecture::all();
-        // return view('auth.user-register', compact('registerSelectors', 'prefectures'));
-        return view('coming-soon');
+        $cutoff = \Carbon\Carbon::create(2024, 9, 30, 11, 0, 0);
+        $now = \Carbon\Carbon::now();
+    
+        // Check if the current time is after the cutoff time
+        if ($now->greaterThanOrEqualTo($cutoff)) {
+            $registerSelectors = RegisterSelector::all();
+            $prefectures = Prefecture::all();
+            return view('auth.user-register', compact('registerSelectors', 'prefectures'));
+        } else {
+            return view('coming-soon');
+        }
     }
 
     public function storeRegister(Request $request) {

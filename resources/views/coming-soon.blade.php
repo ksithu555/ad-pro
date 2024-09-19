@@ -1,4 +1,20 @@
 <x-guest-layout>
+    <style>
+        @media (max-width: 768px) {
+            .layerOne {
+                font-size: 19px !important;
+                line-height: 150px !important;
+            }
+            .layerTwo {
+                font-size: 20px !important;
+                line-height: 300px !important;
+            }
+            .layerThree {
+                font-size: 15px !important;
+                line-height: 350px !important;
+            }
+        }
+    </style>
     <!--== Coming Soon Start ==-->
   <section class="remove-padding transition-none">
     <div id="rev_slider_152_1_wrapper" class="rev_slider_wrapper fullscreen-container" data-alias="coming-soon" data-source="gallery" style="background-color:#222222;padding:0px;">
@@ -33,7 +49,7 @@
 
                 <span style="z-index: 5; white-space: nowrap; font-size: 50px !important; 
                 line-height: 130px !important; font-weight: 700; color: rgba(191, 7, 49, 1.00);
-                font-family: 'Roboto', sans-serif;">
+                font-family: 'Roboto', sans-serif;" class="layerOne">
                 ADPRO（ｱﾄﾞﾌﾟﾛ）システムオープンのお知らせ
                 </span>
             </div>
@@ -62,7 +78,7 @@
 
     			<span style="z-index: 6; white-space: nowrap; font-size: 50px !important; 
                 line-height: 400px !important; font-weight: 300; color:#c09c9c;
-                font-family: 'Roboto', sans-serif;">
+                font-family: 'Roboto', sans-serif;" class="layerTwo">
                 2024年10月01日から会員登録ができます
                 </span>
             </div>
@@ -91,7 +107,7 @@
 
                 <span style="z-index: 7; white-space: nowrap; font-size: 40px !important; 
                 line-height: 500px !important; font-weight: 300; color:#c09c9c;
-                font-family: 'Roboto', sans-serif;">
+                font-family: 'Roboto', sans-serif;" class="layerThree">
                 【システムオープン日】2024年9月30日（月） 11:00
                 </span>
             </div>
@@ -148,7 +164,7 @@
     			style="z-index: 9; min-width: 300px; max-width: 300px; white-space: nowrap; 
                 font-size: 200px; line-height: 500px; font-weight: 600; color: rgba(191, 7, 49, 1.00);
                 font-family: 'Roboto', sans-serif;letter-spacing:-5px;"
-    			id="t_hourss">00 </div>
+    			id="t_hours">00 </div>
 
     		<!-- LAYER NR. 6 -->
     		<div class="tp-caption   tp-resizeme"

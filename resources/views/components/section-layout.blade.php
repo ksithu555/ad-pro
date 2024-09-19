@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="author" content="Designsninja">
 <!-- description -->
-<meta name="description" content="ADPRO is creative agency, corporate, simple and clean template, Based on Bootstrap responsive multipurpose agency and portfolio HTML5 template with 28 unique home page demos">
+<meta name="description" content="ADPRO会員になると商談と情報発信機能を完全無料でご利用いただけます。">
 <!-- keywords -->
 <meta name="keywords" content="dark header style, fullscreen, business, photography, portfolio, one page, bootstrap responsive, start-up, ui/ux, html5, css3, studio, branding, creative design, multipurpose, parallax, personal, masonry, grid, coming soon, carousel, career">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">

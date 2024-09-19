@@ -1,6 +1,6 @@
 <x-user-layout>
     <!--== Tabs Style 01 Start ==-->
-    <section class="white-bg pt-120 pb-120">
+    <section class="white-bg pt-120" style="padding-bottom: 200px;">
         <div class="container">
             <div class="row tabs-style-01">
                 <div class="col-md-12">
@@ -99,7 +99,7 @@
                                         </div>
                                     </div>
                                     @if ($alarms->isEmpty())
-                                    <h1 class="mt-120 mb-50">アラームはありません</h1>
+                                    <h1 class="mt-80">アラームはありません</h1>
                                     @endif
                                 </div>
                             </div>
@@ -129,8 +129,8 @@
                                                             {{ $checkedAlarm->alarm }}
                                                         </td>
                                                         <td>
-                                                            @if ($alarm->sender)
-                                                                {{ $alarm->sender->name }}
+                                                            @if ($checkedAlarm->sender)
+                                                                {{ $checkedAlarm->sender->name }}
                                                             @else
                                                                 管理者
                                                             @endif
@@ -160,7 +160,7 @@
                                         </div>
                                     </div>
                                     @if ($checkedAlarms->isEmpty())
-                                    <h1 class="mt-120 mb-50">チェック済みアラームはありません</h1>
+                                    <h1 class="mt-80">チェック済みアラームはありません</h1>
                                     @endif
                                 </div>
                             </div>

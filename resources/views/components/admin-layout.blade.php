@@ -92,14 +92,15 @@
                 if (request()->routeIs('admin.change.password') ||
                 request()->routeIs('admin.get.bank.accounts') ||
                 request()->routeIs('admin.add.bank.account') ||
-                request()->routeIs('admin.edit.bank.account')) {
+                request()->routeIs('admin.edit.bank.account') ||
+                request()->routeIs('admin.show.profile')) {
                   $defaultColor = 'default-color';
                 }
               @endphp
               <i class="icofont icofont-user-alt-4 {{ $defaultColor }}"></i>
             </a>
             <ul class="dropdown-menu">
-              <li><a href="shop-standard.html">One</a></li>
+              <li><a href="{{ route('admin.show.profile') }}">プロフィール</a></li>
               <li><a href="{{ route('admin.get.bank.accounts') }}">銀行口座</a></li>
               <li><a href="{{ route('admin.change.password') }}">パスワード変更</a></li>
               <li>

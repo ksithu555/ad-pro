@@ -37,8 +37,7 @@ class AdminSectionController extends Controller
             'type' => $request->type,
             'name' => $request->name,
             'note' => $request->note,
-            'min_block' => $request->minBlock,
-            'max_block' => $request->maxBlock,
+            'required_plan' => $request->requiredPlan,
             'status' => 0
         ]);
 
@@ -60,8 +59,7 @@ class AdminSectionController extends Controller
         $updateData = [
             'name' => $request->name,
             'note' => $request->note,
-            'min_block' => $request->minBlock,
-            'max_block' => $request->maxBlock,
+            'required_plan' => $request->requiredPlan,
         ];
 
         Section::where('id', $request->id)->update($updateData);

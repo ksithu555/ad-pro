@@ -116,6 +116,23 @@ class AdminController extends Controller
         return redirect()->route('admin.show.login');
     }
 
+    public function showProfile() {
+        $admin = Auth::guard('admin')->user();
+        return view('admins.profile', compact('admin'));
+    }
+
+    public function updateProfile(Request $request) {
+        $updateData = [
+            'name' => $request->name,
+            'email' => $request->email,
+        ];
+
+        Admin::where('id', Auth::guard('admin')->user()->id)->update($updateData);
+
+        Session::flash('success', '管理者情報が正常に更新されました');
+        return redirect()->route('admin.show.profile');
+    }
+
     public function getBankAccounts(Request $request) {
         $limit = 10;
         $search = $request->input('search');

@@ -10,8 +10,7 @@ class Section extends Model
         'type',
         'name',
         'note',
-        'min_block',
-        'max_block',
+        'required_plan',
         'status'
     ];
 

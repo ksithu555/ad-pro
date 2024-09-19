@@ -207,6 +207,10 @@ Route::group(['middleware' => ['admin']], function () {
     Route::get('/admin/logout', [AdminController::class, 'logout'])->name('admin.logout');
     Route::get('/admin/change/password', [AdminController::class, 'changePassword'])->name('admin.change.password');
     Route::post('/admin/update/password', [AdminController::class, 'updatePassword'])->name('admin.update.password');
+
+    // Profile
+    Route::get('/admin/show/profile', [AdminController::class, 'showProfile'])->name('admin.show.profile');
+    Route::post('/admin/update/profile', [AdminController::class, 'updateProfile'])->name('admin.update.profile');
     
     // home
     Route::get('/admin/home', [AdminHomeController::class, 'getHome'])->name('admin.get.home');

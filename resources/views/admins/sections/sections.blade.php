@@ -36,8 +36,7 @@
                             <th style="min-width: 110px;">タイプ</th>
                             <th>名前</th>
                             <th>注記</th>
-                            <th>最小ブロック</th>
-                            <th>最大ブロック</th>
+                            <th style="min-width: 170px;">必要なプラン</th>
                             <th>ステータス</th>
                             <th style="min-width: 110px;">プレビュー</th>
                             <th style="min-width: 110px;">アクション</th>
@@ -61,11 +60,15 @@
                                 <td>
                                     {!! nl2br($section->note) !!}
                                 </td>
-                                <td>
-                                    {{ $section->min_block }}
-                                </td>
-                                <td>
-                                    {{ $section->max_block }}
+                                <td style="min-width: 170px;">
+                                    @switch($section->required_plan)
+                                        @case(1)
+                                            <span class="custom-badge silver-badge">シルバー</span>
+                                            @break
+                                        @case(2)
+                                            <span class="custom-badge gold-badge">ゴールド</span>
+                                            @break
+                                    @endswitch
                                 </td>
                                 <td style="min-width: 110px;">
                                     <label class="toggle-switch">

@@ -106,6 +106,9 @@
                 </div>
             @include('components.pagination')
             </div>
+            @if ($sections->isEmpty())
+            <h1 class="mt-110 mb-70 text-center">セクションがありません</h1>
+            @endif
         </div>
       </div>
     </section>

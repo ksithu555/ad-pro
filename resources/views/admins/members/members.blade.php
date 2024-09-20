@@ -116,6 +116,9 @@
                     </div>
                 @include('components.pagination')
                 </div>
+                @if ($users->isEmpty())
+                <h1 class="mt-110 mb-110 text-center">会員がありません</h1>
+                @endif
             </div>
         </div>
     </section>

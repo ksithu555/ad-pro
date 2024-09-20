@@ -75,6 +75,9 @@
               </div>
               @include('components.pagination')
             </div>
+            @if ($notices->isEmpty())
+            <h1 class="mt-120 mb-60 text-center">お知らせ情報はありません</h1>
+            @endif
           </div>
         </div>
       </section>

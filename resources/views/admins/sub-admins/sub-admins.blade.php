@@ -78,6 +78,9 @@
                     </div>
                 @include('components.pagination')
                 </div>
+                @if ($subAdmins->isEmpty())
+                <h1 class="mt-120 mb-60 text-center">サブ管理者はありません</h1>
+                @endif
             </div>
         </div>
     </section>

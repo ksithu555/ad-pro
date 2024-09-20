@@ -94,6 +94,9 @@
               </div>
               @include('components.pagination')
             </div>
+            @if ($bankAccounts->isEmpty())
+            <h1 class="mt-110 mb-70 text-center">銀行口座がありません</h1>
+            @endif
           </div>
         </div>
     </section>

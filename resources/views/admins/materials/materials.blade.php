@@ -127,6 +127,9 @@
                 </div>
             @include('components.pagination')
             </div>
+            @if ($materials->isEmpty())
+            <h1 class="mt-110 mb-70 text-center">材料がありません</h1>
+            @endif
         </div>
       </div>
     </section>

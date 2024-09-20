@@ -159,7 +159,7 @@
             <!--== Header01 End ==-->
             @elseif ($advertisementSection->section->name == 'Header02')
             <!--== Header02 Start ==-->
-            <section class="{{ $sectionBg }} parallax-bg fixed-bg view-height-100vh lg-section"  id="{{ $advertisementSection->name }}"
+            <section class="{{ $sectionBg }} parallax-bg fixed-bg view-height-100vh lg-section" id="{{ $advertisementSection->name }}"
                 data-parallax-bg-image="{{ asset('assets/images/all/header-02.webp') }}" 
                 data-parallax-speed="0.5" data-parallax-direction="up">
                 <div class="color-overlay-bg"></div>
@@ -191,14 +191,19 @@
             <!--== Header02 End ==-->
             @elseif ($advertisementSection->section->name == 'Header03')
             <!--== Header03 Start ==-->
-            <section class="remove-padding transition-none">
-                <div id="rev_slider_1061_1_wrapper" class="rev_slider_wrapper fullscreen-container" data-alias="creative-freedom" data-source="gallery" style="background-color:#1f1d24;padding:0px;">
+            <section class="{{ $sectionBg }} remove-padding transition-none" id="{{ $advertisementSection->name }}">
+                <div id="rev_slider_1061_1_wrapper" class="rev_slider_wrapper fullscreen-container" 
+                data-alias="creative-freedom" data-source="gallery" style="background-color:#1f1d24;padding:0px;">
                 <!-- START REVOLUTION SLIDER 5.4.1 fullscreen mode -->
-                    <div id="rev_slider_1061_1" class="rev_slider fullscreenbanner" style="display:none;" data-version="5.4.1">
+                    <div id="rev_slider_1061_1" class="rev_slider fullscreenbanner" style="display:none;" 
+                    data-version="5.4.1">
                     <ul>    <!-- SLIDE  -->
+                        @php
+                            $loopindex = 0;
+                        @endphp
                     @foreach ($advertisementSection->advertisementHeaderBlocks as $key => $advertisementHeaderBlock)
                         @if ($advertisementHeaderBlock->status == 1)
-                        <li data-index="rs-{{ 2978 + $loop->index }}" data-transition="fadethroughdark" data-slotamount="default" 
+                        <li data-index="rs-{{ 2978 + $loopindex }}" data-transition="fadethroughdark" data-slotamount="default" 
                         data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="default" 
                         data-easeout="default" data-masterspeed="2000"  
                         data-thumb="{{ asset('assets/images/all/' . $advertisementHeaderBlock->image) }}"  
@@ -213,7 +218,7 @@
                             <!-- LAYERS -->
                             <!-- LAYER NR. 1 -->
                             <div class="tp-caption tp-shape tp-shapewrapper  rs-parallaxlevel-tobggroup"
-                                id="slide-{{ 2978 + $loop->index }}-layer-1"
+                                id="slide-{{ 2978 + $loopindex }}-layer-1"
                                 data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
                                 data-y="['middle','middle','middle','middle']" data-voffset="['0','0','0','0']"
                                 data-fontweight="['100','100','400','400']"
@@ -237,7 +242,7 @@
                 
                             <!-- LAYER NR. 2 -->
                             <div class="tp-caption tp-shape tp-shapewrapper  rs-parallaxlevel-3"
-                                id="slide-{{ 2978 + $loop->index }}-layer-4"
+                                id="slide-{{ 2978 + $loopindex }}-layer-4"
                                 data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
                                 data-y="['middle','middle','middle','middle']" data-voffset="['-178','-178','-168','-141']"
                                 data-width="1"
@@ -259,7 +264,7 @@
                 
                             <!-- LAYER NR. 3 -->
                             <div class="tp-caption Creative-SubTitle   tp-resizeme rs-parallaxlevel-2"
-                                id="slide-{{ 2978 + $loop->index }}-layer-3"
+                                id="slide-{{ 2978 + $loopindex }}-layer-3"
                                 data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
                                 data-y="['middle','middle','middle','middle']" data-voffset="['-91','-91','-81','-64']"
                                 data-fontsize="['20','20','20','10']"
@@ -284,7 +289,7 @@
                 
                             <!-- LAYER NR. 4 -->
                             <div class="tp-caption Creative-Title   tp-resizeme rs-parallaxlevel-1"
-                                id="slide-{{ 2978 + $loop->index }}-layer-2"
+                                id="slide-{{ 2978 + $loopindex }}-layer-2"
                                 data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
                                 data-y="['middle','middle','middle','middle']" data-voffset="['-10','-10','-10','-10']"
                                 data-fontsize="['70','70','50','40']"
@@ -309,7 +314,7 @@
                 
                             <!-- LAYER NR. 5 -->
                             <div class="tp-caption tp-shape tp-shapewrapper  rs-parallaxlevel-3"
-                                id="slide-{{ 2978 + $loop->index }}-layer-5"
+                                id="slide-{{ 2978 + $loopindex }}-layer-5"
                                 data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
                                 data-y="['middle','middle','middle','middle']" data-voffset="['137','137','119','100']"
                                 data-width="1"
@@ -331,7 +336,7 @@
                 
                             <!-- LAYER NR. 6 -->
                             <div class="tp-caption Creative-Button rev-btn  rs-parallaxlevel-15"
-                                id="slide-{{ 2978 + $loop->index }}-layer-6"
+                                id="slide-{{ 2978 + $loopindex }}-layer-6"
                                 data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
                                 data-y="['top','top','top','top']" data-voffset="['694','611','689','540']"
                                 data-fontweight="['400','500','500','500']"
@@ -354,6 +359,9 @@
                                 次のスライドへ進む 
                             </div>
                         </li>
+                        @php
+                            $loopindex ++;
+                        @endphp
                         @endif
                         @endforeach
                     </ul>
@@ -361,6 +369,232 @@
                 </div>
             </section>
             <!--== Header03 End ==-->
+            @elseif ($advertisementSection->section->name == 'Header04')
+            <!--== Header04 Start ==-->
+            <section class="{{ $sectionBg }} remove-padding transition-none" id="{{ $advertisementSection->name }}">
+                <div id="rev_slider_151_1_wrapper" class="rev_slider_wrapper fullscreen-container" 
+                data-alias="blur-effect-slider" data-source="gallery" 
+                style="background-color:#2d3032;padding:0px;">
+                <!-- START REVOLUTION SLIDER 5.4.1 fullscreen mode -->
+                    <div id="rev_slider_151_1" class="rev_slider fullscreenbanner" style="display:none;" data-version="5.4.1">
+                        <ul>	<!-- SLIDE  -->
+                            @php
+                                $loopindex = 0;
+                            @endphp
+                            @foreach ($advertisementSection->advertisementHeaderBlocks as $key => $advertisementHeaderBlock)
+                            @if ($advertisementHeaderBlock->status == 1)
+                            <li data-index="rs-{{ 411 + $loopindex }}" data-transition="fadethroughtransparent" 
+                            data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off"  
+                            data-easein="default" data-easeout="default" data-masterspeed="default"  
+                            data-thumb="{{ asset('assets/images/all/' . $advertisementHeaderBlock->image) }}"  data-rotate="0"  
+                            data-fstransition="fade" data-fsmasterspeed="1000" data-fsslotamount="7" 
+                            data-saveperformance="off"  data-title="One" data-param1="" data-param2="" 
+                            data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" 
+                            data-param8="" data-param9="" data-param10="" data-description="">
+                                <!-- MAIN IMAGE -->
+                                <img src="{{ asset('assets/images/all/' . $advertisementHeaderBlock->image) }}"  alt=""  
+                                data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" 
+                                data-bgparallax="6" class="rev-slidebg" data-no-retina>
+                                <!-- LAYERS -->
+                                <div id="rrzt_{{ 411 + $loopindex }}" class="rev_row_zone rev_row_zone_top slider-creative" 
+                                style="z-index: {{ 9 + ($loopindex * 3) }};">
+                    
+                                    <!-- LAYER NR. 1 -->
+                                    <div class="hero-text-wrap">
+                                        <div class="hero-text">
+                                            <div class="tp-caption  "
+                                                id="slide-{{ 411 + $loopindex }}-layer-14"
+                                                data-x="['left','left','left','left']" data-hoffset="['100','100','100','100']"
+                                                data-y="['top','top','top','top']" data-voffset="['100','100','100','100']"
+                                                data-width="none"
+                                                data-height="none"
+                                                data-whitespace="nowrap"
+                                
+                                                data-type="row"
+                                                data-columnbreak="2"
+                                                data-basealign="slide"
+                                                data-responsive_offset="on"
+                                                data-responsive="off"
+                                                data-frames='[{"delay":10,"speed":300,"frame":"0","from":"opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"}]'
+                                                data-margintop="[0,0,0,0]"
+                                                data-marginright="[0,0,0,0]"
+                                                data-marginbottom="[0,0,0,0]"
+                                                data-marginleft="[0,0,0,0]"
+                                                data-textAlign="['inherit','inherit','inherit','inherit']"
+                                                data-paddingtop="[0,100,50,50]"
+                                                data-paddingright="[100,50,40,40]"
+                                                data-paddingbottom="[0,0,0,0]"
+                                                data-paddingleft="[100,50,40,40]"
+                                
+                                                style="z-index: {{ 9 + ($loopindex * 3) }}; white-space: nowrap; font-size: 20px; line-height: 22px; font-weight: 400; color: rgba(255, 255, 255, 1.00);">
+                                            <!-- LAYER NR. 2 -->
+                                            <div class="tp-caption  "
+                                                id="slide-{{ 411 + $loopindex }}-layer-15"
+                                                data-x="['left','left','left','left']" data-hoffset="['100','100','100','100']"
+                                                data-y="['top','top','top','top']" data-voffset="['100','100','100','100']"
+                                                data-width="none"
+                                                data-height="none"
+                                                data-whitespace="nowrap"
+                                
+                                                data-type="column"
+                                                data-responsive_offset="on"
+                                                data-responsive="off"
+                                                data-frames='[{"delay":"+0","speed":300,"frame":"0","from":"opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"}]'
+                                                data-columnwidth="100%"
+                                                data-margintop="[0,0,0,0]"
+                                                data-marginright="[0,0,0,0]"
+                                                data-marginbottom="[0,0,0,0]"
+                                                data-marginleft="[0,0,0,0]"
+                                                data-textAlign="['inherit','inherit','center','center']"
+                                                data-paddingtop="[0,0,0,0]"
+                                                data-paddingright="[0,0,0,0]"
+                                                data-paddingbottom="[0,0,0,0]"
+                                                data-paddingleft="[0,0,0,0]"
+                                
+                                                style="z-index: {{ 10 + ($loopindex * 3) }}; width: 100%;">
+                                            <!-- LAYER NR. 3 -->
+                                            <div class="tp-caption   tp-resizeme  blurslider-gradient"
+                                                id="slide-{{ 411 + $loopindex }}-layer-1"
+                                                data-x="['left','left','center','center']" data-hoffset="['0','0','0','0']"
+                                                data-y="['top','top','top','top']" data-voffset="['0','0','230','110']"
+                                                data-fontsize="['110','90','100','70']"
+                                                data-lineheight="['100','90','100','70']"
+                                                data-width="none"
+                                                data-height="none"
+                                                data-whitespace="nowrap"
+                                
+                                                data-type="text"
+                                                data-basealign="slide"
+                                                data-responsive_offset="on"
+                                
+                                                data-frames='[{"delay":"+290","speed":2000,"frame":"0","from":"y:50px;opacity:0;fb:20px;","to":"o:1;fb:0;","ease":"Power4.easeOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;fb:0;","ease":"Power3.easeInOut"}]'
+                                                data-margintop="[0,0,0,0]"
+                                                data-marginright="[0,0,0,0]"
+                                                data-marginbottom="[30,20,30,30]"
+                                                data-marginleft="[0,0,0,0]"
+                                                data-textAlign="['inherit','inherit','center','center']"
+                                                data-paddingtop="[0,0,0,0]"
+                                                data-paddingright="[0,0,40,40]"
+                                                data-paddingbottom="[0,0,0,0]"
+                                                data-paddingleft="[0,0,40,40]"
+                                
+                                                style="z-index: {{ 11 + ($loopindex * 3) }}; white-space: nowrap; font-size: 110px; line-height: 100px; font-weight: 700; color: rgba(255, 255, 255, 1.00); display: inline-block;font-family:'Montserrat', sans-serif;">
+                                                {!! nl2br($advertisementHeaderBlock->body) !!}
+                                            </div>
+                                            </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            @php
+                                $loopindex ++;
+                            @endphp
+                            @endif
+                            @endforeach
+                        </ul>
+                        <div style="" class="tp-static-layers">
+                            @php
+                                $loopindex = 0;
+                            @endphp
+                            @foreach ($advertisementSection->advertisementHeaderBlocks as $key => $advertisementHeaderBlock)
+                            @if ($advertisementHeaderBlock->status == 1)
+                            <!-- LAYER NR. 28 -->
+                            <div class="tp-caption   tp-static-layer"
+                                id="slider-151-layer-{{ 1 + $loopindex }}"
+                                data-x="['right','right','right','right']" data-hoffset="['0','0','0','0']"
+                                data-y="['middle','middle','bottom','bottom']" 
+                                data-voffset="['{{ ($loopindex * 50) - 50 }}','{{ ($loopindex * 50) - 50 }}','{{ 119 - ($loopindex * 50) }}','{{ 119 - ($loopindex * 50) }}']"
+                                data-width="['260','260','200','70']"
+                                data-height="none"
+                                data-whitespace="nowrap"
+                                data-visibility="['on','on','on','off']"
+                
+                                data-type="text"
+                                data-basealign="slide"
+                                data-responsive_offset="off"
+                                data-responsive="off"
+                                data-startslide="0"
+                                data-endslide="2"
+                                data-frames='[{"delay":10,"speed":300,"frame":"0","from":"opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"}]'
+                                data-textAlign="['inherit','inherit','inherit','inherit']"
+                                data-paddingtop="[0,0,0,0]"
+                                data-paddingright="[0,0,0,0]"
+                                data-paddingbottom="[0,0,0,0]"
+                                data-paddingleft="[0,0,0,0]"
+                
+                                style="z-index: {{ 17 + ($loopindex * 3) }}; min-width: 260px; max-width: 260px; white-space: nowrap; font-size: 15px; line-height: 15px; font-weight: 500; color: rgba(255, 255, 255, 1.00);font-family:'Montserrat', sans-serif;">
+                                {{ $loopindex + 1 }}
+                                <div class="blurslider-line" style="display:inline-block;width:40px;height:1px;background:#fff;margin: 10px 20px 4px 15px;"></div>
+                                {{ $advertisementHeaderBlock->title }}
+                            </div>
+                
+                            <!-- LAYER NR. 29 -->
+                            <div class="tp-caption tp-shape tp-shapewrapper  tp-static-layer"
+                                id="slider-151-layer-{{ 2 + ($loopindex) }}"
+                                data-x="['right','right','right','right']" data-hoffset="['0','0','0','0']"
+                                data-y="['middle','middle','bottom','bottom']" 
+                                data-voffset="['{{ ($loopindex * 51) - 50 }}','{{ ($loopindex * 51) - 50 }}','{{ 102 - ($loopindex * 51) }}','{{ 102 - ($loopindex * 51) }}']"
+                                data-width="['300','300','240','30%']"
+                                data-height="50"
+                                data-whitespace="nowrap"
+                                data-visibility="['on','on','on','off']"
+                
+                                data-type="shape"
+                                data-basealign="slide"
+                                data-responsive_offset="off"
+                                data-responsive="off"
+                                data-startslide="0"
+                                data-endslide="2"
+                                data-frames='[{"delay":"bytrigger","speed":800,"frame":"0","from":"x:[-100%];","mask":"x:0px;y:0px;s:inherit;e:inherit;","to":"o:1;","ease":"Power4.easeOut"},{"delay":"bytrigger","speed":500,"frame":"999","to":"x:[-100%];opacity:1;","mask":"x:0;y:0;s:inherit;e:inherit;","ease":"Power4.easeOut"}]'
+                                data-textAlign="['inherit','inherit','inherit','inherit']"
+                                data-paddingtop="[0,0,0,0]"
+                                data-paddingright="[0,0,0,0]"
+                                data-paddingbottom="[0,0,0,0]"
+                                data-paddingleft="[0,0,0,0]"
+                                data-blendmode="overlay"
+                                data-lasttriggerstate="reset"
+                                style="z-index: {{ 18 + ($loopindex * 3) }};background-color:rgba(0, 0, 0, 0.25);cursor:pointer;"> 
+                            </div>
+                
+                            <!-- LAYER NR. 30 -->
+                            <div class="tp-caption tp-shape tp-shapewrapper  tp-static-layer"
+                                id="slider-151-layer-{{ 3 + ($loopindex) }}"
+                                data-x="['right','right','right','right']" data-hoffset="['0','0','0','0']"
+                                data-y="['middle','middle','bottom','bottom']" 
+                                data-voffset="['{{ ($loopindex * 51) - 50 }}','{{ ($loopindex * 51) - 50 }}','{{ 102 - ($loopindex * 51) }}','{{ 102 - ($loopindex * 51) }}']"
+                                data-width="['300','300','240','30%']"
+                                data-height="50"
+                                data-whitespace="nowrap"
+                                data-visibility="['on','on','on','off']"
+                
+                                data-type="shape"
+                                data-actions='[{"event":"mouseenter","action":"startlayer","layer":"slider-151-layer-{{ 2 + ($loopindex) }}","delay":""},{"event":"mouseleave","action":"stoplayer","layer":"slider-151-layer-{{ 2 + ($loopindex) }}","delay":""},{"event":"click","action":"jumptoslide","slide":"rs-{{ 411 + $loopindex }}","delay":""}]'
+                                data-basealign="slide"
+                                data-responsive_offset="off"
+                                data-responsive="off"
+                                data-startslide="0"
+                                data-endslide="2"
+                                data-frames='[{"delay":10,"speed":1000,"frame":"0","from":"x:[-100%];","mask":"x:0px;y:0px;s:inherit;e:inherit;","to":"o:1;","ease":"Power4.easeOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"},{"frame":"hover","speed":"0","ease":"Power4.easeOut","to":"o:1;rX:0;rY:0;rZ:0;z:0;","style":"c:rgba(0, 0, 0, 1.00);bs:solid;bw:0 0 0 0;"}]'
+                                data-textAlign="['inherit','inherit','inherit','inherit']"
+                                data-paddingtop="[0,0,0,0]"
+                                data-paddingright="[0,0,0,0]"
+                                data-paddingbottom="[0,0,0,0]"
+                                data-paddingleft="[0,0,0,0]"
+                                data-blendmode="overlay"
+                
+                                style="z-index: {{ 19 + ($loopindex * 3) }};background-color:rgba(255, 255, 255, 0.05);border-color:rgba(0, 0, 0, 0);cursor:pointer;"> 
+                            </div>
+                            @php
+                                $loopindex ++;
+                            @endphp
+                            @endif
+                            @endforeach
+                        </div>
+                    <div class="tp-bannertimer" style="height: 5px; background-color: rgba(255, 255, 255, 0.25);"></div>	</div>
+                </div><!-- END REVOLUTION SLIDER -->
+            </section>
+            <!--== Header04 End ==-->
             @endif
 
         {{-- Header Hero End --}}

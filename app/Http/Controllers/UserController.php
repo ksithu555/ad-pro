@@ -14,10 +14,13 @@ use Illuminate\Http\Request;
 use App\Models\RegisterSelector;
 use Illuminate\Support\Facades\URL;
 use App\Mail\BankTransferAlertEmail;
+use App\Mail\CompleteTransferAlertEmail;
+use App\Mail\NewMemberRegisterEmail;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\RequestBankTransferEmail;
+use App\Models\Admin;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Password;
 
@@ -98,6 +101,11 @@ class UserController extends Controller
         );
     
         Mail::to($user->email)->send(new VerifyEmail($user, $verificationUrl));
+
+        $admins = Admin::all();
+        foreach ($admins as $admin) {
+            Mail::to($admin->email)->send(new NewMemberRegisterEmail($user));
+        }
     
         return view('auth.user-register-verify-email', ['user' => $user]);
     }
@@ -306,7 +314,11 @@ class UserController extends Controller
         $userPayment = UserPayment::with('user')->with('bankAccount')->where('id', $userPaymentId->id)->first();
 
         Mail::to(Auth::user()->email)->send(new RequestBankTransferEmail($userPayment));
-        Mail::to(env('MAIL_FROM_ADDRESS'))->send(new BankTransferAlertEmail($userPayment));
+
+        $admins = Admin::all();
+        foreach ($admins as $admin) {
+            Mail::to($admin->email)->send(new BankTransferAlertEmail($userPayment));
+        }
         
         Session::flash('warning', 'プランのアップグレード申請を承りました。ご入金の確認後、弊社担当者より承認させていただきます。');
         return redirect()->route('user.show.profile');
@@ -346,6 +358,11 @@ class UserController extends Controller
             'model' => 'UserPayment',
             'status' => 0,
         ]);
+
+        $admins = Admin::all();
+        foreach ($admins as $admin) {
+            Mail::to($admin->email)->send(new CompleteTransferAlertEmail($userPayment));
+        }
 
         Session::flash('success', 'プランのアップグレードに成功しました');
         return response()->json(['success' => true]);

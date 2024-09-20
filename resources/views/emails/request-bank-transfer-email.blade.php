@@ -84,7 +84,7 @@
             </div>
 
             <div class="important-info">
-                <p>支払いの確認次第、担当者より貴方のリクエストを承認します。</p>
+                <p>ご入金の確認後、弊社担当者よりリクエストを承認させていただきます。</p>
             </div>
         </div>
         <div class="footer">

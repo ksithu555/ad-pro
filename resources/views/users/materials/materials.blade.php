@@ -129,7 +129,7 @@
                     </div>
                 </div>
                 @if ($materials->isEmpty())
-                <h1 class="mt-110 mb-30 text-center">材料がありません</h1>
+                <h1 class="mt-110 mb-30 text-center">素材がありません</h1>
                 @endif
             </div>
         </div>

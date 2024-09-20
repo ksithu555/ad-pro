@@ -74,7 +74,7 @@
             </div>
 
             <div class="important-info">
-                <p><strong>振込人名が以下の内容と一致していることを確認してください。</strong></p>
+                <p><strong>振込人名が下記と一致していることをご確認ください。</strong></p>
             </div>
 
             <div class="bank-details">

@@ -159,9 +159,9 @@ class UserAdvertisementController extends Controller
 
         // Based on the existence of contact sections, fetch the appropriate sections
         if ($hasContactSection) {
-            $sections = Section::where('type', '!=', 'contact')->where('status', 1)->get();
+            $sections = Section::where('type', '!=', 'contact')->where('status', 1)->orderBy('order')->get();
         } else {
-            $sections = Section::where('status', 1)->get();
+            $sections = Section::where('status', 1)->orderBy('order')->get();
         }
 
         return view('users.advertisements.add-section', compact('id', 'sections'));

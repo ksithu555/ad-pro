@@ -39,21 +39,22 @@
                                         <tr>
                                             <td>
                                                 <div class="custom-radio">
-                                                    <input type="radio" id="section-{{ $section->id }}" name="section" value="{{ $section->id }}">
+                                                    <input type="radio" id="section-{{ $section->id }}" name="section" 
+                                                    value="{{ $section->id }}" @if(Auth::user()->plan_status < $section->required_plan) disabled @endif>
                                                     <label for="section-{{ $section->id }}"></label>
                                                 </div>
                                             </td>
                                             <td>
                                                 {{ $key + 1 }}
                                             </td>
-                                            <td>
+                                            <td style="color: {{ $section->required_plan == 2 ? '#ffc107' : '' }}">
                                                 {{ $section->name }}
                                             </td>
                                             <td>
                                                 {!! nl2br($section->note) !!}
                                             </td>                              
                                             <td style="min-width: 110px;">
-                                                <a href="{{ route('admin.preview.section', $section->id) }}" target="_blank">
+                                                <a href="{{ route('user.preview.section', $section->id) }}" target="_blank">
                                                     <i class="fa fa-eye" style="font-size: 1.5em;"></i>
                                                 </a>
                                             </td>

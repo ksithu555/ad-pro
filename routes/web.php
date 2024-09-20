@@ -280,6 +280,8 @@ Route::group(['middleware' => ['admin']], function () {
     Route::post('/admin/update/section', [AdminSectionController::class, 'updateSection'])->name('admin.update.section');
     Route::get('/admin/delete/section', [AdminSectionController::class, 'deleteSection'])->name('admin.delete.section');
     Route::post('/admin/update/section-status', [AdminSectionController::class, 'updateSectionStatus'])->name('admin.update.section.status');
+    Route::post('/admin/section/order-up/{id}', [AdminSectionController::class, 'orderUpSection'])->name('admin.section.order-up');
+    Route::post('/admin/section/order-down/{id}', [AdminSectionController::class, 'orderDownSection'])->name('admin.section.order-down');
     
     // announcements
     Route::get('/admin/announcements', [AdminAnnouncementController::class, 'getAnnouncements'])->name('admin.get.announcements');

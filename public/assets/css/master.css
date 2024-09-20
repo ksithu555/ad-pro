@@ -5227,7 +5227,7 @@ input:checked + .slider:before {
 /* Style for the custom radio button */
 .custom-radio input[type="radio"] + label {
   position: relative;
-  padding-left: 15px;
+  padding-left: 7px;
   cursor: pointer;
   display: inline-block;
   color: #333; /* Default text color */

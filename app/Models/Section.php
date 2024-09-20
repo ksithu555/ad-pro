@@ -11,6 +11,7 @@ class Section extends Model
         'name',
         'note',
         'required_plan',
+        'order',
         'status'
     ];
 

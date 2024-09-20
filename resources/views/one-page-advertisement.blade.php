@@ -232,7 +232,7 @@
                                 data-paddingbottom="[0,0,0,0]"
                                 data-paddingleft="[0,0,0,0]"
                 
-                                style="z-index: 5;text-transform:left;background-color:rgba(191, 7, 49, 0.75);border-color:rgba(0, 0, 0, 0);border-width:0px;"> 
+                                style="z-index: 5;text-transform:left;background-color:rgba(18, 12, 20, 0.75);border-color:rgba(0, 0, 0, 0);border-width:0px;"> 
                             </div>
                 
                             <!-- LAYER NR. 2 -->

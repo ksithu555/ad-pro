@@ -85,7 +85,7 @@ class UserMaterialController extends Controller
             });
         }
 
-        $materials = $materialsQuery->paginate($limit);
+        $materials = $materialsQuery->orderBy('created_at', 'desc')->paginate($limit);
         $ttl = $materials->total();
         $ttlpage = ceil($ttl / $limit);
         return view('users.materials.show-materials', compact('materials', 'ttl', 'ttlpage'));
@@ -104,7 +104,7 @@ class UserMaterialController extends Controller
             });
         }
 
-        $materials = $materialsQuery->paginate($limit);
+        $materials = $materialsQuery->orderBy('created_at', 'desc')->paginate($limit);
         $ttl = $materials->total();
         $ttlpage = ceil($ttl / $limit);
         return view('users.materials.show-sale-histories', compact('materials', 'ttl', 'ttlpage'));

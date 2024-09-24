@@ -13,6 +13,11 @@
                 $editRoute = 'user.edit.sub.accordion.block';
                 $deleteRoute = 'user.delete.sub.accordion.block';
             }
+            if ($type == 'image') {
+                $addRoute = 'user.add.sub.image.block';
+                $editRoute = 'user.edit.sub.image.block';
+                $deleteRoute = 'user.delete.sub.image.block';
+            }
         @endphp
         <div class="row">
           <div class="col-md-2">
@@ -152,6 +157,69 @@
                             @endforeach
                         </tbody>
                     </table>
+                    @elseif ($type == 'image')
+                    <table class="table table-bordered table-striped table-hover shop-cart">
+                        <thead>
+                            <tr>
+                            <th>#</th>
+                            <th style="min-width: 110px;">セクション</th>
+                            <th>タイトル</th>
+                            <th>内容</th>
+                            <th>画像</th>
+                            <th>画像ホバー</th>
+                            <th>ステータス</th>
+                            <th style="min-width: 110px;">アクション</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($advertisementBlockSubBlocks as $key => $subBlock)
+                            <tr>
+                                <td>
+                                    {{ $key + 1 }}
+                                </td>
+                                <td>
+                                    {{ $subBlock->advertisementImageBlock->advertisementSection->name }}
+                                </td>
+                                <td>
+                                    {{ $subBlock->title }}
+                                </td>   
+                                <td>
+                                    {{ $subBlock->body }}
+                                </td> 
+                                <td style="min-width: 110px;">
+                                    <img src="{{ asset('assets/images/all/' . $subBlock->image ) }}" alt=""> 
+                                </td> 
+                                <td style="min-width: 110px;">
+                                    {{ $subBlock->image_hover }}  
+                                </td> 
+                                <td style="min-width: 110px;">
+                                  <label class="toggle-switch">
+                                      <input type="checkbox" data-id="{{ $subBlock->id }}" class="status-toggle-sub-image" {{ $subBlock->status == 1 ? 'checked' : '' }}>
+                                      <span class="slider"></span>
+                                  </label>   
+                                </td>
+                                <td>
+                                    <a href="{{ route($editRoute, $subBlock->id) }}">
+                                      <i class="fa-icon-pencil-square" style="font-size: 1.5em;"></i>
+                                    </a>
+                                    <div class="tr-modal-popup">
+                                      <a href="#modal-popup-{{ $subBlock->id }}" data-effect="mfp-newspaper">
+                                        <i class="fa-icon-trash" style="font-size: 1.5em;"></i>
+                                      </a>
+                                    </div>
+                                  </td>
+                            </tr>
+
+                            <!-- Modal Popup Message Box -->
+                            <div id="modal-popup-{{ $subBlock->id }}" class="white-bg all-padding-60 mfp-with-anim mfp-hide centerize-col col-lg-4 col-md-6 col-sm-7 col-xs-11 text-center">
+                                <span class="text-uppercase font-30px font-600 mb-20 display-block dark-color">ブロック削除</span>
+                                <p class="mb-20">ブロックを削除してもよろしいですか?</p>
+                                <a class="btn btn-lg btn-circle btn-color" href="{{ route($deleteRoute, $subBlock->id) }}">はい</a>
+                                <a class="btn btn-lg btn-circle btn-secondary-color popup-modal-close" href="#">いいえ</a>
+                            </div>
+                            @endforeach
+                        </tbody>
+                    </table>
                     @endif
                 </div>
             </div>
@@ -207,6 +275,40 @@
                 // Send AJAX request to update the section status
                 $.ajax({
                     url: '/user/update/accordion-block/sub-accordion-block-status', // The route URL
+                    method: 'POST',
+                    data: {
+                        _token: '{{ csrf_token() }}', // CSRF token for security
+                        id: blockId,
+                        status: status
+                    },
+                    success: function(response) {
+                        if (response.success) {
+                            window.location.reload();
+                        } else {
+                            window.location.reload();
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('Error updating section status: ' + status);
+                        // window.location.reload();
+                    }
+                });
+            });
+        });
+    </script>
+    {{-- sub image toggle --}}
+    <script>
+        $(document).ready(function() {
+            // Listen for the toggle switch change event
+            $('.status-toggle-sub-image').on('change', function() {
+                // Get the section ID from the data-id attribute
+                var blockId = $(this).data('id');
+                // Determine the status based on whether the checkbox is checked
+                var status = $(this).is(':checked') ? 1 : 0;
+  
+                // Send AJAX request to update the section status
+                $.ajax({
+                    url: '/user/update/image-block/sub-image-block-status', // The route URL
                     method: 'POST',
                     data: {
                         _token: '{{ csrf_token() }}', // CSRF token for security

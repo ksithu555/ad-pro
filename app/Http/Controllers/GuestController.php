@@ -100,6 +100,7 @@ class GuestController extends Controller
         ->with('advertisementSections.advertisementFooterBlocks')->with('advertisementSections.advertisementListBlocks')
         ->with('advertisementSections.advertisementBoxBlocks')->with('advertisementSections.advertisementBoxBlocks.advertisementSubBoxBlocks')
         ->with('advertisementSections.advertisementAccordionBlocks')->with('advertisementSections.advertisementAccordionBlocks.advertisementSubAccordionBlocks')
+        ->with('advertisementSections.advertisementImageBlocks')->with('advertisementSections.advertisementImageBlocks.advertisementSubImageBlocks')
         ->where('param_name', $param)->first();
         if (!$advertisement) {
             return view('404-error');

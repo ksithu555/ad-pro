@@ -3,12 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Models\Icon;
+use App\Models\Admin;
 use App\Models\Material;
-use App\Models\PaidMaterialDownloadHistory;
-use App\Models\PaidUserDownloadLimitation;
 use Illuminate\Http\Request;
+use App\Mail\NewMaterialUploadEmail;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
+use App\Models\PaidUserDownloadLimitation;
+use App\Models\PaidMaterialDownloadHistory;
 
 class UserMaterialController extends Controller
 {
@@ -120,7 +123,7 @@ class UserMaterialController extends Controller
             $imageName = '';
         }        
 
-        Material::create([
+        $material = Material::create([
             'user_id' => Auth::user()->id,
             'type' => $request->type,
             'name' => $request->name,
@@ -128,6 +131,12 @@ class UserMaterialController extends Controller
             'required_plan' => $request->requiredPlan,
             'status' => 0
         ]);
+
+        $admins = Admin::all();
+        foreach ($admins as $admin) {
+            Mail::to($admin->email)->send(new NewMaterialUploadEmail($material));
+        }
+
         Session::flash('success', '素材が正常に追加されました');
         return redirect()->route('user.show.materials');
     }

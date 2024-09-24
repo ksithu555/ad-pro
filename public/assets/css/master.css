@@ -5492,6 +5492,27 @@ input:checked + .slider:before {
   background-color: #f1f1f1;
 }
 
+#image-hover-dropdown {
+  display: none;
+  /* position: absolute; */
+  background-color: #fff;
+  border: 1px solid #ddd;
+  max-height: 200px;
+  overflow-y: auto;
+  width: 100%;
+  z-index: 1000;
+  box-sizing: border-box;
+}
+
+.image-hover-dropdown-item {
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.image-hover-dropdown-item:hover {
+  background-color: #f1f1f1;
+}
+
 .custom-badge {
   padding: 2px 5px;
   font-size: 12px;
@@ -5511,6 +5532,10 @@ input:checked + .slider:before {
 
 .gold-badge {
   background-color: #ffc107; /* Golden color for gold plan */
+}
+
+.default-badge {
+  background-color: #BF0731; /* Light blue for free plan */
 }
 
 /* List Table Style */

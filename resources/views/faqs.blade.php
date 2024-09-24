@@ -75,16 +75,15 @@
                             <div class="panel-heading">
                                 <a data-toggle="collapse" data-parent="#accordion-style" href="#light3" aria-expanded="false" class="collapsed">
                                     <div class="panel-title text-uppercase white-color">
-                                        IT開発知識がなくても広告ページが容易に作れますか？
+                                        ADPRO会員になると何ができますか？
                                         <span class="pull-right"><i class="ion-chevron-down"></i></span>
                                     </div>
                                 </a> 
                             </div>
                             <div id="light3" class="panel-collapse collapse" aria-expanded="false" role="tablist">
                                 <div class="panel-body dark-color">
-                                    はい。ADPROには広告ページを作成する為の様々なセッションのテンプレートが用意されており、
-                                    そのセッションテンプレートを組み合わせる操作だけで広告ページが生成されるので、
-                                    IT開発知識が全くなくても誰でも簡単に広告ページを作成し外部に公開できます。
+                                    ADPRO会員になると商談機能と情報広場機能が完全無料でご利用いただけます。
+                                    また有料会員の場合、広告ページの制作と高品質の有料素材を月3回までダウンロードできます。
                                 </div>
                             </div>
                         </div>
@@ -92,15 +91,16 @@
                             <div class="panel-heading">
                                 <a data-toggle="collapse" data-parent="#accordion-style" href="#light4" aria-expanded="false" class="collapsed">
                                     <div class="panel-title text-uppercase white-color">
-                                        ADPRO会員になると何ができますか？
+                                        IT開発知識がなくても広告ページが容易に作れますか？
                                         <span class="pull-right"><i class="ion-chevron-down"></i></span>
                                     </div>
                                 </a> 
                             </div>
                             <div id="light4" class="panel-collapse collapse" aria-expanded="false" role="tablist">
                                 <div class="panel-body dark-color">
-                                    ADPRO会員になると商談機能と情報広場機能が完全無料でご利用いただけます。
-                                    また有料会員の場合、広告ページの制作と高品質の有料素材を月3回までダウンロードできます。
+                                    はい。ADPROには広告ページを作成する為の様々なセッションのテンプレートが用意されており、
+                                    そのセッションテンプレートを組み合わせる操作だけで広告ページが生成されるので、
+                                    IT開発知識が全くなくても誰でも簡単に広告ページを作成し外部に公開できます。
                                 </div>
                             </div>
                         </div>

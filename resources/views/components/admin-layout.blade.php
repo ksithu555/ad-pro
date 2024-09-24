@@ -98,6 +98,9 @@
                 }
               @endphp
               <i class="icofont icofont-user-alt-4 {{ $defaultColor }}"></i>
+              <span class="custom-badge default-badge hidden-xs sm-display-none">
+                {{ Auth::guard('admin')->user()->name }}
+              </span>
             </a>
             <ul class="dropdown-menu">
               <li><a href="{{ route('admin.show.profile') }}">プロフィール</a></li>

@@ -4,18 +4,22 @@ namespace App\Http\Controllers;
 
 use App\Models\Icon;
 use App\Models\Section;
+use App\Models\ImageHover;
 use Illuminate\Http\Request;
 use App\Models\Advertisement;
 use App\Models\AdvertisementSection;
 use Illuminate\Support\Facades\Auth;
 use App\Models\AdvertisementBoxBlock;
 use App\Models\AdvertisementListBlock;
+use App\Models\AdvertisementImageBlock;
 use Illuminate\Support\Facades\Session;
 use App\Models\AdvertisementFooterBlock;
 use App\Models\AdvertisementHeaderBlock;
 use App\Models\AdvertisementSubBoxBlock;
 use App\Models\AdvertisementContactBlock;
+use App\Models\AdvertisementSubImageBlock;
 use App\Models\AdvertisementAccordionBlock;
+use App\Models\AdvertisementImageHoverBlock;
 use App\Models\AdvertisementSubAccordionBlock;
 
 class UserAdvertisementController extends Controller
@@ -344,6 +348,9 @@ class UserAdvertisementController extends Controller
         }
         if($type == 'accordion') {
             $advertisementSectionBlocks = AdvertisementAccordionBlock::where('advertisement_section_id', $advertisementSection->id)->get();
+        }
+        if($type == 'image') {
+            $advertisementSectionBlocks = AdvertisementImageBlock::where('advertisement_section_id', $advertisementSection->id)->get();
         }
 
         return view('users.advertisements.show-section-blocks', compact('id', 'type', 'advertisementSection', 'advertisementSectionBlocks'));
@@ -679,6 +686,62 @@ class UserAdvertisementController extends Controller
         return response()->json(['success' => false]);
     }
 
+    // Image
+    public function addImageBlock($id) {
+        return view('users.advertisements.add-image-block', compact('id'));
+    }
+
+    public function storeImageBlock(Request $request) {
+        AdvertisementImageBlock::create([
+            'advertisement_section_id' => $request->advertisementSectionId,
+            'title' => $request->title,
+            'status' => 0
+        ]);
+
+        Session::flash('success', '画像ブロックが正常に追加されました');
+        return redirect()->route('user.show.section.blocks', $request->advertisementSectionId);
+    }
+
+    public function editImageBlock($id) {
+        $advertisementImageBlock = AdvertisementImageBlock::find($id);
+        return view('users.advertisements.edit-image-block', compact('advertisementImageBlock'));
+    }
+
+    public function updateImageBlock(Request $request) {
+        $updateData = [
+            'title' => $request->title,
+        ];
+
+        $advertisementImageBlock = AdvertisementImageBlock::find($request->id);
+        $advertisementImageBlock->update($updateData);
+        Session::flash('success', '画像ブロックが正常に更新されました');
+        return redirect()->route('user.show.section.blocks', $advertisementImageBlock->advertisement_section_id);
+    }
+
+    public function deleteImageBlock($id) {
+        $advertisementImageBlock = AdvertisementImageBlock::find($id);
+        AdvertisementImageBlock::where('id', $id)->delete();
+        Session::flash('success', '画像が正常に削除されました');
+        return redirect()->route('user.show.section.blocks', $advertisementImageBlock->advertisement_section_id);
+
+    }
+
+    public function updateImageBlockStatus(Request $request) {
+        $block = AdvertisementImageBlock::find($request->id);
+        if ($block) {
+            $block->status = $request->status;
+            $block->save();
+            Session::flash('success', '画像ブロックのステータスが正常に更新されました');
+            return response()->json(['success' => true]);
+        }
+        Session::flash('error', '画像ブロックステータスの変更に失敗しました');
+        return response()->json(['success' => false]);
+    }
+
+    public function getImageHovers() {
+        return view('users.advertisements.image-hovers');
+    }
+
     // Sub Block
     public function showBlockSubBlocks($type, $id) {
         if ($type == 'box') {
@@ -689,6 +752,11 @@ class UserAdvertisementController extends Controller
         if ($type == 'accordion') {
             $advertisementBlock = AdvertisementAccordionBlock::find($id);
             $advertisementBlockSubBlocks = AdvertisementSubAccordionBlock::where('advertisement_accordion_block_id', $advertisementBlock->id)->get();
+        }
+
+        if ($type == 'image') {
+            $advertisementBlock = AdvertisementImageBlock::find($id);
+            $advertisementBlockSubBlocks = AdvertisementSubImageBlock::where('advertisement_image_block_id', $advertisementBlock->id)->get();
         }
         
         return view('users.advertisements.show-block-sub-blocks', compact('id', 'type', 'advertisementBlock', 'advertisementBlockSubBlocks'));
@@ -826,6 +894,78 @@ class UserAdvertisementController extends Controller
             return response()->json(['success' => true]);
         }
         Session::flash('error', 'サブアコーディオンブロックステータスの変更に失敗しました');
+        return response()->json(['success' => false]);
+    }
+
+    // Sub Image Block
+    public function addSubImageBlock($id) {
+        $advertisementImageBlock = AdvertisementImageBlock::with('advertisementSection')->with('advertisementSection.section')->where('id', $id)->first();
+        $imageHovers = ImageHover::where('status', 1)->get();
+        return view('users.advertisements.add-sub-image-block', compact('advertisementImageBlock', 'imageHovers'));
+    }
+
+    public function storeSubImageBlock(Request $request) {
+        if (!empty($request->image)) {
+            $imageName = time() . '.' . $request->image->extension();
+            $request->image->move(public_path('assets/images/all'), $imageName);
+        } else {
+            $imageName = '';
+        }
+        AdvertisementSubImageBlock::create([
+            'advertisement_image_block_id' => $request->advertisementImageBlockId,
+            'title' => $request->title,
+            'body' => $request->body,
+            'image' => $imageName,
+            'image_hover' => $request->imageHover,
+            'status' => 0
+        ]);
+
+        Session::flash('success', 'サブ画像ブロックが正常に追加されました');
+        return redirect()->route('user.show.block.sub.blocks', ['type' => 'image', 'id' => $request->advertisementImageBlockId]);
+    }
+
+    public function editSubImageBlock($id) {
+        $subImageBlock = AdvertisementSubImageBlock::with('advertisementImageBlock')->with('advertisementImageBlock.advertisementSection')
+        ->with('advertisementImageBlock.advertisementSection.section')->find($id);
+        $imageHovers = ImageHover::where('status', 1)->get();
+        return view('users.advertisements.edit-sub-image-block', compact('subImageBlock', 'imageHovers'));
+    }
+
+    public function updateSubImageBlock(Request $request) {
+        $updateData = [
+            'title' => $request->title,
+            'body' => $request->body,
+            'image_hover' => $request->imageHover,
+        ];
+
+        if (!empty($request->image)) {
+            $imageName = time() . '.' . $request->image->extension();
+            $request->image->move(public_path('assets/images/all'), $imageName);
+            $updateData['image'] = $imageName;
+        }
+
+        $advertisementSubImageBlock = AdvertisementSubImageBlock::find($request->id);
+        $advertisementSubImageBlock->update($updateData);
+        Session::flash('success', 'サブ画像ブロックが正常に更新されました');
+        return redirect()->route('user.show.block.sub.blocks', ['type' => 'image', 'id' => $advertisementSubImageBlock->advertisement_image_block_id]);
+    }
+
+    public function deleteSubImageBlock($id) {
+        $advertisementSubImageBlock = AdvertisementSubImageBlock::find($id);
+        AdvertisementSubImageBlock::where('id', $id)->delete();
+        Session::flash('success', 'サブ画像ブロックが正常に削除されました');
+        return redirect()->route('user.show.block.sub.blocks', ['type' => 'image', 'id' => $advertisementSubImageBlock->advertisement_image_block_id]);
+    }
+
+    public function updateSubImageBlockStatus(Request $request) {
+        $subBlock = AdvertisementSubImageBlock::find($request->id);
+        if ($subBlock) {
+            $subBlock->status = $request->status;
+            $subBlock->save();
+            Session::flash('success', 'サブ画像ブロックのステータスが正常に更新されました');
+            return response()->json(['success' => true]);
+        }
+        Session::flash('error', 'サブ画像ブロックステータスの変更に失敗しました');
         return response()->json(['success' => false]);
     }
 }

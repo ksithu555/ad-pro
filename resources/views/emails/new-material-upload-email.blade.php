@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>New Member Registration</title>
+    <title>New Material Upload</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -50,21 +50,22 @@
 <body>
     <div class="email-container">
         <div class="header">
-            新規会員登録通知
+            新規素材のアップロード通知
         </div>
         <div class="content">
             <div class="important-info">
-                <p><strong>新規会員登録がありました。</strong></p>
+                <p><strong>素材のアップロードがありました。</strong></p>
             </div>
 
-            <p>以下のユーザーが新規登録されました:</p>
-            <p><strong>会社名:</strong> {{ $user->company_name }}</p>
-            <p><strong>名前 (漢字):</strong> {{ $user->name }}</p>
-            <p><strong>名前 (フリガナ):</strong> {{ $user->name_furigana }}</p>
-            <p><strong>メールアドレス:</strong> {{ $user->email }}</p>
+            <p>以下の素材がアップロードされました:</p>
+            <p><strong>会社名:</strong> {{ $material->user->company_name }}</p>
+            <p><strong>名前</strong> {{ $material->user->name }}</p>
+            <p><strong>素材ジャンル:</strong> {{ $material->type }}</p>
+            <p><strong>素材名:</strong> {{ $material->name }}</p>
+            <p><strong>素材プラン:</strong> {{ $material->required_plan == 1 ? '有料' : '無料' }}</p>
 
             <div class="important-info">
-                <p><strong>会員リスト画面でご確認ください。</strong></p>
+                <p><strong>素材一覧画面でご確認ください。</strong></p>
             </div>
         </div>
         <div class="footer">

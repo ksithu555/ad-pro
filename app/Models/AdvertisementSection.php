@@ -41,4 +41,8 @@ class AdvertisementSection extends Model
     public function advertisementAccordionBlocks() {
         return $this->hasMany(AdvertisementAccordionBlock::class);
     }
+
+    public function advertisementImageBlocks() {
+        return $this->hasMany(AdvertisementImageBlock::class);
+    }
 }

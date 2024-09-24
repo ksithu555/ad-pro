@@ -31,8 +31,8 @@ class VerificationController extends Controller
         $user->email_verified_at = now();
         $user->save();
 
-        Session::flash('success', 'メールの確認に成功しました');
-        return redirect()->route('user.show.login')->with('success', 'メールの確認に成功しました');
+        Session::flash('success', 'メール認証に成功しました');
+        return redirect()->route('user.show.login')->with('success', 'メール認証に成功しました');
     }
 
     public function resend(Request $request)

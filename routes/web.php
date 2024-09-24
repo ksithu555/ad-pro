@@ -128,6 +128,15 @@ Route::group(['middleware' => ['user']], function () {
         Route::post('/user/update/section/accordion-block', [UserAdvertisementController::class, 'updateAccordionBlock'])->name('user.update.accordion.block');
         Route::get('/user/delete/section/accordion-block/{id}', [UserAdvertisementController::class, 'deleteAccordionBlock'])->name('user.delete.accordion.block');
         Route::post('/user/update/section/accordion-block-status', [UserAdvertisementController::class, 'updateAccordionBlockStatus'])->name('user.update.section.accordion.block.status');
+        // Image Block
+        Route::get('/user/add/section/{id}/image-block', [UserAdvertisementController::class, 'addImageBlock'])->name('user.add.image.block');
+        Route::post('/user/store/section/image-block', [UserAdvertisementController::class, 'storeImageBlock'])->name('user.store.image.block');
+        Route::get('/user/edit/section/image-block/{id}', [UserAdvertisementController::class, 'editImageBlock'])->name('user.edit.image.block');
+        Route::post('/user/update/section/image-block', [UserAdvertisementController::class, 'updateImageBlock'])->name('user.update.image.block');
+        Route::get('/user/delete/section/image-block/{id}', [UserAdvertisementController::class, 'deleteImageBlock'])->name('user.delete.image.block');
+        Route::post('/user/update/section/image-block-status', [UserAdvertisementController::class, 'updateImageBlockStatus'])->name('user.update.section.image.block.status');
+        // Image Hover
+        Route::get('/user/image-hovers', [UserAdvertisementController::class, 'getImageHovers'])->name('user.get.image.hovers');
 
         // Sub Block
         Route::get('/user/show/{type}/block/{id}/sub-blocks', [UserAdvertisementController::class, 'showBlockSubBlocks'])->name('user.show.block.sub.blocks');
@@ -145,6 +154,13 @@ Route::group(['middleware' => ['user']], function () {
         Route::post('/user/update/accordion-block/sub-accordion-block', [UserAdvertisementController::class, 'updateSubAccordionBlock'])->name('user.update.sub.accordion.block');
         Route::get('/user/delete/accordion-block/sub-accordion-block/{id}', [UserAdvertisementController::class, 'deleteSubAccordionBlock'])->name('user.delete.sub.accordion.block');
         Route::post('/user/update/accordion-block/sub-accordion-block-status', [UserAdvertisementController::class, 'updateSubAccordionBlockStatus'])->name('user.update.accordion.block.sub.accordion.block.status');
+        // Sub Image Block
+        Route::get('/user/add/image-block/{id}/sub-image-block', [UserAdvertisementController::class, 'addSubImageBlock'])->name('user.add.sub.image.block');
+        Route::post('/user/store/image-block/sub-image-block', [UserAdvertisementController::class, 'storeSubImageBlock'])->name('user.store.sub.image.block');
+        Route::get('/user/edit/image-block/sub-image-block/{id}', [UserAdvertisementController::class, 'editSubImageBlock'])->name('user.edit.sub.image.block');
+        Route::post('/user/update/image-block/sub-image-block', [UserAdvertisementController::class, 'updateSubImageBlock'])->name('user.update.sub.image.block');
+        Route::get('/user/delete/image-block/sub-image-block/{id}', [UserAdvertisementController::class, 'deleteSubImageBlock'])->name('user.delete.sub.image.block');
+        Route::post('/user/update/image-block/sub-image-block-status', [UserAdvertisementController::class, 'updateSubImageBlockStatus'])->name('user.update.image.block.sub.image.block.status');
     });
 
     // Material

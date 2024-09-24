@@ -1129,7 +1129,143 @@
             </section>
             {{-- Accordion05 End --}}
             @endif
-        {{-- Accordion Hero End --}}
+        {{-- Image Hero End --}}
+        @elseif ($advertisementSection->section->type == 'image'  && $advertisementSection->status == 1)
+        {{-- Image Hero Start --}}
+            @if ($advertisementSection->section->name == 'Image01')
+            {{-- Image01 Start --}}
+            <section class="{{ $sectionBg }} pt-50 pb-50" id="{{ $advertisementSection->name }}">
+                @foreach ($advertisementSection->advertisementImageBlocks as $advertisementImageBlock)
+                @if ($advertisementImageBlock->status == 1)
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-8 section-heading">
+                        <h4 class="text-uppercase mt-0">{{ $advertisementImageBlock->title }}</h4>
+                        </div>
+                    </div>
+                    <div class="row mt-50">
+                        @foreach ($advertisementImageBlock->advertisementSubImageBlocks as $key => $advertisementSubImageBlock)
+                            <div class="col-md-12 col-sm-6 col-xs-12 mb-30">
+                                <figure class="imghvr-{{ $advertisementSubImageBlock->image_hover }}">
+                                    <img src="{{ asset('assets/images/all/' . $advertisementSubImageBlock->image) }}" alt="your-image">
+                                    <figcaption class="dark-bg">
+                                    <div class="center-layout">
+                                        <div class="v-align-middle white-color">
+                                        <p>{!! nl2br($advertisementSubImageBlock->body) !!}.</p>
+                                        </div>
+                                    </div>
+                                    </figcaption>
+                                </figure>
+                                <h5 class="mb-0 mt-10 text-center">{{ $advertisementSubImageBlock->title }}</h5>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+                @endif
+                @endforeach
+            </section>
+            {{-- Image01 End --}}
+            @elseif ($advertisementSection->section->name == 'Image02')
+            {{-- Image02 Start --}}
+            <section class="{{ $sectionBg }} pt-50 pb-50" id="{{ $advertisementSection->name }}">
+                @foreach ($advertisementSection->advertisementImageBlocks as $advertisementImageBlock)
+                @if ($advertisementImageBlock->status == 1)
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-8 section-heading">
+                        <h4 class="text-uppercase mt-0">{{ $advertisementImageBlock->title }}</h4>
+                        </div>
+                    </div>
+                    <div class="row mt-50">
+                        @foreach ($advertisementImageBlock->advertisementSubImageBlocks as $key => $advertisementSubImageBlock)
+                            <div class="col-md-6 col-sm-6 col-xs-6 mb-30">
+                                <figure class="imghvr-{{ $advertisementSubImageBlock->image_hover }}">
+                                    <img src="{{ asset('assets/images/all/' . $advertisementSubImageBlock->image) }}" alt="your-image">
+                                    <figcaption class="dark-bg">
+                                    <div class="center-layout">
+                                        <div class="v-align-middle white-color">
+                                        <p>{!! nl2br($advertisementSubImageBlock->body) !!}.</p>
+                                        </div>
+                                    </div>
+                                    </figcaption>
+                                </figure>
+                                <h5 class="mb-0 mt-10 text-center">{{ $advertisementSubImageBlock->title }}</h5>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+                @endif
+                @endforeach
+            </section>
+            {{-- Image02 End --}}
+            @elseif ($advertisementSection->section->name == 'Image03')
+            {{-- Image03 Start --}}
+            <section class="{{ $sectionBg }} pt-50 pb-50" id="{{ $advertisementSection->name }}">
+                @foreach ($advertisementSection->advertisementImageBlocks as $advertisementImageBlock)
+                @if ($advertisementImageBlock->status == 1)
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-8 section-heading">
+                        <h4 class="text-uppercase mt-0">{{ $advertisementImageBlock->title }}</h4>
+                        </div>
+                    </div>
+                    <div class="row mt-50">
+                        @foreach ($advertisementImageBlock->advertisementSubImageBlocks as $key => $advertisementSubImageBlock)
+                            <div class="col-md-4 col-sm-6 col-xs-4 mb-30">
+                                <figure class="imghvr-{{ $advertisementSubImageBlock->image_hover }}">
+                                    <img src="{{ asset('assets/images/all/' . $advertisementSubImageBlock->image) }}" alt="your-image">
+                                    <figcaption class="dark-bg">
+                                    <div class="center-layout">
+                                        <div class="v-align-middle white-color">
+                                        <p>{!! nl2br($advertisementSubImageBlock->body) !!}.</p>
+                                        </div>
+                                    </div>
+                                    </figcaption>
+                                </figure>
+                                <h5 class="mb-0 mt-10 text-center">{{ $advertisementSubImageBlock->title }}</h5>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+                @endif
+                @endforeach
+            </section>
+            {{-- Image03 End --}}
+            @elseif ($advertisementSection->section->name == 'Image04')
+            {{-- Image04 Start --}}
+            <section class="{{ $sectionBg }} pt-50 pb-50" id="{{ $advertisementSection->name }}">
+                @foreach ($advertisementSection->advertisementImageBlocks as $advertisementImageBlock)
+                @if ($advertisementImageBlock->status == 1)
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-8 section-heading">
+                        <h4 class="text-uppercase mt-0">{{ $advertisementImageBlock->title }}</h4>
+                        </div>
+                    </div>
+                    <div class="row mt-50">
+                        @foreach ($advertisementImageBlock->advertisementSubImageBlocks as $key => $advertisementSubImageBlock)
+                            <div class="col-md-3 col-sm-6 col-xs-3 mb-30">
+                                <figure class="imghvr-{{ $advertisementSubImageBlock->image_hover }}">
+                                    <img src="{{ asset('assets/images/all/' . $advertisementSubImageBlock->image) }}" alt="your-image">
+                                    <figcaption class="dark-bg">
+                                    <div class="center-layout">
+                                        <div class="v-align-middle white-color">
+                                        <p>{!! nl2br($advertisementSubImageBlock->body) !!}.</p>
+                                        </div>
+                                    </div>
+                                    </figcaption>
+                                </figure>
+                                <h5 class="mb-0 mt-10 text-center">{{ $advertisementSubImageBlock->title }}</h5>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+                @endif
+                @endforeach
+            </section>
+            {{-- Image04 End --}}
+            @endif
+        {{-- Image Hero End --}}
         @elseif ($advertisementSection->section->type == 'contact'  && $advertisementSection->status == 1)
         {{-- Contact Hero Start --}}
             @if ($advertisementSection->section->name == 'Contact01')

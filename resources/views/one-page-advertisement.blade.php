@@ -1176,23 +1176,29 @@
                         <h4 class="text-uppercase mt-0">{{ $advertisementImageBlock->title }}</h4>
                         </div>
                     </div>
-                    <div class="row mt-50">
-                        @foreach ($advertisementImageBlock->advertisementSubImageBlocks as $key => $advertisementSubImageBlock)
-                            <div class="col-md-6 col-sm-6 col-xs-6 mb-30">
-                                <figure class="imghvr-{{ $advertisementSubImageBlock->image_hover }}">
-                                    <img src="{{ asset('assets/images/all/' . $advertisementSubImageBlock->image) }}" alt="your-image">
-                                    <figcaption class="dark-bg">
+                    @foreach ($advertisementImageBlock->advertisementSubImageBlocks as $key => $advertisementSubImageBlock)
+                        @if($key % 2 == 0)
+                            <div class="row">
+                        @endif
+
+                        <div class="col-md-6 col-sm-6 col-xs-6 mb-30">
+                            <figure class="imghvr-{{ $advertisementSubImageBlock->image_hover }}">
+                                <img src="{{ asset('assets/images/all/' . $advertisementSubImageBlock->image) }}" alt="your-image">
+                                <figcaption class="dark-bg">
                                     <div class="center-layout">
                                         <div class="v-align-middle white-color">
-                                        <p>{!! nl2br($advertisementSubImageBlock->body) !!}.</p>
+                                            <p>{!! nl2br($advertisementSubImageBlock->body) !!}.</p>
                                         </div>
                                     </div>
-                                    </figcaption>
-                                </figure>
-                                <h5 class="mb-0 mt-10 text-center">{{ $advertisementSubImageBlock->title }}</h5>
-                            </div>
-                        @endforeach
-                    </div>
+                                </figcaption>
+                            </figure>
+                            <h5 class="mb-0 mt-10 text-center">{{ $advertisementSubImageBlock->title }}</h5>
+                        </div>
+
+                        @if(($key + 1) % 2 == 0 || $loop->last)
+                            </div> <!-- Close the row -->
+                        @endif
+                    @endforeach
                 </div>
                 @endif
                 @endforeach
@@ -1209,23 +1215,29 @@
                         <h4 class="text-uppercase mt-0">{{ $advertisementImageBlock->title }}</h4>
                         </div>
                     </div>
-                    <div class="row mt-50">
-                        @foreach ($advertisementImageBlock->advertisementSubImageBlocks as $key => $advertisementSubImageBlock)
-                            <div class="col-md-4 col-sm-6 col-xs-4 mb-30">
-                                <figure class="imghvr-{{ $advertisementSubImageBlock->image_hover }}">
-                                    <img src="{{ asset('assets/images/all/' . $advertisementSubImageBlock->image) }}" alt="your-image">
-                                    <figcaption class="dark-bg">
+                    @foreach ($advertisementImageBlock->advertisementSubImageBlocks as $key => $advertisementSubImageBlock)
+                        @if($key % 3 == 0)
+                            <div class="row">
+                        @endif
+
+                        <div class="col-md-4 col-sm-6 col-xs-4 mb-30">
+                            <figure class="imghvr-{{ $advertisementSubImageBlock->image_hover }}">
+                                <img src="{{ asset('assets/images/all/' . $advertisementSubImageBlock->image) }}" alt="your-image">
+                                <figcaption class="dark-bg">
                                     <div class="center-layout">
                                         <div class="v-align-middle white-color">
-                                        <p>{!! nl2br($advertisementSubImageBlock->body) !!}.</p>
+                                            <p>{!! nl2br($advertisementSubImageBlock->body) !!}.</p>
                                         </div>
                                     </div>
-                                    </figcaption>
-                                </figure>
-                                <h5 class="mb-0 mt-10 text-center">{{ $advertisementSubImageBlock->title }}</h5>
-                            </div>
-                        @endforeach
-                    </div>
+                                </figcaption>
+                            </figure>
+                            <h5 class="mb-0 mt-10 text-center">{{ $advertisementSubImageBlock->title }}</h5>
+                        </div>
+
+                        @if(($key + 1) % 3 == 0 || $loop->last)
+                            </div> <!-- Close the row -->
+                        @endif
+                    @endforeach
                 </div>
                 @endif
                 @endforeach
@@ -1242,23 +1254,29 @@
                         <h4 class="text-uppercase mt-0">{{ $advertisementImageBlock->title }}</h4>
                         </div>
                     </div>
-                    <div class="row mt-50">
-                        @foreach ($advertisementImageBlock->advertisementSubImageBlocks as $key => $advertisementSubImageBlock)
-                            <div class="col-md-3 col-sm-6 col-xs-3 mb-30">
-                                <figure class="imghvr-{{ $advertisementSubImageBlock->image_hover }}">
-                                    <img src="{{ asset('assets/images/all/' . $advertisementSubImageBlock->image) }}" alt="your-image">
-                                    <figcaption class="dark-bg">
+                    @foreach ($advertisementImageBlock->advertisementSubImageBlocks as $key => $advertisementSubImageBlock)
+                        @if($key % 4 == 0)
+                            <div class="row">
+                        @endif
+
+                        <div class="col-md-3 col-sm-6 col-xs-3 mb-30">
+                            <figure class="imghvr-{{ $advertisementSubImageBlock->image_hover }}">
+                                <img src="{{ asset('assets/images/all/' . $advertisementSubImageBlock->image) }}" alt="your-image">
+                                <figcaption class="dark-bg">
                                     <div class="center-layout">
                                         <div class="v-align-middle white-color">
-                                        <p>{!! nl2br($advertisementSubImageBlock->body) !!}.</p>
+                                            <p>{!! nl2br($advertisementSubImageBlock->body) !!}.</p>
                                         </div>
                                     </div>
-                                    </figcaption>
-                                </figure>
-                                <h5 class="mb-0 mt-10 text-center">{{ $advertisementSubImageBlock->title }}</h5>
-                            </div>
-                        @endforeach
-                    </div>
+                                </figcaption>
+                            </figure>
+                            <h5 class="mb-0 mt-10 text-center">{{ $advertisementSubImageBlock->title }}</h5>
+                        </div>
+
+                        @if(($key + 1) % 4 == 0 || $loop->last)
+                            </div> <!-- Close the row -->
+                        @endif
+                    @endforeach
                 </div>
                 @endif
                 @endforeach

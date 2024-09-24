@@ -1,6 +1,6 @@
 <x-user-layout>
     <!--== Image Hover Styles Start ==-->
-    <section class="white-bg">
+    <section class="white-bg pt-120 pb-120">
         <div class="container">
             <div class="row">
               <div class="col-md-8 col-sm-12 centerize-col text-center">

@@ -43,7 +43,7 @@ class VerificationController extends Controller
 
         if ($user->hasVerifiedEmail()) {
             Session::flash('info', 'メールはすでに確認済みです');
-            return redirect('/')->with('info', 'Email already verified');
+            return redirect('/')->with('info', 'メールはすでに確認済みです');
         }
 
         $lastResend = session('last_resend_' . $user->id);

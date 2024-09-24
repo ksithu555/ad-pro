@@ -33,7 +33,7 @@ class UserAnnouncementController extends Controller
             });
         }
 
-        $announcements = $announcementsQuery->paginate($limit);
+        $announcements = $announcementsQuery->orderBy('created_at', 'desc')->paginate($limit);
         $ttl = $announcements->total();
         $ttlpage = ceil($ttl/$limit);
 
@@ -53,7 +53,7 @@ class UserAnnouncementController extends Controller
             });
         }
 
-        $announcements = $announcementsQuery->paginate($limit);
+        $announcements = $announcementsQuery->orderBy('created_at', 'desc')->paginate($limit);
         $ttl = $announcements->total();
         $ttlpage = ceil($ttl / $limit);
         return view('users.announcements.show-announcements', compact('announcements', 'ttl', 'ttlpage'));

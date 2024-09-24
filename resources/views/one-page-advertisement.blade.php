@@ -24,7 +24,22 @@
 <link rel="stylesheet" type="text/css" href="{{ asset('revolution/fonts/font-awesome/css/font-awesome.min.css') }}">
 {{-- Date Time Picker --}}
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-        
+<style>
+    @media (max-width: 767px) {
+        .p-image-04 {
+            font-size: 5px;
+            line-height: normal;
+        }
+        .p-image-03 {
+            font-size: 10px;
+            line-height: normal;
+        }
+        .p-image-02 {
+            font-size: 15px;
+            line-height: normal;
+        }
+    }
+</style>
 </head>
 <body>
 
@@ -1186,8 +1201,8 @@
                                 <img src="{{ asset('assets/images/all/' . $advertisementSubImageBlock->image) }}" alt="your-image">
                                 <figcaption class="dark-bg">
                                     <div class="center-layout">
-                                        <div class="v-align-middle white-color">
-                                            <p>{!! nl2br($advertisementSubImageBlock->body) !!}.</p>
+                                        <div class="white-color">
+                                            <p class="p-image-02">{!! nl2br($advertisementSubImageBlock->body) !!}.</p>
                                         </div>
                                     </div>
                                 </figcaption>
@@ -1225,8 +1240,8 @@
                                 <img src="{{ asset('assets/images/all/' . $advertisementSubImageBlock->image) }}" alt="your-image">
                                 <figcaption class="dark-bg">
                                     <div class="center-layout">
-                                        <div class="v-align-middle white-color">
-                                            <p>{!! nl2br($advertisementSubImageBlock->body) !!}.</p>
+                                        <div class="white-color">
+                                            <p class="p-image-03">{!! nl2br($advertisementSubImageBlock->body) !!}.</p>
                                         </div>
                                     </div>
                                 </figcaption>
@@ -1264,8 +1279,8 @@
                                 <img src="{{ asset('assets/images/all/' . $advertisementSubImageBlock->image) }}" alt="your-image">
                                 <figcaption class="dark-bg">
                                     <div class="center-layout">
-                                        <div class="v-align-middle white-color">
-                                            <p>{!! nl2br($advertisementSubImageBlock->body) !!}.</p>
+                                        <div class="white-color">
+                                            <p class="p-image-04">{!! nl2br($advertisementSubImageBlock->body) !!}.</p>
                                         </div>
                                     </div>
                                 </figcaption>

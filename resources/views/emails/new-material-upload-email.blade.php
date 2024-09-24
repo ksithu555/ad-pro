@@ -57,7 +57,7 @@
                 <p><strong>素材のアップロードがありました。</strong></p>
             </div>
 
-            <p>以下の素材がアップロードされました:</p>
+            <p>以下の素材がアップロードされました。</p>
             <p><strong>会社名:</strong> {{ $material->user->company_name }}</p>
             <p><strong>名前</strong> {{ $material->user->name }}</p>
             <p><strong>素材ジャンル:</strong> {{ $material->type }}</p>

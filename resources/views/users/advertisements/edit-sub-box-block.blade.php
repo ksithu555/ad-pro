@@ -63,7 +63,7 @@
                                             </div>
                                         @endforeach
                                     </div>
-                                    <input type="hidden" name="icon" id="icon" value="{{ $subBoxBlock->icon }}">
+                                    <input type="hidden" name="icon" id="icon">
                                     <span class="error" style="color:#BF0731" id="error-icon"></span>
                                 </div>
                             </div>
@@ -229,7 +229,7 @@
             }
 
             if (!icon) {
-                document.getElementById('error-icon').textContent = 'アイコンを入力してください';
+                document.getElementById('error-icon').textContent = 'アイコンを選択してください';
                 isValid = false;
             }
 

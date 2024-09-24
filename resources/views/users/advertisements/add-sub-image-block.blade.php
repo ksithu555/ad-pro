@@ -63,7 +63,16 @@
                                 </div>                                                                                       
                             </div>
                             <div class="col-md-2 col-sm-2 mt-20">
-                                <i id="selected-image-hover-display"></i>
+                                <figure id="selected-image-hover-display" style="display: none;">
+                                    <img src="{{ asset('assets/images/all/header-01.webp') }}" alt="your-image">
+                                    <figcaption class="dark-bg">
+                                      <div class="center-layout">
+                                        <div class="white-color">
+                                          <p>Passion, Dedication</p>
+                                        </div>
+                                      </div>
+                                    </figcaption>
+                                </figure>
                             </div>
                         </div>
                         <div class="row">
@@ -120,7 +129,8 @@
         function selectImageHover(id, name) {
             document.getElementById("search-image-hover").value = name;
             document.getElementById("imageHover").value = name;
-            document.getElementById("selected-image-hover-display").className = name + " font-40px default-color";
+            document.getElementById("selected-image-hover-display").className = "imghvr-" + name;
+            document.getElementById("selected-image-hover-display").style.display = "block";
             document.getElementById("image-hover-dropdown").style.display = "none";
         }
 
@@ -179,6 +189,8 @@
 
             const title = document.getElementById('title').value.trim();
             const body = document.getElementById('body').value.trim();
+            const image = document.getElementById('image').files[0];
+            const imageHover = document.getElementById('imageHover').value.trim();
 
             if (!title) {
                 document.getElementById('error-title').textContent = 'タイトルを入力してください';
@@ -187,6 +199,16 @@
 
             if (!body) {
                 document.getElementById('error-body').textContent = 'ボデイを入力してください';
+                isValid = false;
+            }
+
+            if (!image) {
+                document.getElementById('error-image').textContent = '画像を選択してください';
+                isValid = false;
+            }
+
+            if (!imageHover) {
+                document.getElementById('error-imageHover').textContent = '画像ホバーを選択してください';
                 isValid = false;
             }
 

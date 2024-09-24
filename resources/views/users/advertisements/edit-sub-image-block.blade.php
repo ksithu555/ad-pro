@@ -59,7 +59,7 @@
                                             </div>
                                         @endforeach
                                     </div>
-                                    <input type="hidden" name="imageHover" id="imageHover" value="{{ $subImageBlock->image_hover }}">
+                                    <input type="hidden" name="imageHover" id="imageHover">
                                     <span class="error" style="color:#BF0731" id="error-imageHover"></span>
                                 </div>                                                                                       
                             </div>
@@ -193,6 +193,7 @@
 
             const title = document.getElementById('title').value.trim();
             const body = document.getElementById('body').value.trim();
+            const imageHover = document.getElementById('imageHover').value.trim();
 
             if (!title) {
                 document.getElementById('error-title').textContent = 'タイトルを入力してください';
@@ -201,6 +202,11 @@
 
             if (!body) {
                 document.getElementById('error-body').textContent = 'ボデイを入力してください';
+                isValid = false;
+            }
+
+            if (!imageHover) {
+                document.getElementById('error-imageHover').textContent = '画像ホバーを選択してください';
                 isValid = false;
             }
 

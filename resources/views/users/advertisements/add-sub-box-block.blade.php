@@ -206,7 +206,7 @@
             }
 
             if (!icon) {
-                document.getElementById('error-icon').textContent = 'アイコンを入力してください';
+                document.getElementById('error-icon').textContent = 'アイコンを選択してください';
                 isValid = false;
             }
 

@@ -25,7 +25,7 @@
                             <tr>
                             <th>#</th>
                             <th style="min-width: 110px;">登録日</th>
-                            <th style="min-width: 110px;">ページ名前</th>
+                            <th style="min-width: 110px;">ページ名</th>
                             <th style="min-width: 110px;">作成者</th>
                             <th style="min-width: 110px;">ビュー</th>
                             <th style="min-width: 110px;">ステータス</th>

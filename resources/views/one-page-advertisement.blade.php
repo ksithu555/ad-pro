@@ -24,22 +24,7 @@
 <link rel="stylesheet" type="text/css" href="{{ asset('revolution/fonts/font-awesome/css/font-awesome.min.css') }}">
 {{-- Date Time Picker --}}
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-<style>
-    @media (max-width: 767px) {
-        .p-image-04 {
-            font-size: 5px;
-            line-height: normal;
-        }
-        .p-image-03 {
-            font-size: 10px;
-            line-height: normal;
-        }
-        .p-image-02 {
-            font-size: 15px;
-            line-height: normal;
-        }
-    }
-</style>
+
 </head>
 <body>
 
@@ -1219,7 +1204,7 @@
                     </div>
                     <div class="row mt-50">
                         @foreach ($advertisementImageBlock->advertisementSubImageBlocks as $key => $advertisementSubImageBlock)
-                            <div class="col-md-12 col-sm-6 col-xs-12 mb-30">
+                            <div class="col-md-12 col-12 mb-30">
                                 <figure class="imghvr-{{ $advertisementSubImageBlock->image_hover }}">
                                     <img src="{{ asset('assets/images/all/' . $advertisementSubImageBlock->image) }}" alt="your-image">
                                     <figcaption class="dark-bg">
@@ -1255,7 +1240,7 @@
                             <div class="row">
                         @endif
 
-                        <div class="col-md-6 col-sm-6 col-xs-6 mb-30">
+                        <div class="col-md-6 col-12 mb-30">
                             <figure class="imghvr-{{ $advertisementSubImageBlock->image_hover }}">
                                 <img src="{{ asset('assets/images/all/' . $advertisementSubImageBlock->image) }}" alt="your-image">
                                 <figcaption class="dark-bg">
@@ -1294,7 +1279,7 @@
                             <div class="row">
                         @endif
 
-                        <div class="col-md-4 col-sm-6 col-xs-4 mb-30">
+                        <div class="col-md-4 col-12 mb-30">
                             <figure class="imghvr-{{ $advertisementSubImageBlock->image_hover }}">
                                 <img src="{{ asset('assets/images/all/' . $advertisementSubImageBlock->image) }}" alt="your-image">
                                 <figcaption class="dark-bg">
@@ -1333,7 +1318,7 @@
                             <div class="row">
                         @endif
 
-                        <div class="col-md-3 col-sm-6 col-xs-3 mb-30">
+                        <div class="col-md-3 col-12 mb-30">
                             <figure class="imghvr-{{ $advertisementSubImageBlock->image_hover }}">
                                 <img src="{{ asset('assets/images/all/' . $advertisementSubImageBlock->image) }}" alt="your-image">
                                 <figcaption class="dark-bg">

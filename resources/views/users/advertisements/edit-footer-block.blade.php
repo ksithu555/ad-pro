@@ -9,7 +9,7 @@
                 </div>
             </div>
             <div class="row mt-50">
-                <div class="col-md-12">
+                <div class="col-md-8 col-md-offset-2">
                 <form name="edit-footer-block-form" id="edit-footer-block-form" action="{{ route('user.update.footer.block') }}" method="POST" 
                     class="contact-form-style-01" enctype="multipart/form-data">
                     @csrf
@@ -36,6 +36,8 @@
                                     @else
                                         @if ($advertisementFooterBlock->type == 'social')
                                         <option value="social" selected="selected">Social Media</option>
+                                        @elseif ($advertisementFooterBlock->type == 'logo')
+                                        <option value="logo" selected="selected">Logo</option>
                                         @elseif ($advertisementFooterBlock->type == 'copyRight')
                                         <option value="copyRight" selected="selected">Copy Right</option>
                                         @endif
@@ -44,7 +46,8 @@
                                 <span class="error" style="color:#BF0731" id="error-type"></span>
                             </div>
                         </div>
-                    
+                    </div>
+                    <div class="row">
                         <div class="col-md-12 col-sm-12" id="usefulLinkField">
                             <div class="form-group">
                                 <label class="sr-only" for="nameUseful">名前</label>
@@ -52,7 +55,8 @@
                                 <span class="error" style="color:#BF0731" id="error-nameUseful"></span>
                             </div>
                         </div>
-                    
+                    </div>
+                    <div class="row">
                         <div class="col-md-12 col-sm-12" id="socialMediaField" style="display:none;">
                             <div class="form-group">
                                 <select name="nameSocial" class="orderby social-media">
@@ -72,7 +76,8 @@
                                 <span class="error" style="color:#BF0731" id="error-nameSocial"></span>
                             </div>
                         </div>
-                    
+                    </div>
+                    <div class="row">
                         <div class="col-md-12 col-sm-12" id="urlField">
                             <div class="form-group">
                                 <label class="sr-only" for="url">URL</label>
@@ -80,7 +85,8 @@
                                 <span class="error" style="color:#BF0731" id="error-url"></span>
                             </div>
                         </div>
-
+                    </div>
+                    <div class="row">
                         <div class="col-md-12 col-sm-12" id="logoField">
                             <div class="form-group">
                                 <label class="md-file" for="logo" id="file-label">画像 *</label>
@@ -89,7 +95,8 @@
                                 <span class="error" style="color:#BF0731" id="error-logo"></span>
                             </div>
                         </div>
-
+                    </div>
+                    <div class="row">
                         <div class="col-md-12 col-sm-12" id="footerTextField">
                             <div class="form-group">
                                 <label class="sr-only" for="text">内容</label>
@@ -97,7 +104,8 @@
                                 <span class="error" style="color:#BF0731" id="error-text"></span>
                             </div>
                         </div>
-
+                    </div>
+                    <div class="row">
                         @php
                             $contactUs = [null,null,null];
                             if ($advertisementFooterBlock->type == 'contact') {
@@ -121,7 +129,8 @@
                                 <span class="error" style="color:#BF0731" id="error-email"></span>
                             </div>
                         </div>
-
+                    </div>
+                    <div class="row">
                         <div class="col-md-12 col-sm-12" id="copyRightField">
                             <div class="form-group">
                                 <label class="sr-only" for="copyRight">コピーライト</label>
@@ -129,9 +138,10 @@
                                 <span class="error" style="color:#BF0731" id="error-copyRight"></span>
                             </div>
                         </div>
-                    
+                    </div>
+                    <div class="row">
                         <div class="col-md-12 col-sm-12">
-                            <div class="text-left mt-20">
+                            <div class="text-center mt-20">
                                 <input type="hidden" id="confirmed" name="confirmed" value="0">
                                 <div class="tr-modal-popup">
                                     <a onclick="showModal()" id="open-modal" class="btn btn-outline btn-md btn-square btn-animate remove-margin">

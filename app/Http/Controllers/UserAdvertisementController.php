@@ -491,6 +491,14 @@ class UserAdvertisementController extends Controller
             $updateData['text'] = $request->address . '|' . $request->phone . '|' . $request->email;
         } elseif ($request->type == "copyRight") {
             $updateData['text'] = $request->copyRight;
+        } elseif ($request->type == "logo") {
+            if (!empty($request->logo)) {
+                $logoName = time() . '.' . $request->logo->extension();
+                $request->logo->move(public_path('assets/images/all'), $logoName);
+            } else {
+                $logoName = '';
+            }
+            $updateData['text'] = $logoName;
         }
 
         $advertisementFooterBlock = AdvertisementFooterBlock::find($request->id);

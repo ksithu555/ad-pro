@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\AdvertisementBoxBlock;
 use App\Models\AdvertisementListBlock;
 use App\Models\AdvertisementImageBlock;
+use App\Models\AdvertisementVideoBlock;
 use Illuminate\Support\Facades\Session;
 use App\Models\AdvertisementFooterBlock;
 use App\Models\AdvertisementHeaderBlock;
@@ -353,6 +354,9 @@ class UserAdvertisementController extends Controller
         }
         if($type == 'image') {
             $advertisementSectionBlocks = AdvertisementImageBlock::where('advertisement_section_id', $advertisementSection->id)->get();
+        }
+        if($type == 'video') {
+            $advertisementSectionBlocks = AdvertisementVideoBlock::where('advertisement_section_id', $advertisementSection->id)->get();
         }
 
         return view('users.advertisements.show-section-blocks', compact('id', 'type', 'advertisementSection', 'advertisementSectionBlocks'));
@@ -742,6 +746,62 @@ class UserAdvertisementController extends Controller
 
     public function getImageHovers() {
         return view('users.advertisements.image-hovers');
+    }
+
+    // Video
+    public function addVideoBlock($id) {
+        return view('users.advertisements.add-video-block', compact('id'));
+    }
+
+    public function storeVideoBlock(Request $request) {
+        
+        AdvertisementVideoBlock::create([
+            'advertisement_section_id' => $request->advertisementSectionId,
+            'title' => $request->title,
+            'body' => $request->body,
+            'url' => $request->url,
+            'status' => 0
+        ]);
+        Session::flash('success', '動画ブロックが正常に追加されました');
+        return redirect()->route('user.show.section.blocks', $request->advertisementSectionId);
+    }
+
+    public function editVideoBlock($id) {
+        $advertisementVideoBlock = AdvertisementVideoBlock::find($id);
+        return view('users.advertisements.edit-video-block', compact('advertisementVideoBlock'));
+    }
+
+    public function updateVideoBlock(Request $request) {
+        $updateData = [
+            'title' => $request->title,
+            'body' => $request->body,
+            'url' => $request->url,
+        ];
+
+        $advertisementVideoBlock = AdvertisementVideoBlock::find($request->id);
+        $advertisementVideoBlock->update($updateData);
+        Session::flash('success', '動画ブロックが正常に更新されました');
+        return redirect()->route('user.show.section.blocks', $advertisementVideoBlock->advertisement_section_id);
+    }
+
+    public function deleteVideoBlock($id) {
+        $advertisementVideoBlock = AdvertisementVideoBlock::find($id);
+        AdvertisementVideoBlock::where('id', $id)->delete();
+        Session::flash('success', '動画ブロックが正常に削除されました');
+        return redirect()->route('user.show.section.blocks', $advertisementVideoBlock->advertisement_section_id);
+
+    }
+
+    public function updateVideoBlockStatus(Request $request) {
+        $block = AdvertisementVideoBlock::find($request->id);
+        if ($block) {
+            $block->status = $request->status;
+            $block->save();
+            Session::flash('success', '動画ブロックのステータスが正常に更新されました');
+            return response()->json(['success' => true]);
+        }
+        Session::flash('error', '動画ブロックステータスの変更に失敗しました');
+        return response()->json(['success' => false]);
     }
 
     // Sub Block

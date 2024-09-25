@@ -115,6 +115,12 @@
         </div>
     </nav>
     <!--== Header End ==-->
+    <section class="white-bg">
+        <div class="container">
+            <div class="row">
+            </div>
+        </div>
+    </section>
     @endif
 
     @php
@@ -748,9 +754,9 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-8 section-heading">
-                            <h2 class="font-700">{{ $advertisementBoxBlock->title }}</h2>
+                            <h2 class="font-700 roboto-font">{{ $advertisementBoxBlock->title }}</h2>
                             <hr class="dark-bg center_line bold-line">
-                            <h4>{{ $advertisementBoxBlock->body }}</h4>
+                            <h4 class="roboto-font">{{ $advertisementBoxBlock->body }}</h4>
                         </div>
                     </div>
                     <div class="row mt-50">
@@ -794,9 +800,9 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-8 section-heading">
-                            <h2 class="font-700">{{ $advertisementBoxBlock->title }}</h2>
+                            <h2 class="font-700 roboto-font">{{ $advertisementBoxBlock->title }}</h2>
                             <hr class="dark-bg center_line bold-line">
-                            <h4>{{ $advertisementBoxBlock->body }}</h4>
+                            <h4 class="roboto-font">{{ $advertisementBoxBlock->body }}</h4>
                         </div>
                     </div>
                     <div class="row mt-50 service-box-style-01">
@@ -835,9 +841,9 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-8 section-heading">
-                            <h2 class="font-700">{{ $advertisementBoxBlock->title }}</h2>
+                            <h2 class="font-700 roboto-font">{{ $advertisementBoxBlock->title }}</h2>
                             <hr class="dark-bg center_line bold-line">
-                            <h4>{{ $advertisementBoxBlock->body }}</h4>
+                            <h4 class="roboto-font">{{ $advertisementBoxBlock->body }}</h4>
                         </div>
                     </div>
                     <div class="row mt-50 service-box-style-03">
@@ -889,9 +895,9 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-8 section-heading">
-                            <h2 class="font-700">{{ $advertisementBoxBlock->title }}</h2>
+                            <h2 class="font-700 roboto-font">{{ $advertisementBoxBlock->title }}</h2>
                             <hr class="dark-bg center_line bold-line">
-                            <h4>{{ $advertisementBoxBlock->body }}</h4>
+                            <h4 class="roboto-font">{{ $advertisementBoxBlock->body }}</h4>
                         </div>
                     </div>
                     <div class="row mt-50">
@@ -932,9 +938,9 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-8 section-heading">
-                            <h2 class="font-700">{{ $advertisementBoxBlock->title }}</h2>
+                            <h2 class="font-700 roboto-font">{{ $advertisementBoxBlock->title }}</h2>
                             <hr class="dark-bg center_line bold-line">
-                            <h4>{{ $advertisementBoxBlock->body }}</h4>
+                            <h4 class="roboto-font">{{ $advertisementBoxBlock->body }}</h4>
                         </div>
                     </div>
                     <div class="row mt-50">
@@ -1208,7 +1214,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-8 section-heading">
-                        <h4 class="text-uppercase mt-0">{{ $advertisementImageBlock->title }}</h4>
+                        <h4 class="text-uppercase mt-0 font-700 roboto-font">{{ $advertisementImageBlock->title }}</h4>
                         </div>
                     </div>
                     <div class="row mt-50">
@@ -1241,7 +1247,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-8 section-heading">
-                        <h4 class="text-uppercase mt-0">{{ $advertisementImageBlock->title }}</h4>
+                            <h4 class="text-uppercase mt-0 font-700 roboto-font">{{ $advertisementImageBlock->title }}</h4>
                         </div>
                     </div>
                     @foreach ($advertisementImageBlock->advertisementSubImageBlocks as $key => $advertisementSubImageBlock)
@@ -1280,7 +1286,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-8 section-heading">
-                        <h4 class="text-uppercase mt-0">{{ $advertisementImageBlock->title }}</h4>
+                            <h4 class="text-uppercase mt-0 font-700 roboto-font">{{ $advertisementImageBlock->title }}</h4>
                         </div>
                     </div>
                     @foreach ($advertisementImageBlock->advertisementSubImageBlocks as $key => $advertisementSubImageBlock)
@@ -1319,7 +1325,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-8 section-heading">
-                        <h4 class="text-uppercase mt-0">{{ $advertisementImageBlock->title }}</h4>
+                            <h4 class="text-uppercase mt-0 font-700 roboto-font">{{ $advertisementImageBlock->title }}</h4>
                         </div>
                     </div>
                     @foreach ($advertisementImageBlock->advertisementSubImageBlocks as $key => $advertisementSubImageBlock)
@@ -1352,6 +1358,42 @@
             {{-- Image04 End --}}
             @endif
         {{-- Image Hero End --}}
+        @elseif ($advertisementSection->section->type == 'video'  && $advertisementSection->status == 1)
+        {{-- Video Hero Start --}}
+            @if ($advertisementSection->section->name == 'Video01')
+            <!--== Video01 Start ==-->
+            <section class="{{ $sectionBg }} pt-50 pb-50" id="{{ $advertisementSection->name }}">
+                <div class="container">
+                    @foreach ($advertisementSection->advertisementVideoBlocks as $key => $advertisementVideoBlock)
+                        @if ($advertisementVideoBlock->status == 1)
+                        <div class="row">
+                            <div class="col-sm-8 section-heading text-center">
+                                <h2 class="font-700 roboto-font">{{ $advertisementVideoBlock->title }}</h2>
+                                <hr class="center_line default-bg">
+                                <h5 class="roboto-font">{!! nl2br($advertisementVideoBlock->body) !!}</h5>
+                            </div>
+                            <div class="col-sm-8 centerize-col text-center">
+                                <div class="video-box mt-50">
+                                    <img class="img-responsive" src="{{ asset('assets/images/all/header-01.webp') }}" alt="">
+                                    <div class="video-box_overlay">
+                                        <div class="center-layout">
+                                            <div class="v-align-middle"> 
+                                                <a class="popup-youtube" href="{{ $advertisementVideoBlock->url }}">
+                                                <div class="play-button"><i class="tr-icon ion-android-arrow-dropright"></i> </div>
+                                                </a> 
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        @endif
+                    @endforeach
+                </div>
+            </section>
+            <!--== Video01 End ==-->
+            @endif
+        {{-- Video Hero End --}}
         @elseif ($advertisementSection->section->type == 'contact'  && $advertisementSection->status == 1)
         {{-- Contact Hero Start --}}
             @if ($advertisementSection->section->name == 'Contact01')

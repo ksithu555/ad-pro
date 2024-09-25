@@ -135,6 +135,13 @@ Route::group(['middleware' => ['user']], function () {
         Route::post('/user/update/section/image-block', [UserAdvertisementController::class, 'updateImageBlock'])->name('user.update.image.block');
         Route::get('/user/delete/section/image-block/{id}', [UserAdvertisementController::class, 'deleteImageBlock'])->name('user.delete.image.block');
         Route::post('/user/update/section/image-block-status', [UserAdvertisementController::class, 'updateImageBlockStatus'])->name('user.update.section.image.block.status');
+        // Video Block
+        Route::get('/user/add/section/{id}/video-block', [UserAdvertisementController::class, 'addVideoBlock'])->name('user.add.video.block');
+        Route::post('/user/store/section/video-block', [UserAdvertisementController::class, 'storeVideoBlock'])->name('user.store.video.block');
+        Route::get('/user/edit/section/video-block/{id}', [UserAdvertisementController::class, 'editVideoBlock'])->name('user.edit.video.block');
+        Route::post('/user/update/section/video-block', [UserAdvertisementController::class, 'updateVideoBlock'])->name('user.update.video.block');
+        Route::get('/user/delete/section/video-block/{id}', [UserAdvertisementController::class, 'deleteVideoBlock'])->name('user.delete.video.block');
+        Route::post('/user/update/section/video-block-status', [UserAdvertisementController::class, 'updateVideoBlockStatus'])->name('user.update.section.video.block.status');
         // Image Hover
         Route::get('/user/image-hovers', [UserAdvertisementController::class, 'getImageHovers'])->name('user.get.image.hovers');
 

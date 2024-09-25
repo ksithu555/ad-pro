@@ -663,7 +663,7 @@
                                 <div class="col-inner text-left">
                                     <h4 class="mt-20 text-uppercase">{{ $advertisementListBlock->title }}</h4>
                                     <hr class="dark-bg left_line bold-line" style="background-color: #BF0731;">
-                                    <p class="mt-30 font-16px dark-color text-left">{!! nl2br($advertisementListBlock->body) !!}</p>
+                                    <p class="mt-30 font-14px dark-color text-left">{!! nl2br($advertisementListBlock->body) !!}</p>
                                 </div>
                             </div>
                         </div>
@@ -673,7 +673,7 @@
                                 <div class="col-inner text-left">
                                     <h4 class="mt-20 text-uppercase">{{ $advertisementListBlock->title }}</h4>
                                     <hr class="dark-bg left_line bold-line" style="background-color: #BF0731;">
-                                    <p class="mt-30 font-16px dark-color text-left">{!! nl2br($advertisementListBlock->body) !!}</p>
+                                    <p class="mt-30 font-14px dark-color text-left">{!! nl2br($advertisementListBlock->body) !!}</p>
                                 </div>
                             </div>
                             <div class="col-md-6 col-sm-12" style="margin-top: 25px;">
@@ -699,7 +699,7 @@
                                 <div class="col-inner text-left">
                                     <h4 class="mt-20 text-uppercase">{{ $advertisementListBlock->title }}</h4>
                                     <hr class="dark-bg left_line bold-line" style="background-color: #BF0731;">
-                                    <p class="mt-30 font-16px dark-color text-left">{!! nl2br($advertisementListBlock->body) !!}</p>
+                                    <p class="mt-30 font-14px dark-color text-left">{!! nl2br($advertisementListBlock->body) !!}</p>
                                 </div>
                             </div>
                             <div class="col-md-6 col-sm-12" style="margin-top: 25px;">
@@ -717,7 +717,7 @@
                                 <div class="col-inner text-left">
                                     <h4 class="mt-20 text-uppercase">{{ $advertisementListBlock->title }}</h4>
                                     <hr class="dark-bg left_line bold-line" style="background-color: #BF0731;">
-                                    <p class="mt-30 font-16px dark-color text-left">{!! nl2br($advertisementListBlock->body) !!}</p>
+                                    <p class="mt-30 font-14px dark-color text-left">{!! nl2br($advertisementListBlock->body) !!}</p>
                                 </div>
                             </div>
                         </div>
@@ -726,7 +726,7 @@
                     @endforeach
                 </div>
             </section>
-            <!--== List01 End ==-->
+            <!--== List02 End ==-->
             @endif
         {{-- List Hero End --}}
         @elseif ($advertisementSection->section->type == 'box'  && $advertisementSection->status == 1)

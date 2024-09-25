@@ -99,7 +99,6 @@
             </div>
         </div>
     </nav>
-    <div style="padding-bottom: 50px"></div>
     <!--== Header End ==-->
     @endif
 
@@ -736,7 +735,7 @@
                         <div class="col-sm-8 section-heading">
                             <h2 class="font-700 roboto-font">{{ $advertisementBoxBlock->title }}</h2>
                             <hr class="dark-bg center_line bold-line">
-                            <h4 class="roboto-font">{{ $advertisementBoxBlock->body }}</h4>
+                            <p class="mt-30 font-16px dark-color text-center roboto-font">{{ $advertisementBoxBlock->body }}</p>
                         </div>
                     </div>
                     <div class="row mt-50">
@@ -782,7 +781,7 @@
                         <div class="col-sm-8 section-heading">
                             <h2 class="font-700 roboto-font">{{ $advertisementBoxBlock->title }}</h2>
                             <hr class="dark-bg center_line bold-line">
-                            <h4 class="roboto-font">{{ $advertisementBoxBlock->body }}</h4>
+                            <p class="mt-30 font-16px dark-color text-center roboto-font">{{ $advertisementBoxBlock->body }}</p>
                         </div>
                     </div>
                     <div class="row mt-50 service-box-style-01">
@@ -823,7 +822,7 @@
                         <div class="col-sm-8 section-heading">
                             <h2 class="font-700 roboto-font">{{ $advertisementBoxBlock->title }}</h2>
                             <hr class="dark-bg center_line bold-line">
-                            <h4 class="roboto-font">{{ $advertisementBoxBlock->body }}</h4>
+                            <p class="mt-30 font-16px dark-color text-center roboto-font">{{ $advertisementBoxBlock->body }}</p>
                         </div>
                     </div>
                     <div class="row mt-50 service-box-style-03">
@@ -877,7 +876,7 @@
                         <div class="col-sm-8 section-heading">
                             <h2 class="font-700 roboto-font">{{ $advertisementBoxBlock->title }}</h2>
                             <hr class="dark-bg center_line bold-line">
-                            <h4 class="roboto-font">{{ $advertisementBoxBlock->body }}</h4>
+                            <p class="mt-30 font-16px dark-color text-center roboto-font">{{ $advertisementBoxBlock->body }}</p>
                         </div>
                     </div>
                     <div class="row mt-50">
@@ -920,7 +919,7 @@
                         <div class="col-sm-8 section-heading">
                             <h2 class="font-700 roboto-font">{{ $advertisementBoxBlock->title }}</h2>
                             <hr class="dark-bg center_line bold-line">
-                            <h4 class="roboto-font">{{ $advertisementBoxBlock->body }}</h4>
+                            <p class="mt-30 font-16px dark-color text-center roboto-font">{{ $advertisementBoxBlock->body }}</p>
                         </div>
                     </div>
                     <div class="row mt-50">
@@ -1205,12 +1204,12 @@
                                     <figcaption class="dark-bg">
                                     <div class="center-layout">
                                         <div class="v-align-middle white-color">
-                                        <p>{!! nl2br($advertisementSubImageBlock->body) !!}.</p>
+                                        <p>{!! nl2br($advertisementSubImageBlock->body) !!}</p>
                                         </div>
                                     </div>
                                     </figcaption>
                                 </figure>
-                                <h5 class="mb-0 mt-10 text-center">{{ $advertisementSubImageBlock->title }}</h5>
+                                <h5 class="font-14px dark-color mb-0 mt-10 text-center">{{ $advertisementSubImageBlock->title }}</h5>
                             </div>
                         @endforeach
                     </div>
@@ -1241,12 +1240,12 @@
                                 <figcaption class="dark-bg">
                                     <div class="center-layout">
                                         <div class="white-color">
-                                            <p class="p-image-02">{!! nl2br($advertisementSubImageBlock->body) !!}.</p>
+                                            <p class="p-image-02">{!! nl2br($advertisementSubImageBlock->body) !!}</p>
                                         </div>
                                     </div>
                                 </figcaption>
                             </figure>
-                            <h5 class="mb-0 mt-10 text-center">{{ $advertisementSubImageBlock->title }}</h5>
+                            <h5 class="font-14px dark-color mb-0 mt-10 text-center">{{ $advertisementSubImageBlock->title }}</h5>
                         </div>
 
                         @if(($key + 1) % 2 == 0 || $loop->last)
@@ -1280,12 +1279,12 @@
                                 <figcaption class="dark-bg">
                                     <div class="center-layout">
                                         <div class="white-color">
-                                            <p class="p-image-03">{!! nl2br($advertisementSubImageBlock->body) !!}.</p>
+                                            <p class="p-image-03">{!! nl2br($advertisementSubImageBlock->body) !!}</p>
                                         </div>
                                     </div>
                                 </figcaption>
                             </figure>
-                            <h5 class="mb-0 mt-10 text-center">{{ $advertisementSubImageBlock->title }}</h5>
+                            <h5 class="font-14px dark-color mb-0 mt-10 text-center">{{ $advertisementSubImageBlock->title }}</h5>
                         </div>
 
                         @if(($key + 1) % 3 == 0 || $loop->last)
@@ -1319,12 +1318,12 @@
                                 <figcaption class="dark-bg">
                                     <div class="center-layout">
                                         <div class="white-color">
-                                            <p class="p-image-04">{!! nl2br($advertisementSubImageBlock->body) !!}.</p>
+                                            <p class="p-image-04">{!! nl2br($advertisementSubImageBlock->body) !!}</p>
                                         </div>
                                     </div>
                                 </figcaption>
                             </figure>
-                            <h5 class="mb-0 mt-10 text-center">{{ $advertisementSubImageBlock->title }}</h5>
+                            <h5 class="font-14px dark-color mb-0 mt-10 text-center">{{ $advertisementSubImageBlock->title }}</h5>
                         </div>
 
                         @if(($key + 1) % 4 == 0 || $loop->last)
@@ -1350,7 +1349,7 @@
                             <div class="col-sm-8 section-heading text-center">
                                 <h2 class="font-700 roboto-font">{{ $advertisementVideoBlock->title }}</h2>
                                 <hr class="center_line default-bg">
-                                <h5 class="roboto-font">{!! nl2br($advertisementVideoBlock->body) !!}</h5>
+                                <p class="mt-30 font-16px dark-color text-center roboto-font">{!! nl2br($advertisementVideoBlock->body) !!}</p>
                             </div>
                             <div class="col-sm-8 centerize-col text-center">
                                 <div class="video-box mt-50">
@@ -1382,7 +1381,7 @@
                             <div class="col-sm-8 section-heading text-center">
                                 <h2 class="font-700 roboto-font">{{ $advertisementVideoBlock->title }}</h2>
                                 <hr class="center_line default-bg">
-                                <h5 class="roboto-font">{!! nl2br($advertisementVideoBlock->body) !!}</h5>
+                                <p class="mt-30 font-16px dark-color text-center roboto-font">{!! nl2br($advertisementVideoBlock->body) !!}</p>
                             </div>
                             <div class="col-sm-8 centerize-col text-center">
                                 <div class="fit-videos">
@@ -1819,6 +1818,22 @@
 
         return isValid;
     }
+</script>
+{{-- section margin nav bar --}}
+<script>
+    $(document).ready(function() {
+        // Get the height of the navbar
+        var navbarHeight = $('.navbar').outerHeight();
+        
+        // Apply the height as a margin to the closest section after the navbar
+        $('.navbar').next('section').css('margin-top', navbarHeight + 'px');
+        
+        // Update margin when window is resized (optional, for responsiveness)
+        $(window).resize(function() {
+            navbarHeight = $('.navbar').outerHeight();
+            $('.navbar').next('section').css('margin-top', navbarHeight + 'px');
+        });
+    });
 </script>
 <!--== Javascript Plugins End ==-->
 </body>

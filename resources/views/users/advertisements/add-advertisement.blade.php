@@ -24,6 +24,14 @@
                             </div>
                             <div class="col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2">
                                 <div class="form-group">
+                                    <label class="md-file" for="mainImage" id="mainImage-file-label">メイン画像 *</label>
+                                    <input type="file" name="mainImage" id="mainImage" placeholder="メイン画像 *" style="display: none;" value="{{ old('mainImage') }}">
+                                    <img id="mainImage-preview" src="" alt="mainImage Preview" style="display:none; width: 80px; margin: 10px 0 0 14px;">
+                                    <span class="error" style="color:#BF0731" id="error-mainImage"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2">
+                                <div class="form-group">
                                     <label class="md-file" for="logoWhite" id="logoWhite-file-label">白いロゴ *</label>
                                     <input type="file" name="logoWhite" id="logoWhite" placeholder="白いロゴ *" style="display: none;" value="{{ old('logoWhite') }}">
                                     <img id="logoWhite-preview" src="" alt="LogoWhite Preview" style="display:none; width: 80px; margin: 10px 0 0 14px;">
@@ -71,6 +79,38 @@
         <a class="btn btn-lg btn-circle btn-secondary-color popup-modal-close" href="#">いいえ</a>
     </div>
 
+    {{-- Main Image --}}
+    <script>
+        document.getElementById('mainImage-file-label').addEventListener('click', function() {
+            var label = document.getElementById('mainImage-file-label');
+            label.classList.add('md-file-focus');
+        });
+        document.getElementById('mainImage-file-label').addEventListener('mouseleave', function() {
+            var label = document.getElementById('mainImage-file-label');
+            setTimeout(() => label.classList.remove('md-file-focus'), 1500);
+        });
+        document.getElementById('mainImage').addEventListener('change', function(event) {
+            var fileName = this.files[0].name;
+            var label = document.getElementById('mainImage-file-label');
+            
+            // Update label with file name and apply 'selected' class
+            label.classList.add('selected');
+            label.setAttribute('data-file-name', fileName);
+            
+            // Display the preview of the selected file
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const mainImagePreview = document.getElementById('mainImage-preview');
+                    mainImagePreview.src = e.target.result;
+                    mainImagePreview.style.display = 'block';
+                };
+                reader.readAsDataURL(file);
+            }
+            label.classList.remove('md-file-focus');
+        });
+    </script>
     {{-- logo white --}}
     <script>
         document.getElementById('logoWhite-file-label').addEventListener('click', function() {
@@ -153,17 +193,23 @@
 
             const name = document.getElementById('name').value.trim();
             const paramName = document.getElementById('paramName').value.trim();
+            const mainImage = document.getElementById('mainImage').files[0];
             const logoWhite = document.getElementById('logoWhite').files[0];
             const logoColor = document.getElementById('logoColor').files[0];
             const namePattern = /^[a-zA-Z0-9-_]+$/; 
 
+            if (!mainImage) {
+                document.getElementById('error-mainImage').textContent = 'メイン画像を選択してください';
+                isValid = false;
+            }
+
             if (!logoWhite) {
-                document.getElementById('error-logoWhite').textContent = '画像を選択してください';
+                document.getElementById('error-logoWhite').textContent = '白いロゴを選択してください';
                 isValid = false;
             }
 
             if (!logoColor) {
-                document.getElementById('error-logoColor').textContent = '画像を選択してください';
+                document.getElementById('error-logoColor').textContent = 'カラーロゴを選択してください';
                 isValid = false;
             }
 

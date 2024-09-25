@@ -34,6 +34,7 @@
                             <th>#</th>
                             <th style="min-width: 110px;">登録日</th>
                             <th style="min-width: 110px;">ページ名</th>
+                            <th style="min-width: 110px;">メイン画像</th>
                             <th style="min-width: 110px;">白いロゴ</th>
                             <th style="min-width: 110px;">カラーロゴ</th>
                             <th style="min-width: 110px;">ビュー</th>
@@ -53,6 +54,9 @@
                                 <td style="min-width: 110px;">
                                     {{ $advertisement->name }}
                                 </td>
+                                <td style="min-width: 110px;">
+                                    <img src="{{ asset('assets/images/all/' . $advertisement->main_image ) }}" alt=""> 
+                                </td> 
                                 <td style="min-width: 110px;">
                                     <img src="{{ asset('assets/images/all/' . $advertisement->logo_white ) }}" alt=""> 
                                 </td>   

@@ -26,6 +26,14 @@
                             </div>
                             <div class="col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2">
                                 <div class="form-group">
+                                    <label class="md-file" for="mainImage" id="mainImage-file-label">メイン画像 *</label>
+                                    <input type="file" name="mainImage" id="mainImage" placeholder="メイン画像 *" style="display: none;" value="{{ old('mainImage') }}">
+                                    <img id="mainImage-preview" src="{{ asset('assets/images/all/' . $advertisement->main_image) }}" alt="mainImage Preview" style="width: 80px; margin: 10px 0 0 14px;">
+                                    <span class="error" style="color:#BF0731" id="error-mainImage"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2">
+                                <div class="form-group">
                                     <label class="md-file" for="logoWhite" id="logoWhite-file-label">白いロゴ *</label>
                                     <input type="file" name="logoWhite" id="logoWhite" placeholder="白いロゴ *" style="display: none;" value="{{ old('logoWhite') }}">
                                     <img id="logoWhite-preview" src="{{ asset('assets/images/all/' . $advertisement->logo_white) }}" alt="LogoWhite Preview" style="width: 80px; margin: 10px 0 0 14px;">
@@ -105,6 +113,38 @@
     <!--== Call to Actions Style 02 End ==-->
     @endif
 
+    {{-- Main Image --}}
+    <script>
+        document.getElementById('mainImage-file-label').addEventListener('click', function() {
+            var label = document.getElementById('mainImage-file-label');
+            label.classList.add('md-file-focus');
+        });
+        document.getElementById('mainImage-file-label').addEventListener('mouseleave', function() {
+            var label = document.getElementById('mainImage-file-label');
+            setTimeout(() => label.classList.remove('md-file-focus'), 1500);
+        });
+        document.getElementById('mainImage').addEventListener('change', function(event) {
+            var fileName = this.files[0].name;
+            var label = document.getElementById('mainImage-file-label');
+            
+            // Update label with file name and apply 'selected' class
+            label.classList.add('selected');
+            label.setAttribute('data-file-name', fileName);
+            
+            // Display the preview of the selected file
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const mainImagePreview = document.getElementById('mainImage-preview');
+                    mainImagePreview.src = e.target.result;
+                    mainImagePreview.style.display = 'block';
+                };
+                reader.readAsDataURL(file);
+            }
+            label.classList.remove('md-file-focus');
+        });
+    </script>
     {{-- logo white --}}
     <script>
         document.getElementById('logoWhite').addEventListener('change', function() {

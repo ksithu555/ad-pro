@@ -10,6 +10,7 @@ class Advertisement extends Model
     protected $fillable = [
         'user_id',
         'name',
+        'main_image',
         'logo_white',
         'logo_color',
         'param_name',

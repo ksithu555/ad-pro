@@ -47,6 +47,12 @@ class UserAdvertisementController extends Controller
     }
 
     public function storeAdvertisement(Request $request) {
+        if (!empty($request->mainImage)) {
+            $mainImageName = time() . '.' . $request->mainImage->extension();
+            $request->mainImage->move(public_path('assets/images/all'), $mainImageName);
+        } else {
+            $mainImageName = '';
+        }
         if (!empty($request->logoWhite)) {
             $logoWhiteName = time() . '.' . $request->logoWhite->extension();
             $request->logoWhite->move(public_path('assets/images/all'), $logoWhiteName);
@@ -62,6 +68,7 @@ class UserAdvertisementController extends Controller
         Advertisement::create([
             'user_id' => Auth::user()->id,
             'name' => $request->name,
+            'main_image' => $mainImageName,
             'logo_white' => $logoWhiteName,
             'logo_color' => $logoColorName,
             'param_name' => $request->paramName,
@@ -83,6 +90,12 @@ class UserAdvertisementController extends Controller
             'name' => $request->name,
             'param_name' => $request->paramName
         ];
+
+        if (!empty($request->mainImage)) {
+            $mainImageName = time() . '.' . $request->mainImage->extension();
+            $request->mainImage->move(public_path('assets/images/all'), $mainImageName);
+            $updateData['main_image'] = $mainImageName;
+        }
 
         if (!empty($request->logoWhite)) {
             $logoWhiteName = time() . '.' . $request->logoWhite->extension();

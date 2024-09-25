@@ -45,19 +45,7 @@
                         <div class="cbp-item col-md-4 col-sm-6 with-spacing text-center">
                             <div class="cbp-caption">
                                 <div class="cbp-caption-defaultWrap">
-                                    @php
-                                        $image = $advertisement->logo_color;
-                                        if ($advertisement->advertisementSections->isNotEmpty()) {
-                                            foreach ($advertisement->advertisementSections as $section) {
-                                                if ($section->advertisementHeaderBlocks->isNotEmpty()) {
-                                                    $header = $section->advertisementHeaderBlocks->first();
-                                                    $image = $header->image;
-                                                    break; // Stop after finding the first valid header block
-                                                }
-                                            }
-                                        }
-                                    @endphp
-                                    <img src="{{ asset('assets/images/all/' . $image) }}" alt="">
+                                    <img src="{{ asset('assets/images/all/' . $advertisement->main_image) }}" alt="">
                                 </div>
                                 <div class="cbp-caption-activeWrap dark">
                                     <div class="cbp-l-caption-alignCenter">

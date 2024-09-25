@@ -96,7 +96,7 @@
     <!--== Call to Actions Style 03 End ==-->
 
     <!--== Call to Actions Style 02 Start ==-->
-    <section class="parallax-bg fixed-bg pt-80 pb-80" data-parallax-bg-image="{{ asset('assets/images/all/header-01.webp') }}" data-parallax-speed="0.8" data-parallax-direction="up">
+    <section class="parallax-bg fixed-bg pt-80 pb-80" data-parallax-bg-image="{{ asset('assets/images/title-bg/ad-pro-default.jpg') }}" data-parallax-speed="0.8" data-parallax-direction="up">
         <div class="parallax-overlay"></div>
         <div class="container">
                 <div class="row">

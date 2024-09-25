@@ -20,7 +20,7 @@
         </div>
         <div class="view-height-100vh absolute z-index-minus2 top-0 width-100-percent">
         <div class="view-height-100vh">
-            <div class="slide-img parallax-bg fixed-bg" data-parallax-bg-image="{{ asset('assets/images/all/header-01.webp') }}" data-parallax-speed="0.8" data-parallax-direction="up"></div>
+            <div class="slide-img parallax-bg fixed-bg" data-parallax-bg-image="{{ asset('assets/images/title-bg/ad-pro-default.jpg') }}" data-parallax-speed="0.8" data-parallax-direction="up"></div>
         </div>
         </div>
     </section>

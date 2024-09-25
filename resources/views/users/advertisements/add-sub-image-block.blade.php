@@ -64,7 +64,7 @@
                             </div>
                             <div class="col-md-2 col-sm-2 mt-20">
                                 <figure id="selected-image-hover-display" style="display: none;">
-                                    <img src="{{ asset('assets/images/all/header-01.webp') }}" alt="your-image">
+                                    <img src="{{ asset('assets/images/title-bg/ad-pro-default.jpg') }}" alt="your-image">
                                     <figcaption class="dark-bg">
                                       <div class="center-layout">
                                         <div class="white-color">

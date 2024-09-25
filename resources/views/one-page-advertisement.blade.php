@@ -733,7 +733,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-8 section-heading">
-                            <h2 class="font-700 roboto-font">{{ $advertisementBoxBlock->title }}</h2>
+                            <h4 class="text-uppercase mt-0 font-700 roboto-font">{{ $advertisementBoxBlock->title }}</h4>
                             <hr class="dark-bg center_line bold-line">
                             <p class="mt-30 font-16px dark-color text-center roboto-font">{{ $advertisementBoxBlock->body }}</p>
                         </div>
@@ -779,7 +779,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-8 section-heading">
-                            <h2 class="font-700 roboto-font">{{ $advertisementBoxBlock->title }}</h2>
+                            <h4 class="text-uppercase mt-0 font-700 roboto-font">{{ $advertisementBoxBlock->title }}</h4>
                             <hr class="dark-bg center_line bold-line">
                             <p class="mt-30 font-16px dark-color text-center roboto-font">{{ $advertisementBoxBlock->body }}</p>
                         </div>
@@ -820,7 +820,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-8 section-heading">
-                            <h2 class="font-700 roboto-font">{{ $advertisementBoxBlock->title }}</h2>
+                            <h4 class="text-uppercase mt-0 font-700 roboto-font">{{ $advertisementBoxBlock->title }}</h4>
                             <hr class="dark-bg center_line bold-line">
                             <p class="mt-30 font-16px dark-color text-center roboto-font">{{ $advertisementBoxBlock->body }}</p>
                         </div>
@@ -874,7 +874,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-8 section-heading">
-                            <h2 class="font-700 roboto-font">{{ $advertisementBoxBlock->title }}</h2>
+                            <h4 class="text-uppercase mt-0 font-700 roboto-font">{{ $advertisementBoxBlock->title }}</h4>
                             <hr class="dark-bg center_line bold-line">
                             <p class="mt-30 font-16px dark-color text-center roboto-font">{{ $advertisementBoxBlock->body }}</p>
                         </div>
@@ -917,7 +917,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-8 section-heading">
-                            <h2 class="font-700 roboto-font">{{ $advertisementBoxBlock->title }}</h2>
+                            <h4 class="text-uppercase mt-0 font-700 roboto-font">{{ $advertisementBoxBlock->title }}</h4>
                             <hr class="dark-bg center_line bold-line">
                             <p class="mt-30 font-16px dark-color text-center roboto-font">{{ $advertisementBoxBlock->body }}</p>
                         </div>
@@ -1347,7 +1347,7 @@
                         @if ($advertisementVideoBlock->status == 1)
                         <div class="row">
                             <div class="col-sm-8 section-heading text-center">
-                                <h2 class="font-700 roboto-font">{{ $advertisementVideoBlock->title }}</h2>
+                                <h4 class="text-uppercase mt-0 font-700 roboto-font">{{ $advertisementVideoBlock->title }}</h4>
                                 <hr class="center_line default-bg">
                                 <p class="mt-30 font-16px dark-color text-center roboto-font">{!! nl2br($advertisementVideoBlock->body) !!}</p>
                             </div>
@@ -1379,7 +1379,7 @@
                         @if ($advertisementVideoBlock->status == 1)
                         <div class="row">
                             <div class="col-sm-8 section-heading text-center">
-                                <h2 class="font-700 roboto-font">{{ $advertisementVideoBlock->title }}</h2>
+                                <h4 class="text-uppercase mt-0 font-700 roboto-font">{{ $advertisementVideoBlock->title }}</h4>
                                 <hr class="center_line default-bg">
                                 <p class="mt-30 font-16px dark-color text-center roboto-font">{!! nl2br($advertisementVideoBlock->body) !!}</p>
                             </div>

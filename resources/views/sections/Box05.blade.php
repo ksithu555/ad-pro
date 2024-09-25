@@ -12,7 +12,7 @@
             <div class="row mt-0">
                 <div class="col-md-3">
                     <div class="box-icon text-center">
-                        <img src="{{ asset('assets/images/all/header-01.webp') }}" alt="Unique Demos" width="150" height="150">
+                        <img src="{{ asset('assets/images/title-bg/ad-pro-default.jpg') }}" alt="Unique Demos" width="150" height="150">
                         <div class="title-section mt-20">
                             <h4 class="mt-10 font-600">Unique Demos</h4>
                             <p class="font-400">Lorem ipsum dolor sit amet consectetur adipiscing elit sed in arcu est vivamus.</p>
@@ -21,7 +21,7 @@
                 </div>
                 <div class="col-md-3">
                     <div class="box-icon text-center">
-                        <img src="{{ asset('assets/images/all/header-01.webp') }}" alt="Parallax Effects" width="150" height="150">
+                        <img src="{{ asset('assets/images/title-bg/ad-pro-default.jpg') }}" alt="Parallax Effects" width="150" height="150">
                         <div class="title-section mt-20">
                             <h4 class="mt-10 font-600">Parallax Effects</h4>
                             <p class="font-400">Lorem ipsum dolor sit amet consectetur adipiscing elit sed in arcu est vivamus.</p>
@@ -30,7 +30,7 @@
                 </div>
                 <div class="col-md-3">
                     <div class="box-icon text-center">
-                        <img src="{{ asset('assets/images/all/header-01.webp') }}" alt="Awesome Icons" width="150" height="150">
+                        <img src="{{ asset('assets/images/title-bg/ad-pro-default.jpg') }}" alt="Awesome Icons" width="150" height="150">
                         <div class="title-section mt-20">
                             <h4 class="mt-10 font-600">Awesome Icons</h4>
                             <p class="font-400">Lorem ipsum dolor sit amet consectetur adipiscing elit sed in arcu est vivamus.</p>
@@ -39,7 +39,7 @@
                 </div>
                 <div class="col-md-3">
                     <div class="box-icon text-center">
-                        <img src="{{ asset('assets/images/all/header-01.webp') }}" alt="Interactive UI" width="150" height="150">
+                        <img src="{{ asset('assets/images/title-bg/ad-pro-default.jpg') }}" alt="Interactive UI" width="150" height="150">
                         <div class="title-section mt-20">
                             <h4 class="mt-10 font-600">Interactive UI</h4>
                             <p class="font-400">Lorem ipsum dolor sit amet consectetur adipiscing elit sed in arcu est vivamus.</p>

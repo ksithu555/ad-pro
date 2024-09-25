@@ -10,7 +10,7 @@
             </div>
             <div class="col-sm-8 centerize-col text-center">
                 <div class="video-box mt-50">
-                    <img class="img-responsive" src="{{ asset('assets/images/all/header-01.webp') }}" alt="">
+                    <img class="img-responsive" src="{{ asset('assets/images/title-bg/ad-pro-default.jpg') }}" alt="">
                     <div class="video-box_overlay">
                         <div class="center-layout">
                             <div class="v-align-middle"> 

@@ -35,6 +35,16 @@
                         <div class="row">
                             <div class="col-md-12 col-sm-12">
                                 <div class="form-group">
+                                    <label class="md-file" for="image" id="file-label">画像 *</label>
+                                    <input type="file" name="image" id="image" placeholder="画像 *" style="display: none;" value="{{ old('image') }}">
+                                    <img id="image-preview" src="{{ asset('assets/images/all/' . $advertisementVideoBlock->image) }}" alt="Image Preview" style="width: 80px; margin: 10px 0 0 14px;">
+                                    <span class="error" style="color:#BF0731" id="error-image"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12">
+                                <div class="form-group">
                                     <label class="sr-only" for="url">URL</label>
                                     <input type="text" name="url" class="md-input" id="url" placeholder="URL *" value="{{ old('url') ? old('url') : $advertisementVideoBlock->url }}">
                                     <span class="error" style="color:#BF0731" id="error-url"></span>
@@ -68,6 +78,27 @@
         <a class="btn btn-lg btn-circle btn-secondary-color popup-modal-close" href="#">いいえ</a>
     </div>
 
+    {{-- image --}}
+    <script>
+        document.getElementById('image').addEventListener('change', function() {
+            var fileName = this.files[0].name;
+            var label = document.getElementById('file-label');
+            label.classList.add('selected');
+            label.setAttribute('data-file-name', fileName);
+        });
+        document.getElementById('image').addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const imagePreview = document.getElementById('image-preview');
+                    imagePreview.src = e.target.result;
+                    imagePreview.style.display = 'block';
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+    </script>
     {{-- validate --}}
     <script>
         function showModal() {

@@ -35,6 +35,16 @@
                     <div class="row">
                         <div class="col-md-12 col-sm-12">
                             <div class="form-group">
+                                <label class="md-file" for="image" id="file-label">画像 *</label>
+                                <input type="file" name="image" id="image" placeholder="画像 *" style="display: none;" value="{{ old('image') }}">
+                                <img id="image-preview" src="" alt="Image Preview" style="display:none; width: 80px; margin: 10px 0 0 14px;">
+                                <span class="error" style="color:#BF0731" id="error-image"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12">
+                            <div class="form-group">
                                 <label class="sr-only" for="url">URL</label>
                                 <input type="text" name="url" class="md-input" id="url" placeholder="URL *" value="{{ old('url') }}">
                                 <span class="error" style="color:#BF0731" id="error-url"></span>
@@ -110,6 +120,7 @@
 
             const title = document.getElementById('title').value.trim();
             const body = document.getElementById('body').value.trim();
+            const image = document.getElementById('image').files[0];
             const url = document.getElementById('url').value.trim();
 
             if (!title) {
@@ -119,6 +130,11 @@
 
             if (!body) {
                 document.getElementById('error-body').textContent = 'ボデイを入力してください';
+                isValid = false;
+            }
+
+            if (!image) {
+                document.getElementById('error-image').textContent = '画像を選択してください';
                 isValid = false;
             }
 

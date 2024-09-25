@@ -99,13 +99,8 @@
             </div>
         </div>
     </nav>
+    <div style="padding-bottom: 50px"></div>
     <!--== Header End ==-->
-    <section class="white-bg">
-        <div class="container">
-            <div class="row">
-            </div>
-        </div>
-    </section>
     @endif
 
     @php
@@ -615,11 +610,11 @@
                                     <div class="row">
                                         <div class="col-md-10 centerize-col">
                                             <div class="white-color text-center">
-                                                <span class="font-60px font-700 play-font wow fadeInUp font-italic" 
+                                                <span class="font-40px font-700 play-font wow fadeInUp font-italic" 
                                                     data-wow-delay="0.1s">
                                                     {!! nl2br($advertisementHeaderBlock->body) !!}
                                                 </span>
-                                                <h1 class="white-color font-700 font-120px line-height-120 xs-font-40px xs-line-height-50 sm-font-60px sm-line-height-60 wow fadeInUp" 
+                                                <h1 class="white-color font-700 font-80px line-height-120 xs-font-40px xs-line-height-50 sm-font-60px sm-line-height-60 wow fadeInUp" 
                                                     data-wow-delay="0.2s">
                                                     {{ $advertisementHeaderBlock->title }}
                                                 </h1>
@@ -1359,7 +1354,7 @@
                             </div>
                             <div class="col-sm-8 centerize-col text-center">
                                 <div class="video-box mt-50">
-                                    <img class="img-responsive" src="{{ asset('assets/images/all/header-01.webp') }}" alt="">
+                                    <img class="img-responsive" src="{{ asset('assets/images/all/' . $advertisementVideoBlock->image) }}" alt="">
                                     <div class="video-box_overlay">
                                         <div class="center-layout">
                                             <div class="v-align-middle"> 
@@ -1377,6 +1372,29 @@
                 </div>
             </section>
             <!--== Video01 End ==-->
+            @elseif ($advertisementSection->section->name == 'Video02')
+            <!--== Video02 Start ==-->
+            <section class="{{ $sectionBg }} pt-50 pb-50" id="{{ $advertisementSection->name }}">
+                <div class="container">
+                    @foreach ($advertisementSection->advertisementVideoBlocks as $key => $advertisementVideoBlock)
+                        @if ($advertisementVideoBlock->status == 1)
+                        <div class="row">
+                            <div class="col-sm-8 section-heading text-center">
+                                <h2 class="font-700 roboto-font">{{ $advertisementVideoBlock->title }}</h2>
+                                <hr class="center_line default-bg">
+                                <h5 class="roboto-font">{!! nl2br($advertisementVideoBlock->body) !!}</h5>
+                            </div>
+                            <div class="col-sm-8 centerize-col text-center">
+                                <div class="fit-videos">
+                                    <iframe src="{{ $advertisementVideoBlock->url }}" width="640" height="360" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                                </div>
+                            </div>
+                        </div>
+                        @endif
+                    @endforeach
+                </div>
+            </section>
+            <!--== Video02 End ==-->
             @endif
         {{-- Video Hero End --}}
         @elseif ($advertisementSection->section->type == 'contact'  && $advertisementSection->status == 1)

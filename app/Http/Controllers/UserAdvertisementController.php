@@ -762,11 +762,18 @@ class UserAdvertisementController extends Controller
     }
 
     public function storeVideoBlock(Request $request) {
+        if (!empty($request->image)) {
+            $imageName = time() . '.' . $request->image->extension();
+            $request->image->move(public_path('assets/images/all'), $imageName);
+        } else {
+            $imageName = '';
+        }
         
         AdvertisementVideoBlock::create([
             'advertisement_section_id' => $request->advertisementSectionId,
             'title' => $request->title,
             'body' => $request->body,
+            'image' => $imageName,
             'url' => $request->url,
             'status' => 0
         ]);
@@ -785,6 +792,12 @@ class UserAdvertisementController extends Controller
             'body' => $request->body,
             'url' => $request->url,
         ];
+
+        if (!empty($request->image)) {
+            $imageName = time() . '.' . $request->image->extension();
+            $request->image->move(public_path('assets/images/all'), $imageName);
+            $updateData['image'] = $imageName;
+        }
 
         $advertisementVideoBlock = AdvertisementVideoBlock::find($request->id);
         $advertisementVideoBlock->update($updateData);

@@ -10,6 +10,7 @@ class AdvertisementVideoBlock extends Model
         'advertisement_section_id',
         'title',
         'body',
+        'image',
         'url',
         'status'
     ];

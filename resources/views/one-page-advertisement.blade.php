@@ -84,7 +84,7 @@
                     <div class="collapse navbar-collapse" id="navbar-menu">
                         <ul class="nav navbar-nav navbar-right" data-in="fadeIn" data-out="fadeOut">
                             @foreach ($advertisementSections as $advertisementSection)
-                            @if ($advertisementSection->status == 1)
+                            @if ($advertisementSection->status == 1 && $advertisementSection->section->type != "footer")
                             <li>
                                 <a class="page-scroll" href="#{{ $advertisementSection->name }}">
                                     <span>{{ $advertisementSection->name }}</span>

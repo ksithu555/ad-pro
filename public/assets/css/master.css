@@ -413,6 +413,7 @@ input.search-bar-top:-moz-placeholder { color: #fff!important; }
 
 /* View Heights */
 
+.view-height-50vh{height: 50vh!important;}
 .view-height-100vh{height: 100vh!important;}
 
 

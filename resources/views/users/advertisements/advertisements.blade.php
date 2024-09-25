@@ -13,18 +13,16 @@
             </div>
         </div> 
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-8 col-md-offset-2">
+                <x-message-box></x-message-box>
+            </div>
+            <div class="col-md-2">
                 <div style="text-align: right;">
                     <a class="btn btn-md btn-dark-outline btn-square margin-left-auto margin-right-auto display-table-sm"
                     href="{{ route('user.add.advertisement') }}">
                         <i class="fa-icon-plus-square"></i> ページ
                     </a>
                 </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <x-message-box></x-message-box>
             </div>
         </div>
         <div class="row mt-10">
@@ -111,6 +109,8 @@
       </div>
     </section>
     <!--== Products End ==-->
+    
+    {{-- status toggle --}}
     <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
     <script>
         $(document).ready(function() {

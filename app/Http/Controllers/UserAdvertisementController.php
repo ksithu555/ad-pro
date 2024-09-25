@@ -16,10 +16,8 @@ use Illuminate\Support\Facades\Session;
 use App\Models\AdvertisementFooterBlock;
 use App\Models\AdvertisementHeaderBlock;
 use App\Models\AdvertisementSubBoxBlock;
-use App\Models\AdvertisementContactBlock;
 use App\Models\AdvertisementSubImageBlock;
 use App\Models\AdvertisementAccordionBlock;
-use App\Models\AdvertisementImageHoverBlock;
 use App\Models\AdvertisementSubAccordionBlock;
 
 class UserAdvertisementController extends Controller
@@ -47,15 +45,6 @@ class UserAdvertisementController extends Controller
     public function addAdvertisement() {
         return view('users.advertisements.add-advertisement');
     }
-
-    // public function showAdvertisement() {
-    //     $advertisement = Advertisement::where('user_id', Auth::user()->id)->first();
-    //     if (!$advertisement) {
-    //         return view('users.advertisements.show-advertisement', compact('advertisement'));
-    //     } else {
-    //         return view('users.advertisements.edit-advertisement', compact('advertisement'));
-    //     }
-    // }
 
     public function storeAdvertisement(Request $request) {
         if (!empty($request->logoWhite)) {

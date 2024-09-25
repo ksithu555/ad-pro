@@ -622,26 +622,32 @@
                     @foreach ($advertisementSection->advertisementListBlocks as $key => $advertisementListBlock)
                         @if ($advertisementListBlock->status == 1)
                         @if ($key % 2 == 0)
-                        <div class="row row-flex flex-center">
-                            <div class="col-md-6 col-sm-12 bg-flex-cover" style="background-image: url({{ asset('assets/images/all/' . $advertisementListBlock->image) }});"></div>
+                        <div class="row row-flex {{ $key != 0 ? 'mt-20' : ''}}" style="align-items: flex-start;">
+                            <div class="col-md-6 col-sm-12" style="margin-top: 25px;">
+                                <img class="img-responsive" style="position: relative;"
+                                src="{{ asset('assets/images/all/' . $advertisementListBlock->image) }}" alt=""/>
+                            </div>                
                             <div class="col-md-6 col-sm-12">
-                                <div class="col-inner spacer text-center">
+                                <div class="col-inner text-left">
                                     <h3 class="mt-20 text-uppercase">{{ $advertisementListBlock->title }}</h3>
-                                    <hr class="dark-bg center_line bold-line">
+                                    <hr class="dark-bg left_line bold-line" style="background-color: #BF0731;">
                                     <p class="mt-30 font-18px dark-color text-left">{!! nl2br($advertisementListBlock->body) !!}</p>
                                 </div>
                             </div>
                         </div>
                         @else
-                        <div class="row row-flex flex-center">
+                        <div class="row row-flex {{ $key != 0 ? 'mt-20' : ''}}" style="align-items: flex-start;">              
                             <div class="col-md-6 col-sm-12">
-                                <div class="col-inner spacer text-center">
+                                <div class="col-inner text-left">
                                     <h3 class="mt-20 text-uppercase">{{ $advertisementListBlock->title }}</h3>
-                                    <hr class="dark-bg center_line bold-line">
+                                    <hr class="dark-bg left_line bold-line" style="background-color: #BF0731;">
                                     <p class="mt-30 font-18px dark-color text-left">{!! nl2br($advertisementListBlock->body) !!}</p>
                                 </div>
                             </div>
-                            <div class="col-md-6 col-sm-12 bg-flex-cover" style="background-image: url({{ asset('assets/images/all/' . $advertisementListBlock->image) }});"></div>
+                            <div class="col-md-6 col-sm-12" style="margin-top: 25px;">
+                                <img class="img-responsive" style="position: relative;"
+                                src="{{ asset('assets/images/all/' . $advertisementListBlock->image) }}" alt=""/>
+                            </div>  
                         </div>
                         @endif
                         @endif
@@ -656,23 +662,29 @@
                     @foreach ($advertisementSection->advertisementListBlocks as $key => $advertisementListBlock)
                         @if ($advertisementListBlock->status == 1)
                         @if ($key % 2 == 0)
-                        <div class="row row-flex flex-center">
+                        <div class="row row-flex {{ $key != 0 ? 'mt-20' : ''}}" style="align-items: flex-start;">              
                             <div class="col-md-6 col-sm-12">
-                                <div class="col-inner spacer text-center">
+                                <div class="col-inner text-left">
                                     <h3 class="mt-20 text-uppercase">{{ $advertisementListBlock->title }}</h3>
-                                    <hr class="dark-bg center_line bold-line">
+                                    <hr class="dark-bg left_line bold-line" style="background-color: #BF0731;">
                                     <p class="mt-30 font-18px dark-color text-left">{!! nl2br($advertisementListBlock->body) !!}</p>
                                 </div>
                             </div>
-                            <div class="col-md-6 col-sm-12 bg-flex-cover" style="background-image: url({{ asset('assets/images/all/' . $advertisementListBlock->image) }});"></div>
+                            <div class="col-md-6 col-sm-12" style="margin-top: 25px;">
+                                <img class="img-responsive" style="position: relative;"
+                                src="{{ asset('assets/images/all/' . $advertisementListBlock->image) }}" alt=""/>
+                            </div>  
                         </div>
                         @else
-                        <div class="row row-flex flex-center">
-                            <div class="col-md-6 col-sm-12 bg-flex-cover" style="background-image: url({{ asset('assets/images/all/' . $advertisementListBlock->image) }});"></div>
+                        <div class="row row-flex {{ $key != 0 ? 'mt-20' : ''}}" style="align-items: flex-start;">
+                            <div class="col-md-6 col-sm-12" style="margin-top: 25px;">
+                                <img class="img-responsive" style="position: relative;"
+                                src="{{ asset('assets/images/all/' . $advertisementListBlock->image) }}" alt=""/>
+                            </div>                
                             <div class="col-md-6 col-sm-12">
-                                <div class="col-inner spacer text-center">
+                                <div class="col-inner text-left">
                                     <h3 class="mt-20 text-uppercase">{{ $advertisementListBlock->title }}</h3>
-                                    <hr class="dark-bg center_line bold-line">
+                                    <hr class="dark-bg left_line bold-line" style="background-color: #BF0731;">
                                     <p class="mt-30 font-18px dark-color text-left">{!! nl2br($advertisementListBlock->body) !!}</p>
                                 </div>
                             </div>
@@ -1303,7 +1315,7 @@
         {{-- Contact Hero Start --}}
             @if ($advertisementSection->section->name == 'Contact01')
             {{-- Contact01 Start --}}
-            <section class="{{ $sectionBg }} pt-50 pb-50" id="{{ $advertisementSection->name }}">
+            <section class="dark-grey-bg pt-50 pb-50" id="{{ $advertisementSection->name }}">
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-8 section-heading">

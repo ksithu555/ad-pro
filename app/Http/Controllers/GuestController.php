@@ -105,6 +105,9 @@ class GuestController extends Controller
         if (!$advertisement) {
             return view('404-error');
         }
+        if ((Auth::user() && $advertisement->user_id == Auth::user()->id) || Auth::guard('admin')->user()) {
+            return view('one-page-advertisement', compact('advertisement'));
+        }
         if ($advertisement->status == 1) {
             return view('one-page-advertisement', compact('advertisement'));
         } else {

@@ -93,10 +93,6 @@
 
     {{-- validate --}}
     <script>
-        document.getElementById('add-section-form').addEventListener('submit', function(event) {
-            event.preventDefault();
-        });
-        
         function showModal() {
             if (validateAddSectionForm()) {
                 document.getElementById('open-modal').setAttribute('href', '#modal-popup');

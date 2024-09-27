@@ -9,7 +9,7 @@
 <!-- keywords -->
 <meta name="keywords" content="creative, animation, business, photography, portfolio, one page, bootstrap responsive, start-up, ui/ux, html5, css3, studio, branding, creative design, multipurpose, parallax, personal, masonry, grid, coming soon, carousel, career">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>メンテナンス中 | ADPRO - WEB広告とマーケティングのアドプロ</title>
+<title>Error | ADPRO - WEB広告とマーケティングのアドプロ</title>
 <link rel="shortcut icon" href="{{ asset('assets/images/all/adpro_slogo.png') }}">
 
 <!-- Core Style Sheets -->
@@ -114,7 +114,9 @@
 					data-paddingbottom="[0,0,0,0]"
 					data-paddingleft="[0,0,0,0]"
 
-					style="z-index: 6; white-space: nowrap; font-size: 80px; line-height: 80px; font-weight: 700; color: rgba(4,37,60,1);font-family: 'Roboto', sans-serif;letter-spacing:10px;">サイトは<br>メンテナンス中です!</div>
+					style="z-index: 6; white-space: nowrap; font-size: 80px; line-height: 80px; font-weight: 700; color: rgba(4,37,60,1);font-family: 'Roboto', sans-serif;letter-spacing:10px;">
+                    {!! nl2br($errorMessage) !!}
+                </div>
 
 				<!-- LAYER NR. 3 -->
 				<div class="tp-caption   tp-resizeme"
@@ -136,13 +138,15 @@
 					data-paddingbottom="[0,0,0,0]"
 					data-paddingleft="[0,0,0,0]"
 
-					style="z-index: 7; min-width: 460px; max-width: 460px; white-space: normal; font-size: 15px; line-height: 25px; font-weight: 400; color: rgba(4,37,60,1);font-family: 'Roboto', sans-serif;letter-spacing:10px;">WE WILL BE RIGHT BACK!.</div>
+					style="z-index: 7; min-width: 460px; max-width: 460px; white-space: normal; font-size: 15px; line-height: 25px; font-weight: 400; color: rgba(4,37,60,1);font-family: 'Roboto', sans-serif;letter-spacing:10px;">
+                    エラーが発生しました!
+                </div>
 
 				<!-- LAYER NR. 4 -->
 				<a class="tp-caption rev-btn  tp-resizeme  blurslider-button"
-		 href="{{ route('guest.home') }}" 		 id="slide-16-layer-17"
-					 data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
-					 data-y="['middle','middle','middle','middle']" data-voffset="['140','140','110','110']"
+		            href="{{ url()->previous() }}" id="slide-16-layer-17"
+					data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
+					data-y="['middle','middle','middle','middle']" data-voffset="['140','140','110','110']"
 					data-width="none"
 					data-height="none"
 					data-whitespace="nowrap"
@@ -159,7 +163,9 @@
 					data-paddingleft="[35,35,35,35]"
 					data-blendmode="multiply"
 
-					style="z-index: 8; white-space: nowrap; font-size: 15px; line-height: 50px; font-weight: 400; color: rgba(255,255,255,1);font-family: 'Roboto', sans-serif;background-color:rgba(4,37,60,1);outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;letter-spacing:3px;cursor:pointer;text-decoration: none;">ホームに戻る </a>
+					style="z-index: 8; white-space: nowrap; font-size: 15px; line-height: 50px; font-weight: 400; color: rgba(255,255,255,1);font-family: 'Roboto', sans-serif;background-color:rgba(4,37,60,1);outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;letter-spacing:3px;cursor:pointer;text-decoration: none;">
+                    戻る 
+                </a>
 			</li>
 		</ul>
 		<div class="tp-bannertimer tp-bottom" style="visibility: hidden !important;"></div>	</div>

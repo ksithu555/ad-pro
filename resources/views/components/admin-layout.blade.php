@@ -29,7 +29,6 @@
     clear: both;
     font-weight: normal;
     line-height: 1.42857143;
-    color: #BF0731;
     white-space: nowrap
 }
 </style>
@@ -103,9 +102,29 @@
               </span>
             </a>
             <ul class="dropdown-menu">
-              <li><a href="{{ route('admin.show.profile') }}">プロフィール</a></li>
-              <li><a href="{{ route('admin.get.bank.accounts') }}">銀行口座</a></li>
-              <li><a href="{{ route('admin.change.password') }}">パスワード変更</a></li>
+              <li>
+                <a href="{{ route('admin.show.profile') }}">
+                  <span class="{{ request()->routeIs('admin.show.profile')
+                  ? 'default-color' : '' }}">プロフィール
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="{{ route('admin.get.bank.accounts') }}">
+                  <span class="{{ request()->routeIs('admin.get.bank.accounts') ||
+                  request()->routeIs('admin.add.bank.account') ||
+                  request()->routeIs('admin.edit.bank.account')
+                  ? 'default-color' : '' }}">銀行口座
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="{{ route('admin.change.password') }}">
+                  <span class="{{ request()->routeIs('admin.change.password')
+                  ? 'default-color' : '' }}">パスワード変更
+                  </span>
+                </a>
+              </li>
               <li>
                 <div class="tr-modal-popup">
                   <a href="#logout-modal-popup" class="tr-modal-pop-a" data-effect="mfp-newspaper">ログアウト</a>
@@ -290,6 +309,31 @@
 <script type="text/javascript" src="{{ asset('revolution/js/revolution.extension.parallax.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('revolution/js/revolution.extension.slideanims.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('revolution/js/revolution.extension.video.min.js') }}"></script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+      // Select all forms on the page
+      const forms = document.querySelectorAll('form');
+
+      // Loop through each form
+      forms.forEach(function(form) {
+          // Add an event listener for the keydown event
+          form.addEventListener('keydown', function(event) {
+              // Check if the pressed key is 'Enter'
+              if (event.key === 'Enter') {
+                  // Prevent the default form submission behavior
+                  event.preventDefault();
+              }
+          });
+
+          // Handle form submission via showModal() instead of the default submit
+          form.addEventListener('submit', function(event) {
+              event.preventDefault(); // Prevent default submit
+              showModal(); // Call your custom modal submission function
+          });
+      });
+  });
+</script>
 <!--== Javascript Plugins End ==-->
 
 </body>

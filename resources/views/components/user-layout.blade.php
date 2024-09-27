@@ -31,7 +31,6 @@
     clear: both;
     font-weight: normal;
     line-height: 1.42857143;
-    color: #BF0731;
     white-space: nowrap
 }
 </style>
@@ -117,11 +116,49 @@
               @endif
             </a>
             <ul class="dropdown-menu">
-              <li><a href="{{ route('user.show.profile') }}">プロフィール</a></li>
-              <li><a href="{{ route('user.show.materials') }}">素材管理</a></li>
-              <li><a href="{{ route('user.show.announcements') }}">情報広場管理</a></li>
-              <li><a href="{{ route('user.get.plans') }}">アップグレード</a></li>
-              <li><a href="{{ route('user.change.password') }}">パスワード変更</a></li>
+              <li>
+                <a href="{{ route('user.show.profile') }}">
+                  <span class="{{ request()->routeIs('user.show.profile')
+                  ? 'default-color' : '' }}">プロフィール
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="{{ route('user.show.materials') }}">
+                  <span class="{{ request()->routeIs('user.show.materials') ||
+                  request()->routeIs('user.add.material') ||
+                  request()->routeIs('user.edit.material') ||
+                  request()->routeIs('user.show.sale.histories')
+                  ? 'default-color' : '' }}">素材管理
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="{{ route('user.show.announcements') }}">
+                  <span class="{{ request()->routeIs('user.show.announcements') ||
+                  request()->routeIs('user.add.announcement') ||
+                  request()->routeIs('user.edit.announcement') ||
+                  request()->routeIs('user.show.announcement.participants') ||
+                  request()->routeIs('user.show.announcement')
+                  ? 'default-color' : '' }}">情報広場管理
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="{{ route('user.get.plans') }}">
+                  <span class="{{ request()->routeIs('user.get.plans') ||
+                  request()->routeIs('user.purchase.plan')
+                  ? 'default-color' : '' }}">アップグレード
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="{{ route('user.change.password') }}">
+                  <span class="{{ request()->routeIs('user.change.password')
+                  ? 'default-color' : '' }}">パスワード変更
+                  </span>
+                </a>
+              </li>
               <li>
                 <div class="tr-modal-popup">
                   <a href="#logout-modal-popup" class="tr-modal-pop-a" data-effect="mfp-newspaper">ログアウト</a>
@@ -295,6 +332,31 @@
 
 {{-- Date Time Picker --}}
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+      // Select all forms on the page
+      const forms = document.querySelectorAll('form');
+
+      // Loop through each form
+      forms.forEach(function(form) {
+          // Add an event listener for the keydown event
+          form.addEventListener('keydown', function(event) {
+              // Check if the pressed key is 'Enter'
+              if (event.key === 'Enter') {
+                  // Prevent the default form submission behavior
+                  event.preventDefault();
+              }
+          });
+
+          // Handle form submission via showModal() instead of the default submit
+          form.addEventListener('submit', function(event) {
+              event.preventDefault(); // Prevent default submit
+              showModal(); // Call your custom modal submission function
+          });
+      });
+  });
+</script>
 <!--== Javascript Plugins End ==-->
 </body>
 </html>

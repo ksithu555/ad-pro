@@ -315,6 +315,31 @@
         <script type="text/javascript" src="{{ asset('revolution/js/revolution.extension.parallax.min.js') }}"></script>
         <script type="text/javascript" src="{{ asset('revolution/js/revolution.extension.slideanims.min.js') }}"></script>
         <script type="text/javascript" src="{{ asset('revolution/js/revolution.extension.video.min.js') }}"></script>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                // Select all forms on the page
+                const forms = document.querySelectorAll('form');
+          
+                // Loop through each form
+                forms.forEach(function(form) {
+                    // Add an event listener for the keydown event
+                    form.addEventListener('keydown', function(event) {
+                        // Check if the pressed key is 'Enter'
+                        if (event.key === 'Enter') {
+                            // Prevent the default form submission behavior
+                            event.preventDefault();
+                        }
+                    });
+          
+                    // Handle form submission via showModal() instead of the default submit
+                    form.addEventListener('submit', function(event) {
+                        event.preventDefault(); // Prevent default submit
+                        showModal(); // Call your custom modal submission function
+                    });
+                });
+            });
+        </script>
         <!--== Javascript Plugins End ==-->
 
     </body>

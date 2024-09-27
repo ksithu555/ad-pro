@@ -319,7 +319,7 @@
         <script>
             document.addEventListener('DOMContentLoaded', function() {
                 // Select all forms on the page
-                const forms = document.querySelectorAll('form');
+                const forms = document.querySelectorAll('form:not(#search-form)');
           
                 // Loop through each form
                 forms.forEach(function(form) {

@@ -4,7 +4,7 @@
         <div class="container">
           <div class="row">
             <div class="col-sm-8 section-heading">
-                <form action="{{ route('admin.get.notices') }}" method="GET">
+                <form id="search-form" action="{{ route('admin.get.notices') }}" method="GET">
                     <div class="search-box">
                         <input type="text" name="search" placeholder="検索..." value="{{ request()->input('search') }}">
                         <button type="submit"><i class="fa fa-search"></i></button>

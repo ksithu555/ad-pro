@@ -348,12 +348,6 @@
                 event.preventDefault();
             }
           });
-
-          // Handle form submission via showModal() instead of the default submit
-          form.addEventListener('submit', function(event) {
-              event.preventDefault(); // Prevent default submit
-              showModal(); // Call your custom modal submission function
-          });
       });
   });
 </script>

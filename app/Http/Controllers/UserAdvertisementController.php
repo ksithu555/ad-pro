@@ -149,8 +149,20 @@ class UserAdvertisementController extends Controller
 
     public function showSections($id) {
         $limit = 10;
+        $search = request()->input('search');
         $advertisement = Advertisement::find($id);
-        $sections = AdvertisementSection::where('advertisement_id', $id)->orderBy('order')->paginate($limit);
+        $sectionsQuery = AdvertisementSection::where('advertisement_id', $id);
+        
+        if ($search) {
+            $sectionsQuery->where(function($query) use ($search) {
+                $query->where('name', 'like', "%{$search}%")
+                      ->orWhereHas('section', function($query) use ($search) {
+                          $query->where('name', 'like', "%{$search}%");
+                      });
+            });
+        }
+
+        $sections = $sectionsQuery->orderBy('order')->paginate($limit);
         $ttl = $sections->total();
         $ttlpage = ceil($ttl / $limit);
         return view('users.advertisements.show-sections', compact('advertisement','sections', 'ttl', 'ttlpage'));

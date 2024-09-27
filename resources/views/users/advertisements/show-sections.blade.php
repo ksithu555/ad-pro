@@ -3,6 +3,16 @@
     <section class="white-bg pt-120 pb-120">
       <div class="container">
         <div class="row">
+            <div class="col-sm-8 section-heading">
+                <form action="{{ route('user.show.sections', $advertisement->id) }}" method="GET">
+                    <div class="search-box">
+                        <input type="text" name="search" placeholder="検索..." value="{{ request()->input('search') }}">
+                        <button type="submit"><i class="fa fa-search"></i></button>
+                    </div>
+                </form>
+            </div>
+        </div> 
+        <div class="row">
             <div class="col-md-2">
                 <div style="text-align: left;">
                     <a class="btn btn-md btn-dark-outline btn-square margin-left-auto margin-right-auto display-table-sm"

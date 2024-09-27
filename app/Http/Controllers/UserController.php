@@ -56,7 +56,7 @@ class UserController extends Controller
 
     public function showRegister() {
         $cutoff = \Carbon\Carbon::create(2024, 9, 30, 11, 0, 0);
-        $now = \Carbon\Carbon::now();
+        $now = \Carbon\Carbon::create(2024, 9, 30, 11, 0, 0);
     
         // Check if the current time is after the cutoff time
         if ($now->greaterThanOrEqualTo($cutoff)) {

@@ -503,6 +503,7 @@
             const nameKanji = document.getElementById('nameKanji').value.trim();
             const nameFurigana = document.getElementById('nameFurigana').value.trim();
             const email = document.getElementById('email').value.trim();
+            const image = document.getElementById('image').files[0];
 
             if (!nameKanji) {
                 isValid = false;
@@ -526,6 +527,11 @@
             } else if (!/\S+@\S+\.\S+/.test(email)) {
                 isValid = false;
                 document.getElementById('error-email').textContent = '有効なメールアドレスを入力してください';
+            }
+
+            if (!image.type.match('image.*')){
+                document.getElementById('error-image').textContent = '有効な画像を選択してください';
+                isValid = false;
             }
 
             return isValid;

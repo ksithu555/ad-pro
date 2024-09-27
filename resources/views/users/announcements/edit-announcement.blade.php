@@ -166,6 +166,7 @@
             const type = document.querySelector('.type').value;
             const title = document.getElementById('title').value.trim();
             const description = document.getElementById('description').value.trim();
+            const image = document.getElementById('image').files[0];
             const startAt = document.getElementById('startAt').value.trim();
             const endAt = document.getElementById('endAt').value.trim();
 
@@ -181,6 +182,11 @@
 
             if (!description) {
                 document.getElementById('error-description').textContent = '体を入力してください';
+                isValid = false;
+            }
+
+            if (image && !image.type.match('image.*')){
+                document.getElementById('error-image').textContent = '有効な画像を選択してください';
                 isValid = false;
             }
 

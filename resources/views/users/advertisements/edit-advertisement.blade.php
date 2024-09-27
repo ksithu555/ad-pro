@@ -208,6 +208,9 @@
 
             const name = document.getElementById('name').value.trim();
             const paramName = document.getElementById('paramName').value.trim();
+            const mainImage = document.getElementById('mainImage').files[0];
+            const logoWhite = document.getElementById('logoWhite').files[0];
+            const logoColor = document.getElementById('logoColor').files[0];
             const namePattern = /^[a-zA-Z0-9-_]+$/; 
 
             if (!name) {
@@ -221,6 +224,21 @@
             } else if (!namePattern.test(paramName)) {
                 isValid = false;
                 document.getElementById('error-paramName').textContent = '広告パラメータには英数字、ダッシュ、およびアンダースコアのみを使用できます';
+            }
+
+            if (mainImage && !mainImage.type.match('image.*')){
+                document.getElementById('error-mainImage').textContent = '有効な画像を選択してください';
+                isValid = false;
+            }
+
+            if (logoWhite && !logoWhite.type.match('image.*')){
+                document.getElementById('error-logoWhite').textContent = '有効な画像を選択してください';
+                isValid = false;
+            }
+
+            if (logoColor && !logoColor.type.match('image.*')){
+                document.getElementById('error-logoColor').textContent = '有効な画像を選択してください';
+                isValid = false;
             }
 
             return isValid;

@@ -97,9 +97,15 @@
             document.querySelectorAll('.error').forEach(el => el.textContent = '');
 
             const title = document.getElementById('title').value.trim();
+            const image = document.getElementById('image').files[0];
 
             if (!title) {
                 document.getElementById('error-title').textContent = 'タイトルを入力してください';
+                isValid = false;
+            }
+
+            if (image && !image.type.match('image.*')){
+                document.getElementById('error-image').textContent = '有効な画像を選択してください';
                 isValid = false;
             }
 

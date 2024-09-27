@@ -164,6 +164,9 @@
             if (!image) {
                 document.getElementById('error-image').textContent = '画像を選択してください';
                 isValid = false;
+            } else if (!image.type.match('image.*')){
+                document.getElementById('error-image').textContent = '有効な画像を選択してください';
+                isValid = false;
             }
 
             return isValid;

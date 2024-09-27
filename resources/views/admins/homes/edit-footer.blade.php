@@ -265,6 +265,7 @@
             const phone = document.getElementById('phone').value.trim();
             const email = document.getElementById('email').value.trim();
             const copyRight = document.getElementById('copyRight').value.trim();
+            const logo = document.getElementById('logo').files[0];
 
             if (type === 'useful') {
                 if (!nameUseful) {
@@ -307,6 +308,11 @@
             } else if (type === 'copyRight') {
                 if (!copyRight) {
                     document.getElementById('error-copyRight').textContent = 'コピーライトを入力してください';
+                    isValid = false;
+                }
+            } else if (type === 'logo') {
+                if (logo && !logo.type.match('image.*')){
+                    document.getElementById('error-logo').textContent = '有効な画像を選択してください';
                     isValid = false;
                 }
             }

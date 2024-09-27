@@ -120,6 +120,7 @@
 
             const title = document.getElementById('title').value.trim();
             const body = document.getElementById('body').value.trim();
+            const image = document.getElementById('image').files[0];
             const url = document.getElementById('url').value.trim();
 
             if (!title) {
@@ -129,6 +130,11 @@
 
             if (!body) {
                 document.getElementById('error-body').textContent = 'ボデイを入力してください';
+                isValid = false;
+            }
+
+            if (image && !image.type.match('image.*')){
+                document.getElementById('error-image').textContent = '有効な画像を選択してください';
                 isValid = false;
             }
 

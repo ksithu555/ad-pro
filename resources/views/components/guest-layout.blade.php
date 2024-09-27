@@ -325,8 +325,8 @@
                 forms.forEach(function(form) {
                     // Add an event listener for the keydown event
                     form.addEventListener('keydown', function(event) {
-                        // Check if the pressed key is 'Enter'
-                        if (event.key === 'Enter') {
+                        // Check if the pressed key is 'Enter' and the target is not a textarea
+                        if (event.key === 'Enter' && event.target.tagName !== 'TEXTAREA') {
                             // Prevent the default form submission behavior
                             event.preventDefault();
                         }

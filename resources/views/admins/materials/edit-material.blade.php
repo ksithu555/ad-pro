@@ -149,6 +149,7 @@
 
             const type = document.querySelector('.type').value;
             const name = document.getElementById('name').value.trim();
+            const image = document.getElementById('image').files[0];
 
             if (!type) {
                 document.getElementById('error-type').textContent = 'ジャンルを選択してください';
@@ -157,6 +158,11 @@
 
             if (!name) {
                 document.getElementById('error-name').textContent = '素材名を入力してください';
+                isValid = false;
+            }
+
+            if (image && !image.type.match('image.*')){
+                document.getElementById('error-image').textContent = '有効な画像を選択してください';
                 isValid = false;
             }
 

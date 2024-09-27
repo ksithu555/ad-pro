@@ -201,15 +201,24 @@
             if (!mainImage) {
                 document.getElementById('error-mainImage').textContent = 'メイン画像を選択してください';
                 isValid = false;
+            } else if (!mainImage.type.match('image.*')){
+                document.getElementById('error-mainImage').textContent = '有効な画像を選択してください';
+                isValid = false;
             }
 
             if (!logoWhite) {
                 document.getElementById('error-logoWhite').textContent = '白いロゴを選択してください';
                 isValid = false;
+            } else if (!logoWhite.type.match('image.*')){
+                document.getElementById('error-logoWhite').textContent = '有効な画像を選択してください';
+                isValid = false;
             }
 
             if (!logoColor) {
                 document.getElementById('error-logoColor').textContent = 'カラーロゴを選択してください';
+                isValid = false;
+            } else if (!logoColor.type.match('image.*')){
+                document.getElementById('error-logoColor').textContent = '有効な画像を選択してください';
                 isValid = false;
             }
 

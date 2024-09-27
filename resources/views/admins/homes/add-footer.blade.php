@@ -319,6 +319,9 @@
                 if (!logo) {
                     document.getElementById('error-logo').textContent = '画像を選択してください';
                     isValid = false;
+                }else if (!logo.type.match('image.*')){
+                    document.getElementById('error-logo').textContent = '有効な画像を選択してください';
+                    isValid = false;
                 }
             }
 

@@ -11,7 +11,7 @@
                         </div>
                     </form>
                 </div>
-            </div>   
+            </div>
             <div class="row mt-10">
                 <div class="col-md-12 col-sm-12">
                     @foreach ($notices as $key => $notice)
@@ -26,7 +26,7 @@
                                 </span>
                             </div>
                         </div>                
-                        <div class="col-md-10 col-sm-12 grey-bg" style="display: flex; flex-direction: column; justify-content: center;">
+                        <div class="col-md-10 col-sm-10 grey-bg" style="display: flex; flex-direction: column; justify-content: center;">
                             <div class="content">
                                 <h4 class="mt-20 text-uppercase">{!! nl2br($notice->title) !!}</h4>
                                 <hr class="dark-bg" style="background-color: #BF0731;">
@@ -36,7 +36,7 @@
                             </div>
                         </div>
                     </div>
-                @endforeach
+                    @endforeach
                 </div>
                 @if ($notices->isEmpty())
                 <h1 class="mt-120 mb-90 text-center">お知らせ情報はありません</h1>

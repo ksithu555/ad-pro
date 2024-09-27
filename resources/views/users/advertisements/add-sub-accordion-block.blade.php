@@ -34,7 +34,7 @@
                         </div>
                         <div class="row">
                             <div class="col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2">
-                                <div class="text-left mt-20">
+                                <div class="text-center mt-20">
                                     <input type="hidden" id="confirmed" name="confirmed" value="0">
                                     <div class="tr-modal-popup text-center">
                                         <a onclick="showModal()" id="open-modal" class="btn btn-dark-outline btn-md btn-square btn-animate remove-margin">

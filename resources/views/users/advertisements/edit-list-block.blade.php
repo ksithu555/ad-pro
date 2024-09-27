@@ -38,7 +38,7 @@
                             </div>
                         </div>
                         <div class="col-md-12 col-sm-12">
-                            <div class="text-left mt-20">
+                            <div class="text-center mt-20">
                                 <input type="hidden" id="confirmed" name="confirmed" value="0">
                                 <div class="tr-modal-popup">
                                     <a onclick="showModal()" id="open-modal" class="btn btn-outline btn-md btn-square btn-animate remove-margin">

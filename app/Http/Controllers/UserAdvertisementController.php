@@ -380,6 +380,26 @@ class UserAdvertisementController extends Controller
     }
 
     public function storeHeaderBlock(Request $request) {
+        $advertisementSection = AdvertisementSection::with('section')->where('id', $request->advertisementSectionId)->first();
+
+        if ($advertisementSection->section->name == 'Header04') {
+            $advertisementHeaderBlockCounts = AdvertisementHeaderBlock::where('advertisement_section_id', $request->advertisementSectionId)
+            ->count();
+            if ($advertisementHeaderBlockCounts >= 3) {
+                Session::flash('error', 'このヘッダー セクションのブロックの最大数は みつ です');
+                return redirect()->route('user.show.section.blocks', $request->advertisementSectionId);
+            }
+        }
+
+        if ($advertisementSection->section->name == 'Header06') {
+            $advertisementHeaderBlockCounts = AdvertisementHeaderBlock::where('advertisement_section_id', $request->advertisementSectionId)
+            ->count();
+            if ($advertisementHeaderBlockCounts >= 5) {
+                Session::flash('error', 'このヘッダーセクションの最大ブロック数は 五つ です');
+                return redirect()->route('user.show.section.blocks', $request->advertisementSectionId);
+            }
+        }
+
         if (!empty($request->image)) {
             $imageName = time() . '.' . $request->image->extension();
             $request->image->move(public_path('assets/images/all'), $imageName);

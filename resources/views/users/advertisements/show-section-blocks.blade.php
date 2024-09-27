@@ -393,6 +393,7 @@
                             <th style="min-width: 110px;">セクション</th>
                             <th>タイトル</th>
                             <th>内容</th>
+                            <th>画像</th>
                             <th>URL</th>
                             <th>ステータス</th>
                             <th style="min-width: 110px;">アクション</th>
@@ -413,6 +414,9 @@
                                 <td style="min-width: 110px;">
                                     {{ $block->body }}  
                                 </td> 
+                                <td style="min-width: 110px;">
+                                    <img src="{{ asset('assets/images/all/' . $block->image ) }}" alt=""> 
+                                </td>
                                 <td style="min-width: 110px;">
                                     {{ $block->url }} 
                                 </td>

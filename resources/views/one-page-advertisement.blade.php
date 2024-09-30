@@ -2051,6 +2051,30 @@
                 </div>
             </section>
             <!--== Header06 End ==-->
+            @elseif ($advertisementSection->section->name == 'Header07')
+            <!--== Header07 Start ==-->
+            <section class="{{ $sectionBg }} pt-0 pb-0 home-slider no-direction" id="{{ $advertisementSection->name }}">
+                <div class="default-slider slick">
+                    @foreach ($advertisementSection->advertisementHeaderBlocks as $advertisementHeaderBlock)
+                    @if ($advertisementHeaderBlock->status == 1)
+                    <div class="slide">
+                        <div class="slide-img parallax-effect" style="background:url({{ asset('assets/images/all/' . $advertisementHeaderBlock->image) }}) center center / cover scroll no-repeat;"></div>
+                        <div class="hero-text-wrap">
+                            <div class="hero-text white-color">
+                                <div class="container">
+                                    <div class="white-color text-center">
+                                        <h2 class="white-color font-700 text-uppercase font-100px line-height-90">{{ $advertisementHeaderBlock->title }}</h2>
+                                        <h4 class="white-color roboto-font font-300">{!! nl2br($advertisementHeaderBlock->body) !!}</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @endif
+                    @endforeach
+                </div>
+            </section>
+            <!--== Header07 End ==-->
             @endif
         {{-- Header Hero End --}}
         @elseif ($advertisementSection->section->type == 'list'  && $advertisementSection->status == 1)

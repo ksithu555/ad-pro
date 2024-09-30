@@ -22,6 +22,8 @@
                                 <span class="error" style="color:#BF0731" id="error-name"></span>
                             </div>
                         </div>
+                    </div>
+                    <div class="row">
                         <div class="col-md-12">
                             <div class="table-responsive">
                                 <table class="table table-bordered table-striped table-hover shop-cart">

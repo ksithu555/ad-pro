@@ -10,6 +10,7 @@ use App\Models\Advertisement;
 use App\Models\AdvertisementSection;
 use Illuminate\Support\Facades\Auth;
 use App\Models\AdvertisementBoxBlock;
+use App\Models\AdvertisementMapBlock;
 use App\Models\AdvertisementListBlock;
 use App\Models\AdvertisementImageBlock;
 use App\Models\AdvertisementVideoBlock;
@@ -369,6 +370,9 @@ class UserAdvertisementController extends Controller
         }
         if($type == 'video') {
             $advertisementSectionBlocks = AdvertisementVideoBlock::where('advertisement_section_id', $advertisementSection->id)->get();
+        }
+        if($type == 'map') {
+            $advertisementSectionBlocks = AdvertisementMapBlock::where('advertisement_section_id', $advertisementSection->id)->get();
         }
 
         return view('users.advertisements.show-section-blocks', compact('id', 'type', 'advertisementSection', 'advertisementSectionBlocks'));
@@ -854,6 +858,62 @@ class UserAdvertisementController extends Controller
             return response()->json(['success' => true]);
         }
         Session::flash('error', '動画ブロックステータスの変更に失敗しました');
+        return response()->json(['success' => false]);
+    }
+
+    // Map
+    public function addMapBlock($id) {
+        return view('users.advertisements.add-map-block', compact('id'));
+    }
+
+    public function storeMapBlock(Request $request) {
+        
+        AdvertisementMapBlock::create([
+            'advertisement_section_id' => $request->advertisementSectionId,
+            'title' => $request->title,
+            'body' => $request->body,
+            'url' => $request->url,
+            'status' => 0
+        ]);
+        Session::flash('success', 'グーグルマップブロックが正常に追加されました');
+        return redirect()->route('user.show.section.blocks', $request->advertisementSectionId);
+    }
+
+    public function editMapBlock($id) {
+        $advertisementMapBlock = AdvertisementMapBlock::find($id);
+        return view('users.advertisements.edit-map-block', compact('advertisementMapBlock'));
+    }
+
+    public function updateMapBlock(Request $request) {
+        $updateData = [
+            'title' => $request->title,
+            'body' => $request->body,
+            'url' => $request->url,
+        ];
+
+        $advertisementMapBlock = AdvertisementMapBlock::find($request->id);
+        $advertisementMapBlock->update($updateData);
+        Session::flash('success', 'グーグルマップブロックが正常に更新されました');
+        return redirect()->route('user.show.section.blocks', $advertisementMapBlock->advertisement_section_id);
+    }
+
+    public function deleteMapBlock($id) {
+        $advertisementMapBlock = AdvertisementMapBlock::find($id);
+        AdvertisementMapBlock::where('id', $id)->delete();
+        Session::flash('success', 'グーグルマップブロックが正常に削除されました');
+        return redirect()->route('user.show.section.blocks', $advertisementMapBlock->advertisement_section_id);
+
+    }
+
+    public function updateMapBlockStatus(Request $request) {
+        $block = AdvertisementMapBlock::find($request->id);
+        if ($block) {
+            $block->status = $request->status;
+            $block->save();
+            Session::flash('success', 'グーグルマップブロックのステータスが正常に更新されました');
+            return response()->json(['success' => true]);
+        }
+        Session::flash('error', 'グーグルマップブロックステータスの変更に失敗しました');
         return response()->json(['success' => false]);
     }
 

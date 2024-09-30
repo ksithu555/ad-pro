@@ -92,7 +92,13 @@
                 request()->routeIs('admin.get.bank.accounts') ||
                 request()->routeIs('admin.add.bank.account') ||
                 request()->routeIs('admin.edit.bank.account') ||
-                request()->routeIs('admin.show.profile')) {
+                request()->routeIs('admin.show.profile') ||
+                request()->routeIs('admin.get.sections') ||
+                request()->routeIs('admin.add.section') ||
+                request()->routeIs('admin.edit.section') ||
+                request()->routeIs('admin.get.sub.admins') ||
+                request()->routeIs('admin.add.sub.admin') ||
+                request()->routeIs('admin.edit.sub.admin')) {
                   $defaultColor = 'default-color';
                 }
               @endphp
@@ -110,21 +116,39 @@
                 </a>
               </li>
               <li>
-                <a href="{{ route('admin.get.bank.accounts') }}">
-                  <span class="{{ request()->routeIs('admin.get.bank.accounts') ||
-                  request()->routeIs('admin.add.bank.account') ||
-                  request()->routeIs('admin.edit.bank.account')
-                  ? 'default-color' : '' }}">銀行口座
-                  </span>
-                </a>
-              </li>
-              <li>
                 <a href="{{ route('admin.change.password') }}">
                   <span class="{{ request()->routeIs('admin.change.password')
                   ? 'default-color' : '' }}">パスワード変更
                   </span>
                 </a>
               </li>
+              <li>
+                <a href="{{ route('admin.get.bank.accounts') }}">
+                  <span class="{{ request()->routeIs('admin.get.bank.accounts') ||
+                  request()->routeIs('admin.add.bank.account') ||
+                  request()->routeIs('admin.edit.bank.account')
+                  ? 'default-color' : '' }}">銀行口座管理
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="{{ route('admin.get.sections') }}">
+                    <span class="{{ request()->routeIs('admin.get.sections') ||
+                    request()->routeIs('admin.add.section') ||
+                    request()->routeIs('admin.edit.section')
+                    ? 'default-color' : '' }}">セクション管理</span>
+                </a>
+              </li>
+              @if (Auth::guard('admin')->user()->role == 'admin')
+              <li>
+                <a href="{{ route('admin.get.sub.admins') }}">
+                    <span class="{{ request()->routeIs('admin.get.sub.admins') ||
+                    request()->routeIs('admin.add.sub.admin') ||
+                    request()->routeIs('admin.edit.sub.admin')
+                    ? 'default-color' : '' }}">管理者管理</span>
+                </a>
+              </li>
+              @endif
               <li>
                 <div class="tr-modal-popup">
                   <a href="#logout-modal-popup" class="tr-modal-pop-a" data-effect="mfp-newspaper">ログアウト</a>
@@ -168,7 +192,7 @@
                 <span class="{{ request()->routeIs('admin.get.members') ||
                 request()->routeIs('admin.show.member.detail') ||
                 request()->routeIs('admin.check.member.message')
-                ? 'default-color' : '' }}">会員リスト</span>
+                ? 'default-color' : '' }}">会員一覧</span>
             </a>
           </li>
           <li class="dropdown">
@@ -185,14 +209,6 @@
                 request()->routeIs('admin.pay.user.for.material.downloads') ||
                 request()->routeIs('admin.paid.user.for.material.downloads')
                 ? 'default-color' : '' }}">素材一覧</span>
-            </a>
-          </li>
-          <li class="dropdown">
-            <a href="{{ route('admin.get.sections') }}">
-                <span class="{{ request()->routeIs('admin.get.sections') ||
-                request()->routeIs('admin.add.section') ||
-                request()->routeIs('admin.edit.section')
-                ? 'default-color' : '' }}">セクション一覧</span>
             </a>
           </li>
           <li class="dropdown">
@@ -219,16 +235,6 @@
                 ? 'default-color' : '' }}">お知らせ一覧</span>
             </a>
           </li>
-          @if (Auth::guard('admin')->user()->role == 'admin')
-          <li class="dropdown">
-            <a href="{{ route('admin.get.sub.admins') }}">
-                <span class="{{ request()->routeIs('admin.get.sub.admins') ||
-                request()->routeIs('admin.add.sub.admin') ||
-                request()->routeIs('admin.edit.sub.admin')
-                ? 'default-color' : '' }}">管理者一覧</span>
-            </a>
-          </li>
-          @endif
         </ul>
       </div>
       <!--== /.navbar-collapse ==-->

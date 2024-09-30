@@ -46,6 +46,11 @@
                 $editRoute = 'user.edit.video.block';
                 $deleteRoute = 'user.delete.video.block';
             }
+            if ($type == 'map') {
+                $addRoute = 'user.add.map.block';
+                $editRoute = 'user.edit.map.block';
+                $deleteRoute = 'user.delete.map.block';
+            }
         @endphp
         <div class="row">
           <div class="col-md-2">
@@ -395,6 +400,7 @@
                             <th>内容</th>
                             <th>画像</th>
                             <th>URL</th>
+                            <th>動画</th>
                             <th>ステータス</th>
                             <th style="min-width: 110px;">アクション</th>
                             </tr>
@@ -421,8 +427,85 @@
                                     {{ $block->url }} 
                                 </td>
                                 <td style="min-width: 110px;">
+                                    <div class="video-box">
+                                        <img class="img-responsive" src="{{ asset('assets/images/all/' . $block->image) }}" alt="">
+                                        <div class="video-box_overlay">
+                                            <div class="center-layout">
+                                                <div class="v-align-middle"> 
+                                                    <a class="popup-youtube" href="{{ $block->url }}">
+                                                    <div class="play-button"><i class="tr-icon ion-android-arrow-dropright"></i> </div>
+                                                    </a> 
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td style="min-width: 110px;">
                                     <label class="toggle-switch">
                                         <input type="checkbox" data-id="{{ $block->id }}" class="status-toggle-video" {{ $block->status == 1 ? 'checked' : '' }}>
+                                        <span class="slider"></span>
+                                    </label>   
+                                </td>
+                                <td>
+                                    <a href="{{ route($editRoute, $block->id) }}">
+                                      <i class="fa-icon-pencil-square" style="font-size: 1.5em;"></i>
+                                    </a>
+                                    <div class="tr-modal-popup">
+                                      <a href="#modal-popup-{{ $block->id }}" data-effect="mfp-newspaper">
+                                        <i class="fa-icon-trash" style="font-size: 1.5em;"></i>
+                                      </a>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <!-- Modal Popup Message Box -->
+                            <div id="modal-popup-{{ $block->id }}" class="white-bg all-padding-60 mfp-with-anim mfp-hide centerize-col col-lg-4 col-md-6 col-sm-7 col-xs-11 text-center">
+                                <span class="text-uppercase font-30px font-600 mb-20 display-block dark-color">ブロック削除</span>
+                                <p class="mb-20">ブロックを削除してもよろしいですか?</p>
+                                <a class="btn btn-lg btn-circle btn-color" href="{{ route($deleteRoute, $block->id) }}">はい</a>
+                                <a class="btn btn-lg btn-circle btn-secondary-color popup-modal-close" href="#">いいえ</a>
+                            </div>
+                            @endforeach
+                        </tbody>
+                    </table>
+                    @elseif ($type == 'map')
+                    <table class="table table-bordered table-striped table-hover shop-cart">
+                        <thead>
+                            <tr>
+                            <th>#</th>
+                            <th style="min-width: 110px;">セクション</th>
+                            <th>タイトル</th>
+                            <th>内容</th>
+                            <th>URL</th>
+                            <th>ステータス</th>
+                            <th style="min-width: 110px;">アクション</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($advertisementSectionBlocks as $key => $block)
+                            <tr>
+                                <td>
+                                    {{ $key + 1 }}
+                                </td>
+                                <td>
+                                    {{ $block->advertisementSection->name }}
+                                </td>
+                                <td style="min-width: 110px;">
+                                    {{ $block->title }}
+                                </td>   
+                                <td style="min-width: 110px;">
+                                    {{ $block->body }}  
+                                </td>
+                                <td style="min-width: 110px;">
+                                    {!! preg_replace(
+                                        ['/width="\d+"/i', '/height="\d+"/i'], 
+                                        ['width="250"', 'height="200"'], 
+                                        $block->url
+                                    ) !!}
+                                </td>
+                                <td style="min-width: 110px;">
+                                    <label class="toggle-switch">
+                                        <input type="checkbox" data-id="{{ $block->id }}" class="status-toggle-map" {{ $block->status == 1 ? 'checked' : '' }}>
                                         <span class="slider"></span>
                                     </label>   
                                 </td>
@@ -673,6 +756,40 @@
                 // Send AJAX request to update the section status
                 $.ajax({
                     url: '/user/update/section/video-block-status', // The route URL
+                    method: 'POST',
+                    data: {
+                        _token: '{{ csrf_token() }}', // CSRF token for security
+                        id: blockId,
+                        status: status
+                    },
+                    success: function(response) {
+                        if (response.success) {
+                            window.location.reload();
+                        } else {
+                            window.location.reload();
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('Error updating section status: ' + status);
+                        // window.location.reload();
+                    }
+                });
+            });
+        });
+    </script>
+    {{-- map toggle --}}
+    <script>
+        $(document).ready(function() {
+            // Listen for the toggle switch change event
+            $('.status-toggle-map').on('change', function() {
+                // Get the section ID from the data-id attribute
+                var blockId = $(this).data('id');
+                // Determine the status based on whether the checkbox is checked
+                var status = $(this).is(':checked') ? 1 : 0;
+
+                // Send AJAX request to update the section status
+                $.ajax({
+                    url: '/user/update/section/map-block-status', // The route URL
                     method: 'POST',
                     data: {
                         _token: '{{ csrf_token() }}', // CSRF token for security

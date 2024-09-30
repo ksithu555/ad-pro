@@ -64,7 +64,7 @@
             <p><strong>メールアドレス:</strong> {{ $user->email }}</p>
 
             <div class="important-info">
-                <p><strong>会員リスト画面でご確認ください。</strong></p>
+                <p><strong>会員一覧画面でご確認ください。</strong></p>
             </div>
         </div>
         <div class="footer">

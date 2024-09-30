@@ -2867,6 +2867,31 @@
             <!--== Video03 End ==-->
             @endif
         {{-- Video Hero End --}}
+        @elseif ($advertisementSection->section->type == 'map'  && $advertisementSection->status == 1)
+        {{-- Map Hero Start --}}
+            @if ($advertisementSection->section->name == 'Map01')
+            <!--== Map01 Start ==-->
+            <section class="{{ $sectionBg }} pt-50 pb-50" id="{{ $advertisementSection->name }}">
+                <div class="container">
+                    @foreach ($advertisementSection->advertisementMapBlocks as $key => $advertisementMapBlock)
+                        @if ($advertisementMapBlock->status == 1)
+                        <div class="row">
+                            <div class="col-sm-8 section-heading text-center">
+                                <h4 class="text-uppercase mt-0 font-700 roboto-font">{{ $advertisementMapBlock->title }}</h4>
+                                <hr class="center_line default-bg">
+                                <p class="mt-30 font-16px dark-color text-center roboto-font">{!! nl2br($advertisementMapBlock->body) !!}</p>
+                            </div>
+                        </div>
+                        <div class="row text-center">
+                            {!! nl2br($advertisementMapBlock->url) !!}
+                        </div>
+                        @endif
+                    @endforeach
+                </div>
+            </section>
+            <!--== Map01 End ==-->
+            @endif
+        {{-- Map Hero End --}}
         @elseif ($advertisementSection->section->type == 'contact'  && $advertisementSection->status == 1)
         {{-- Contact Hero Start --}}
             @if ($advertisementSection->section->name == 'Contact01')

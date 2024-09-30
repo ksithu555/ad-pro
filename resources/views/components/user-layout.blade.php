@@ -191,7 +191,7 @@
             <a href="{{ route('user.get.members') }}">
                 <span class="{{ request()->routeIs('user.get.members') ||
                 request()->routeIs('user.show.member.detail')
-                ? 'default-color' : '' }}">会員リスト</span>
+                ? 'default-color' : '' }}">会員一覧</span>
             </a>
           </li>
           {{-- <li class="dropdown">

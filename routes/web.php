@@ -142,6 +142,13 @@ Route::group(['middleware' => ['user']], function () {
         Route::post('/user/update/section/video-block', [UserAdvertisementController::class, 'updateVideoBlock'])->name('user.update.video.block');
         Route::get('/user/delete/section/video-block/{id}', [UserAdvertisementController::class, 'deleteVideoBlock'])->name('user.delete.video.block');
         Route::post('/user/update/section/video-block-status', [UserAdvertisementController::class, 'updateVideoBlockStatus'])->name('user.update.section.video.block.status');
+        // Map Block
+        Route::get('/user/add/section/{id}/map-block', [UserAdvertisementController::class, 'addMapBlock'])->name('user.add.map.block');
+        Route::post('/user/store/section/map-block', [UserAdvertisementController::class, 'storeMapBlock'])->name('user.store.map.block');
+        Route::get('/user/edit/section/map-block/{id}', [UserAdvertisementController::class, 'editMapBlock'])->name('user.edit.map.block');
+        Route::post('/user/update/section/map-block', [UserAdvertisementController::class, 'updateMapBlock'])->name('user.update.map.block');
+        Route::get('/user/delete/section/map-block/{id}', [UserAdvertisementController::class, 'deleteMapBlock'])->name('user.delete.map.block');
+        Route::post('/user/update/section/map-block-status', [UserAdvertisementController::class, 'updateMapBlockStatus'])->name('user.update.section.map.block.status');
         // Image Hover
         Route::get('/user/image-hovers', [UserAdvertisementController::class, 'getImageHovers'])->name('user.get.image.hovers');
 

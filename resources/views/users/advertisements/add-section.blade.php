@@ -52,7 +52,7 @@
                                             <td style="color: {{ $section->required_plan == 2 ? '#ffc107' : '' }}">
                                                 {{ $section->name }}
                                             </td>
-                                            <td>
+                                            <td style="text-align: left;">
                                                 {!! nl2br($section->note) !!}
                                             </td>                              
                                             <td style="min-width: 110px;">

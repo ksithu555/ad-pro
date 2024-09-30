@@ -82,8 +82,8 @@
                                 <td style="min-width: 110px;">
                                     {{ $section->section->name }}  
                                 </td>   
-                                <td>
-                                    {{ $section->section->note }}  
+                                <td style="text-align: left;">
+                                    {!! nl2br($section->section->note) !!}  
                                 </td>                              
                                 <td style="min-width: 110px;">
                                     <a href="{{ route('user.preview.section', $section->section_id) }}" target="_blank">

@@ -160,7 +160,7 @@
             @elseif ($advertisementSection->section->name == 'Header02')
             <!--== Header02 Start ==-->
             <section class="{{ $sectionBg }} parallax-bg fixed-bg view-height-100vh lg-section" id="{{ $advertisementSection->name }}"
-                data-parallax-bg-image="{{ asset('assets/images/all/header-02.webp') }}" 
+                data-parallax-bg-image="" 
                 data-parallax-speed="0.5" data-parallax-direction="up">
                 <div class="color-overlay-bg"></div>
                 <div class="hero-text-wrap transparent-bg">

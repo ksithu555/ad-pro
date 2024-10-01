@@ -2190,7 +2190,7 @@
                         @endphp    
                         @if ($advertisementSubBoxBlock->status == 1)
                             <div class="col-md-{{ $col }} col-sm-{{ $col }} col-xs-12">
-                                <div class="feature-box text-center mb-50 feature-box-rounded wow fadeInUp center-feature" data-wow-delay="0.1s">
+                                <div class="text-center mb-50 feature-box-rounded wow fadeInUp center-feature" data-wow-delay="0.1s">
                                     <span class="font-100px default-color font-700">
                                         <span class="dark-color">
                                             {{ substr($advertisementSubBoxBlock->icon, 0, 1) }}
@@ -2236,7 +2236,7 @@
                         @endphp
                         @if ($advertisementSubBoxBlock->status == 1)
                         <div class="col-md-{{ $col }} col-sm-{{ $col }} col-xs-12">
-                          <div class="feature-box text-center mb-50 feature-box-rounded center-feature border-radius-10">
+                          <div class="text-center mb-50 feature-box-rounded center-feature border-radius-10">
                             <i class="{{ $advertisementSubBoxBlock->icon }} font-40px default-color"></i>
                             <h4 class="mt-0 font-600">{{ $advertisementSubBoxBlock->title }}</h4>
                             <p class="font-400 mt-20">{{ $advertisementSubBoxBlock->body }}</p>
@@ -2279,7 +2279,7 @@
                         <div class="col-md-{{ $col }} col-sm-{{ $col }} col-xs-12">
                             <div class="flipper">
                               <div class="text-center mb-50 main-box">
-                                <div class="box-front height-300px white-bg">
+                                <div class="box-front height-300px {{ $sectionBg == 'white-bg' ? 'grey-bg' : 'white-bg' }}">
                                   <div class="content-wrap">
                                     <i class="{{ $advertisementSubBoxBlock->icon }} font-40px default-color"></i>
                                     <h4 class="font-600">{{ $advertisementSubBoxBlock->title }}</h4>
@@ -2334,7 +2334,7 @@
                             <div class="box-icon text-center">
                                 <i class="{{ $advertisementSubBoxBlock->icon }} font-50px default-color"></i>
                                 <div class="title-section">
-                                    <h4 class="mt-0 font-600">{{ $advertisementSubBoxBlock->title }}</h4>
+                                    <h4 class="mt-10 font-600">{{ $advertisementSubBoxBlock->title }}</h4>
                                     <p class="font-400">{{ $advertisementSubBoxBlock->body }}</p>
                                 </div>
                             </div>
@@ -2377,7 +2377,7 @@
                             <div class="box-icon text-center">
                                 <img src="{{ asset('assets/images/all/' . $advertisementSubBoxBlock->icon) }}" alt="Parallax Effects" width="150" height="150">
                                 <div class="title-section mt-20">
-                                    <h4 class="mt-0 font-600">{{ $advertisementSubBoxBlock->title }}</h4>
+                                    <h4 class="mt-10 font-600">{{ $advertisementSubBoxBlock->title }}</h4>
                                     <p class="font-400">{{ $advertisementSubBoxBlock->body }}</p>
                                 </div>
                             </div>

@@ -69,24 +69,24 @@
 
         // Update the background image dynamically by changing the data-parallax-bg-image attribute
         document.getElementById('fileInput').addEventListener('change', function (event) {
-        const file = event.target.files[0];
-        if (file) {
-            const reader = new FileReader();
-            reader.onload = function (e) {
-                // Get the slide-img element and update the data-parallax-bg-image attribute
-                const slideImgElement = document.querySelector('.slide-img');
-                const parallaxInner = document.querySelector('.parallax-inner');
-                
-                // Update the parallax data attribute
-                slideImgElement.setAttribute('data-parallax-bg-image', e.target.result);
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    // Get the slide-img element and update the data-parallax-bg-image attribute
+                    const slideImgElement = document.querySelector('.slide-img');
+                    const parallaxInner = document.querySelector('.parallax-inner');
+                    
+                    // Update the parallax data attribute
+                    slideImgElement.setAttribute('data-parallax-bg-image', e.target.result);
 
-                // Update the parallax-inner background image directly
-                if (parallaxInner) {
-                    parallaxInner.style.backgroundImage = `url(${e.target.result})`;
-                }
-            };
-            reader.readAsDataURL(file);
-        }
-    });
+                    // Update the parallax-inner background image directly
+                    if (parallaxInner) {
+                        parallaxInner.style.backgroundImage = `url(${e.target.result})`;
+                    }
+                };
+                reader.readAsDataURL(file);
+            }
+        });
     </script>
 </x-section-layout>

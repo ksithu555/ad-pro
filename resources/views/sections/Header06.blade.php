@@ -7,7 +7,7 @@
             <ul>	<!-- SLIDE  -->
                 <li data-index="rs-82" data-transition="fade" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="Power4.easeOut" data-easeout="Power4.easeOut" data-masterspeed="1000"  data-thumb="assets/images/slides/home-bg-12-100x50.jpg"  data-rotate="0"  data-saveperformance="off"  data-title="Slide" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="" data-slicey_shadow="0px 0px 50px 0px transparent">
                     <!-- MAIN IMAGE -->
-                    <img src="{{ asset('assets/images/title-bg/ad-pro-default.jpg') }}"  alt=""  data-bgposition="center center" data-kenburns="on" data-duration="7000" data-ease="Linear.easeNone" data-scalestart="100" data-scaleend="150" data-rotatestart="0" data-rotateend="0" data-blurstart="0" data-blurend="0" data-offsetstart="0 0" data-offsetend="0 0" class="rev-slidebg" data-no-retina>
+                    <img id="slide-82-image" src="{{ asset('assets/images/title-bg/ad-pro-default.jpg') }}"  alt=""  data-bgposition="center center" data-kenburns="on" data-duration="7000" data-ease="Linear.easeNone" data-scalestart="100" data-scaleend="150" data-rotatestart="0" data-rotateend="0" data-blurstart="0" data-blurend="0" data-offsetstart="0 0" data-offsetend="0 0" class="rev-slidebg" data-no-retina>
                     <!-- LAYERS -->
     
                     <!-- LAYER NR. 1 -->
@@ -302,7 +302,7 @@
                 <!-- SLIDE  -->
                 <li data-index="rs-83" data-transition="fade" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="Power4.easeOut" data-easeout="Power4.easeOut" data-masterspeed="1000"  data-thumb="assets/images/slides/home-bg-13-100x50.jpg"  data-rotate="0"  data-saveperformance="off"  data-title="Slide" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="" data-slicey_shadow="0px 0px 50px 0px #1a1336">
                     <!-- MAIN IMAGE -->
-                    <img src="{{ asset('assets/images/title-bg/ad-pro-default.jpg') }}"  alt=""  data-bgposition="center center" data-kenburns="on" data-duration="7000" data-ease="Linear.easeNone" data-scalestart="100" data-scaleend="150" data-rotatestart="0" data-rotateend="0" data-blurstart="0" data-blurend="0" data-offsetstart="0 0" data-offsetend="0 0" class="rev-slidebg" data-no-retina>
+                    <img id="slide-83-image" src="{{ asset('assets/images/title-bg/ad-pro-default.jpg') }}"  alt=""  data-bgposition="center center" data-kenburns="on" data-duration="7000" data-ease="Linear.easeNone" data-scalestart="100" data-scaleend="150" data-rotatestart="0" data-rotateend="0" data-blurstart="0" data-blurend="0" data-offsetstart="0 0" data-offsetend="0 0" class="rev-slidebg" data-no-retina>
                     <!-- LAYERS -->
     
                     <!-- LAYER NR. 13 -->
@@ -476,7 +476,7 @@
                 <!-- SLIDE  -->
                 <li data-index="rs-85" data-transition="fade" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="Power4.easeOut" data-easeout="Power4.easeOut" data-masterspeed="1000"  data-thumb="assets/images/slides/home-bg-14-100x50.jpg"  data-rotate="0"  data-saveperformance="off"  data-title="Slide" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="" data-slicey_shadow="0px 0px 50px 0px rgba(0, 0, 0, 0.15)">
                     <!-- MAIN IMAGE -->
-                    <img src="{{ asset('assets/images/title-bg/ad-pro-default.jpg') }}"  alt=""  data-bgposition="center center" data-kenburns="on" data-duration="7000" data-ease="Linear.easeNone" data-scalestart="100" data-scaleend="120" data-rotatestart="0" data-rotateend="0" data-blurstart="0" data-blurend="0" data-offsetstart="0 0" data-offsetend="0 0" class="rev-slidebg" data-no-retina>
+                    <img id="slide-85-image" src="{{ asset('assets/images/title-bg/ad-pro-default.jpg') }}"  alt=""  data-bgposition="center center" data-kenburns="on" data-duration="7000" data-ease="Linear.easeNone" data-scalestart="100" data-scaleend="120" data-rotatestart="0" data-rotateend="0" data-blurstart="0" data-blurend="0" data-offsetstart="0 0" data-offsetend="0 0" class="rev-slidebg" data-no-retina>
                     <!-- LAYERS -->
     
                     <!-- LAYER NR. 20 -->
@@ -649,7 +649,7 @@
                 <!-- SLIDE  -->
                 <li data-index="rs-84" data-transition="fade" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="Power4.easeOut" data-easeout="Power4.easeOut" data-masterspeed="1000"  data-thumb="assets/images/slides/home-bg-15-100x50.jpg"  data-rotate="0"  data-saveperformance="off"  data-title="Slide" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="" data-slicey_shadow="0px 0px 50px 0px #373344">
                     <!-- MAIN IMAGE -->
-                    <img src="{{ asset('assets/images/title-bg/ad-pro-default.jpg') }}"  alt=""  data-bgposition="center center" data-kenburns="on" data-duration="7000" data-ease="Linear.easeNone" data-scalestart="100" data-scaleend="130" data-rotatestart="0" data-rotateend="0" data-blurstart="0" data-blurend="0" data-offsetstart="0 0" data-offsetend="0 0" class="rev-slidebg" data-no-retina>
+                    <img id="slide-84-image" src="{{ asset('assets/images/title-bg/ad-pro-default.jpg') }}"  alt=""  data-bgposition="center center" data-kenburns="on" data-duration="7000" data-ease="Linear.easeNone" data-scalestart="100" data-scaleend="130" data-rotatestart="0" data-rotateend="0" data-blurstart="0" data-blurend="0" data-offsetstart="0 0" data-offsetend="0 0" class="rev-slidebg" data-no-retina>
                     <!-- LAYERS -->
     
                     <!-- LAYER NR. 27 -->
@@ -846,7 +846,7 @@
                 <!-- SLIDE  -->
                 <li data-index="rs-86" data-transition="fade" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="Power4.easeOut" data-easeout="Power4.easeOut" data-masterspeed="1000"  data-thumb="assets/images/slides/home-bg-16-100x50.jpg"  data-rotate="0"  data-saveperformance="off"  data-title="Slide" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="" data-slicey_shadow="0px 0px 50px 0px transparent">
                     <!-- MAIN IMAGE -->
-                    <img src="{{ asset('assets/images/title-bg/ad-pro-default.jpg') }}"  alt=""  data-bgposition="center center" data-kenburns="on" data-duration="7000" data-ease="Linear.easeNone" data-scalestart="100" data-scaleend="120" data-rotatestart="0" data-rotateend="0" data-blurstart="0" data-blurend="0" data-offsetstart="0 0" data-offsetend="0 0" class="rev-slidebg" data-no-retina>
+                    <img id="slide-86-image" src="{{ asset('assets/images/title-bg/ad-pro-default.jpg') }}"  alt=""  data-bgposition="center center" data-kenburns="on" data-duration="7000" data-ease="Linear.easeNone" data-scalestart="100" data-scaleend="120" data-rotatestart="0" data-rotateend="0" data-blurstart="0" data-blurend="0" data-offsetstart="0 0" data-offsetend="0 0" class="rev-slidebg" data-no-retina>
                     <!-- LAYERS -->
     
                     <!-- LAYER NR. 35 -->
@@ -1053,4 +1053,355 @@
         </div>
     </section>
     <!--== Photography Rev Slider End ==-->
+
+    <!-- Test Button and Dynamic Form Section -->
+	<div class="container mt-40 mb-40">
+		<div class="row">
+			<div class="col-md-8 centerize-col">
+				<button id="testButton" class="btn btn-color btn-circle">ライブプレビューで確認</button>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-8 centerize-col">
+				<div id="dynamicForm" class="mt-20" style="display: none;">
+					<h4>ブロック１</h4>
+					<!-- Text input for Design Studio -->
+					<input type="text" id="titleTextInput82" class="form-control md-input mt-10" placeholder="タイトル">
+					<!-- Textarea input for We Design Digital Brand Experiences -->
+					<textarea id="contentTextInput82" class="form-control md-textarea mt-10" placeholder="内容"></textarea>
+					<!-- File input for changing background image -->
+					<input type="file" id="fileInput82" class="form-control mt-10" accept="image/*">
+
+
+					<!-- Text input for Design Studio -->
+					<h4>ブロック２</h4>
+					<input type="text" id="titleTextInput83" class="form-control md-input mt-10" placeholder="タイトル">
+					<!-- Textarea input for We Design Digital Brand Experiences -->
+					<textarea id="contentTextInput83" class="form-control md-textarea mt-10" placeholder="内容"></textarea>
+					<!-- File input for changing background image -->
+					<input type="file" id="fileInput83" class="form-control mt-10" accept="image/*">
+
+
+					<!-- Text input for Design Studio -->
+					<h4>ブロック３</h4>
+					<input type="text" id="titleTextInput85" class="form-control md-input mt-10" placeholder="タイトル">
+					<!-- Textarea input for We Design Digital Brand Experiences -->
+					<textarea id="contentTextInput85" class="form-control md-textarea mt-10" placeholder="内容"></textarea>
+					<!-- File input for changing background image -->
+					<input type="file" id="fileInput85" class="form-control mt-10" accept="image/*">
+
+
+					<!-- Text input for Design Studio -->
+					<h4>ブロック４</h4>
+					<input type="text" id="titleTextInput84" class="form-control md-input mt-10" placeholder="タイトル">
+					<!-- Textarea input for We Design Digital Brand Experiences -->
+					<textarea id="contentTextInput84" class="form-control md-textarea mt-10" placeholder="内容"></textarea>
+					<!-- File input for changing background image -->
+					<input type="file" id="fileInput84" class="form-control mt-10" accept="image/*">
+
+
+					<!-- Text input for Design Studio -->
+					<h4>ブロック５</h4>
+					<input type="text" id="titleTextInput86" class="form-control md-input mt-10" placeholder="タイトル">
+					<!-- Textarea input for We Design Digital Brand Experiences -->
+					<textarea id="contentTextInput86" class="form-control md-textarea mt-10" placeholder="内容"></textarea>
+					<!-- File input for changing background image -->
+					<input type="file" id="fileInput86" class="form-control mt-10" accept="image/*">
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script>
+        // Show the form when clicking the Test button
+        document.getElementById('testButton').addEventListener('click', function () {
+            document.getElementById('dynamicForm').style.display = 'block';
+        });
+
+        // Update the Design Studio heading in real-time
+        document.getElementById('titleTextInput82').addEventListener('input', function () {
+            document.getElementById('slide-82-layer-3').innerHTML = this.value;
+        });
+
+        // Update the Brand Experiences text in real-time
+        document.getElementById('contentTextInput82').addEventListener('input', function () {
+            document.getElementById('slide-82-layer-4').innerText = this.value;
+        });
+
+        // Update the background image dynamically by changing the data-parallax-bg-image attribute
+        document.getElementById('fileInput82').addEventListener('change', function (event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    // Find the correct tp-bgimg div using the data-index attribute of the slide
+                    const slideBgImageElement = document.querySelector('li[data-index="rs-82"] .tp-bgimg');
+                    const slideBgImageElement1 = document.querySelector('li[data-index="rs-82"] .tp-kbimg');
+                    const slideBgImageElement2 = document.querySelector('li[data-index="rs-82"] div[id="slide-82-layer-13"] .slicedbox_defmig');
+                    const slideBgImageElement3 = document.querySelector('li[data-index="rs-82"] div[id="slide-82-layer-6"] .slicedbox_defmig');
+                    const slideBgImageElement4 = document.querySelector('li[data-index="rs-82"] div[id="slide-82-layer-5"] .slicedbox_defmig');
+                    const slideBgImageElement5 = document.querySelector('li[data-index="rs-82"] div[id="slide-82-layer-12"] .slicedbox_defmig');
+                    const slideBgImageElement6 = document.querySelector('li[data-index="rs-82"] div[id="slide-82-layer-1"] .slicedbox_defmig');
+                    const slideBgImageElement7 = document.querySelector('li[data-index="rs-82"] div[id="slide-82-layer-14"] .slicedbox_defmig');
+                    const slideBgImageElement8 = document.querySelector('li[data-index="rs-82"] div[id="slide-82-layer-15"] .slicedbox_defmig');
+                    const slideBgImageElement9 = document.querySelector('li[data-index="rs-82"] div[id="slide-82-layer-16"] .slicedbox_defmig');
+                    const slideBgImageElement10 = document.querySelector('li[data-index="rs-82"] div[id="slide-82-layer-17"] .slicedbox_defmig');
+                    const slideBgImageElement11 = document.querySelector('li[data-index="rs-82"] div[id="slide-82-layer-2"] .slicedbox_defmig');
+                    const slideBgImageElement12 = document.querySelector('li[data-index="rs-82"] div[id="slide-82-layer-3"] .slicedbox_defmig');
+                    const slideBgImageElement13 = document.querySelector('li[data-index="rs-82"] div[id="slide-82-layer-4"] .slicedbox_defmig');
+                    if (slideBgImageElement) {
+                        // Update the background image style
+                        slideBgImageElement.style.backgroundImage = `url(${e.target.result})`;
+                        slideBgImageElement.src = e.target.result;
+                        slideBgImageElement1.src = e.target.result;
+                        slideBgImageElement2.style.backgroundImage = `url(${e.target.result})`;
+                        slideBgImageElement2.src = e.target.result;
+                        slideBgImageElement3.style.backgroundImage = `url(${e.target.result})`;
+                        slideBgImageElement3.src = e.target.result;
+                        slideBgImageElement4.style.backgroundImage = `url(${e.target.result})`;
+                        slideBgImageElement4.src = e.target.result;
+                        slideBgImageElement5.style.backgroundImage = `url(${e.target.result})`;
+                        slideBgImageElement5.src = e.target.result;
+                        slideBgImageElement6.style.backgroundImage = `url(${e.target.result})`;
+                        slideBgImageElement6.src = e.target.result;
+                        slideBgImageElement7.style.backgroundImage = `url(${e.target.result})`;
+                        slideBgImageElement7.src = e.target.result;
+                        slideBgImageElement8.style.backgroundImage = `url(${e.target.result})`;
+                        slideBgImageElement8.src = e.target.result;
+                        slideBgImageElement9.style.backgroundImage = `url(${e.target.result})`;
+                        slideBgImageElement9.src = e.target.result;
+                        slideBgImageElement10.style.backgroundImage = `url(${e.target.result})`;
+                        slideBgImageElement10.src = e.target.result;
+                        slideBgImageElement11.style.backgroundImage = `url(${e.target.result})`;
+                        slideBgImageElement11.src = e.target.result;
+                        slideBgImageElement12.style.backgroundImage = `url(${e.target.result})`;
+                        slideBgImageElement12.src = e.target.result;
+                        slideBgImageElement13.style.backgroundImage = `url(${e.target.result})`;
+                        slideBgImageElement13.src = e.target.result;
+                    } else {
+                        console.error('Slide background image element not found.');
+                    }
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        // Update the Design Studio heading in real-time
+        document.getElementById('titleTextInput83').addEventListener('input', function () {
+            document.getElementById('slide-83-layer-3').innerHTML = this.value;
+        });
+
+        // Update the Brand Experiences text in real-time
+        document.getElementById('contentTextInput83').addEventListener('input', function () {
+            document.getElementById('slide-83-layer-4').innerText = this.value;
+        });
+
+        // Update the background image dynamically by changing the data-parallax-bg-image attribute
+        document.getElementById('fileInput83').addEventListener('change', function (event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    // Find the correct tp-bgimg div using the data-index attribute of the slide
+                    const slideBgImageElement = document.querySelector('li[data-index="rs-83"] .tp-bgimg');
+                    const slideBgImageElement1 = document.querySelector('li[data-index="rs-83"] .tp-kbimg');
+                    const slideBgImageElement2 = document.querySelector('li[data-index="rs-83"] div[id="slide-83-layer-7"] .slicedbox_defmig');
+                    const slideBgImageElement3 = document.querySelector('li[data-index="rs-83"] div[id="slide-83-layer-6"] .slicedbox_defmig');
+                    const slideBgImageElement4 = document.querySelector('li[data-index="rs-83"] div[id="slide-83-layer-1"] .slicedbox_defmig');
+                    const slideBgImageElement5 = document.querySelector('li[data-index="rs-83"] div[id="slide-83-layer-5"] .slicedbox_defmig');
+                    const slideBgImageElement6 = document.querySelector('li[data-index="rs-83"] div[id="slide-83-layer-2"] .slicedbox_defmig');
+                    const slideBgImageElement7 = document.querySelector('li[data-index="rs-83"] div[id="slide-83-layer-3"] .slicedbox_defmig');
+                    const slideBgImageElement8 = document.querySelector('li[data-index="rs-83"] div[id="slide-83-layer-4"] .slicedbox_defmig');
+                    if (slideBgImageElement) {
+                        // Update the background image style
+                        slideBgImageElement.style.backgroundImage = `url(${e.target.result})`;
+                        slideBgImageElement.src = e.target.result;
+                        slideBgImageElement1.src = e.target.result;
+                        slideBgImageElement2.style.backgroundImage = `url(${e.target.result})`;
+                        slideBgImageElement2.src = e.target.result;
+                        slideBgImageElement3.style.backgroundImage = `url(${e.target.result})`;
+                        slideBgImageElement3.src = e.target.result;
+                        slideBgImageElement4.style.backgroundImage = `url(${e.target.result})`;
+                        slideBgImageElement4.src = e.target.result;
+                        slideBgImageElement5.style.backgroundImage = `url(${e.target.result})`;
+                        slideBgImageElement5.src = e.target.result;
+                        slideBgImageElement6.style.backgroundImage = `url(${e.target.result})`;
+                        slideBgImageElement6.src = e.target.result;
+                        slideBgImageElement7.style.backgroundImage = `url(${e.target.result})`;
+                        slideBgImageElement7.src = e.target.result;
+                        slideBgImageElement8.style.backgroundImage = `url(${e.target.result})`;
+                        slideBgImageElement8.src = e.target.result;
+                    } else {
+                        console.error('Slide background image element not found.');
+                    }
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        // Update the Design Studio heading in real-time
+        document.getElementById('titleTextInput85').addEventListener('input', function () {
+            document.getElementById('slide-85-layer-3').innerHTML = this.value;
+        });
+
+        // Update the Brand Experiences text in real-time
+        document.getElementById('contentTextInput85').addEventListener('input', function () {
+            document.getElementById('slide-85-layer-4').innerText = this.value;
+        });
+
+        // Update the background image dynamically by changing the data-parallax-bg-image attribute
+        document.getElementById('fileInput85').addEventListener('change', function (event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    // Find the correct tp-bgimg div using the data-index attribute of the slide
+                    const slideBgImageElement = document.querySelector('li[data-index="rs-85"] .tp-bgimg');
+                    const slideBgImageElement1 = document.querySelector('li[data-index="rs-85"] .tp-kbimg');
+                    const slideBgImageElement2 = document.querySelector('li[data-index="rs-85"] div[id="slide-85-layer-1"] .slicedbox_defmig');
+                    const slideBgImageElement3 = document.querySelector('li[data-index="rs-85"] div[id="slide-85-layer-6"] .slicedbox_defmig');
+                    const slideBgImageElement4 = document.querySelector('li[data-index="rs-85"] div[id="slide-85-layer-7"] .slicedbox_defmig');
+                    const slideBgImageElement5 = document.querySelector('li[data-index="rs-85"] div[id="slide-85-layer-15"] .slicedbox_defmig');
+                    const slideBgImageElement6 = document.querySelector('li[data-index="rs-85"] div[id="slide-85-layer-2"] .slicedbox_defmig');
+                    const slideBgImageElement7 = document.querySelector('li[data-index="rs-85"] div[id="slide-85-layer-3"] .slicedbox_defmig');
+                    const slideBgImageElement8 = document.querySelector('li[data-index="rs-85"] div[id="slide-85-layer-4"] .slicedbox_defmig');
+                    if (slideBgImageElement) {
+                        // Update the background image style
+                        slideBgImageElement.style.backgroundImage = `url(${e.target.result})`;
+                        slideBgImageElement.src = e.target.result;
+                        slideBgImageElement1.src = e.target.result;
+                        slideBgImageElement2.style.backgroundImage = `url(${e.target.result})`;
+                        slideBgImageElement2.src = e.target.result;
+                        slideBgImageElement3.style.backgroundImage = `url(${e.target.result})`;
+                        slideBgImageElement3.src = e.target.result;
+                        slideBgImageElement4.style.backgroundImage = `url(${e.target.result})`;
+                        slideBgImageElement4.src = e.target.result;
+                        slideBgImageElement5.style.backgroundImage = `url(${e.target.result})`;
+                        slideBgImageElement5.src = e.target.result;
+                        slideBgImageElement6.style.backgroundImage = `url(${e.target.result})`;
+                        slideBgImageElement6.src = e.target.result;
+                        slideBgImageElement7.style.backgroundImage = `url(${e.target.result})`;
+                        slideBgImageElement7.src = e.target.result;
+                        slideBgImageElement8.style.backgroundImage = `url(${e.target.result})`;
+                        slideBgImageElement8.src = e.target.result;
+                    } else {
+                        console.error('Slide background image element not found.');
+                    }
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        // Update the Design Studio heading in real-time
+        document.getElementById('titleTextInput84').addEventListener('input', function () {
+            document.getElementById('slide-84-layer-3').innerHTML = this.value;
+        });
+
+        // Update the Brand Experiences text in real-time
+        document.getElementById('contentTextInput84').addEventListener('input', function () {
+            document.getElementById('slide-84-layer-4').innerText = this.value;
+        });
+
+        // Update the background image dynamically by changing the data-parallax-bg-image attribute
+        document.getElementById('fileInput84').addEventListener('change', function (event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    // Find the correct tp-bgimg div using the data-index attribute of the slide
+                    const slideBgImageElement = document.querySelector('li[data-index="rs-84"] .tp-bgimg');
+                    const slideBgImageElement1 = document.querySelector('li[data-index="rs-84"] .tp-kbimg');
+                    const slideBgImageElement2 = document.querySelector('li[data-index="rs-84"] div[id="slide-84-layer-6"] .slicedbox_defmig');
+                    const slideBgImageElement3 = document.querySelector('li[data-index="rs-84"] div[id="slide-84-layer-7"] .slicedbox_defmig');
+                    const slideBgImageElement4 = document.querySelector('li[data-index="rs-84"] div[id="slide-84-layer-1"] .slicedbox_defmig');
+                    const slideBgImageElement5 = document.querySelector('li[data-index="rs-84"] div[id="slide-84-layer-5"] .slicedbox_defmig');
+                    const slideBgImageElement6 = document.querySelector('li[data-index="rs-84"] div[id="slide-84-layer-9"] .slicedbox_defmig');
+                    const slideBgImageElement7 = document.querySelector('li[data-index="rs-84"] div[id="slide-84-layer-2"] .slicedbox_defmig');
+                    const slideBgImageElement8 = document.querySelector('li[data-index="rs-84"] div[id="slide-84-layer-3"] .slicedbox_defmig');
+                    const slideBgImageElement9 = document.querySelector('li[data-index="rs-84"] div[id="slide-84-layer-4"] .slicedbox_defmig');
+                    if (slideBgImageElement) {
+                        // Update the background image style
+                        slideBgImageElement.style.backgroundImage = `url(${e.target.result})`;
+                        slideBgImageElement.src = e.target.result;
+                        slideBgImageElement1.src = e.target.result;
+                        slideBgImageElement2.style.backgroundImage = `url(${e.target.result})`;
+                        slideBgImageElement2.src = e.target.result;
+                        slideBgImageElement3.style.backgroundImage = `url(${e.target.result})`;
+                        slideBgImageElement3.src = e.target.result;
+                        slideBgImageElement4.style.backgroundImage = `url(${e.target.result})`;
+                        slideBgImageElement4.src = e.target.result;
+                        slideBgImageElement5.style.backgroundImage = `url(${e.target.result})`;
+                        slideBgImageElement5.src = e.target.result;
+                        slideBgImageElement6.style.backgroundImage = `url(${e.target.result})`;
+                        slideBgImageElement6.src = e.target.result;
+                        slideBgImageElement7.style.backgroundImage = `url(${e.target.result})`;
+                        slideBgImageElement7.src = e.target.result;
+                        slideBgImageElement8.style.backgroundImage = `url(${e.target.result})`;
+                        slideBgImageElement8.src = e.target.result;
+                        slideBgImageElement9.style.backgroundImage = `url(${e.target.result})`;
+                        slideBgImageElement9.src = e.target.result;
+                    } else {
+                        console.error('Slide background image element not found.');
+                    }
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        // Update the Design Studio heading in real-time
+        document.getElementById('titleTextInput86').addEventListener('input', function () {
+            document.getElementById('slide-86-layer-3').innerHTML = this.value;
+        });
+
+        // Update the Brand Experiences text in real-time
+        document.getElementById('contentTextInput86').addEventListener('input', function () {
+            document.getElementById('slide-86-layer-4').innerText = this.value;
+        });
+
+        // Update the background image dynamically by changing the data-parallax-bg-image attribute
+        document.getElementById('fileInput86').addEventListener('change', function (event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    // Find the correct tp-bgimg div using the data-index attribute of the slide
+                    const slideBgImageElement = document.querySelector('li[data-index="rs-86"] .tp-bgimg');
+                    const slideBgImageElement1 = document.querySelector('li[data-index="rs-86"] .tp-kbimg');
+                    const slideBgImageElement2 = document.querySelector('li[data-index="rs-86"] div[id="slide-86-layer-6"] .slicedbox_defmig');
+                    const slideBgImageElement3 = document.querySelector('li[data-index="rs-86"] div[id="slide-86-layer-7"] .slicedbox_defmig');
+                    const slideBgImageElement4 = document.querySelector('li[data-index="rs-86"] div[id="slide-86-layer-1"] .slicedbox_defmig');
+                    const slideBgImageElement5 = document.querySelector('li[data-index="rs-86"] div[id="slide-86-layer-5"] .slicedbox_defmig');
+                    const slideBgImageElement6 = document.querySelector('li[data-index="rs-86"] div[id="slide-86-layer-9"] .slicedbox_defmig');
+                    const slideBgImageElement7 = document.querySelector('li[data-index="rs-86"] div[id="slide-86-layer-2"] .slicedbox_defmig');
+                    const slideBgImageElement8 = document.querySelector('li[data-index="rs-86"] div[id="slide-86-layer-3"] .slicedbox_defmig');
+                    const slideBgImageElement9 = document.querySelector('li[data-index="rs-86"] div[id="slide-86-layer-4"] .slicedbox_defmig');
+                    if (slideBgImageElement) {
+                        // Update the background image style
+                        slideBgImageElement.style.backgroundImage = `url(${e.target.result})`;
+                        slideBgImageElement.src = e.target.result;
+                        slideBgImageElement1.src = e.target.result;
+                        slideBgImageElement2.style.backgroundImage = `url(${e.target.result})`;
+                        slideBgImageElement2.src = e.target.result;
+                        slideBgImageElement3.style.backgroundImage = `url(${e.target.result})`;
+                        slideBgImageElement3.src = e.target.result;
+                        slideBgImageElement4.style.backgroundImage = `url(${e.target.result})`;
+                        slideBgImageElement4.src = e.target.result;
+                        slideBgImageElement5.style.backgroundImage = `url(${e.target.result})`;
+                        slideBgImageElement5.src = e.target.result;
+                        slideBgImageElement6.style.backgroundImage = `url(${e.target.result})`;
+                        slideBgImageElement6.src = e.target.result;
+                        slideBgImageElement7.style.backgroundImage = `url(${e.target.result})`;
+                        slideBgImageElement7.src = e.target.result;
+                        slideBgImageElement8.style.backgroundImage = `url(${e.target.result})`;
+                        slideBgImageElement8.src = e.target.result;
+                        slideBgImageElement9.style.backgroundImage = `url(${e.target.result})`;
+                        slideBgImageElement9.src = e.target.result;
+                    } else {
+                        console.error('Slide background image element not found.');
+                    }
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+    </script>
 </x-section-layout>

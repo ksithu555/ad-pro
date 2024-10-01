@@ -7,7 +7,7 @@
 				<ul>	<!-- SLIDE  -->
 					<li data-index="rs-411" data-transition="fadethroughtransparent" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="default" data-easeout="default" data-masterspeed="default"  data-thumb="assets/images/slides/home-bg-21-100x50.jpg"  data-rotate="0"  data-fstransition="fade" data-fsmasterspeed="1000" data-fsslotamount="7" data-saveperformance="off"  data-title="One" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
 						<!-- MAIN IMAGE -->
-						<img src="{{ asset('assets/images/title-bg/ad-pro-default.jpg') }}"  alt=""  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="6" class="rev-slidebg" data-no-retina>
+						<img id="slide-411-image" src="{{ asset('assets/images/title-bg/ad-pro-default.jpg') }}"  alt=""  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="6" class="rev-slidebg" data-no-retina>
 						<!-- LAYERS -->
 						<div id="rrzt_411" class="rev_row_zone rev_row_zone_top slider-creative" style="z-index: 9;">
 							<!-- LAYER NR. 1 -->
@@ -101,7 +101,7 @@
 					<!-- SLIDE  -->
 					<li data-index="rs-412" data-transition="fadethroughtransparent" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="default" data-easeout="default" data-masterspeed="default"  data-thumb="assets/images/home-bg-22-100x50.jpg"  data-rotate="0"  data-saveperformance="off"  data-title="Two" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
 						<!-- MAIN IMAGE -->
-						<img src="{{ asset('assets/images/title-bg/ad-pro-default.jpg') }}"  alt=""  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="6" class="rev-slidebg" data-no-retina>
+						<img id="slide-412-image" src="{{ asset('assets/images/title-bg/ad-pro-default.jpg') }}"  alt=""  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="6" class="rev-slidebg" data-no-retina>
 						<!-- LAYERS -->
 						<div id="rrzt_412" class="rev_row_zone rev_row_zone_top slider-creative" style="z-index: 5;">
 						<!-- LAYER NR. 10 -->
@@ -159,7 +159,7 @@
 										style="z-index: 6; width: 100%;">
 										<!-- LAYER NR. 12 -->
 										<div class="tp-caption   tp-resizeme  blurslider-gradient"
-												id="slide-411-layer-1"
+												id="slide-412-layer-1"
 												data-x="['left','left','center','center']" data-hoffset="['0','0','0','0']"
 												data-y="['top','top','top','top']" data-voffset="['0','0','230','110']"
 															data-fontsize="['110','90','100','70']"
@@ -195,7 +195,7 @@
 					<!-- SLIDE  -->
 					<li data-index="rs-413" data-transition="fadethroughtransparent" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="default" data-easeout="default" data-masterspeed="default"  data-thumb="assets/images/slides/home-bg-23-100x50.jpg"  data-rotate="0"  data-saveperformance="off"  data-title="Three" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
 						<!-- MAIN IMAGE -->
-						<img src="{{ asset('assets/images/title-bg/ad-pro-default.jpg') }}"  alt=""  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="6" class="rev-slidebg" data-no-retina>
+						<img id="slide-413-image" src="{{ asset('assets/images/title-bg/ad-pro-default.jpg') }}"  alt=""  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="6" class="rev-slidebg" data-no-retina>
 						<!-- LAYERS -->
 						<div id="rrzt_413" class="rev_row_zone rev_row_zone_top slider-creative" style="z-index: 5;">
 						<!-- LAYER NR. 19 -->
@@ -253,7 +253,7 @@
 											style="z-index: 6; width: 100%;">
 											<!-- LAYER NR. 21 -->
 											<div class="tp-caption   tp-resizeme  blurslider-gradient"
-												id="slide-411-layer-1"
+												id="slide-413-layer-1"
 												data-x="['left','left','center','center']" data-hoffset="['0','0','0','0']"
 												data-y="['top','top','top','top']" data-voffset="['0','0','230','110']"
 												data-fontsize="['110','90','100','70']"
@@ -311,7 +311,8 @@
 						data-paddingbottom="[0,0,0,0]"
 						data-paddingleft="[0,0,0,0]"
 
-						style="z-index: 17; min-width: 260px; max-width: 260px; white-space: nowrap; font-size: 15px; line-height: 15px; font-weight: 500; color: rgba(255, 255, 255, 1.00);font-family:'Montserrat', sans-serif;">1 <div class="blurslider-line" style="display:inline-block;width:40px;height:1px;background:#fff;margin: 10px 20px 4px 15px;"></div>
+						style="z-index: 17; min-width: 260px; max-width: 260px; white-space: nowrap; font-size: 15px; line-height: 15px; font-weight: 500; color: rgba(255, 255, 255, 1.00);font-family:'Montserrat', sans-serif;">
+						1 <div class="blurslider-line" style="display:inline-block;width:40px;height:1px;background:#fff;margin: 10px 20px 4px 15px;"></div>
 						Creativity 
 					</div>
 
@@ -393,7 +394,8 @@
 						data-paddingbottom="[0,0,0,0]"
 						data-paddingleft="[0,0,0,0]"
 
-						style="z-index: 20; min-width: 260px; max-width: 260px; white-space: nowrap; font-size: 15px; line-height: 15px; font-weight: 500; color: rgba(255, 255, 255, 1.00);font-family:'Montserrat', sans-serif;">2 <div class="blurslider-line" style="display:inline-block;width:40px;height:1px;background:#fff;margin: 10px 20px 4px 15px;"></div>
+						style="z-index: 20; min-width: 260px; max-width: 260px; white-space: nowrap; font-size: 15px; line-height: 15px; font-weight: 500; color: rgba(255, 255, 255, 1.00);font-family:'Montserrat', sans-serif;">
+						2 <div class="blurslider-line" style="display:inline-block;width:40px;height:1px;background:#fff;margin: 10px 20px 4px 15px;"></div>
 						Digital Solutions
 					</div>
 
@@ -475,7 +477,8 @@
 						data-paddingbottom="[0,0,0,0]"
 						data-paddingleft="[0,0,0,0]"
 
-						style="z-index: 23; min-width: 260px; max-width: 260px; white-space: nowrap; font-size: 15px; line-height: 15px; font-weight: 500; color: rgba(255, 255, 255, 1.00);font-family:'Montserrat', sans-serif;">3 <div class="blurslider-line" style="display:inline-block;width:40px;height:1px;background:#fff;margin: 10px 20px 4px 15px;"></div>
+						style="z-index: 23; min-width: 260px; max-width: 260px; white-space: nowrap; font-size: 15px; line-height: 15px; font-weight: 500; color: rgba(255, 255, 255, 1.00);font-family:'Montserrat', sans-serif;">
+						3 <div class="blurslider-line" style="display:inline-block;width:40px;height:1px;background:#fff;margin: 10px 20px 4px 15px;"></div>
 						Marketing 
 					</div>
 
@@ -538,5 +541,139 @@
 			</div>
 		</div><!-- END REVOLUTION SLIDER -->
 	</section>
-  <!--== Hero Slider End ==-->
+  	<!--== Hero Slider End ==-->
+
+	<!-- Test Button and Dynamic Form Section -->
+	<div class="container mt-40 mb-40">
+		<div class="row">
+			<div class="col-md-8 centerize-col">
+				<button id="testButton" class="btn btn-color btn-circle">ライブプレビューで確認</button>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-8 centerize-col">
+				<div id="dynamicForm" class="mt-20" style="display: none;">
+					<h4>ブロック１</h4>
+					<!-- Text input for Design Studio -->
+					<input type="text" id="titleTextInput411" class="form-control md-input mt-10" placeholder="タイトル">
+					<!-- Textarea input for We Design Digital Brand Experiences -->
+					<textarea id="contentTextInput411" class="form-control md-textarea mt-10" placeholder="内容"></textarea>
+					<!-- File input for changing background image -->
+					<input type="file" id="fileInput411" class="form-control mt-10" accept="image/*">
+
+
+					<!-- Text input for Design Studio -->
+					<h4>ブロック２</h4>
+					<input type="text" id="titleTextInput412" class="form-control md-input mt-10" placeholder="タイトル">
+					<!-- Textarea input for We Design Digital Brand Experiences -->
+					<textarea id="contentTextInput412" class="form-control md-textarea mt-10" placeholder="内容"></textarea>
+					<!-- File input for changing background image -->
+					<input type="file" id="fileInput412" class="form-control mt-10" accept="image/*">
+
+
+					<!-- Text input for Design Studio -->
+					<h4>ブロック３</h4>
+					<input type="text" id="titleTextInput413" class="form-control md-input mt-10" placeholder="タイトル">
+					<!-- Textarea input for We Design Digital Brand Experiences -->
+					<textarea id="contentTextInput413" class="form-control md-textarea mt-10" placeholder="内容"></textarea>
+					<!-- File input for changing background image -->
+					<input type="file" id="fileInput413" class="form-control mt-10" accept="image/*">
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script>
+        // Show the form when clicking the Test button
+        document.getElementById('testButton').addEventListener('click', function () {
+            document.getElementById('dynamicForm').style.display = 'block';
+        });
+
+        // Update the Design Studio heading in real-time
+        document.getElementById('titleTextInput411').addEventListener('input', function () {
+            document.getElementById('slider-151-layer-29').innerHTML = 1 + '<div class="blurslider-line" style="display:inline-block;width:40px;height:1px;background:#fff;margin: 10px 20px 4px 15px;"></div>' + this.value;
+        });
+
+        // Update the Brand Experiences text in real-time
+        document.getElementById('contentTextInput411').addEventListener('input', function () {
+            document.getElementById('slide-411-layer-1').innerText = this.value;
+        });
+
+        // Update the background image dynamically by changing the data-parallax-bg-image attribute
+        document.getElementById('fileInput411').addEventListener('change', function (event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    // Find the correct tp-bgimg div using the data-index attribute of the slide
+                    const slideBgImageElement = document.querySelector('li[data-index="rs-411"] .tp-bgimg');
+                    if (slideBgImageElement) {
+                        // Update the background image style
+                        slideBgImageElement.style.backgroundImage = `url(${e.target.result})`;
+                    } else {
+                        console.error('Slide background image element not found.');
+                    }
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        // Update the Design Studio heading in real-time
+        document.getElementById('titleTextInput412').addEventListener('input', function () {
+            document.getElementById('slider-151-layer-28').innerHTML = 2 + '<div class="blurslider-line" style="display:inline-block;width:40px;height:1px;background:#fff;margin: 10px 20px 4px 15px;"></div>' + this.value;
+        });
+
+        // Update the Brand Experiences text in real-time
+        document.getElementById('contentTextInput412').addEventListener('input', function () {
+            document.getElementById('slide-412-layer-1').innerText = this.value;
+        });
+
+        // Update the background image dynamically by changing the data-parallax-bg-image attribute
+        document.getElementById('fileInput412').addEventListener('change', function (event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    // Find the correct tp-bgimg div using the data-index attribute of the slide
+                    const slideBgImageElement = document.querySelector('li[data-index="rs-412"] .tp-bgimg');
+                    if (slideBgImageElement) {
+                        // Update the background image style
+                        slideBgImageElement.style.backgroundImage = `url(${e.target.result})`;
+                    } else {
+                        console.error('Slide background image element not found.');
+                    }
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        // Update the Design Studio heading in real-time
+        document.getElementById('titleTextInput413').addEventListener('input', function () {
+            document.getElementById('slider-151-layer-27').innerHTML = 3 + '<div class="blurslider-line" style="display:inline-block;width:40px;height:1px;background:#fff;margin: 10px 20px 4px 15px;"></div>' + this.value;
+        });
+
+        // Update the Brand Experiences text in real-time
+        document.getElementById('contentTextInput413').addEventListener('input', function () {
+            document.getElementById('slide-413-layer-1').innerText = this.value;
+        });
+
+        // Update the background image dynamically by changing the data-parallax-bg-image attribute
+        document.getElementById('fileInput413').addEventListener('change', function (event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    // Find the correct tp-bgimg div using the data-index attribute of the slide
+                    const slideBgImageElement = document.querySelector('li[data-index="rs-413"] .tp-bgimg');
+                    if (slideBgImageElement) {
+                        // Update the background image style
+                        slideBgImageElement.style.backgroundImage = `url(${e.target.result})`;
+                    } else {
+                        console.error('Slide background image element not found.');
+                    }
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+    </script>
 </x-section-layout>

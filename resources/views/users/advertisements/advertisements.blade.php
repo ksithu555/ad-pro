@@ -77,7 +77,7 @@
                                 <td style="min-width: 110px;">
                                     <div>
                                         <a href="{{ route('user.show.sections', $advertisement->id) }}">
-                                            <i class="ion-android-arrow-dropright-circle" style="font-size: 1.8em;"></i>
+                                            <i class="fa-icon-plus-square" style="font-size: 1.5em;"></i>
                                         </a>
                                     </div>
                                     <div>

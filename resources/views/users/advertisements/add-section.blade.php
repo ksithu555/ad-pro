@@ -40,7 +40,7 @@
                                         @foreach ($sections as $key => $section)
                                         <tr>
                                             <td>
-                                                <div class="custom-radio">
+                                                <div class="custom-radio mt-10">
                                                     <input type="radio" id="section-{{ $section->id }}" name="section" 
                                                     value="{{ $section->id }}" @if(Auth::user()->plan_status < $section->required_plan) disabled @endif>
                                                     <label for="section-{{ $section->id }}"></label>

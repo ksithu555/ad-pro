@@ -35,6 +35,7 @@
         <div class="row">
             <div class="col-md-8 centerize-col">
                 <div id="dynamicForm" class="mt-20" style="display: none;">
+                    <h4>ブロック</h4>
                     <!-- Text input for Design Studio -->
                     <input type="text" id="titleTextInput" class="form-control md-input mt-10" placeholder="タイトル">
                     <!-- Textarea input for We Design Digital Brand Experiences -->

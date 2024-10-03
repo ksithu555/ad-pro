@@ -1,44 +1,50 @@
 <x-section-layout>
     <!--== Who We Are Start ==-->
     <section class="white-bg pt-50 pb-50">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-8 section-heading">
-                    <h4 id="titleText" class="text-uppercase mt-0 font-700 roboto-font">The Best Way to Sell Your Design.</h4>
-                    <hr class="dark-bg center_line bold-line">
-                    <p id="contentText" class="mt-30 font-16px dark-color text-center roboto-font">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-8 section-heading">
+              <h4 id="titleText" class="text-uppercase mt-0 font-700 roboto-font">The Best Way to Sell Your Design.</h4>
+              <hr class="dark-bg center_line bold-line">
+              <p id="contentText" class="mt-30 font-16px dark-color text-center roboto-font">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+          </div>
+        </div>
+        <div class="row mt-50 service-box-style-02">
+            <div class="col-md-4 col-sm-4 col-xs-12 xs-mb-30">
+                <div class="col-inner dark-bg feature-box full-width">
+                    <div class="icon-heading">
+                      <i class="icon-map-pin font-40px default-color"></i>
+                      <h4 id="titleText1" class="white-color font-600">Contact Address</h4>
+                    </div>
+                    <div class="hidden-content white-color">
+                         <p id="contentText1" class="font-400">Patton Street Caulfield<br> East VIC 3145</p>
+                    </div>
                 </div>
             </div>
-            <div class="row mt-50">
-                <div class="col-md-4 col-sm-4 col-xs-12">
-                    <div class="box-icon text-center">
-                        <i class="icofont icofont-magic font-50px default-color"></i>
-                        <div class="title-section">
-                            <h4 id="titleText1" class="mt-10 font-600">Design</h4>
-                            <p id="contentText1" class="font-400">Lorem ipsum dolor sit amet consectetur adipiscing elit sed in arcu est vivamus.</p>
-                        </div>
+            <div class="col-md-4 col-sm-4 col-xs-12 xs-mb-30">
+                <div class="col-inner dark-bg feature-box full-width">
+                    <div class="icon-heading">
+                      <i class="icon-chat font-40px default-color"></i>
+                      <h4 id="titleText2" class="white-color font-600">Call Us Now</h4>
+                    </div>
+                    <div class="hidden-content white-color">
+                      <p id="contentText2" class="font-400">Tel:+61 (03) 9414 7288<br>Tel:+56 (0)12 7686 7405</p>
                     </div>
                 </div>
-                <div class="col-md-4 col-sm-4 col-xs-12">
-                    <div class="box-icon text-center">
-                        <i class="icofont icofont-globe-alt font-50px default-color"></i>
-                        <div class="title-section">
-                            <h4 id="titleText2" class="mt-10 font-600">Development</h4>
-                            <p id="contentText2" class="font-400">Lorem ipsum dolor sit amet consectetur adipiscing elit sed in arcu est vivamus.</p>
-                        </div>
+            </div>
+            <div class="col-md-4 col-sm-4 col-xs-12 xs-mb-30">
+                <div class="col-inner dark-bg feature-box full-width">
+                    <div class="icon-heading">
+                      <i class="icon-envelope font-40px default-color"></i>
+                      <h4 id="titleText3" class="white-color font-600">Email Us</h4>
                     </div>
-                </div>
-                <div class="col-md-4 col-sm-4 col-xs-12">
-                    <div class="box-icon text-center">
-                        <i class="icofont icofont-headphone-alt font-50px default-color"></i>
-                        <div class="title-section">
-                            <h4 id="titleText3" class="mt-10 font-600">Release</h4>
-                            <p id="contentText3" class="font-400">Lorem ipsum dolor sit amet consectetur adipiscing elit sed in arcu est vivamus.</p>
-                        </div>
+                    <div class="hidden-content">
+                      <p id="contentText3" class="font-400"><a class="white-color" href="#.">sayhi@yoursite.com</a><br><a class="white-color" href="#.">info@yoursite.com</a></p>
                     </div>
                 </div>
             </div>
         </div>
+      </div>
     </section>
     <!--== Who We Are End ==-->
   

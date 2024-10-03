@@ -44,50 +44,50 @@
   
     <!-- Test Button and Dynamic Form Section -->
     <div class="container mt-40 mb-40">
-      <div class="row">
-          <div class="col-md-8 centerize-col">
-              <button id="testButton" class="btn btn-color btn-circle">ライブプレビューで確認</button>
-          </div>
-      </div>
-      <div class="row">
-          <div class="col-md-8 centerize-col">
-              <div id="dynamicForm" class="mt-20" style="display: none;">
-                  <h4>ブロック</h4>
-                  <!-- Text input for Design Studio -->
-                  <input type="text" id="titleTextInput" class="form-control md-input mt-10" placeholder="タイトル">
-                  <!-- Textarea input for We Design Digital Brand Experiences -->
-                  <textarea id="contentTextInput" class="form-control md-textarea mt-10" placeholder="内容"></textarea>
-  
-  
-                  <h4>サブブロック１</h4>
-                  <!-- Text input for Design Studio -->
-                  <input type="text" id="titleTextInput1" class="form-control md-input mt-10" placeholder="タイトル">
-                  <!-- Textarea input for We Design Digital Brand Experiences -->
-                  <textarea id="contentTextInput1" class="form-control md-textarea mt-10" placeholder="内容"></textarea>
-                  <!-- File input for changing background image -->
-                  <input type="file" id="fileInput1" class="form-control mt-10" accept="image/*">
-  
-  
-                  <h4>サブブロック２</h4>
-                  <!-- Text input for Design Studio -->
-                  <input type="text" id="titleTextInput2" class="form-control md-input mt-10" placeholder="タイトル">
-                  <!-- Textarea input for We Design Digital Brand Experiences -->
-                  <textarea id="contentTextInput2" class="form-control md-textarea mt-10" placeholder="内容"></textarea>
-                  <!-- File input for changing background image -->
-                  <input type="file" id="fileInput2" class="form-control mt-10" accept="image/*">
-  
-  
-                  <h4>サブブロック３</h4>
-                  <!-- Text input for Design Studio -->
-                  <input type="text" id="titleTextInput3" class="form-control md-input mt-10" placeholder="タイトル">
-                  <!-- Textarea input for We Design Digital Brand Experiences -->
-                  <textarea id="contentTextInput3" class="form-control md-textarea mt-10" placeholder="内容"></textarea>
-                  <!-- File input for changing background image -->
-                  <input type="file" id="fileInput3" class="form-control mt-10" accept="image/*">
-              </div>
-          </div>
-      </div>
-  </div>
+        <div class="row">
+            <div class="col-md-8 centerize-col">
+                <button id="testButton" class="btn btn-color btn-circle">ライブプレビューで確認</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8 centerize-col">
+                <div id="dynamicForm" class="mt-20" style="display: none;">
+                    <h4>ブロック</h4>
+                    <!-- Text input for Design Studio -->
+                    <input type="text" id="titleTextInput" class="form-control md-input mt-10" placeholder="タイトル">
+                    <!-- Textarea input for We Design Digital Brand Experiences -->
+                    <textarea id="contentTextInput" class="form-control md-textarea mt-10" placeholder="内容"></textarea>
+    
+    
+                    <h4>サブブロック１</h4>
+                    <!-- Text input for Design Studio -->
+                    <input type="text" id="titleTextInput1" class="form-control md-input mt-10" placeholder="タイトル">
+                    <!-- Textarea input for We Design Digital Brand Experiences -->
+                    <textarea id="contentTextInput1" class="form-control md-textarea mt-10" placeholder="内容"></textarea>
+                    <!-- File input for changing background image -->
+                    <input type="file" id="fileInput1" class="form-control mt-10" accept="image/*">
+    
+    
+                    <h4>サブブロック２</h4>
+                    <!-- Text input for Design Studio -->
+                    <input type="text" id="titleTextInput2" class="form-control md-input mt-10" placeholder="タイトル">
+                    <!-- Textarea input for We Design Digital Brand Experiences -->
+                    <textarea id="contentTextInput2" class="form-control md-textarea mt-10" placeholder="内容"></textarea>
+                    <!-- File input for changing background image -->
+                    <input type="file" id="fileInput2" class="form-control mt-10" accept="image/*">
+    
+    
+                    <h4>サブブロック３</h4>
+                    <!-- Text input for Design Studio -->
+                    <input type="text" id="titleTextInput3" class="form-control md-input mt-10" placeholder="タイトル">
+                    <!-- Textarea input for We Design Digital Brand Experiences -->
+                    <textarea id="contentTextInput3" class="form-control md-textarea mt-10" placeholder="内容"></textarea>
+                    <!-- File input for changing background image -->
+                    <input type="file" id="fileInput3" class="form-control mt-10" accept="image/*">
+                </div>
+            </div>
+        </div>
+    </div>
   
   <script>
     // Show the form when clicking the Test button

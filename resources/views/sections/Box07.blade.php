@@ -1,44 +1,50 @@
 <x-section-layout>
     <!--== Who We Are Start ==-->
-    <section class="white-bg pt-50 pb-50">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-8 section-heading">
-                    <h4 id="titleText" class="text-uppercase mt-0 font-700 roboto-font">The Best Way to Sell Your Design.</h4>
-                    <hr class="dark-bg center_line bold-line">
-                    <p id="contentText" class="mt-30 font-16px dark-color text-center roboto-font">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+    <section class="white-bg pt-0 pb-0">
+      <div class="container-fluid">
+        <div class="row row-flex">
+            <div class="col-md-3 wow fadeInUp text-center mb-30" data-wow-delay="0.1s">
+                <div class="col-inner spacer dark-bg">
+                    <div class="text-center">
+                        <i class="icon-grid font-60px default-color"></i>
+                        <h4 id="titleText1" class="mt-40 font-20px white-color">Bootstrap Grid</h4>
+                        <hr class="default-bg center_line bold-line">
+                        <p id="contentText1" class="white-color">Duis aliquet ut enim nec pulvinar Nam ultrices massa sit amet ornare elementum erat lacus consectetur metus posuere.</p>
+                    </div>
                 </div>
             </div>
-            <div class="row mt-50">
-                <div class="col-md-4 col-sm-4 col-xs-12">
-                    <div class="box-icon text-center">
-                        <i class="icofont icofont-magic font-50px default-color"></i>
-                        <div class="title-section">
-                            <h4 id="titleText1" class="mt-10 font-600">Design</h4>
-                            <p id="contentText1" class="font-400">Lorem ipsum dolor sit amet consectetur adipiscing elit sed in arcu est vivamus.</p>
-                        </div>
+            <div class="col-md-3 wow fadeInUp text-center mb-30" data-wow-delay="0.1s">
+                <div class="col-inner spacer dark-bg">
+                    <div class="text-center">
+                        <i class="icon-paintbrush font-60px default-color"></i>
+                        <h4 id="titleText2" class="mt-40 font-20px white-color">Digital Branding</h4>
+                        <hr class="default-bg center_line bold-line">
+                        <p id="contentText2" class="white-color">Duis aliquet ut enim nec pulvinar Nam ultrices massa sit amet ornare elementum erat lacus consectetur metus posuere.</p>
                     </div>
                 </div>
-                <div class="col-md-4 col-sm-4 col-xs-12">
-                    <div class="box-icon text-center">
-                        <i class="icofont icofont-globe-alt font-50px default-color"></i>
-                        <div class="title-section">
-                            <h4 id="titleText2" class="mt-10 font-600">Development</h4>
-                            <p id="contentText2" class="font-400">Lorem ipsum dolor sit amet consectetur adipiscing elit sed in arcu est vivamus.</p>
-                        </div>
+            </div>
+            <div class="col-md-3 wow fadeInUp text-center mb-30" data-wow-delay="0.1s">
+                <div class="col-inner spacer dark-bg">
+                    <div class="text-center">
+                        <i class="icon-speedometer font-60px default-color"></i>
+                        <h4 id="titleText3" class="mt-40 font-20px white-color">Top Performance</h4>
+                        <hr class="default-bg center_line bold-line">
+                        <p id="contentText3" class="white-color">Duis aliquet ut enim nec pulvinar Nam ultrices massa sit amet ornare elementum erat lacus consectetur metus posuere.</p>
                     </div>
                 </div>
-                <div class="col-md-4 col-sm-4 col-xs-12">
-                    <div class="box-icon text-center">
-                        <i class="icofont icofont-headphone-alt font-50px default-color"></i>
-                        <div class="title-section">
-                            <h4 id="titleText3" class="mt-10 font-600">Release</h4>
-                            <p id="contentText3" class="font-400">Lorem ipsum dolor sit amet consectetur adipiscing elit sed in arcu est vivamus.</p>
-                        </div>
+            </div>
+            <div class="col-md-3 wow fadeInUp text-center mb-30" data-wow-delay="0.1s">
+                <div class="col-inner spacer dark-bg">
+                    <div class="text-center">
+                        <i class="icon-laptop font-60px default-color"></i>
+                        <h4 id="titleText4" class="mt-40 font-20px white-color">Responsive Design</h4>
+                        <hr class="default-bg center_line bold-line">
+                        <p id="contentText4" class="white-color">Duis aliquet ut enim nec pulvinar Nam ultrices massa sit amet ornare elementum erat lacus consectetur metus posuere.</p>
                     </div>
                 </div>
             </div>
         </div>
+      </div>
     </section>
     <!--== Who We Are End ==-->
   
@@ -52,13 +58,7 @@
       <div class="row">
           <div class="col-md-8 centerize-col">
               <div id="dynamicForm" class="mt-20" style="display: none;">
-                  <h4>ブロック</h4>
-                  <!-- Text input for Design Studio -->
-                  <input type="text" id="titleTextInput" class="form-control md-input mt-10" placeholder="タイトル">
-                  <!-- Textarea input for We Design Digital Brand Experiences -->
-                  <textarea id="contentTextInput" class="form-control md-textarea mt-10" placeholder="内容"></textarea>
-  
-  
+
                   <h4>サブブロック１</h4>
                   <!-- Text input for Design Studio -->
                   <input type="text" id="titleTextInput1" class="form-control md-input mt-10" placeholder="タイトル">
@@ -78,6 +78,13 @@
                   <input type="text" id="titleTextInput3" class="form-control md-input mt-10" placeholder="タイトル">
                   <!-- Textarea input for We Design Digital Brand Experiences -->
                   <textarea id="contentTextInput3" class="form-control md-textarea mt-10" placeholder="内容"></textarea>
+  
+  
+                  <h4>サブブロック４</h4>
+                  <!-- Text input for Design Studio -->
+                  <input type="text" id="titleTextInput4" class="form-control md-input mt-10" placeholder="タイトル">
+                  <!-- Textarea input for We Design Digital Brand Experiences -->
+                  <textarea id="contentTextInput4" class="form-control md-textarea mt-10" placeholder="内容"></textarea>
               </div>
           </div>
       </div>
@@ -87,16 +94,6 @@
     // Show the form when clicking the Test button
     document.getElementById('testButton').addEventListener('click', function () {
         document.getElementById('dynamicForm').style.display = 'block';
-    });
-  
-    // Update the Design Studio heading in real-time
-    document.getElementById('titleTextInput').addEventListener('input', function () {
-        document.getElementById('titleText').innerText = this.value;
-    });
-  
-    // Update the Brand Experiences text in real-time
-    document.getElementById('contentTextInput').addEventListener('input', function () {
-        document.getElementById('contentText').innerText = this.value;
     });
   
     // Update the Design Studio heading in real-time
@@ -127,6 +124,16 @@
     // Update the Brand Experiences text in real-time
     document.getElementById('contentTextInput3').addEventListener('input', function () {
         document.getElementById('contentText3').innerText = this.value;
+    });
+  
+    // Update the Design Studio heading in real-time
+    document.getElementById('titleTextInput4').addEventListener('input', function () {
+        document.getElementById('titleText4').innerText = this.value;
+    });
+
+    // Update the Brand Experiences text in real-time
+    document.getElementById('contentTextInput4').addEventListener('input', function () {
+        document.getElementById('contentText4').innerText = this.value;
     });
   </script>
 </x-section-layout>

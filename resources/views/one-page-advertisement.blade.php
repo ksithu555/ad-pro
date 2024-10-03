@@ -2075,6 +2075,353 @@
                 </div>
             </section>
             <!--== Header07 End ==-->
+            @elseif ($advertisementSection->section->name == 'Header08')
+            <!--== Header08 Start ==-->
+            <section class="{{ $sectionBg }} remove-padding transition-none" id="{{ $advertisementSection->name }}">
+                @foreach ($advertisementSection->advertisementHeaderBlocks as $advertisementHeaderBlock)
+                @if ($advertisementHeaderBlock->status == 1)
+                <div id="rev_slider_484_1_wrapper" class="rev_slider_wrapper fullscreen-container" data-alias="focus-parallax" data-source="gallery" style="background-color:transparent;padding:0px;">
+                    <!-- START REVOLUTION SLIDER 5.4.1 fullscreen mode -->
+                        <div id="rev_slider_484_1" class="rev_slider fullscreenbanner" style="display:none;" data-version="5.4.1">
+                            <ul>
+                                <!-- SLIDE  -->
+                                <li data-index="rs-1680" data-transition="fade" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="default" data-easeout="default" data-masterspeed="default"  data-rotate="0"  data-saveperformance="off"  data-title="Power" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
+                                    <!-- MAIN IMAGE -->
+                                    <img src="{{ asset('assets/images/all/' . $advertisementHeaderBlock->image) }}"  alt=""  data-lazyload="{{ asset('assets/images/all/' . $advertisementHeaderBlock->image) }}" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="off" class="rev-slidebg" data-no-retina>
+                                    <!-- LAYERS -->
+            
+                                    <!-- LAYER NR. 30 -->
+                                    <div class="tp-caption tp-shape tp-shapewrapper  tp-resizeme rs-parallaxlevel-1"
+                                        id="slide-1680-layer-3"
+                                        data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
+                                        data-y="['middle','middle','middle','middle']" data-voffset="['20','20','20','20']"
+                                                    data-width="['480','480','400','250']"
+                                        data-height="['560','460','460','400']"
+                                        data-whitespace="nowrap"
+            
+                                        data-type="shape"
+                                        data-responsive_offset="on"
+            
+                                        data-frames='[{"from":"x:0;y:0;z:0;rX:0;rY:0;rZ:0;sX:0.8;sY:0.8;skX:0;skY:0;opacity:0;","speed":1000,"to":"o:1;","delay":500,"ease":"Back.easeOut"},{"delay":"wait","speed":700,"to":"auto:auto;","ease":"Power2.easeInOut"}]'
+                                        data-textAlign="['left','left','left','left']"
+                                        data-paddingtop="[0,0,0,0]"
+                                        data-paddingright="[0,0,0,0]"
+                                        data-paddingbottom="[0,0,0,0]"
+                                        data-paddingleft="[0,0,0,0]"
+            
+                                        style="z-index: 34;background-color:rgba(0, 0, 0, 0);border-color:rgba(0, 0, 0, 0.15);border-style:solid;border-width:30px;filter:blur(5px);-webkit-filter:blur(5px);-moz-filter:blur(5px);-o-filter:blur(5px);-ms-filter:blur(5px);"> 
+                                    </div>
+            
+                                    <!-- LAYER NR. 31 -->
+                                    <div class="tp-caption tp-shape tp-shapewrapper  tp-resizeme rs-parallaxlevel-3"
+                                        id="slide-1680-layer-2"
+                                        data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
+                                        data-y="['middle','middle','middle','middle']" data-voffset="['21','25','25','25']"
+                                        data-width="['780','700','640','400']"
+                                        data-height="['800','680','680','600']"
+                                        data-whitespace="nowrap"
+            
+                                        data-type="shape"
+                                        data-responsive_offset="on"
+            
+                                        data-frames='[{"from":"x:0;y:0;z:0;rX:0;rY:0;rZ:0;sX:0.8;sY:0.8;skX:0;skY:0;opacity:0;","speed":1000,"to":"o:1;","delay":600,"ease":"Back.easeOut"},{"delay":"wait","speed":700,"to":"auto:auto;","ease":"Power2.easeInOut"}]'
+                                        data-textAlign="['left','left','left','left']"
+                                        data-paddingtop="[0,0,0,0]"
+                                        data-paddingright="[0,0,0,0]"
+                                        data-paddingbottom="[0,0,0,0]"
+                                        data-paddingleft="[0,0,0,0]"
+            
+                                        style="z-index: 35;background-color:rgba(0, 0, 0, 0);border-color:rgba(0, 0, 0, 1.00);border-style:solid;border-width:30px;"> 
+                                    </div>
+            
+                                    <!-- LAYER NR. 32 -->
+                                    <div class="tp-caption   tp-resizeme rs-parallaxlevel-7"
+                                        id="slide-1680-layer-12"
+                                        data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
+                                        data-y="['middle','middle','middle','middle']" data-voffset="['-80','-50','-80','-50']"
+                                        data-fontsize="['100','80','60','50']"
+                                        data-lineheight="['90','70','50','40']"
+                                        data-width="none"
+                                        data-height="none"
+                                        data-whitespace="nowrap"
+            
+                                        data-type="text"
+                                        data-responsive_offset="on"
+            
+                                        data-frames='[{"from":"y:50px;opacity:0;","speed":1000,"to":"o:1;","delay":700,"ease":"Power4.easeOut"},{"delay":"wait","speed":700,"to":"auto:auto;","ease":"Power2.easeInOut"}]'
+                                        data-textAlign="['center','center','center','center']"
+                                        data-paddingtop="[0,0,0,0]"
+                                        data-paddingright="[0,0,0,0]"
+                                        data-paddingbottom="[0,0,0,0]"
+                                        data-paddingleft="[0,0,0,0]"
+            
+                                        style="z-index: 36; white-space: nowrap; font-size: 100px; line-height: 90px; font-weight: 800; color: rgba(0, 0, 0, 1.00);font-family: 'Montserrat', sans-serif;border-width:0px;letter-spacing:-7px;">
+                                        {!! nl2br($advertisementHeaderBlock->body) !!}
+                                    </div>
+            
+                                    <!-- LAYER NR. 33 -->
+                                    <div class="tp-caption   tp-resizeme rs-parallaxlevel-6"
+                                        id="slide-1680-layer-13"
+                                        data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
+                                        data-y="['middle','middle','middle','middle']" data-voffset="['109','103','45','61']"
+                                        data-fontsize="['40','30','30','30']"
+                                        data-lineheight="['35','25','25','25']"
+                                        data-width="none"
+                                        data-height="none"
+                                        data-whitespace="nowrap"
+            
+                                        data-type="text"
+                                        data-responsive_offset="on"
+            
+                                        data-frames='[{"from":"y:50px;opacity:0;","speed":1000,"to":"o:1;","delay":800,"ease":"Power4.easeOut"},{"delay":"wait","speed":700,"to":"auto:auto;","ease":"Power2.easeInOut"}]'
+                                        data-textAlign="['center','center','center','center']"
+                                        data-paddingtop="[0,0,0,0]"
+                                        data-paddingright="[0,0,0,0]"
+                                        data-paddingbottom="[0,0,0,0]"
+                                        data-paddingleft="[0,0,0,0]"
+            
+                                        style="z-index: 37; white-space: nowrap; font-size: 40px; line-height: 35px; font-weight: 800; color: rgba(0, 0, 0, 1.00);font-family: 'Montserrat', sans-serif;border-width:0px;letter-spacing:-2px;">
+                                        {{ $advertisementHeaderBlock->title }}
+                                    </div>
+            
+                                    <!-- LAYER NR. 35 -->
+                                    <div class="tp-caption   tp-resizeme tp-svg-layer rs-parallaxlevel-4"
+                                        id="slide-1680-layer-14"
+                                        data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
+                                        data-y="['middle','middle','middle','middle']" data-voffset="['286','271','213','229']"
+                                        data-width="100"
+                                        data-height="100"
+                                        data-whitespace="nowrap"
+            
+                                        data-type="svg"
+                                        data-actions='[{"event":"click","action":"scrollbelow","offset":"px","delay":""}]'
+                                        data-svg_src="{{ asset('assets/images/ic_expand_more_24px.svg') }}"
+                                        data-svg_idle="sc:transparent;sw:0;sda:0;sdo:0;"
+                                        data-svg_hover="sc:transparent;sw:0;sda:0;sdo:0;"
+                                        data-responsive_offset="on"
+            
+                                        data-frames='[{"from":"y:50px;opacity:0;","speed":1000,"to":"o:1;","delay":1000,"ease":"Power4.easeOut"},{"delay":"wait","speed":700,"to":"auto:auto;","ease":"Power2.easeInOut"},{"frame":"hover","speed":"200","ease":"Power1.easeInOut","to":"o:1;sX:1.4;sY:1.4;rX:0;rY:0;rZ:0;z:0;","style":"c:rgba(255, 255, 255, 1.00);"}]'
+                                        data-textAlign="['left','left','left','left']"
+                                        data-paddingtop="[0,0,0,0]"
+                                        data-paddingright="[0,0,0,0]"
+                                        data-paddingbottom="[0,0,0,0]"
+                                        data-paddingleft="[0,0,0,0]"
+            
+                                        style="z-index: 39; min-width: 100px; max-width: 100px; max-width: 100px; max-width: 100px; color: rgba(0, 0, 0, 1.00);border-width:0px;cursor:pointer;">
+                                        <div class="rs-looped rs-slideloop"  data-easing="Power1.easeInOut" data-speed="1" data-xs="0" data-xe="0" data-ys="-5" data-ye="5"> </div>
+                                    </div>
+                                </li>
+                            </ul>
+                            <div class="tp-bannertimer tp-bottom" style="visibility: hidden !important;"></div> 
+                        </div>
+                    </div>
+                @endif
+                @endforeach
+            </section>
+            <!--== Header08 End ==-->
+            @elseif ($advertisementSection->section->name == 'Header09')
+            <!--== Header09 Start ==-->
+            <section class="{{ $sectionBg }} remove-padding transition-none" id="{{ $advertisementSection->name }}">
+                <div id="rev_slider_4_1_wrapper" class="rev_slider_wrapper fullscreen-container" data-alias="particle-effect-one5" data-source="gallery" style="background:#eef0f1;padding:0px;">
+                    <!-- START REVOLUTION SLIDER 5.4.1 fullscreen mode -->
+                    <div id="rev_slider_4_1" class="rev_slider fullscreenbanner" style="display:none;" data-version="5.4.1">
+                            <ul>	<!-- SLIDE  -->
+                                @php
+                                    $counter = 0;
+                                @endphp
+                                @foreach ($advertisementSection->advertisementHeaderBlocks as $advertisementHeaderBlock)
+                                @if ($advertisementHeaderBlock->status == 1 && $counter < 2)
+                                @if ($counter == 0)
+                                <li data-index="rs-10" data-transition="fade" data-slotamount="default" data-hideafterloop="0" 
+                                    data-hideslideonmobile="off"  data-easein="Power4.easeOut" data-easeout="Power4.easeOut" 
+                                    data-masterspeed="default"  data-thumb="http://works.themepunch.com/revolution_5_3/wp-content/"  
+                                    data-rotate="0"  data-saveperformance="off"  data-title="Example One" data-param1="" data-param2="" 
+                                    data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" 
+                                    data-param10="" data-description="">
+                                    <!-- MAIN IMAGE -->
+                                    <img src="{{ asset('assets/images/transparent.png') }}" data-bgcolor='#ffffff'' style='background:#ffffff' alt=""  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
+                                    <!-- LAYERS -->
+
+                                    <!-- LAYER NR. 1 -->
+                                    <div class="tp-caption"
+                                        id="slide-10-layer-4"
+                                        data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
+                                        data-y="['middle','middle','middle','middle']" data-voffset="['0','0','0','0']"
+                                        data-width="full-proportional"
+                                        data-height="full-proportional"
+                                        data-whitespace="nowrap"
+
+                                        data-type="image"
+                                        data-basealign="slide"
+                                        data-responsive_offset="off"
+                                        data-wrapper_class="tp-nopointer"
+                                        data-responsive="off"
+                                        data-frames='[{"delay":600,"speed":1500,"frame":"0","from":"sX:1;sY:1;opacity:0;","to":"o:1;","ease":"Power4.easeOut"},{"delay":"wait","speed":1500,"frame":"999","to":"opacity:0;","ease":"Power4.easeOut"}]'
+                                        data-textAlign="['inherit','inherit','inherit','inherit']"
+                                        data-paddingtop="[0,0,0,0]"
+                                        data-paddingright="[0,0,0,0]"
+                                        data-paddingbottom="[0,0,0,0]"
+                                        data-paddingleft="[0,0,0,0]"
+                                        data-blendmode="screen"
+
+                                        style="z-index: 5;">
+                                        <img src="{{ asset('assets/images/all/' . $advertisementHeaderBlock->image) }}" alt="" 
+                                            data-ww="['full-proportional','full-proportional','full-proportional','full-proportional']" 
+                                            data-hh="['full-proportional','full-proportional','full-proportional','full-proportional']" 
+                                            width="1920" height="1080" data-no-retina> 
+                                    </div>
+
+                                    <!-- LAYER NR. 2 -->
+                                    <div class="tp-caption   tp-resizeme"
+                                        id="slide-10-layer-6"
+                                        data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
+                                        data-y="['middle','middle','middle','middle']" data-voffset="['-70','-100','-100','-100']"
+                                        data-width="none"
+                                        data-height="none"
+                                        data-whitespace="nowrap"
+
+                                        data-type="text"
+                                        data-responsive_offset="on"
+                                        data-wrapper_class="tp-nopointer"
+
+                                        data-frames='[{"delay":500,"split":"chars","splitdelay":0.1,"speed":300,"frame":"0","from":"y:[-100%];sX:1;sY:2;opacity:0;fb:10px;","to":"o:1;fb:0;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;fb:0;","ease":"Power3.easeInOut"}]'
+                                        data-textAlign="['inherit','inherit','inherit','inherit']"
+                                        data-paddingtop="[0,0,0,0]"
+                                        data-paddingright="[20,20,20,20]"
+                                        data-paddingbottom="[0,0,0,0]"
+                                        data-paddingleft="[20,20,20,20]"
+
+                                        style="z-index: 6; white-space: nowrap; font-size: 80px; line-height: 80px; font-weight: 700; color: rgba(45,48,50,1);font-family: 'Playfair Display', serif;">
+                                        {{ $advertisementHeaderBlock->title}}
+                                    </div>
+
+                                    <!-- LAYER NR. 3 -->
+                                    <div class="tp-caption tp-resizeme"
+                                        id="slide-10-layer-8"
+                                        data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
+                                        data-y="['middle','middle','middle','middle']" data-voffset="['0','-30','-20','-20']"
+                                        data-width="['none','none','361','330']"
+                                        data-height="none"
+                                        data-whitespace="['nowrap','nowrap','normal','normal']"
+
+                                        data-type="text"
+                                        data-responsive_offset="on"
+                                        data-wrapper_class="tp-nopointer"
+
+                                        data-frames='[{"delay":600,"speed":1000,"frame":"0","from":"y:-20px;sX:1;sY:1;opacity:0;fb:10px;","to":"o:1;fb:0;","ease":"Power4.easeOut"},{"delay":"wait","speed":600,"frame":"999","to":"auto:auto;fb:0;","ease":"Power3.easeInOut"}]'
+                                        data-textAlign="['inherit','inherit','center','center']"
+                                        data-paddingtop="[0,0,0,0]"
+                                        data-paddingright="[0,0,0,0]"
+                                        data-paddingbottom="[0,0,0,0]"
+                                        data-paddingleft="[0,0,0,0]"
+
+                                        style="z-index: 7; white-space: nowrap; font-size: 30px; line-height: 25px; font-weight: 700; color: rgba(45,48,50,1);font-family: 'Playfair Display', serif;letter-spacing:10px;">
+                                        {!! nl2br($advertisementHeaderBlock->body) !!}
+                                    </div>
+                                </li>
+                                @elseif ($counter == 1)
+                                <!-- SLIDE  -->
+                                <li data-index="rs-11" data-transition="fade" data-slotamount="default" data-hideafterloop="0" 
+                                    data-hideslideonmobile="off"  data-easein="Power4.easeOut" data-easeout="Power4.easeOut" 
+                                    data-masterspeed="default"  data-thumb="http://works.themepunch.com/revolution_5_3/wp-content/"  
+                                    data-rotate="0"  data-saveperformance="off"  data-title="Example Two" data-param1="" data-param2="" 
+                                    data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" 
+                                    data-param10="" data-description="">
+                                    <!-- MAIN IMAGE -->
+                                    <img src="{{ asset('assets/images/transparent.png') }}" data-bgcolor='#ffffff' style='background:#ffffff' alt=""  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
+                                    <!-- LAYERS -->
+
+                                    <!-- LAYER NR. 5 -->
+                                    <div class="tp-caption  "
+                                        id="slide-11-layer-4"
+                                        data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
+                                        data-y="['middle','middle','middle','middle']" data-voffset="['0','0','0','0']"
+                                        data-width="full-proportional"
+                                        data-height="full-proportional"
+                                        data-whitespace="nowrap"
+
+                                        data-type="image"
+                                        data-basealign="slide"
+                                        data-responsive_offset="off"
+                                        data-wrapper_class="tp-nopointer"
+                                        data-responsive="off"
+                                        data-frames='[{"delay":600,"speed":1500,"frame":"0","from":"sX:1;sY:1;opacity:0;","to":"o:1;","ease":"Power4.easeOut"},{"delay":"wait","speed":1500,"frame":"999","to":"opacity:0;","ease":"Power4.easeOut"}]'
+                                        data-textAlign="['inherit','inherit','inherit','inherit']"
+                                        data-paddingtop="[0,0,0,0]"
+                                        data-paddingright="[0,0,0,0]"
+                                        data-paddingbottom="[0,0,0,0]"
+                                        data-paddingleft="[0,0,0,0]"
+                                        data-blendmode="screen"
+
+                                        style="z-index: 5;">
+                                        <img src="{{ asset('assets/images/all/' . $advertisementHeaderBlock->image) }}" alt="" 
+                                            data-ww="['full-proportional','full-proportional','full-proportional','full-proportional']" 
+                                            data-hh="['full-proportional','full-proportional','full-proportional','full-proportional']" 
+                                            width="1920" height="1080" data-no-retina> 
+                                    </div>
+
+                                    <!-- LAYER NR. 6 -->
+                                    <div class="tp-caption tp-resizeme"
+                                        id="slide-11-layer-6"
+                                        data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
+                                        data-y="['middle','middle','middle','middle']" data-voffset="['-70','-100','-100','-100']"
+                                        data-width="none"
+                                        data-height="none"
+                                        data-whitespace="nowrap"
+
+                                        data-type="text"
+                                        data-responsive_offset="on"
+                                        data-wrapper_class="tp-nopointer"
+
+                                        data-frames='[{"delay":500,"split":"chars","splitdelay":0.1,"speed":300,"frame":"0","from":"y:[-100%];sX:1;sY:2;opacity:0;fb:10px;","to":"o:1;fb:0;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;fb:0;","ease":"Power3.easeInOut"}]'
+                                        data-textAlign="['inherit','inherit','inherit','inherit']"
+                                        data-paddingtop="[0,0,0,0]"
+                                        data-paddingright="[20,20,20,20]"
+                                        data-paddingbottom="[0,0,0,0]"
+                                        data-paddingleft="[20,20,20,20]"
+                                        data-blendmode="exclusion"
+
+                                        style="z-index: 6; white-space: nowrap; font-size: 80px; line-height: 80px; font-weight: 700; color: rgba(255,255,255,0.85);font-family: 'Playfair Display', serif;">
+                                        {{ $advertisementHeaderBlock->title}}
+                                    </div>
+
+                                    <!-- LAYER NR. 7 -->
+                                    <div class="tp-caption   tp-resizeme"
+                                        id="slide-11-layer-8"
+                                        data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
+                                        data-y="['middle','middle','middle','middle']" data-voffset="['1','-30','-20','-20']"
+                                        data-width="['none','none','361','330']"
+                                        data-height="none"
+                                        data-whitespace="['nowrap','nowrap','normal','normal']"
+
+                                        data-type="text"
+                                        data-responsive_offset="on"
+                                        data-wrapper_class="tp-nopointer"
+
+                                        data-frames='[{"delay":600,"speed":1000,"frame":"0","from":"y:-20px;sX:1;sY:1;opacity:0;fb:10px;","to":"o:1;fb:0;","ease":"Power4.easeOut"},{"delay":"wait","speed":600,"frame":"999","to":"auto:auto;fb:0;","ease":"Power3.easeInOut"}]'
+                                        data-textAlign="['inherit','inherit','center','center']"
+                                        data-paddingtop="[0,0,0,0]"
+                                        data-paddingright="[0,0,0,0]"
+                                        data-paddingbottom="[0,0,0,0]"
+                                        data-paddingleft="[0,0,0,0]"
+                                        data-blendmode="exclusion"
+
+                                        style="z-index: 7; white-space: nowrap; font-size: 30px; line-height: 25px; font-weight: 700; color: rgba(255,255,255,0.85);font-family: 'Playfair Display', serif;letter-spacing:10px;">
+                                        {!! nl2br($advertisementHeaderBlock->body) !!}
+                                    </div>
+                                </li>
+                                @endif
+                                @php
+                                    $counter++;
+                                @endphp
+                                @endif
+                                @endforeach
+                            </ul>
+                            <div class="tp-bannertimer tp-bottom" style="visibility: hidden !important;"></div>	
+                        </div>
+                    </div>
+                </section>
+            <!--== Header09 End ==-->
             @endif
         {{-- Header Hero End --}}
         @elseif ($advertisementSection->section->type == 'list'  && $advertisementSection->status == 1)
@@ -2173,7 +2520,7 @@
                         <div class="col-sm-8 section-heading">
                             <h4 class="text-uppercase mt-0 font-700 roboto-font">{{ $advertisementBoxBlock->title }}</h4>
                             <hr class="dark-bg center_line bold-line">
-                            <p class="mt-30 font-16px dark-color text-center roboto-font">{{ $advertisementBoxBlock->body }}</p>
+                            <p class="mt-30 font-16px dark-color text-center roboto-font">{!! nl2br($advertisementBoxBlock->body)  !!}</p>
                         </div>
                     </div>
                     <div class="row mt-50">
@@ -2198,7 +2545,7 @@
                                         {{ substr($advertisementSubBoxBlock->icon, 1) }}
                                     </span>
                                     <h4 class="mt-0 font-600">{{ $advertisementSubBoxBlock->title }}</h4>
-                                    <p class="font-400">{{ $advertisementSubBoxBlock->body }}</p>
+                                    <p class="font-400">{!! nl2br($advertisementSubBoxBlock->body) !!}</p>
                                 </div>
                             </div>
                             @endif
@@ -2219,7 +2566,7 @@
                         <div class="col-sm-8 section-heading">
                             <h4 class="text-uppercase mt-0 font-700 roboto-font">{{ $advertisementBoxBlock->title }}</h4>
                             <hr class="dark-bg center_line bold-line">
-                            <p class="mt-30 font-16px dark-color text-center roboto-font">{{ $advertisementBoxBlock->body }}</p>
+                            <p class="mt-30 font-16px dark-color text-center roboto-font">{!! nl2br($advertisementBoxBlock->body)  !!}</p>
                         </div>
                     </div>
                     <div class="row mt-50 service-box-style-01">
@@ -2239,7 +2586,7 @@
                           <div class="text-center mb-50 feature-box-rounded center-feature border-radius-10">
                             <i class="{{ $advertisementSubBoxBlock->icon }} font-40px default-color"></i>
                             <h4 class="mt-0 font-600">{{ $advertisementSubBoxBlock->title }}</h4>
-                            <p class="font-400 mt-20">{{ $advertisementSubBoxBlock->body }}</p>
+                            <p class="font-400 mt-20">{!! nl2br($advertisementSubBoxBlock->body) !!}</p>
                           </div>
                         </div>
                         @endif
@@ -2260,7 +2607,7 @@
                         <div class="col-sm-8 section-heading">
                             <h4 class="text-uppercase mt-0 font-700 roboto-font">{{ $advertisementBoxBlock->title }}</h4>
                             <hr class="dark-bg center_line bold-line">
-                            <p class="mt-30 font-16px dark-color text-center roboto-font">{{ $advertisementBoxBlock->body }}</p>
+                            <p class="mt-30 font-16px dark-color text-center roboto-font">{!! nl2br($advertisementBoxBlock->body)  !!}</p>
                         </div>
                     </div>
                     <div class="row mt-50 service-box-style-03">
@@ -2283,14 +2630,14 @@
                                   <div class="content-wrap">
                                     <i class="{{ $advertisementSubBoxBlock->icon }} font-40px default-color"></i>
                                     <h4 class="font-600">{{ $advertisementSubBoxBlock->title }}</h4>
-                                    <p class="font-400 mt-20">{{ $advertisementSubBoxBlock->body }}</p>
+                                    <p class="font-400 mt-20">{!! nl2br($advertisementSubBoxBlock->body) !!}</p>
                                   </div>
                                 </div>
                                 <div class="box-back height-300px default-bg">
                                   <div class="content-wrap white-color">
                                     <i class="{{ $advertisementSubBoxBlock->icon }} font-40px"></i>
                                     <h4 class="font-600">{{ $advertisementSubBoxBlock->title }}</h4>
-                                    <p class="font-400 mt-20">{{ $advertisementSubBoxBlock->body }}</p>
+                                    <p class="font-400 mt-20">{!! nl2br($advertisementSubBoxBlock->body) !!}</p>
                                   </div>
                                 </div>
                               </div>
@@ -2314,7 +2661,7 @@
                         <div class="col-sm-8 section-heading">
                             <h4 class="text-uppercase mt-0 font-700 roboto-font">{{ $advertisementBoxBlock->title }}</h4>
                             <hr class="dark-bg center_line bold-line">
-                            <p class="mt-30 font-16px dark-color text-center roboto-font">{{ $advertisementBoxBlock->body }}</p>
+                            <p class="mt-30 font-16px dark-color text-center roboto-font">{!! nl2br($advertisementBoxBlock->body)  !!}</p>
                         </div>
                     </div>
                     <div class="row mt-50">
@@ -2335,7 +2682,7 @@
                                 <i class="{{ $advertisementSubBoxBlock->icon }} font-50px default-color"></i>
                                 <div class="title-section">
                                     <h4 class="mt-10 font-600">{{ $advertisementSubBoxBlock->title }}</h4>
-                                    <p class="font-400">{{ $advertisementSubBoxBlock->body }}</p>
+                                    <p class="font-400">{!! nl2br($advertisementSubBoxBlock->body) !!}</p>
                                 </div>
                             </div>
                         </div>
@@ -2357,7 +2704,7 @@
                         <div class="col-sm-8 section-heading">
                             <h4 class="text-uppercase mt-0 font-700 roboto-font">{{ $advertisementBoxBlock->title }}</h4>
                             <hr class="dark-bg center_line bold-line">
-                            <p class="mt-30 font-16px dark-color text-center roboto-font">{{ $advertisementBoxBlock->body }}</p>
+                            <p class="mt-30 font-16px dark-color text-center roboto-font">{!! nl2br($advertisementBoxBlock->body)  !!}</p>
                         </div>
                     </div>
                     <div class="row mt-50">
@@ -2378,7 +2725,7 @@
                                 <img src="{{ asset('assets/images/all/' . $advertisementSubBoxBlock->icon) }}" alt="Parallax Effects" width="150" height="150">
                                 <div class="title-section mt-20">
                                     <h4 class="mt-10 font-600">{{ $advertisementSubBoxBlock->title }}</h4>
-                                    <p class="font-400">{{ $advertisementSubBoxBlock->body }}</p>
+                                    <p class="font-400">{!! nl2br($advertisementSubBoxBlock->body) !!}</p>
                                 </div>
                             </div>
                         </div>
@@ -2390,6 +2737,127 @@
                 @endforeach
             </section>
             {{-- Box05 End --}}
+            @elseif ($advertisementSection->section->name == 'Box06')
+            {{-- Box06 Start --}}
+            <section class="{{ $sectionBg }} pt-50 pb-50" id="{{ $advertisementSection->name }}">
+                @foreach ($advertisementSection->advertisementBoxBlocks as $advertisementBoxBlock)
+                @if ($advertisementBoxBlock->status == 1)
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-8 section-heading">
+                            <h4 class="text-uppercase mt-0 font-700 roboto-font">{{ $advertisementBoxBlock->title }}</h4>
+                            <hr class="dark-bg center_line bold-line">
+                            <p class="mt-30 font-16px dark-color text-center roboto-font">{!! nl2br($advertisementBoxBlock->body)  !!}</p>
+                        </div>
+                    </div>
+                    <div class="row mt-50">
+                        <div class="col-md-8 centerize-col">
+                            <div class="row">
+                                @foreach ($advertisementBoxBlock->advertisementSubBoxBlocks->where('status', 1)->chunk(2) as $chunk)
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        @foreach ($chunk as $advertisementSubBoxBlock)
+                                            <div class="box-icon text-center mb-20">
+                                                <i class="{{ $advertisementSubBoxBlock->icon }} font-50px default-color"></i>
+                                                <div class="title-section">
+                                                    <h4 class="mt-0 font-600">{{ $advertisementSubBoxBlock->title }}</h4>
+                                                    <p class="font-400">{!! nl2br($advertisementSubBoxBlock->body) !!}</p>
+                                                </div>
+                                            </div>
+                                        @endforeach
+                                    </div>
+                                @endforeach
+                            </div>
+                        </div>
+                    </div>                    
+                </div>
+                @endif
+                @endforeach
+            </section>
+            {{-- Box06 End --}}
+            @elseif ($advertisementSection->section->name == 'Box07')
+            {{-- Box07 Start --}}
+            <section class="{{ $sectionBg }} pt-0 pb-0" id="{{ $advertisementSection->name }}">
+                @foreach ($advertisementSection->advertisementBoxBlocks as $advertisementBoxBlock)
+                @if ($advertisementBoxBlock->status == 1)
+                <div class="container-fluid">
+                    <div class="row row-flex">
+                        @foreach ($advertisementBoxBlock->advertisementSubBoxBlocks as $advertisementSubBoxBlock)
+                        @php
+                            $count = $advertisementBoxBlock->advertisementSubBoxBlocks->where('status', 1)->count();
+                            if ($count == 1) {
+                                $col = 12;
+                            } elseif ($count == 2) {
+                                $col = 6;
+                            } elseif ($count == 3) {
+                                $col = 4;
+                            } else {
+                                $col = 3;
+                            }
+                        @endphp
+                        @if ($advertisementSubBoxBlock->status == 1)
+                        <div class="col-md-{{ $col }} wow fadeInUp text-center" data-wow-delay="0.1s">
+                            <div class="col-inner spacer dark-bg">
+                                <div class="text-center">
+                                    <i class="{{ $advertisementSubBoxBlock->icon }} font-60px default-color"></i>
+                                    <h4 class="mt-40 font-20px white-color">{{ $advertisementSubBoxBlock->title }}</h4>
+                                    <hr class="default-bg center_line bold-line">
+                                    <p class="white-color font-400">{!! nl2br($advertisementSubBoxBlock->body) !!}</p>
+                                </div>
+                            </div>
+                        </div>
+                        @endif
+                        @endforeach
+                    </div>                    
+                </div>
+                @endif
+                @endforeach
+            </section>
+            {{-- Box07 End --}}
+            @elseif ($advertisementSection->section->name == 'Box08')
+            {{-- Box08 Start --}}
+            <section class="{{ $sectionBg }} pt-50 pb-50" id="{{ $advertisementSection->name }}">
+                @foreach ($advertisementSection->advertisementBoxBlocks as $advertisementBoxBlock)
+                @if ($advertisementBoxBlock->status == 1)
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-8 section-heading">
+                            <h4 class="text-uppercase mt-0 font-700 roboto-font">{{ $advertisementBoxBlock->title }}</h4>
+                            <hr class="dark-bg center_line bold-line">
+                            <p class="mt-30 font-16px dark-color text-center roboto-font">{!! nl2br($advertisementBoxBlock->body)  !!}</p>
+                        </div>
+                    </div>
+                    <div class="row mt-50 service-box-style-02">
+                        @foreach ($advertisementBoxBlock->advertisementSubBoxBlocks as $advertisementSubBoxBlock)
+                        @php
+                            $count = $advertisementBoxBlock->advertisementSubBoxBlocks->where('status', 1)->count();
+                            if ($count == 1) {
+                                $col = 12;
+                            } elseif ($count == 2) {
+                                $col = 6;
+                            } else {
+                                $col = 4;
+                            }
+                        @endphp
+                        @if ($advertisementSubBoxBlock->status == 1)
+                        <div class="col-md-{{ $col }} col-sm-{{ $col }} col-xs-12">
+                            <div class="col-inner dark-bg feature-box full-width text-center">
+                                <div class="icon-heading">
+                                  <i class="{{ $advertisementSubBoxBlock->icon }}  font-40px default-color"></i>
+                                  <h4 class="white-color font-600">{{ $advertisementSubBoxBlock->title }}</h4>
+                                </div>
+                                <div class="hidden-content white-color">
+                                     <p class="font-400">{!! nl2br($advertisementSubBoxBlock->body) !!}</p>
+                                </div>
+                            </div>
+                        </div>
+                        @endif
+                        @endforeach
+                    </div>
+                </div>
+                @endif
+                @endforeach
+            </section>
+            {{-- Box08 End --}}
             @endif
         {{-- Box Hero End --}}
         @elseif ($advertisementSection->section->type == 'accordion'  && $advertisementSection->status == 1)
@@ -2402,7 +2870,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-8 section-heading">
-                        <h4 class="text-uppercase mt-0">{{ $advertisementAccordionBlock->title }}</h4>
+                        <h4 class="text-uppercase mt-0 font-700 roboto-font">{{ $advertisementAccordionBlock->title }}</h4>
                         </div>
                     </div>
                     <div class="row mt-50">
@@ -2447,7 +2915,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-8 section-heading white-color">
-                        <h4 class="text-uppercase mt-0">{{ $advertisementAccordionBlock->title }}</h4>
+                        <h4 class="text-uppercase mt-0 font-700 roboto-font">{{ $advertisementAccordionBlock->title }}</h4>
                         </div>
                     </div>
                     <div class="row mt-50">
@@ -2492,7 +2960,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-8 section-heading">
-                        <h4 class="text-uppercase mt-0">{{ $advertisementAccordionBlock->title }}</h4>
+                        <h4 class="text-uppercase mt-0 font-700 roboto-font">{{ $advertisementAccordionBlock->title }}</h4>
                         </div>
                     </div>
                     <div class="row mt-50">
@@ -2537,7 +3005,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-8 section-heading white-color">
-                        <h4 class="text-uppercase mt-0">{{ $advertisementAccordionBlock->title }}</h4>
+                        <h4 class="text-uppercase mt-0 font-700 roboto-font">{{ $advertisementAccordionBlock->title }}</h4>
                         </div>
                     </div>
                     <div class="row mt-50">
@@ -2582,7 +3050,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-8 section-heading white-color">
-                        <h4 class="text-uppercase mt-0">{{ $advertisementAccordionBlock->title }}</h4>
+                        <h4 class="text-uppercase mt-0 font-700 roboto-font">{{ $advertisementAccordionBlock->title }}</h4>
                         </div>
                     </div>
                     <div class="row mt-50">
@@ -3321,6 +3789,102 @@
 </script>
 <!-- SLICEY ADD-ON FILES -->
 <script type="text/javascript" src="{{ asset('revolution/js/revolution.addon.slicey.min.js?ver=1.0.0') }}"></script>
+
+<!-- SLICEY ADD-ON FILES -->
+<script type="text/javascript" src="{{ asset('revolution/js/revolution.addon.slicey.min.js?ver=1.0.0') }}"></script>
+<!-- Paricle Add-On Files -->
+<link rel='stylesheet' href='{{ asset('revolution/css/revolution.addon.particles.css?ver=1.0.3') }}' type='text/css' media='all' />
+<script type='text/javascript' src='{{ asset('revolution/js/revolution.addon.particles.min.js?ver=1.0.3') }}'></script>
+
+<script type="text/javascript">
+        var tpj=jQuery;
+
+  var revapi4;
+  tpj(document).ready(function() {
+    if(tpj("#rev_slider_4_1").revolution == undefined){
+      revslider_showDoubleJqueryError("#rev_slider_4_1");
+    }else{
+      revapi4 = tpj("#rev_slider_4_1").show().revolution({
+        sliderType:"standard",
+        jsFileLocation:"revolution/js/",
+        sliderLayout:"fullscreen",
+        dottedOverlay:"none",
+        delay:9000,
+        particles: {startSlide: "first", endSlide: "last", zIndex: "1",
+          particles: {
+            number: {value: 80}, color: {value: "#000000"},
+            shape: {
+              type: "circle", stroke: {width: 0, color: "#ffffff", opacity: 1},
+              image: {src: ""}
+            },
+            opacity: {value: 0.3, random: false, min: 0.25, anim: {enable: false, speed: 3, opacity_min: 0, sync: false}},
+            size: {value: 10, random: true, min: 1, anim: {enable: false, speed: 40, size_min: 1, sync: false}},
+            line_linked: {enable: true, distance: 200, color: "#000000", opacity: 0.2, width: 1},
+            move: {enable: true, speed: 3, direction: "none", random: true, min_speed: 3, straight: false, out_mode: "out"}},
+          interactivity: {
+            events: {onhover: {enable: true, mode: "bubble"}, onclick: {enable: false, mode: "repulse"}},
+            modes: {grab: {distance: 400, line_linked: {opacity: 0.5}}, bubble: {distance: 400, size: 150, opacity: 1}, repulse: {distance: 200}}
+          }
+        },
+        navigation: {
+          keyboardNavigation:"off",
+          keyboard_direction: "horizontal",
+          mouseScrollNavigation:"off",
+          mouseScrollReverse:"default",
+          onHoverStop:"off",
+          arrows: {
+            style:"gyges",
+            enable:true,
+            hide_onmobile:false,
+            hide_onleave:false,
+            tmp:'',
+            left: {
+              h_align:"center",
+              v_align:"bottom",
+              h_offset:-20,
+              v_offset:0
+            },
+            right: {
+              h_align:"center",
+              v_align:"bottom",
+              h_offset:20,
+              v_offset:0
+            }
+          }
+        },
+        responsiveLevels:[1240,1024,778,480],
+        visibilityLevels:[1240,1024,778,480],
+        gridwidth:[1240,1024,778,480],
+        gridheight:[868,768,960,720],
+        lazyType:"none",
+        shadow:0,
+        spinner:"off",
+        stopLoop:"on",
+        stopAfterLoops:0,
+        stopAtSlide:1,
+        shuffle:"off",
+        autoHeight:"off",
+        fullScreenAutoWidth:"off",
+        fullScreenAlignForce:"off",
+        fullScreenOffsetContainer: "",
+        fullScreenOffset: "60px",
+        disableProgressBar:"on",
+        hideThumbsOnMobile:"off",
+        hideSliderAtLimit:0,
+        hideCaptionAtLimit:0,
+        hideAllCaptionAtLilmit:0,
+        debugMode:false,
+        fallbacks: {
+          simplifyAll:"off",
+          nextSlideOnWindowFocus:"off",
+          disableFocusListener:false,
+        }
+      });
+    }
+
+            RsParticlesAddOn(revapi4);
+  });	/*ready*/
+</script>
   
 <!-- Revolution js Files -->
 <script type="text/javascript" src="{{ asset('revolution/js/jquery.themepunch.tools.min.js') }}"></script>

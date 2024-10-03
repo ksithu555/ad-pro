@@ -64,7 +64,10 @@
                         </div>
                         @elseif ($subBoxBlock->advertisementBoxBlock->advertisementSection->section->name == 'Box02' ||
                         $subBoxBlock->advertisementBoxBlock->advertisementSection->section->name == 'Box03' ||
-                        $subBoxBlock->advertisementBoxBlock->advertisementSection->section->name == 'Box04')
+                        $subBoxBlock->advertisementBoxBlock->advertisementSection->section->name == 'Box04' ||
+                        $subBoxBlock->advertisementBoxBlock->advertisementSection->section->name == 'Box06' ||
+                        $subBoxBlock->advertisementBoxBlock->advertisementSection->section->name == 'Box07' ||
+                        $subBoxBlock->advertisementBoxBlock->advertisementSection->section->name == 'Box08')
                         <div class="row">
                             <div class="col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2">
                                 <div class="form-group">

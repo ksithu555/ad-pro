@@ -254,6 +254,34 @@ class UserAdvertisementController extends Controller
                 return response()->json(['success' => true]);
             }
         }
+        if ($section->section->type == 'accordion') {
+            $advertisementAccordionBlock = AdvertisementAccordionBlock::where('advertisement_section_id', $section->id)->get();
+            if ($advertisementAccordionBlock->isEmpty()) {
+                Session::flash('warning', 'セクションのステータスはまだ変更できません');
+                return response()->json(['success' => true]);
+            }
+        }
+        if ($section->section->type == 'image') {
+            $advertisementImageBlock = AdvertisementImageBlock::where('advertisement_section_id', $section->id)->get();
+            if ($advertisementImageBlock->isEmpty()) {
+                Session::flash('warning', 'セクションのステータスはまだ変更できません');
+                return response()->json(['success' => true]);
+            }
+        }
+        if ($section->section->type == 'video') {
+            $advertisementVideoBlock = AdvertisementVideoBlock::where('advertisement_section_id', $section->id)->get();
+            if ($advertisementVideoBlock->isEmpty()) {
+                Session::flash('warning', 'セクションのステータスはまだ変更できません');
+                return response()->json(['success' => true]);
+            }
+        }
+        if ($section->section->type == 'map') {
+            $advertisementMapBlock = AdvertisementMapBlock::where('advertisement_section_id', $section->id)->get();
+            if ($advertisementMapBlock->isEmpty()) {
+                Session::flash('warning', 'セクションのステータスはまだ変更できません');
+                return response()->json(['success' => true]);
+            }
+        }
         if ($section) {
             $section->status = $request->status;
             $section->save();
@@ -400,6 +428,15 @@ class UserAdvertisementController extends Controller
             ->count();
             if ($advertisementHeaderBlockCounts >= 5) {
                 Session::flash('error', 'このヘッダーセクションの最大ブロック数は 五つ です');
+                return redirect()->route('user.show.section.blocks', $request->advertisementSectionId);
+            }
+        }
+
+        if ($advertisementSection->section->name == 'Header09') {
+            $advertisementHeaderBlockCounts = AdvertisementHeaderBlock::where('advertisement_section_id', $request->advertisementSectionId)
+            ->count();
+            if ($advertisementHeaderBlockCounts >= 2) {
+                Session::flash('error', 'このヘッダーセクションの最大ブロック数は 二つ です');
                 return redirect()->route('user.show.section.blocks', $request->advertisementSectionId);
             }
         }

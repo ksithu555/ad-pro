@@ -151,6 +151,13 @@ Route::group(['middleware' => ['user']], function () {
         Route::post('/user/update/section/map-block-status', [UserAdvertisementController::class, 'updateMapBlockStatus'])->name('user.update.section.map.block.status');
         // Image Hover
         Route::get('/user/image-hovers', [UserAdvertisementController::class, 'getImageHovers'])->name('user.get.image.hovers');
+        // Count Down Block
+        Route::get('/user/add/section/{id}/countdown-block', [UserAdvertisementController::class, 'addCountdownBlock'])->name('user.add.countdown.block');
+        Route::post('/user/store/section/countdown-block', [UserAdvertisementController::class, 'storeCountdownBlock'])->name('user.store.countdown.block');
+        Route::get('/user/edit/section/countdown-block/{id}', [UserAdvertisementController::class, 'editCountdownBlock'])->name('user.edit.countdown.block');
+        Route::post('/user/update/section/countdown-block', [UserAdvertisementController::class, 'updateCountdownBlock'])->name('user.update.countdown.block');
+        Route::get('/user/delete/section/countdown-block/{id}', [UserAdvertisementController::class, 'deleteCountdownBlock'])->name('user.delete.countdown.block');
+        Route::post('/user/update/section/countdown-block-status', [UserAdvertisementController::class, 'updateCountdownBlockStatus'])->name('user.update.section.countdown.block.status');
 
         // Sub Block
         Route::get('/user/show/{type}/block/{id}/sub-blocks', [UserAdvertisementController::class, 'showBlockSubBlocks'])->name('user.show.block.sub.blocks');

@@ -3546,8 +3546,330 @@
                 <a class="btn btn-lg btn-circle btn-secondary-color popup-modal-close" href="#">いいえ</a>
             </div>
             {{-- Contact02 End --}}
+            @elseif ($advertisementSection->section->name == 'Contact03')
+            {{-- Contact03 Start --}}
+            <section class="dark-bg pt-50 pb-50" id="{{ $advertisementSection->name }}">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-8 section-heading white-color">
+                            <h4 class="text-uppercase mt-0">お問合せ</h4>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                        <x-message-box></x-message-box>
+                            <form name="send-contact-form" id="send-contact-form" action="{{ route('guest.send.advertisement.contact') }}" method="POST" 
+                                class="contact-form-style-04" enctype="multipart/form-data">
+                                @csrf
+                                <div class="messages"></div>
+                                <input type="hidden" id="advertisementId" name="advertisementId" value="{{ $advertisement->id }}">
+                                <div class="row">
+                                    <div class="col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2">
+                                        <div class="form-group">
+                                            <label class="sr-only" for="subject">件名</label>
+                                            <input type="text" name="subject" class="md-input style-02" id="subject" placeholder="件名 *" value="{{ old('subject') }}">
+                                            <span class="error" style="color:#BF0731" id="error-subject"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2">
+                                        <div class="form-group">
+                                            <label class="sr-only" for="name">名前</label>
+                                            <input type="text" name="name" class="md-input style-02" id="name" placeholder="名前 *" value="{{ old('name') }}">
+                                            <span class="error" style="color:#BF0731" id="error-name"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2">
+                                        <div class="form-group">
+                                            <label class="sr-only" for="email">メール</label>
+                                            <input type="text" name="email" class="md-input style-02" id="email" placeholder="メール *" value="{{ old('email') }}">
+                                            <span class="error" style="color:#BF0731" id="error-email"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-8 col-sm-8 col-md-offset-2 col-sd-offset-2 pt-10">
+                                        <div class="form-group">
+                                            <label class="sr-only" for="phone">電話番号</label>
+                                            <input type="text" name="phone" class="md-input style-02" id="phone" placeholder="電話番号 *">
+                                            <span class="error" style="color:#BF0731" id="error-phone"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2">
+                                        <div class="form-group">
+                                            <label class="sr-only" for="content">内容</label>
+                                            <textarea name="content" class="md-textarea style-02" id="content" rows="7" placeholder="内容 *">{{ old('content') }}</textarea>
+                                            <span class="error" style="color:#BF0731" id="error-content"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2">
+                                        <div class="text-left mt-20">
+                                            <input type="hidden" id="confirmed" name="confirmed" value="0">
+                                            <div class="tr-modal-popup text-center">
+                                                <a onclick="showModal()" id="open-modal" class="btn btn-color btn-md btn-square btn-animate remove-margin">
+                                                    <span>送信 <i class="ion-android-arrow-forward"></i></span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Modal Popup Message Box -->
+            <div id="modal-popup" class="white-bg all-padding-60 mfp-with-anim mfp-hide centerize-col col-lg-4 col-md-6 col-sm-7 col-xs-11 text-center">
+                <span class="text-uppercase font-30px font-600 mb-20 display-block dark-color">お問合せ送信</span>
+                <p class="mb-20">お問合せを送信してもよろしいですか?</p>
+                <a class="btn btn-lg btn-circle btn-color popup-modal-close" href="#" onclick="submitForm()">はい</a>
+                <a class="btn btn-lg btn-circle btn-secondary-color popup-modal-close" href="#">いいえ</a>
+            </div>
+            {{-- Contact03 End --}}
             @endif
         {{-- Contact Hero End --}}
+        @elseif ($advertisementSection->section->type == 'countdown' && $advertisementSection->status == 1)
+        {{-- Countdown Hero Start --}}
+            @if ($advertisementSection->section->name == 'Countdown01')
+            {{-- Countdown01 Start --}}
+            <section class="{{ $sectionBg }} pt-50 pb-50" id="{{ $advertisementSection->name }}">
+                @if ($advertisementSection->advertisementCountdownBlocks && $advertisementSection->advertisementCountdownBlocks->isNotEmpty())
+                    @foreach ($advertisementSection->advertisementCountdownBlocks as $advertisementCountdownBlock)
+                        @if ($advertisementCountdownBlock->status == 1)
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-sm-8 section-heading">
+                                        <h4 class="text-uppercase mt-0 font-700 roboto-font">{{ $advertisementCountdownBlock->title }}</h4>
+                                        <hr class="dark-bg center_line bold-line">
+                                        <p class="mt-30 font-16px dark-color text-center roboto-font">{!! nl2br($advertisementCountdownBlock->body) !!}</p>
+                                    </div>
+                                </div>
+                                <div class="row mt-50">
+                                    <div class="col-md-12 text-center">
+                                        <div class="countdown-container mt-0 mb-0">
+                                            <ul class="countdown">
+                                                <li>
+                                                    <span class="days default-color font-80px font-400" id="days-{{ $advertisementCountdownBlock->id }}">0</span>
+                                                    <p class="dark-color text-uppercase">days</p>
+                                                </li>
+                                                <li>
+                                                    <span class="hours default-color font-80px font-400" id="hours-{{ $advertisementCountdownBlock->id }}">0</span>
+                                                    <p class="dark-color text-uppercase">hours</p>
+                                                </li>
+                                                <li>
+                                                    <span class="minutes default-color font-80px font-400" id="minutes-{{ $advertisementCountdownBlock->id }}">0</span>
+                                                    <p class="dark-color text-uppercase">minutes</p>
+                                                </li>
+                                                <li>
+                                                    <span class="seconds default-color font-80px font-400" id="seconds-{{ $advertisementCountdownBlock->id }}">0</span>
+                                                    <p class="dark-color text-uppercase">seconds</p>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- JavaScript Countdown Logic -->
+                            <script>
+                                // Set the date you're counting down to
+                                var countDownDate_{{ $advertisementCountdownBlock->id }} = new Date("{{ $advertisementCountdownBlock->target_datetime }}").getTime();
+                            
+                                // Update the countdown every 1 second
+                                var countdownFunction_{{ $advertisementCountdownBlock->id }} = setInterval(function() {
+                                    var now = new Date().getTime();
+                                    var distance = countDownDate_{{ $advertisementCountdownBlock->id }} - now;
+
+                                    // Time calculations for days, hours, minutes, and seconds
+                                    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                                    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                                    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                                    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                                    // Output the result in the elements with corresponding IDs
+                                    document.getElementById("days-{{ $advertisementCountdownBlock->id }}").innerHTML = days;
+                                    document.getElementById("hours-{{ $advertisementCountdownBlock->id }}").innerHTML = hours;
+                                    document.getElementById("minutes-{{ $advertisementCountdownBlock->id }}").innerHTML = minutes;
+                                    document.getElementById("seconds-{{ $advertisementCountdownBlock->id }}").innerHTML = seconds;
+
+                                    // If the countdown is finished
+                                    if (distance < 0) {
+                                        clearInterval(countdownFunction_{{ $advertisementCountdownBlock->id }});
+                                        document.getElementById("days-{{ $advertisementCountdownBlock->id }}").innerHTML = "0";
+                                        document.getElementById("hours-{{ $advertisementCountdownBlock->id }}").innerHTML = "0";
+                                        document.getElementById("minutes-{{ $advertisementCountdownBlock->id }}").innerHTML = "0";
+                                        document.getElementById("seconds-{{ $advertisementCountdownBlock->id }}").innerHTML = "0";
+                                    }
+                                }, 1000);
+                            </script>
+                        @endif
+                    @endforeach
+                @endif
+            </section>
+            {{-- Countdown01 End --}}
+            @elseif ($advertisementSection->section->name == 'Countdown02')
+            {{-- Countdown02 Start --}}
+            <section class="default-bg pt-50 pb-50" id="{{ $advertisementSection->name }}">
+                @if ($advertisementSection->advertisementCountdownBlocks && $advertisementSection->advertisementCountdownBlocks->isNotEmpty())
+                    @foreach ($advertisementSection->advertisementCountdownBlocks as $advertisementCountdownBlock)
+                        @if ($advertisementCountdownBlock->status == 1)
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-sm-8 section-heading white-color">
+                                        <h4 class="text-uppercase mt-0 font-700 roboto-font">{{ $advertisementCountdownBlock->title }}</h4>
+                                        <hr class="dark-bg center_line bold-line">
+                                        <p class="mt-30 font-16px dark-color text-center roboto-font">{!! nl2br($advertisementCountdownBlock->body) !!}</p>
+                                    </div>
+                                </div>
+                                <div class="row mt-50">
+                                    <div class="col-md-12 text-center">
+                                        <div class="countdown-container mt-0 mb-0">
+                                            <ul class="countdown">
+                                                <li class="white-color">
+                                                    <span class="days font-80px font-400" id="days-{{ $advertisementCountdownBlock->id }}">0</span>
+                                                    <p class="dark-color text-uppercase">days</p>
+                                                </li>
+                                                <li class="white-color">
+                                                    <span class="hours font-80px font-400" id="hours-{{ $advertisementCountdownBlock->id }}">0</span>
+                                                    <p class="dark-color text-uppercase">hours</p>
+                                                </li>
+                                                <li class="white-color">
+                                                    <span class="minutes font-80px font-400" id="minutes-{{ $advertisementCountdownBlock->id }}">0</span>
+                                                    <p class="dark-color text-uppercase">minutes</p>
+                                                </li>
+                                                <li class="white-color">
+                                                    <span class="seconds font-80px font-400" id="seconds-{{ $advertisementCountdownBlock->id }}">0</span>
+                                                    <p class="dark-color text-uppercase">seconds</p>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- JavaScript Countdown Logic -->
+                            <script>
+                                // Set the date you're counting down to
+                                var countDownDate_{{ $advertisementCountdownBlock->id }} = new Date("{{ $advertisementCountdownBlock->target_datetime }}").getTime();
+                            
+                                // Update the countdown every 1 second
+                                var countdownFunction_{{ $advertisementCountdownBlock->id }} = setInterval(function() {
+                                    var now = new Date().getTime();
+                                    var distance = countDownDate_{{ $advertisementCountdownBlock->id }} - now;
+
+                                    // Time calculations for days, hours, minutes, and seconds
+                                    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                                    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                                    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                                    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                                    // Output the result in the elements with corresponding IDs
+                                    document.getElementById("days-{{ $advertisementCountdownBlock->id }}").innerHTML = days;
+                                    document.getElementById("hours-{{ $advertisementCountdownBlock->id }}").innerHTML = hours;
+                                    document.getElementById("minutes-{{ $advertisementCountdownBlock->id }}").innerHTML = minutes;
+                                    document.getElementById("seconds-{{ $advertisementCountdownBlock->id }}").innerHTML = seconds;
+
+                                    // If the countdown is finished
+                                    if (distance < 0) {
+                                        clearInterval(countdownFunction_{{ $advertisementCountdownBlock->id }});
+                                        document.getElementById("days-{{ $advertisementCountdownBlock->id }}").innerHTML = "0";
+                                        document.getElementById("hours-{{ $advertisementCountdownBlock->id }}").innerHTML = "0";
+                                        document.getElementById("minutes-{{ $advertisementCountdownBlock->id }}").innerHTML = "0";
+                                        document.getElementById("seconds-{{ $advertisementCountdownBlock->id }}").innerHTML = "0";
+                                    }
+                                }, 1000);
+                            </script>
+                        @endif
+                    @endforeach
+                @endif
+            </section>
+            {{-- Countdown02 End --}}
+            @elseif ($advertisementSection->section->name == 'Countdown03')
+            {{-- Countdown03 Start --}}
+            <section class="dark-bg pt-50 pb-50" id="{{ $advertisementSection->name }}">
+                @if ($advertisementSection->advertisementCountdownBlocks && $advertisementSection->advertisementCountdownBlocks->isNotEmpty())
+                    @foreach ($advertisementSection->advertisementCountdownBlocks as $advertisementCountdownBlock)
+                        @if ($advertisementCountdownBlock->status == 1)
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-sm-8 section-heading white-color">
+                                        <h4 class="text-uppercase mt-0 font-700 roboto-font">{{ $advertisementCountdownBlock->title }}</h4>
+                                        <hr class="dark-bg center_line bold-line">
+                                        <p class="mt-30 font-16px dark-color text-center roboto-font">{!! nl2br($advertisementCountdownBlock->body) !!}</p>
+                                    </div>
+                                </div>
+                                <div class="row mt-50">
+                                    <div class="col-md-12 text-center">
+                                        <div class="countdown-container mt-0 mb-0">
+                                            <ul class="countdown">
+                                                <li class="white-color">
+                                                    <span class="days font-80px font-400" id="days-{{ $advertisementCountdownBlock->id }}">0</span>
+                                                    <p class="dark-color text-uppercase">days</p>
+                                                </li>
+                                                <li class="white-color">
+                                                    <span class="hours font-80px font-400" id="hours-{{ $advertisementCountdownBlock->id }}">0</span>
+                                                    <p class="dark-color text-uppercase">hours</p>
+                                                </li>
+                                                <li class="white-color">
+                                                    <span class="minutes font-80px font-400" id="minutes-{{ $advertisementCountdownBlock->id }}">0</span>
+                                                    <p class="dark-color text-uppercase">minutes</p>
+                                                </li>
+                                                <li class="white-color">
+                                                    <span class="seconds font-80px font-400" id="seconds-{{ $advertisementCountdownBlock->id }}">0</span>
+                                                    <p class="dark-color text-uppercase">seconds</p>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- JavaScript Countdown Logic -->
+                            <script>
+                                // Set the date you're counting down to
+                                var countDownDate_{{ $advertisementCountdownBlock->id }} = new Date("{{ $advertisementCountdownBlock->target_datetime }}").getTime();
+                            
+                                // Update the countdown every 1 second
+                                var countdownFunction_{{ $advertisementCountdownBlock->id }} = setInterval(function() {
+                                    var now = new Date().getTime();
+                                    var distance = countDownDate_{{ $advertisementCountdownBlock->id }} - now;
+
+                                    // Time calculations for days, hours, minutes, and seconds
+                                    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                                    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                                    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                                    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                                    // Output the result in the elements with corresponding IDs
+                                    document.getElementById("days-{{ $advertisementCountdownBlock->id }}").innerHTML = days;
+                                    document.getElementById("hours-{{ $advertisementCountdownBlock->id }}").innerHTML = hours;
+                                    document.getElementById("minutes-{{ $advertisementCountdownBlock->id }}").innerHTML = minutes;
+                                    document.getElementById("seconds-{{ $advertisementCountdownBlock->id }}").innerHTML = seconds;
+
+                                    // If the countdown is finished
+                                    if (distance < 0) {
+                                        clearInterval(countdownFunction_{{ $advertisementCountdownBlock->id }});
+                                        document.getElementById("days-{{ $advertisementCountdownBlock->id }}").innerHTML = "0";
+                                        document.getElementById("hours-{{ $advertisementCountdownBlock->id }}").innerHTML = "0";
+                                        document.getElementById("minutes-{{ $advertisementCountdownBlock->id }}").innerHTML = "0";
+                                        document.getElementById("seconds-{{ $advertisementCountdownBlock->id }}").innerHTML = "0";
+                                    }
+                                }, 1000);
+                            </script>
+                        @endif
+                    @endforeach
+                @endif
+            </section>
+            {{-- Countdown03 End --}}
+            @endif
+        {{-- Countdown Hero End --}}
         @elseif ($advertisementSection->section->type == 'footer'  && $advertisementSection->status == 1)
         {{-- Footer Hero Start --}}
             @if ($advertisementSection->section->name == 'Footer01')

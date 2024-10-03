@@ -108,7 +108,7 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2">
+                                    <div class="col-md-8 col-sm-8 col-md-offset-2 col-sd-offset-2 pt-10">
                                         <div class="form-group">
                                             <label class="md-file" for="image" id="file-label">画像 *</label>
                                             <input type="file" name="image" id="image" placeholder="画像 *" style="display: none;" value="{{ old('image') ? old('image') : $user->image }}">
@@ -378,10 +378,10 @@
                                             <div class="text-center">
                                                 <input type="hidden" id="confirmed" name="confirmed" value="0">
                                                 <div class="tr-modal-popup">
-                                                    <a onclick="showCompanyModal()" id="open-company-modal" class="btn btn-md btn-color btn-square">
+                                                    <a onclick="showCompanyModal()" id="open-company-modal" class="btn btn-md btn-color btn-square mt-10">
                                                         <span>修正 <i class="ion-android-arrow-forward"></i></span>
                                                     </a>
-                                                    <a onclick="showUserCompanyDiv()" class="btn btn-md btn-color btn-square">
+                                                    <a onclick="showUserCompanyDiv()" class="btn btn-md btn-color btn-square mt-10">
                                                         <span>キャンセル</span>
                                                     </a>
                                                 </div>
@@ -529,7 +529,7 @@
                 document.getElementById('error-email').textContent = '有効なメールアドレスを入力してください';
             }
 
-            if (!image.type.match('image.*')){
+            if (image && !image.type.match('image.*')){
                 document.getElementById('error-image').textContent = '有効な画像を選択してください';
                 isValid = false;
             }

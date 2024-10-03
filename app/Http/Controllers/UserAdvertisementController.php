@@ -20,6 +20,7 @@ use App\Models\AdvertisementHeaderBlock;
 use App\Models\AdvertisementSubBoxBlock;
 use App\Models\AdvertisementSubImageBlock;
 use App\Models\AdvertisementAccordionBlock;
+use App\Models\AdvertisementCountdownBlock;
 use App\Models\AdvertisementSubAccordionBlock;
 
 class UserAdvertisementController extends Controller
@@ -401,6 +402,9 @@ class UserAdvertisementController extends Controller
         }
         if($type == 'map') {
             $advertisementSectionBlocks = AdvertisementMapBlock::where('advertisement_section_id', $advertisementSection->id)->get();
+        }
+        if($type == 'countdown') {
+            $advertisementSectionBlocks = AdvertisementCountdownBlock::where('advertisement_section_id', $advertisementSection->id)->get();
         }
 
         return view('users.advertisements.show-section-blocks', compact('id', 'type', 'advertisementSection', 'advertisementSectionBlocks'));
@@ -951,6 +955,62 @@ class UserAdvertisementController extends Controller
             return response()->json(['success' => true]);
         }
         Session::flash('error', 'グーグルマップブロックステータスの変更に失敗しました');
+        return response()->json(['success' => false]);
+    }
+
+    // Countdown
+    public function addCountdownBlock($id) {
+        return view('users.advertisements.add-countdown-block', compact('id'));
+    }
+
+    public function storeCountdownBlock(Request $request) {
+        AdvertisementCountdownBlock::create([
+            'advertisement_section_id' => $request->advertisementSectionId,
+            'title' => $request->title,
+            'body' => $request->body,
+            'target_datetime' => $request->targetDatetime,
+            'status' => 0
+        ]);
+
+        Session::flash('success', 'カウントダウンブロックが正常に追加されました');
+        return redirect()->route('user.show.section.blocks', $request->advertisementSectionId);
+    }
+
+    public function editCountdownBlock($id) {
+        $advertisementCountdownBlock = AdvertisementCountdownBlock::find($id);
+        return view('users.advertisements.edit-countdown-block', compact('advertisementCountdownBlock'));
+    }
+
+    public function updateCountdownBlock(Request $request) {
+        $updateData = [
+            'title' => $request->title,
+            'body' => $request->body,
+            'target_datetime' => $request->targetDatetime
+        ];
+
+        $advertisementCountdownBlock = AdvertisementCountdownBlock::find($request->id);
+        $advertisementCountdownBlock->update($updateData);
+        Session::flash('success', 'カウントダウンブロックが正常に更新されました');
+        return redirect()->route('user.show.section.blocks', $advertisementCountdownBlock->advertisement_section_id);
+    }
+
+    public function deleteCountdownBlock($id) {
+        $advertisementCountdownBlock = AdvertisementCountdownBlock::find($id);
+        AdvertisementCountdownBlock::where('id', $id)->delete();
+        Session::flash('success', 'カウントダウンブロックが正常に削除されました');
+        return redirect()->route('user.show.section.blocks', $advertisementCountdownBlock->advertisement_section_id);
+
+    }
+
+    public function updateCountdownBlockStatus(Request $request) {
+        $block = AdvertisementCountdownBlock::find($request->id);
+        if ($block) {
+            $block->status = $request->status;
+            $block->save();
+            Session::flash('success', 'カウントダウンブロックのステータスが正常に更新されました');
+            return response()->json(['success' => true]);
+        }
+        Session::flash('error', 'カウントダウンブロックステータスの変更に失敗しました');
         return response()->json(['success' => false]);
     }
 

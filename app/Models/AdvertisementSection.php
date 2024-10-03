@@ -53,4 +53,8 @@ class AdvertisementSection extends Model
     public function advertisementMapBlocks() {
         return $this->hasMany(AdvertisementMapBlock::class);
     }
+
+    public function advertisementCountdownBlocks() {
+        return $this->hasMany(AdvertisementCountdownBlock::class);
+    }
 }

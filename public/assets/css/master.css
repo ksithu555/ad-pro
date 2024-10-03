@@ -4808,6 +4808,12 @@ section.big-block .client-logo {padding:10%;}
 .countdown li {display: inline-block;text-align: center;margin-right:50px;}
 .countdown li:last-child {margin-right:0;}
 
+/* Countdowns */
+
+.countdown01 {margin-bottom: 0;}
+.countdown01 li {display: inline-block;text-align: center;margin-right:50px;}
+.countdown01 li:last-child {margin-right:0;}
+
 /* Skills Bar */
 
 .skillbar-style-01 .skillbar {position:relative;display:inline-block;margin:40px 0 10px;height:5px;width:93%;background-color: #eee;}

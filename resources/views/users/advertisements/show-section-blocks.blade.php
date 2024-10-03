@@ -432,6 +432,11 @@
                                     {{ $block->url }} 
                                 </td>
                                 <td style="min-width: 110px;">
+                                    @if ($block->advertisementSection->section->name == "Video02")
+                                    <div class="fit-videos">
+                                        <iframe width="560" height="315" src="{{ $block->url }}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                                    </div>
+                                    @else
                                     <div class="video-box">
                                         <img class="img-responsive" src="{{ asset('assets/images/all/' . $block->image) }}" alt="">
                                         <div class="video-box_overlay">
@@ -444,6 +449,7 @@
                                             </div>
                                         </div>
                                     </div>
+                                    @endif
                                 </td>
                                 <td style="min-width: 110px;">
                                     <label class="toggle-switch">

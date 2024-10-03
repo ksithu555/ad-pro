@@ -66,8 +66,6 @@
             document.getElementById("hours").innerHTML = "0";
             document.getElementById("minutes").innerHTML = "0";
             document.getElementById("seconds").innerHTML = "0";
-            // Optional: Display a message when countdown ends
-            // document.querySelector(".countdown-container").innerHTML = "<p>The event has started!</p>";
           }
         }, 1000);
     </script>    

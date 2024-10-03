@@ -163,7 +163,7 @@
                 isValid = false;
             } else {
                 // Check if URL is valid using a regular expression
-                const urlPattern = /^(https?:\/\/)?([\w\d-]+\.){1,2}[a-zA-Z]{2,}(\/[\w\d#%&?=.-]*)?$/;
+                const urlPattern = /^(https?:\/\/)?([\w-]+\.)+[\w-]{2,}(\/[\w- ./?%&=]*)?$/;
                 if (!urlPattern.test(url)) {
                     document.getElementById('error-url').textContent = '有効なURLを入力してください';
                     isValid = false;

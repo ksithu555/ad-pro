@@ -193,24 +193,24 @@
             <!--== Header03 Start ==-->
             <section class="{{ $sectionBg }} remove-padding transition-none" id="{{ $advertisementSection->name }}">
                 <div id="rev_slider_1061_1_wrapper" class="rev_slider_wrapper fullscreen-container" 
-                data-alias="creative-freedom" data-source="gallery" style="background-color:#1f1d24;padding:0px;">
-                <!-- START REVOLUTION SLIDER 5.4.1 fullscreen mode -->
+                    data-alias="creative-freedom" data-source="gallery" style="background-color:#1f1d24;padding:0px;">
+                    <!-- START REVOLUTION SLIDER 5.4.1 fullscreen mode -->
                     <div id="rev_slider_1061_1" class="rev_slider fullscreenbanner" style="display:none;" 
                     data-version="5.4.1">
                     <ul>    <!-- SLIDE  -->
                         @php
                             $loopindex = 0;
                         @endphp
-                    @foreach ($advertisementSection->advertisementHeaderBlocks as $key => $advertisementHeaderBlock)
+                        @foreach ($advertisementSection->advertisementHeaderBlocks as $key => $advertisementHeaderBlock)
                         @if ($advertisementHeaderBlock->status == 1)
                         <li data-index="rs-{{ 2978 + $loopindex }}" data-transition="fadethroughdark" data-slotamount="default" 
-                        data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="default" 
-                        data-easeout="default" data-masterspeed="2000"  
-                        data-thumb="{{ asset('assets/images/all/' . $advertisementHeaderBlock->image) }}"  
-                        data-rotate="0"  data-saveperformance="off"  data-title="{{ $advertisementHeaderBlock->title }} " 
-                        data-param1="{{ str_pad($loop->iteration, 2, '0', STR_PAD_LEFT) }}" data-param2="" 
-                        data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" 
-                        data-param8="" data-param9="" data-param10="" data-description="">
+                            data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="default" 
+                            data-easeout="default" data-masterspeed="2000"  
+                            data-thumb="{{ asset('assets/images/all/' . $advertisementHeaderBlock->image) }}"  
+                            data-rotate="0"  data-saveperformance="off"  data-title="{{ $advertisementHeaderBlock->title }} " 
+                            data-param1="{{ str_pad($loop->iteration, 2, '0', STR_PAD_LEFT) }}" data-param2="" 
+                            data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" 
+                            data-param8="" data-param9="" data-param10="" data-description="">
                             <!-- MAIN IMAGE -->
                             <img src="{{ asset('assets/images/all/' . $advertisementHeaderBlock->image) }}"  
                             alt=""  data-bgposition="center center" data-bgfit="cover" data-bgparallax="3" 
@@ -3673,6 +3673,7 @@
                                                 </li>
                                             </ul>
                                         </div>
+                                        <h3 id="hasStarted-{{ $advertisementCountdownBlock->id }}" class="text-uppercase mt-20 font-700 roboto-font default-color"></h3>
                                     </div>
                                 </div>
                             </div>
@@ -3706,6 +3707,7 @@
                                         document.getElementById("hours-{{ $advertisementCountdownBlock->id }}").innerHTML = "0";
                                         document.getElementById("minutes-{{ $advertisementCountdownBlock->id }}").innerHTML = "0";
                                         document.getElementById("seconds-{{ $advertisementCountdownBlock->id }}").innerHTML = "0";
+                                        document.getElementById("hasStarted-{{ $advertisementCountdownBlock->id }}").innerText = "The event has started!";
                                     }
                                 }, 1000);
                             </script>
@@ -3750,6 +3752,7 @@
                                                 </li>
                                             </ul>
                                         </div>
+                                        <h3 id="hasStarted-{{ $advertisementCountdownBlock->id }}" class="text-uppercase mt-20 font-700 roboto-font default-color"></h3>
                                     </div>
                                 </div>
                             </div>
@@ -3783,6 +3786,7 @@
                                         document.getElementById("hours-{{ $advertisementCountdownBlock->id }}").innerHTML = "0";
                                         document.getElementById("minutes-{{ $advertisementCountdownBlock->id }}").innerHTML = "0";
                                         document.getElementById("seconds-{{ $advertisementCountdownBlock->id }}").innerHTML = "0";
+                                        document.getElementById("hasStarted-{{ $advertisementCountdownBlock->id }}").innerText = "The event has started!";
                                     }
                                 }, 1000);
                             </script>
@@ -3827,6 +3831,7 @@
                                                 </li>
                                             </ul>
                                         </div>
+                                        <h3 id="hasStarted-{{ $advertisementCountdownBlock->id }}" class="text-uppercase mt-20 font-700 roboto-font default-color"></h3>
                                     </div>
                                 </div>
                             </div>
@@ -3860,6 +3865,7 @@
                                         document.getElementById("hours-{{ $advertisementCountdownBlock->id }}").innerHTML = "0";
                                         document.getElementById("minutes-{{ $advertisementCountdownBlock->id }}").innerHTML = "0";
                                         document.getElementById("seconds-{{ $advertisementCountdownBlock->id }}").innerHTML = "0";
+                                        document.getElementById("hasStarted-{{ $advertisementCountdownBlock->id }}").innerText = "The event has started!";
                                     }
                                 }, 1000);
                             </script>

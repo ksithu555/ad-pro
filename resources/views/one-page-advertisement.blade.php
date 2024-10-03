@@ -2879,7 +2879,8 @@
                                 @foreach ($advertisementAccordionBlock->advertisementSubAccordionBlocks as $key => $advertisementSubAccordionBlock)
                                 <div class="panel">
                                     <div class="panel-heading">
-                                        <a data-toggle="collapse" data-parent="#accordion-style" href="#question-{{ $key }}" aria-expanded="false" class="collapsed">
+                                        <a data-toggle="collapse" data-parent="#accordion-style" href="#question-{{ $key }}-{{ $advertisementSubAccordionBlock->advertisement_accordion_block_id }}" 
+                                            aria-expanded="false" class="collapsed">
                                             <div class="panel-title text-uppercase">
                                                 {{ $advertisementSubAccordionBlock->title }} 
                                                 <span class="pull-right">
@@ -2892,7 +2893,8 @@
                                             </div>
                                         </a>
                                     </div>
-                                    <div id="question-{{ $key }}" class="panel-collapse collapse {{ $key == 0 ? 'in' : '' }}" aria-expanded="false" role="tablist">
+                                    <div id="question-{{ $key }}-{{ $advertisementSubAccordionBlock->advertisement_accordion_block_id }}" 
+                                        class="panel-collapse collapse {{ $key == 0 ? 'in' : '' }}" aria-expanded="false" role="tablist">
                                         <div class="panel-body">
                                             {!! nl2br($advertisementSubAccordionBlock->body) !!}
                                         </div>
@@ -2924,7 +2926,8 @@
                                 @foreach ($advertisementAccordionBlock->advertisementSubAccordionBlocks as $key => $advertisementSubAccordionBlock)
                                 <div class="panel">
                                     <div class="panel-heading">
-                                        <a data-toggle="collapse" data-parent="#accordion-style" href="#dark-{{ $key }}" aria-expanded="false" class="collapsed">
+                                        <a data-toggle="collapse" data-parent="#accordion-style" href="#dark-{{ $key }}-{{ $advertisementSubAccordionBlock->advertisement_accordion_block_id }}" 
+                                            aria-expanded="false" class="collapsed">
                                             <div class="panel-title text-uppercase white-color">
                                                 {{ $advertisementSubAccordionBlock->title }} 
                                                 <span class="pull-right">
@@ -2937,7 +2940,8 @@
                                             </div>
                                         </a>
                                     </div>
-                                    <div id="dark-{{ $key }}" class="panel-collapse collapse {{ $key == 0 ? 'in' : '' }}" aria-expanded="false" role="tablist">
+                                    <div id="dark-{{ $key }}-{{ $advertisementSubAccordionBlock->advertisement_accordion_block_id }}" 
+                                        class="panel-collapse collapse {{ $key == 0 ? 'in' : '' }}" aria-expanded="false" role="tablist">
                                         <div class="panel-body">
                                             {!! nl2br($advertisementSubAccordionBlock->body) !!}
                                         </div>
@@ -2969,7 +2973,8 @@
                                 @foreach ($advertisementAccordionBlock->advertisementSubAccordionBlocks as $key => $advertisementSubAccordionBlock)
                                 <div class="panel">
                                     <div class="panel-heading">
-                                        <a data-toggle="collapse" data-parent="#accordion-style" href="#light-{{ $key }}" aria-expanded="false" class="collapsed">
+                                        <a data-toggle="collapse" data-parent="#accordion-style" href="#light-{{ $key }}-{{ $advertisementSubAccordionBlock->advertisement_accordion_block_id }}" 
+                                            aria-expanded="false" class="collapsed">
                                             <div class="panel-title text-uppercase white-color">
                                                 {{ $advertisementSubAccordionBlock->title }} 
                                                 <span class="pull-right">
@@ -2982,7 +2987,8 @@
                                             </div>
                                         </a>
                                     </div>
-                                    <div id="light-{{ $key }}" class="panel-collapse collapse {{ $key == 0 ? 'in' : '' }}" aria-expanded="false" role="tablist">
+                                    <div id="light-{{ $key }}-{{ $advertisementSubAccordionBlock->advertisement_accordion_block_id }}" 
+                                        class="panel-collapse collapse {{ $key == 0 ? 'in' : '' }}" aria-expanded="false" role="tablist">
                                         <div class="panel-body">
                                             {!! nl2br($advertisementSubAccordionBlock->body) !!}
                                         </div>
@@ -3014,7 +3020,8 @@
                                 @foreach ($advertisementAccordionBlock->advertisementSubAccordionBlocks as $key => $advertisementSubAccordionBlock)
                                 <div class="panel">
                                     <div class="panel-heading">
-                                        <a data-toggle="collapse" data-parent="#accordion-style" href="#darkstyle-{{ $key }}" aria-expanded="false" class="collapsed">
+                                        <a data-toggle="collapse" data-parent="#accordion-style" href="#darkstyle-{{ $key }}-{{ $advertisementSubAccordionBlock->advertisement_accordion_block_id }}" 
+                                            aria-expanded="false" class="collapsed">
                                             <div class="panel-title text-uppercase">
                                                 {{ $advertisementSubAccordionBlock->title }} 
                                                 <span class="pull-right">
@@ -3027,7 +3034,8 @@
                                             </div>
                                         </a>
                                     </div>
-                                    <div id="darkstyle-{{ $key }}" class="panel-collapse collapse {{ $key == 0 ? 'in' : '' }}" aria-expanded="false" role="tablist">
+                                    <div id="darkstyle-{{ $key }}-{{ $advertisementSubAccordionBlock->advertisement_accordion_block_id }}" 
+                                        class="panel-collapse collapse {{ $key == 0 ? 'in' : '' }}" aria-expanded="false" role="tablist">
                                         <div class="panel-body">
                                             {!! nl2br($advertisementSubAccordionBlock->body) !!}
                                         </div>
@@ -3059,7 +3067,8 @@
                                 @foreach ($advertisementAccordionBlock->advertisementSubAccordionBlocks as $key => $advertisementSubAccordionBlock)
                                 <div class="panel">
                                     <div class="panel-heading">
-                                        <a data-toggle="collapse" data-parent="#accordion-style" href="#defaultstyle-{{ $key }}" aria-expanded="false" class="collapsed">
+                                        <a data-toggle="collapse" data-parent="#accordion-style" href="#defaultstyle-{{ $key }}-{{ $advertisementSubAccordionBlock->advertisement_accordion_block_id }}" 
+                                            aria-expanded="false" class="collapsed">
                                             <div class="panel-title text-uppercase white-color">
                                                 {{ $advertisementSubAccordionBlock->title }} 
                                                 <span class="pull-right">
@@ -3072,7 +3081,8 @@
                                             </div>
                                         </a>
                                     </div>
-                                    <div id="defaultstyle-{{ $key }}" class="panel-collapse collapse {{ $key == 0 ? 'in' : '' }}" aria-expanded="false" role="tablist">
+                                    <div id="defaultstyle-{{ $key }}-{{ $advertisementSubAccordionBlock->advertisement_accordion_block_id }}" 
+                                        class="panel-collapse collapse {{ $key == 0 ? 'in' : '' }}" aria-expanded="false" role="tablist">
                                         <div class="panel-body white-color">
                                             {!! nl2br($advertisementSubAccordionBlock->body) !!}
                                         </div>

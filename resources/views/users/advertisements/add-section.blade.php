@@ -25,6 +25,22 @@
                     </div>
                     <div class="row">
                         <div class="col-md-12">
+                            <div class="form-group">
+                                @php
+                                    $types = $sections->pluck('type')->unique();
+                                @endphp
+                                <select name="filterType" class="orderby social-media md-input">
+                                    <option value="" selected="selected">全て</option>
+                                    @foreach ($types as $type)
+                                    <option value="{{ $type }}">{{ $type }}</option>
+                                    @endforeach
+                                </select>
+                                <span class="error" style="color:#BF0731" id="error-filterType"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
                             <div class="table-responsive">
                                 <table class="table table-bordered table-striped table-hover shop-cart">
                                     <thead>
@@ -38,7 +54,7 @@
                                     </thead>
                                     <tbody>
                                         @foreach ($sections as $key => $section)
-                                        <tr>
+                                        <tr class="section-row" data-type="{{ $section->type }}">
                                             <td>
                                                 <div class="custom-radio mt-10">
                                                     <input type="radio" id="section-{{ $section->id }}" name="section" 
@@ -93,6 +109,30 @@
         <a class="btn btn-lg btn-circle btn-secondary-color popup-modal-close" href="#">いいえ</a>
     </div>
 
+    <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
+    <script>
+        $(document).ready(function() {
+            // When the filter dropdown changes
+            $('select[name="filterType"]').on('change', function() {
+                var selectedType = $(this).val(); // Get selected type
+
+                // If '全て' is selected, show all rows
+                if (selectedType === "") {
+                    $('.section-row').show();
+                } else {
+                    // Otherwise, show only the rows that match the selected type
+                    $('.section-row').each(function() {
+                        var sectionType = $(this).data('type'); // Get the type of the row
+                        if (sectionType === selectedType) {
+                            $(this).show();
+                        } else {
+                            $(this).hide();
+                        }
+                    });
+                }
+            });
+        });
+    </script>
     {{-- validate --}}
     <script>
         function showModal() {

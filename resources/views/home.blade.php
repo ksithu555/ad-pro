@@ -1,28 +1,5 @@
 <x-guest-layout>
     <!--== Top Header Start ==-->
-    {{-- <section class="pt-0 pb-0 dark-block">
-        <div class="service-slider-2 slick height-650px" style="margin-bottom: 0px;">
-            @foreach ($headers as $header)
-            <div class="slide">
-                <div class="slide-img height-650px" style="background:url({{ asset('assets/images/all/' . $header->image) }}) center center / cover scroll no-repeat;"></div>
-                <div class="hero-text-wrap height-650px">
-                    <div class="hero-text">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-8">
-                                    <div class="white-color default-bg all-padding-50">
-                                        <h3 class="font-700">{{ $header->title }}</h3>
-                                   </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            @endforeach
-        </div>
-    </section> --}}
-    <!--== Top Header End ==-->
     <!--== Header06 Start ==-->
     <section class="pt-0 pb-0 transition-none">
         <div id="rev_slider_28_1_wrapper" class="rev_slider_wrapper fullscreen-container" data-alias="parallax-zoom-slices" data-source="gallery" style="background:#000000;padding:0px;">
@@ -327,7 +304,7 @@
                         data-paddingleft="[0,0,0,0]"
     
                         style="z-index: 16; white-space: nowrap; font-size: 70px; font-weight: 600; color: #BF0731 ; letter-spacing: ;font-family: 'Montserrat', sans-serif;">
-                        <div class="white-color default-bg all-padding-50">
+                        <div class="title-div white-color default-bg all-padding-50">
                             {!! nl2br($header->title) !!}
                         </div>
                     </div>
@@ -504,7 +481,7 @@
                         data-paddingleft="[0,0,0,0]"
     
                         style="z-index: 11; white-space: nowrap; font-size: 70px; font-weight: 600; color: #BF0731 ; letter-spacing: ;font-family: 'Montserrat', sans-serif;">
-                        <div class="white-color default-bg all-padding-50">
+                        <div class="title-div white-color default-bg all-padding-50">
                             {!! nl2br($header->title) !!}
                         </div>
                     </div>
@@ -680,7 +657,7 @@
                         data-paddingleft="[0,0,0,0]"
     
                         style="z-index: 11; white-space: nowrap; font-size: 70px; font-weight: 600; color: #BF0731 ; letter-spacing: ;font-family: 'Montserrat', sans-serif;">
-                        <div class="white-color default-bg all-padding-50">
+                        <div class="title-div white-color default-bg all-padding-50">
                             {!! nl2br($header->title) !!}
                         </div>
                     </div>
@@ -880,7 +857,7 @@
                         data-paddingleft="[0,0,0,0]"
     
                         style="z-index: 11; white-space: nowrap; font-size: 70px; font-weight: 600; color: #BF0731 ; letter-spacing: ;font-family: 'Montserrat', sans-serif;">
-                        <div class="white-color default-bg all-padding-50">
+                        <div class="title-div white-color default-bg all-padding-50">
                             {!! nl2br($header->title) !!}
                         </div>
                     </div>
@@ -1088,7 +1065,7 @@
                         data-paddingleft="[0,0,0,0]"
     
                         style="z-index: 11; white-space: nowrap; font-size: 70px; font-weight: 600; color: #BF0731 ; letter-spacing: ;font-family: 'Montserrat', sans-serif;">
-                        <div class="white-color default-bg all-padding-50">
+                        <div class="title-div white-color default-bg all-padding-50">
                             {!! nl2br($header->title) !!}
                         </div>
                     </div>
@@ -1104,6 +1081,7 @@
         </div>
     </section>
     <!--== Header06 End ==-->
+    <!--== Top Header End ==-->
     
     <!--== Sections Start ==--> 
     <!--== Boxed Icons Style 04 Start ==-->
@@ -1403,4 +1381,67 @@
     </div>
   </section>
   <!--== Call to Actions Style 03 End ==-->
+
+    <script>
+        function adjustFontSize() {
+            // Get the width of the window
+            const windowWidth = window.innerWidth;
+
+            // Calculate the font size based on the window width
+            let fontSize = windowWidth * 0.06;
+
+            // Apply the calculated font size to the title element
+            // Function to apply font size if element exists
+            function applyFontSize(elementId) {
+                const element = document.getElementById(elementId);
+                if (element) {
+                    element.style.fontSize = fontSize + 'px';
+                }
+            }
+
+            // Apply font size to multiple elements if they exist
+            applyFontSize('slide-82-layer-4');
+            applyFontSize('slide-83-layer-4');
+            applyFontSize('slide-84-layer-4');
+            applyFontSize('slide-85-layer-4');
+            applyFontSize('slide-86-layer-4');
+        }
+
+        // Run the function when the window is resized
+        window.addEventListener('resize', adjustFontSize);
+
+        // Run the function on initial load
+        window.addEventListener('load', adjustFontSize);
+    </script>
+    <script>
+        function adjustDivText() {
+            const whiteColorDivs = document.querySelectorAll('.title-div');
+            const windowWidth = window.innerWidth;
+
+            whiteColorDivs.forEach(function(div) {
+                // Ensure text does not overflow the div
+                div.style.wordWrap = 'break-word';
+                div.style.overflow = 'hidden';
+                div.style.textOverflow = 'ellipsis';
+                div.style.whiteSpace = 'normal';
+                div.style.boxSizing = 'border-box'; // Include padding in width
+
+                // Optionally, you can set the max-width dynamically based on the viewport width
+                if (windowWidth <= 480) {
+                    div.style.minWidth = windowWidth * 0.3 + 'px';
+                } else if (windowWidth <= 768) {
+                    div.style.minWidth = windowWidth * 0.5 + 'px';
+                } else {
+                    div.style.minWidth = windowWidth * 0.7 + 'px';
+                }
+                div.style.maxWidth = windowWidth + 'px';
+            });
+        }
+
+        // Run the function when the window is resized
+        window.addEventListener('resize', adjustDivText);
+
+        // Run the function on initial load
+        window.addEventListener('load', adjustDivText);
+    </script>
 </x-guest-layout>

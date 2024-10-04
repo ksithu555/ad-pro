@@ -2,16 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\News;
-use App\Models\User;
 use App\Models\Admin;
-use App\Models\Notice;
-use App\Models\Section;
-use App\Models\TopFooter;
-use App\Models\TopHeader;
-use App\Models\TopSection;
 use App\Models\BankAccount;
-use App\Models\Announcement;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;

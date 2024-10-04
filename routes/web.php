@@ -265,22 +265,6 @@ Route::group(['middleware' => ['admin']], function () {
     Route::get('/admin/edit/footer/{id}', [AdminHomeController::class, 'editFooter'])->name('admin.edit.footer');
     Route::post('/admin/update/footer', [AdminHomeController::class, 'updateFooter'])->name('admin.update.footer');
     Route::get('/admin/delete/footer/{id}', [AdminHomeController::class, 'deleteFooter'])->name('admin.delete.footer');
-    // sections
-    // Route::get('/admin/add/top-section', [AdminHomeController::class, 'addTopSection'])->name('admin.add.top.section');
-    // Route::post('/admin/store/top-section', [AdminHomeController::class, 'storeTopSection'])->name('admin.store.top.section');
-    // Route::get('/admin/edit/top-sections', [AdminHomeController::class, 'editTopSections'])->name('admin.edit.top.sections');
-    // Route::get('/admin/edit/top-section/{id}', [AdminHomeController::class, 'editTopSection'])->name('admin.edit.top.section');
-    // Route::post('/admin/update/top-section', [AdminHomeController::class, 'updateTopSection'])->name('admin.update.top.section');
-    // Route::get('/admin/delete/top-section/{id}', [AdminHomeController::class, 'deleteTopSection'])->name('admin.delete.top.section');
-    // Route::post('/admin/top-section/order-up/{id}', [AdminHomeController::class, 'orderUpTopSection'])->name('admin.top.section.order-up');
-    // Route::post('/admin/top-section/order-down/{id}', [AdminHomeController::class, 'orderDownTopSection'])->name('admin.top.section.order-down');
-    // blocks
-    // Route::get('/admin/add/top-section/{id}/top-block', [AdminHomeController::class, 'addTopBlock'])->name('admin.add.top.section.top.block');
-    // Route::post('/admin/store/top-section/top-block', [AdminHomeController::class, 'storeTopBlock'])->name('admin.store.top.section.top.block');
-    // Route::get('/admin/edit/top-section/{id}/top-blocks', [AdminHomeController::class, 'editTopBlocks'])->name('admin.edit.top.section.top.blocks');
-    // Route::get('/admin/edit/top-section/{sid}/top-block/{id}', [AdminHomeController::class, 'editTopBlock'])->name('admin.edit.top.section.top.block');
-    // Route::post('/admin/update/top-section/top-block', [AdminHomeController::class, 'updateTopBlock'])->name('admin.update.top.section.top.block');
-    // Route::get('/admin/delete/top-section/{sid}/top-block/{id}', [AdminHomeController::class, 'deleteTopBlock'])->name('admin.delete.top.section.top.block');
     
     // members
     Route::get('/admin/members', [AdminMemberController::class, 'getMembers'])->name('admin.get.members');

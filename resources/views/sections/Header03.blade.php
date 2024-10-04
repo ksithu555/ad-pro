@@ -77,7 +77,6 @@
                             data-paddingleft="[0,0,0,0]"
 
                             style="z-index: 7; white-space: nowrap;text-transform:left;">
-                            WE MAKE AWESOME CLASSIC DESIGN 
                         </div>
 
                         <!-- LAYER NR. 4 -->
@@ -226,7 +225,6 @@
                             data-paddingleft="[0,0,0,0]"
 
                             style="z-index: 13; white-space: nowrap;text-transform:left;">
-                            GREAT THEME GREAT CODE 
                         </div>
 
                         <!-- LAYER NR. 10 -->
@@ -375,7 +373,6 @@
                             data-paddingleft="[0,0,0,0]"
 
                             style="z-index: 19; white-space: nowrap;text-transform:left;">
-                            WE ARE CLASSIC AGENCY 
                         </div>
 
                         <!-- LAYER NR. 16 -->

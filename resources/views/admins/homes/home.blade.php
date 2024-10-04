@@ -315,9 +315,11 @@
                                     id="slide-82-layer-4"
                                     data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
                                     data-y="['middle','middle','middle','middle']" data-voffset="['110','110','110','100']"
-                                    data-width="none"
+                                    data-fontsize="['50','40','30','20']"
+                                    data-lineheight="['70','60','55','45']"
+                                    data-width="['1000','800','600','320']"
                                     data-height="none"
-                                    data-whitespace="nowrap"
+                                    data-whitespace="normal"
                 
                                     data-type="text"
                                     data-responsive_offset="on"
@@ -492,9 +494,11 @@
                                     id="slide-83-layer-4"
                                     data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
                                     data-y="['middle','middle','middle','middle']" data-voffset="['110','110','110','100']"
-                                    data-width="none"
+                                    data-fontsize="['50','40','30','20']"
+                                    data-lineheight="['70','60','55','45']"
+                                    data-width="['1000','800','600','320']"
                                     data-height="none"
-                                    data-whitespace="nowrap"
+                                    data-whitespace="normal"
                 
                                     data-type="text"
                                     data-responsive_offset="on"
@@ -668,9 +672,11 @@
                                     id="slide-85-layer-4"
                                     data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
                                     data-y="['middle','middle','middle','middle']" data-voffset="['110','110','110','100']"
-                                    data-width="none"
+                                    data-fontsize="['50','40','30','20']"
+                                    data-lineheight="['70','60','55','45']"
+                                    data-width="['1000','800','600','320']"
                                     data-height="none"
-                                    data-whitespace="nowrap"
+                                    data-whitespace="normal"
                 
                                     data-type="text"
                                     data-responsive_offset="on"
@@ -868,9 +874,11 @@
                                     id="slide-84-layer-4"
                                     data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
                                     data-y="['middle','middle','middle','middle']" data-voffset="['110','110','110','100']"
-                                    data-width="none"
+                                    data-fontsize="['50','40','30','20']"
+                                    data-lineheight="['70','60','55','45']"
+                                    data-width="['1000','800','600','320']"
                                     data-height="none"
-                                    data-whitespace="nowrap"
+                                    data-whitespace="normal"
                 
                                     data-type="text"
                                     data-responsive_offset="on"
@@ -1076,9 +1084,11 @@
                                     id="slide-86-layer-4"
                                     data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
                                     data-y="['middle','middle','middle','middle']" data-voffset="['110','110','110','100']"
-                                    data-width="none"
+                                    data-fontsize="['50','40','30','20']"
+                                    data-lineheight="['70','60','55','45']"
+                                    data-width="['1000','800','600','320']"
                                     data-height="none"
-                                    data-whitespace="nowrap"
+                                    data-whitespace="normal"
                 
                                     data-type="text"
                                     data-responsive_offset="on"
@@ -1122,218 +1132,10 @@
                         <span style="font-size: 18px;">Sections</span>
                     </a>
                 </div>
-                {{-- <div class="col-md-10">
-                    <div style="text-align: right;">
-                        <a class="btn btn-md btn-dark-outline btn-square margin-left-auto margin-right-auto display-table-sm"
-                            href="{{ route('admin.add.top.section') }}">
-                            <i class="fa-icon-plus-square"></i> 追加
-                        </a>
-                        <a class="btn btn-md btn-dark-outline btn-square margin-left-auto margin-right-auto display-table-sm"
-                            href="{{ route('admin.edit.top.sections') }}">
-                            <i class="fa-icon-pencil-square"></i> 編集
-                        </a>
-                    </div>
-                </div> --}}
             </div>
             <hr class="dark-bg">
         </div>
     </section>
-    {{-- @php
-        $bgKey = 0;
-    @endphp --}}
-    {{-- @foreach ($sections as $section)
-        @php
-            if ($bgKey % 2 == 0) {
-                $sectionBg = 'white-bg';
-            } else {
-                $sectionBg = 'grey-bg';
-            }
-            $bgKey++;
-        @endphp --}}
-    {{-- @if ($section->type == 'Box01') --}}
-    {{-- Box 01 Start --}}
-    {{-- <section class="{{ $sectionBg }} pt-0 pb-0">
-        <div class="container">
-            <hr class="dark-bg">
-            <div class="row">
-                <div class="col-md-2">
-                    <a class="btn margin-left-auto margin-right-auto display-table-sm">
-                        <span style="font-size: 18px;">Section</span>
-                    </a>
-                </div>
-                <div class="col-md-10" style="text-align: right;">
-                    <a class="btn btn-md btn-dark-outline btn-square margin-left-auto margin-right-auto display-table-sm"
-                        href="{{ route('admin.add.top.section.top.block', $section->id) }}">
-                        <i class="fa-icon-plus-square"></i> 追加
-                    </a>
-                    <a class="btn btn-md btn-dark-outline btn-square margin-left-auto margin-right-auto display-table-sm"
-                        href="{{ route('admin.edit.top.section.top.blocks', $section->id) }}">
-                        <i class="fa-icon-pencil-square"></i> 編集
-                    </a>
-                </div>
-            </div>
-            <hr class="dark-bg">
-            <div class="row">
-                <div class="col-sm-8 section-heading">
-                    <h2 class="font-700">{{ $section->title }}</h2>
-                    <hr class="dark-bg center_line bold-line">
-                    <h4>{!! nl2br($section->body) !!}</h4>
-                </div>
-            </div>
-            <div class="row mt-50">
-                @foreach ($section->topBoxBlocks as $topBoxBlock)
-                @php
-                    $count = $section->topBoxBlocks->count();
-                    if ($count == 1) {
-                        $col = 12;
-                    } elseif ($count == 2) {
-                        $col = 6;
-                    } else {
-                        $col = 4;
-                    }
-                @endphp
-                <div class="col-md-{{ $col }} col-sm-{{ $col }} col-xs-12">
-                    <div class="feature-box text-center mb-50 feature-box-rounded wow fadeInUp center-feature" data-wow-delay="0.1s">
-                        <span class="font-100px default-color font-700">
-                            <span class="dark-color">
-                                {{ substr($topBoxBlock->icon, 0, 1) }}
-                            </span>
-                            {{ substr($topBoxBlock->icon, 1) }}
-                        </span>
-                        <h4 class="mt-0 font-600">{{ $topBoxBlock->title }}</h4>
-                        <p class="font-400">{!! nl2br($topBoxBlock->body) !!}</p>
-                    </div>
-                </div>
-                @endforeach
-            </div>
-        </div>
-    </section> --}}
-    {{-- Box 01 End --}}
-    {{-- @elseif ($section->type == 'Box02') --}}
-    {{-- Box 02 Start --}}
-    {{-- <section class="{{ $sectionBg }} pb-0">
-        <div class="container">
-            <hr class="dark-bg">
-            <div class="row">
-                <div class="col-md-2">
-                    <a class="btn margin-left-auto margin-right-auto display-table-sm">
-                        <span style="font-size: 18px;">Section</span>
-                    </a>
-                </div>
-                <div class="col-md-10" style="text-align: right;">
-                    <a class="btn btn-md btn-dark-outline btn-square margin-left-auto margin-right-auto display-table-sm"
-                        href="{{ route('admin.add.top.section.top.block', $section->id) }}">
-                        <i class="fa-icon-plus-square"></i> 追加
-                    </a>
-                    <a class="btn btn-md btn-dark-outline btn-square margin-left-auto margin-right-auto display-table-sm"
-                        href="{{ route('admin.edit.top.section.top.blocks', $section->id) }}">
-                        <i class="fa-icon-pencil-square"></i> 編集
-                    </a>
-                </div>
-            </div>
-            <hr class="dark-bg">
-            <div class="row">
-                <div class="col-sm-8 section-heading">
-                    <h2 class="font-700">{{ $section->title }}</h2>
-                    <hr class="dark-bg center_line bold-line">
-                    <h4>{!! nl2br($section->body) !!}</h4>
-                </div>
-            </div>
-            <div class="row mt-50 service-box-style-01">
-                @foreach ($section->topBoxBlocks as $topBoxBlock)
-                @php
-                    $count = $section->topBoxBlocks->count();
-                    if ($count == 1) {
-                        $col = 12;
-                    } elseif ($count == 2) {
-                        $col = 6;
-                    } else {
-                        $col = 4;
-                    }
-                @endphp
-                <div class="col-md-{{ $col }} col-sm-{{ $col }} col-xs-12">
-                  <div class="feature-box text-center mb-50 feature-box-rounded center-feature border-radius-10">
-                    <i class="{{ $topBoxBlock->icon }} font-40px default-color"></i>
-                    <h4 class="mt-0 font-600">{{ $topBoxBlock->title }}</h4>
-                    <p class="font-400">{!! nl2br($topBoxBlock->body) !!}</p>
-                  </div>
-                </div>
-                @endforeach
-            </div>
-        </div>
-    </section> --}}
-    {{-- Box 02 End --}}
-    {{-- @elseif ($section->type == 'Box03') --}}
-    {{-- Box 03 Start --}}
-    {{-- <section class="{{ $sectionBg }} pb-0">
-        <div class="container">
-            <hr class="dark-bg">
-            <div class="row">
-                <div class="col-md-2">
-                    <a class="btn margin-left-auto margin-right-auto display-table-sm">
-                        <span style="font-size: 18px;">Section</span>
-                    </a>
-                </div>
-                <div class="col-md-10" style="text-align: right;">
-                    <a class="btn btn-md btn-dark-outline btn-square margin-left-auto margin-right-auto display-table-sm"
-                        href="{{ route('admin.add.top.section.top.block', $section->id) }}">
-                        <i class="fa-icon-plus-square"></i> 追加
-                    </a>
-                    <a class="btn btn-md btn-dark-outline btn-square margin-left-auto margin-right-auto display-table-sm"
-                        href="{{ route('admin.edit.top.section.top.blocks', $section->id) }}">
-                        <i class="fa-icon-pencil-square"></i> 編集
-                    </a>
-                </div>
-            </div>
-            <hr class="dark-bg">
-            <div class="row">
-                <div class="col-sm-8 section-heading">
-                    <h2 class="font-700">{{ $section->title }}</h2>
-                    <hr class="dark-bg center_line bold-line">
-                    <h4>{!! nl2br($section->body) !!}</h4>
-                </div>
-            </div>
-            <div class="row mt-50 service-box-style-03">
-                @foreach ($section->topBoxBlocks as $topBoxBlock)
-                @php
-                    $count = $section->topBoxBlocks->count();
-                    if ($count == 1) {
-                        $col = 12;
-                    } elseif ($count == 2) {
-                        $col = 6;
-                    } else {
-                        $col = 4;
-                    }
-                @endphp
-                <div class="col-md-{{ $col }} col-sm-{{ $col }} col-xs-12">
-                    <div class="flipper">
-                        <div class="text-center mb-50 main-box">
-                          <div class="box-front height-300px white-bg">
-                            <div class="content-wrap">
-                              <i class="{{ $topBoxBlock->icon }} font-40px default-color"></i>
-                              <h4 class="mt-0 font-600">{{ $topBoxBlock->title }}</h4>
-                              <p class="font-400">{!! nl2br($topBoxBlock->body) !!}</p>
-                            </div>
-                          </div>
-                          <div class="box-back height-300px default-bg">
-                            <div class="content-wrap white-color">
-                              <i class="{{ $topBoxBlock->icon }} font-40px"></i>
-                              <h4 class="mt-0 font-600">{{ $topBoxBlock->title }}</h4>
-                              <p class="font-400">{!! nl2br($topBoxBlock->body) !!}</p>
-                            </div>
-                          </div>
-                        </div>
-                    </div>
-                </div>
-                @endforeach
-            </div>
-        </div>
-    </section> --}}
-    {{-- Box 03 End --}}
-    {{-- @endif --}}
-    {{-- @endforeach --}}
-    <!--== Sections End ==-->
-    <!--== Footer Start ==-->
     @php
         $footerText = $footers->where('type', 'text')->first();
         $usefulFooters = $footers->where('type', 'useful');
@@ -1439,67 +1241,4 @@
         </div>
     </section>
     <!--== Footer End ==-->
-
-    <script>
-        function adjustFontSize() {
-            // Get the width of the window
-            const windowWidth = window.innerWidth;
-
-            // Calculate the font size based on the window width
-            let fontSize = windowWidth * 0.06;
-
-            // Apply the calculated font size to the title element
-            // Function to apply font size if element exists
-            function applyFontSize(elementId) {
-                const element = document.getElementById(elementId);
-                if (element) {
-                    element.style.fontSize = fontSize + 'px';
-                }
-            }
-
-            // Apply font size to multiple elements if they exist
-            applyFontSize('slide-82-layer-4');
-            applyFontSize('slide-83-layer-4');
-            applyFontSize('slide-84-layer-4');
-            applyFontSize('slide-85-layer-4');
-            applyFontSize('slide-86-layer-4');
-        }
-
-        // Run the function when the window is resized
-        window.addEventListener('resize', adjustFontSize);
-
-        // Run the function on initial load
-        window.addEventListener('load', adjustFontSize);
-    </script>
-    <script>
-        function adjustDivText() {
-            const whiteColorDivs = document.querySelectorAll('.title-div');
-            const windowWidth = window.innerWidth;
-
-            whiteColorDivs.forEach(function(div) {
-                // Ensure text does not overflow the div
-                div.style.wordWrap = 'break-word';
-                div.style.overflow = 'hidden';
-                div.style.textOverflow = 'ellipsis';
-                div.style.whiteSpace = 'normal';
-                div.style.boxSizing = 'border-box'; // Include padding in width
-
-                // Optionally, you can set the max-width dynamically based on the viewport width
-                if (windowWidth <= 480) {
-                    div.style.minWidth = windowWidth * 0.3 + 'px';
-                } else if (windowWidth <= 768) {
-                    div.style.minWidth = windowWidth * 0.5 + 'px';
-                } else {
-                    div.style.minWidth = windowWidth * 0.7 + 'px';
-                }
-                div.style.maxWidth = windowWidth + 'px';
-            });
-        }
-
-        // Run the function when the window is resized
-        window.addEventListener('resize', adjustDivText);
-
-        // Run the function on initial load
-        window.addEventListener('load', adjustDivText);
-    </script>
 </x-admin-layout>

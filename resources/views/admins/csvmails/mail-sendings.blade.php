@@ -67,6 +67,9 @@
                                                 <i class="ion-information-circled info-icon"></i>
                                                 <div class="guideline-box" id="guideline-box">
                                                     <p>
+                                                        メール本文の第1行に会社名が自動的に表示されます。
+                                                    </p>
+                                                    <p>
                                                         重要なテキストを強調するために、<code style="color: black;">&lt;strong&gt;<strong>希望するテキスト</strong>&lt;/strong&gt;</code> を使用します。
                                                     </p>
                                                     <p>

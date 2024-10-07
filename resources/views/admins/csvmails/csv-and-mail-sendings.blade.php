@@ -35,16 +35,16 @@
                                     onclick="showModal()" id="open-modal">
                                     <i class="ion-arrow-shrink"></i> グループを設定
                                 </a>
+                                <a class="btn btn-md btn-dark-outline btn-square margin-left-auto margin-right-auto display-table-sm"
+                                    href="javascript:void(0);" onclick="uploadCsv()">
+                                    CSVインポート <i class="ion-android-arrow-forward"></i>
+                                </a>
                             </div>
-                            <a class="btn btn-md btn-dark-outline btn-square margin-left-auto margin-right-auto display-table-sm"
-                                href="{{ route('admin.csv.upload') }}">
-                                CSVインポート <i class="ion-android-arrow-forward"></i>
-                            </a>
                         </div>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-6 col-sm-6 col-md-offset-6 col-sm-offset-6">
+                    <div class="col-md-4 col-sm-4 col-md-offset-8 col-sm-offset-8">
                         <div class="form-group">
                             <label class="sr-only" for="groupName">グループ名</label>
                             <input type="text" name="groupName" class="md-input" id="groupName" placeholder="グループ名 *" value="{{ old('groupName') }}">
@@ -258,5 +258,11 @@
                 $('#send-mail-form').submit();
             });
         });
+    </script>
+    <script>
+        function uploadCsv() {
+            // Redirect to the specified route
+            window.location.href = "{{ route('admin.csv.upload') }}";
+        }
     </script>    
 </x-admin-layout>

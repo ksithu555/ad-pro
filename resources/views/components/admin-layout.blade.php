@@ -98,7 +98,10 @@
                 request()->routeIs('admin.edit.section') ||
                 request()->routeIs('admin.get.sub.admins') ||
                 request()->routeIs('admin.add.sub.admin') ||
-                request()->routeIs('admin.edit.sub.admin')) {
+                request()->routeIs('admin.edit.sub.admin') ||
+                request()->routeIs('admin.csv.and.mail.sendings') ||
+                request()->routeIs('admin.csv.upload') ||
+                request()->routeIs('admin.send.csv.mails')) {
                   $defaultColor = 'default-color';
                 }
               @endphp
@@ -151,7 +154,9 @@
               @endif
               <li>
                 <a href="{{ route('admin.csv.and.mail.sendings') }}">
-                    <span class="{{ request()->routeIs('admin.csv.and.mail.sendings')
+                    <span class="{{ request()->routeIs('admin.csv.and.mail.sendings') ||
+                    request()->routeIs('admin.csv.upload') ||
+                    request()->routeIs('admin.send.csv.mails')
                     ? 'default-color' : '' }}">CSVとメール送信</span>
                 </a>
               </li>

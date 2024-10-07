@@ -13,14 +13,16 @@ class SendAdvertisementToCsvEmail extends Mailable
     public $template;
     public $subject;
     public $body;
+    public $selectedEmail;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($template, $subject, $body)
+    public function __construct($selectedEmail, $template, $subject, $body)
     {
+        $this->selectedEmail = $selectedEmail;
         $this->template = $template;
         $this->subject = $subject;
         $this->body = $body;
@@ -38,24 +40,28 @@ class SendAdvertisementToCsvEmail extends Mailable
                 return $this->view('emails.template01-email')
                             ->subject($this->subject)
                             ->with([
+                                'selectedEmail' => $this->selectedEmail,
                                 'body' => $this->body
                             ]);
             case 2:
                 return $this->view('emails.template02-email')
                             ->subject($this->subject)
                             ->with([
+                                'selectedEmail' => $this->selectedEmail,
                                 'body' => $this->body
                             ]);
             case 3:
                 return $this->view('emails.template03-email')
                             ->subject($this->subject)
                             ->with([
+                                'selectedEmail' => $this->selectedEmail,
                                 'body' => $this->body
                             ]);
             default:
                 return $this->view('emails.default-email')
                             ->subject($this->subject)
                             ->with([
+                                'selectedEmail' => $this->selectedEmail,
                                 'body' => $this->body
                             ]);
         }

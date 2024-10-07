@@ -35,8 +35,8 @@
                                         <div class="form-group">
                                             <select name="selectTemplate" class="orderby social-media md-input">
                                                 <option value="1" selected="selected">Template01</option>
-                                                <option value="2" selected="selected">Template02</option>
-                                                <option value="3" selected="selected">Template03</option>
+                                                <option value="2">Template02</option>
+                                                <option value="3">Template03</option>
                                             </select>
                                             <span class="error" style="color:#BF0731" id="error-selectTemplate"></span>
                                         </div>
@@ -84,8 +84,8 @@
 
     <!-- Modal Popup Message Box -->
     <div id="modal-popup" class="white-bg all-padding-60 mfp-with-anim mfp-hide centerize-col col-lg-4 col-md-6 col-sm-7 col-xs-11 text-center">
-        <span class="text-uppercase font-30px font-600 mb-20 display-block dark-color">CSVインポート</span>
-        <p class="mb-20">CSVをインポートしてもよろしいですか?</p>
+        <span class="text-uppercase font-30px font-600 mb-20 display-block dark-color">メール送信</span>
+        <p class="mb-20">メールを送信してもよろしいですか?</p>
         <a class="btn btn-lg btn-circle btn-color popup-modal-close" href="#" onclick="submitForm()">はい</a>
         <a class="btn btn-lg btn-circle btn-secondary-color popup-modal-close" href="#">いいえ</a>
     </div>

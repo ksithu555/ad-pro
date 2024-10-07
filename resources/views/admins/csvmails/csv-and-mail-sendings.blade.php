@@ -38,13 +38,13 @@
                             </div>
                             <a class="btn btn-md btn-dark-outline btn-square margin-left-auto margin-right-auto display-table-sm"
                                 href="{{ route('admin.csv.upload') }}">
-                                CSVアップロード <i class="ion-android-arrow-forward"></i>
+                                CSVインポート <i class="ion-android-arrow-forward"></i>
                             </a>
                         </div>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-4 col-sm-4 col-md-offset-8 col-sm-offset-8">
+                    <div class="col-md-6 col-sm-6 col-md-offset-6 col-sm-offset-6">
                         <div class="form-group">
                             <label class="sr-only" for="groupName">グループ名</label>
                             <input type="text" name="groupName" class="md-input" id="groupName" placeholder="グループ名 *" value="{{ old('groupName') }}">
@@ -65,8 +65,8 @@
                                             <th style="min-width: 110px;">登録日</th>
                                             <th>会社名</th>
                                             <th>メール</th>
-                                            <th>名前</th>
-                                            <th>グループ</th>
+                                            <th>担当者名</th>
+                                            <th>グループ名</th>
                                             <th>
                                                 <div class="custom-checkbox" style="display: block;">
                                                     <input type="checkbox" id="checkAll" name="checkAll" onchange="toggleCheckboxes(this)">
@@ -180,6 +180,11 @@
             }
         }
 
+        function submitForm() {
+            document.getElementById('confirmed').value = '1';
+            document.getElementById('set-group-form').submit();
+        }
+
         function validateSetForGroupForm() {
             let isValid = false;
             const checkboxes = document.querySelectorAll('.checkItem');
@@ -212,11 +217,6 @@
                 document.getElementById('open-modal-email').setAttribute('data-effect', 'mfp-newspaper');
                 document.getElementById('open-modal-email').click();
             }
-        }
-
-        function submitFormEmail() {
-            document.getElementById('confirmed').value = '1';
-            document.getElementById('set-group-form').submit();
         }
 
         function validateSendMailGroupForm() {

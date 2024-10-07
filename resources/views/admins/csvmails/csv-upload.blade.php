@@ -30,7 +30,7 @@
                                                 <input type="hidden" id="confirmed" name="confirmed" value="0">
                                                 <div class="tr-modal-popup">
                                                     <a onclick="showModal()" id="open-modal" class="btn btn-dark-outline btn-light btn-md btn-square btn-animate remove-margin">
-                                                        <span>アップロード <i class="ion-android-arrow-forward"></i></span>
+                                                        <span>インポート <i class="ion-android-arrow-forward"></i></span>
                                                     </a>
                                                 </div>
                                             </div>
@@ -49,7 +49,7 @@
     <!-- Modal Popup Message Box -->
     <div id="modal-popup" class="white-bg all-padding-60 mfp-with-anim mfp-hide centerize-col col-lg-4 col-md-6 col-sm-7 col-xs-11 text-center">
         <span class="text-uppercase font-30px font-600 mb-20 display-block dark-color">CSVアップロード</span>
-        <p class="mb-20">CSVをアップロードしてもよろしいですか?</p>
+        <p class="mb-20">CSVをインポートしてもよろしいですか?</p>
         <a class="btn btn-lg btn-circle btn-color popup-modal-close" href="#" onclick="submitForm()">はい</a>
         <a class="btn btn-lg btn-circle btn-secondary-color popup-modal-close" href="#">いいえ</a>
     </div>

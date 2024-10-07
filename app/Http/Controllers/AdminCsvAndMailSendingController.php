@@ -18,39 +18,41 @@ class AdminCsvAndMailSendingController extends Controller
         // $ttlpage = ceil($ttl / $limit);
         $csvMails = CsvMail::all();
         $ttl = $csvMails->count();
-        return view('admins.csv-and-mail-sendings', compact('csvMails', 'ttl'));
+        return view('admins.csvmails.csv-and-mail-sendings', compact('csvMails', 'ttl'));
     }
 
     public function csvUpload() {
-        return view('admins.csv-upload');
+        return view('admins.csvmails.csv-upload');
     }
 
     public function uploadCsv(Request $request) {
         $file = $request->file('csvFile');
-
+    
         // Open the file for reading
         if (($handle = fopen($file->getPathname(), 'r')) !== false) {
             // Skip the first row if it's a header
             $header = fgetcsv($handle, 1000, ','); // Assuming the delimiter is a comma (,)
-
+    
             // Loop through each row
             while (($row = fgetcsv($handle, 1000, ',')) !== false) {
-                // Save the data to the mail_lists table
-                CsvMail::create([
-                    'company_name' => $row[0],
-                    'email' => $row[1],
-                    'name' => $row[2],
-                    'group' => 'まだ設定されていません'
-                ]);
+                // Check if the email already exists
+                CsvMail::firstOrCreate(
+                    ['email' => $row[1]], // Check if this email already exists
+                    [
+                        'company_name' => $row[0],
+                        'name' => $row[2],
+                        'group' => 'まだ設定されていません'
+                    ]
+                );
             }
-
+    
             // Close the file
             fclose($handle);
         }
-
-        Session::flash('success', 'CSV がアップロードされ、データが正常に保存されました');
+    
+        Session::flash('success', 'CSV がインポートされ、データが正常に保存されました');
         return redirect()->route('admin.csv.and.mail.sendings');
-    }
+    }    
 
     public function setMailsGroup(Request $request) {
         $selectedMails = $request->input('check');
@@ -65,7 +67,7 @@ class AdminCsvAndMailSendingController extends Controller
         $checkedEmails = explode(',', $request->checkedEmails); // Convert the comma-separated string into an array
         $selectedMails = CsvMail::whereIn('id', $checkedEmails)->get();
 
-        return view('admins.mail-sendings', compact('selectedMails'));
+        return view('admins.csvmails.mail-sendings', compact('selectedMails'));
     }
 
     public function sendMailCsvMails(Request $request) {

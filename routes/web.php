@@ -20,6 +20,7 @@ use App\Http\Controllers\UserAnnouncementController;
 use App\Http\Controllers\AdminAnnouncementController;
 use App\Http\Controllers\UserAdvertisementController;
 use App\Http\Controllers\AdminAdvertisementController;
+use App\Http\Controllers\AdminCsvAndMailSendingController;
 
 // Guest
 Route::get('/', [GuestController::class, 'home'])->name('guest.home');
@@ -342,4 +343,12 @@ Route::group(['middleware' => ['admin']], function () {
     Route::post('/admin/update/bank-account', [AdminController::class, 'updateBankAccount'])->name('admin.update.bank.account');
     Route::get('/admin/delete/bank-account/{id}', [AdminController::class, 'deleteBankAccount'])->name('admin.delete.bank.account');
     Route::post('/admin/update/bank-account-status', [AdminController::class, 'updateBankAccountStatus'])->name('admin.update.bank.account.status');
+
+    // CSV and Mail Sending
+    Route::get('/admin/csv-and-mail-sendings', [AdminCsvAndMailSendingController::class, 'getCsvAndMailSendings'])->name('admin.csv.and.mail.sendings');
+    Route::get('/admin/csv-upload', [AdminCsvAndMailSendingController::class, 'csvUpload'])->name('admin.csv.upload');
+    Route::post('/admin/upload-csv', [AdminCsvAndMailSendingController::class, 'uploadCsv'])->name('admin.upload.csv');
+    Route::post('/admin/set/mails-group', [AdminCsvAndMailSendingController::class, 'setMailsGroup'])->name('admin.set.mails.group');
+    Route::post('/admin/send/csv-mails', [AdminCsvAndMailSendingController::class, 'sendCsvMails'])->name('admin.send.csv.mails');
+    Route::post('/admin/send/mail/csv-mails', [AdminCsvAndMailSendingController::class, 'sendMailCsvMails'])->name('admin.send.mail.csv.mails');
 });

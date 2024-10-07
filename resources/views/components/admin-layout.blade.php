@@ -150,6 +150,12 @@
               </li>
               @endif
               <li>
+                <a href="{{ route('admin.csv.and.mail.sendings') }}">
+                    <span class="{{ request()->routeIs('admin.csv.and.mail.sendings')
+                    ? 'default-color' : '' }}">CSVとメール送信</span>
+                </a>
+              </li>
+              <li>
                 <div class="tr-modal-popup">
                   <a href="#logout-modal-popup" class="tr-modal-pop-a" data-effect="mfp-newspaper">ログアウト</a>
                 </div>

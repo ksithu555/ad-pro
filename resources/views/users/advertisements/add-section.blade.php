@@ -109,6 +109,7 @@
         <a class="btn btn-lg btn-circle btn-secondary-color popup-modal-close" href="#">いいえ</a>
     </div>
 
+    {{-- filter Type --}}
     <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
     <script>
         $(document).ready(function() {

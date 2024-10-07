@@ -57,7 +57,7 @@
         <div class="content">
             {{ $selectedEmail->company_name }} <br>
             ご担当者様 <br>
-            {!! nl2br(e($body)) !!}
+            {!! nl2br($body) !!}
         </div>
         <div class="footer">
             &copy; {{ date('Y') }} AD-Pro. All rights reserved.

@@ -10,7 +10,7 @@
             <form action="{{ route('admin.set.mails.group') }}" method="POST" id="set-group-form">
                 @csrf
                 <div class="row">
-                    <div class="col-md-2">
+                    <div class="col-md-3">
                         <div class="form-group">
                             @php
                                 $groups = $csvMails->sortBy('group')->pluck('group')->unique();
@@ -24,7 +24,7 @@
                             <span class="error" style="color:#BF0731" id="error-filterGroup"></span>
                         </div>
                     </div>
-                    <div class="col-md-6 col-md-offset-4">
+                    <div class="col-md-6 col-md-offset-3">
                         <div class="text-right" style="display: flex; justify-content: flex-end; align-items: center; gap: 10px;">
                             <div class="tr-modal-popup">
                                 <a class="btn btn-md btn-dark-outline btn-square margin-left-auto margin-right-auto display-table-sm"

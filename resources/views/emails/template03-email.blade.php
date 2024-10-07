@@ -56,7 +56,6 @@
         </div>
         <div class="content">
             {{ $selectedEmail->company_name }} <br>
-            ご担当者様 <br>
             {!! nl2br($body) !!}
         </div>
         <div class="footer">

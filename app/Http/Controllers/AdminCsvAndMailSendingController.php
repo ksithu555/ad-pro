@@ -91,7 +91,7 @@ class AdminCsvAndMailSendingController extends Controller
         $selectedEmails = CsvMail::whereIn('id', $selectedMails)->get();
 
         foreach ($selectedEmails as $selectedEmail) {
-            Mail::to($selectedEmail->email)->send(new SendAdvertisementToCsvEmail($selectedEmail, $request->selectTemplate, $request->subject, $request->body));
+            Mail::to($selectedEmail->email)->send(new SendAdvertisementToCsvEmail($selectedEmail, $request->selectTemplate, $request->subject, $request->title, $request->body));
         }
 
         Session::flash('success', 'メールの送信に成功しました');

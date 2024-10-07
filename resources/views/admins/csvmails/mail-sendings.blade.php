@@ -18,7 +18,7 @@
                                 <div class="row">
                                     <div class="col-md-8 col-sm-8 col-md-offset-2 col-sd-offset-2 pt-10">
                                         <div class="form-group">
-                                            <button id="toggleButton" class="btn btn-md btn-circle btn-color" type="button">Show Emails</button>
+                                            <button id="toggleButton" class="btn btn-md btn-circle btn-color" type="button">メールを表示</button>
                                         
                                             <input type="hidden" name="selectedMails" id="selectedMails" 
                                                 value="{{ implode(',', $selectedMails->pluck('id')->toArray()) }}">
@@ -48,6 +48,15 @@
                                             <label class="sr-only" for="subject">件名</label>
                                             <input type="text" name="subject" class="md-input" id="subject" placeholder="件名 *" value="{{ old('subject') }}">
                                             <span class="error" style="color:#BF0731" id="error-subject"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2 pt-10">
+                                        <div class="form-group">
+                                            <label class="sr-only" for="title">タイトル</label>
+                                            <input type="text" name="title" class="md-input" id="title" placeholder="タイトル *" value="{{ old('title') }}">
+                                            <span class="error" style="color:#BF0731" id="error-title"></span>
                                         </div>
                                     </div>
                                 </div>
@@ -110,10 +119,16 @@
             document.querySelectorAll('.error').forEach(el => el.textContent = '');
 
             const subject = document.getElementById('subject').value.trim();
+            const title = document.getElementById('title').value.trim();
             const body = document.getElementById('body').value.trim();
 
             if (!subject) {
                 document.getElementById('error-subject').textContent = '件名を入力してください';
+                isValid = false;
+            }
+
+            if (!title) {
+                document.getElementById('error-title').textContent = 'タイトルを入力してください';
                 isValid = false;
             }
 

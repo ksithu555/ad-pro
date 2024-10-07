@@ -12,6 +12,7 @@ class SendAdvertisementToCsvEmail extends Mailable
     use Queueable, SerializesModels;
     public $template;
     public $subject;
+    public $title;
     public $body;
     public $selectedEmail;
 
@@ -20,11 +21,12 @@ class SendAdvertisementToCsvEmail extends Mailable
      *
      * @return void
      */
-    public function __construct($selectedEmail, $template, $subject, $body)
+    public function __construct($selectedEmail, $template, $subject, $title, $body)
     {
         $this->selectedEmail = $selectedEmail;
         $this->template = $template;
         $this->subject = $subject;
+        $this->title = $title;
         $this->body = $body;
     }
 
@@ -41,6 +43,7 @@ class SendAdvertisementToCsvEmail extends Mailable
                             ->subject($this->subject)
                             ->with([
                                 'selectedEmail' => $this->selectedEmail,
+                                'title' => $this->title,
                                 'body' => $this->body
                             ]);
             case 2:
@@ -48,6 +51,7 @@ class SendAdvertisementToCsvEmail extends Mailable
                             ->subject($this->subject)
                             ->with([
                                 'selectedEmail' => $this->selectedEmail,
+                                'title' => $this->title,
                                 'body' => $this->body
                             ]);
             case 3:
@@ -55,6 +59,7 @@ class SendAdvertisementToCsvEmail extends Mailable
                             ->subject($this->subject)
                             ->with([
                                 'selectedEmail' => $this->selectedEmail,
+                                'title' => $this->title,
                                 'body' => $this->body
                             ]);
             default:
@@ -62,6 +67,7 @@ class SendAdvertisementToCsvEmail extends Mailable
                             ->subject($this->subject)
                             ->with([
                                 'selectedEmail' => $this->selectedEmail,
+                                'title' => $this->title,
                                 'body' => $this->body
                             ]);
         }

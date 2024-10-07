@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Email Template 02</title>
+    <title>{{ $title }}</title>
     <style>
         body {
             font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -51,7 +51,7 @@
 <body>
     <div class="email-container">
         <div class="header">
-            新広告のお知らせ
+            {{ $title }}
         </div>
         <div class="content">
             {{ $selectedEmail->company_name }} <br>

@@ -31,12 +31,28 @@ class AdminCsvAndMailSendingController extends Controller
         // Open the file for reading
         if (($handle = fopen($file->getPathname(), 'r')) !== false) {
             // Skip the first row if it's a header
-            $header = fgetcsv($handle, 1000, ','); // Assuming the delimiter is a comma (,)
+            $header = fgetcsv($handle, 1000, ',');
     
             // Loop through each row
             while (($row = fgetcsv($handle, 1000, ',')) !== false) {
-                // Check if the email already exists
-                CsvMail::firstOrCreate(
+                // Detect and convert encoding if necessary
+                $row = array_map(function($field) {
+                    // Detect encoding, fall back to Shift-JIS if detection fails
+                    $encoding = mb_detect_encoding($field, ['UTF-8', 'SJIS', 'ISO-8859-1', 'EUC-JP'], true);
+                    
+                    if ($encoding !== 'UTF-8') {
+                        return mb_convert_encoding($field, 'UTF-8', $encoding ?: 'SJIS');
+                    }
+                    return $field;
+                }, $row);
+    
+                // Skip rows that don't have at least 2 fields (email must be present)
+                if (count($row) < 2 || empty($row[1])) {
+                    continue;
+                }
+    
+                // Check if the email already exists and insert if it doesn't
+                CsvMail::updateOrCreate(
                     ['email' => $row[1]], // Check if this email already exists
                     [
                         'company_name' => $row[0],
@@ -52,7 +68,7 @@ class AdminCsvAndMailSendingController extends Controller
     
         Session::flash('success', 'CSV がインポートされ、データが正常に保存されました');
         return redirect()->route('admin.csv.and.mail.sendings');
-    }    
+    }          
 
     public function setMailsGroup(Request $request) {
         $selectedMails = $request->input('check');

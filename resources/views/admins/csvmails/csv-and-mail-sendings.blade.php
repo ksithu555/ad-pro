@@ -13,7 +13,7 @@
                     <div class="col-md-2">
                         <div class="form-group">
                             @php
-                                $groups = $csvMails->pluck('group')->unique();
+                                $groups = $csvMails->sortBy('group')->pluck('group')->unique();
                             @endphp
                             <select name="filterGroup" class="orderby social-media">
                                 <option value="" selected="selected">全て</option>

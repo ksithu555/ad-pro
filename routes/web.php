@@ -352,4 +352,5 @@ Route::group(['middleware' => ['admin']], function () {
     Route::post('/admin/send/csv-mails', [AdminCsvAndMailSendingController::class, 'sendCsvMails'])->name('admin.send.csv.mails');
     Route::post('/admin/send/mail/csv-mails', [AdminCsvAndMailSendingController::class, 'sendMailCsvMails'])->name('admin.send.mail.csv.mails');
     Route::post('/admin/reset/mails-group', [AdminCsvAndMailSendingController::class, 'resetMailsGroup'])->name('admin.reset.mails.group');
+    Route::post('/admin/delete/csv-mails', [AdminCsvAndMailSendingController::class, 'deleteCsvMails'])->name('admin.delete.csv.mails');
 });

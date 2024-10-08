@@ -24,7 +24,7 @@
                             <span class="error" style="color:#BF0731" id="error-filterGroup"></span>
                         </div>
                     </div>
-                    <div class="col-md-8 col-md-offset-1">
+                    <div class="col-md-9">
                         <div class="text-right" style="display: flex; justify-content: flex-end; align-items: center; gap: 10px;">
                             <div class="tr-modal-popup">
                                 <a class="btn btn-md btn-dark-outline btn-square margin-left-auto margin-right-auto display-table-sm"
@@ -38,6 +38,10 @@
                                 <a class="btn btn-md btn-dark-outline btn-square margin-left-auto margin-right-auto display-table-sm"
                                     onclick="showModalReset()" id="open-modal-reset">
                                     <i class="ion-arrow-move"></i> グループをリセット
+                                </a>
+                                <a class="btn btn-md btn-dark-outline btn-square margin-left-auto margin-right-auto display-table-sm"
+                                    onclick="showModalDelete()" id="open-modal-delete">
+                                    <i class="fa-icon-trash"></i> 削除
                                 </a>
                                 <a class="btn btn-md btn-dark-outline btn-square margin-left-auto margin-right-auto display-table-sm"
                                     href="javascript:void(0);" onclick="uploadCsv()">
@@ -151,7 +155,19 @@
             <button type="submit" class="btn btn-lg btn-circle btn-color">はい</button>
             <a class="btn btn-lg btn-circle btn-secondary-color popup-modal-close" href="#">いいえ</a>
         </form>
-    </div>   
+    </div>
+
+    <!-- Modal Popup Message Box -->
+    <div id="modal-popup-delete" class="white-bg all-padding-60 mfp-with-anim mfp-hide centerize-col col-lg-4 col-md-6 col-sm-7 col-xs-11 text-center">
+        <span class="text-uppercase font-30px font-600 mb-20 display-block dark-color">削除</span>
+        <p class="mb-20">選択されたものを削除してもよろしいですか?</p>
+        <form id="delete-csv-mails-form" action="{{ route('admin.delete.csv.mails') }}" method="POST">
+            @csrf <!-- Include CSRF token for security -->
+            <input type="hidden" name="checkedEmails" id="checkedEmails" value=""> <!-- Hidden input to store checked values -->
+            <button type="submit" class="btn btn-lg btn-circle btn-color">はい</button>
+            <a class="btn btn-lg btn-circle btn-secondary-color popup-modal-close" href="#">いいえ</a>
+        </form>
+    </div>  
 
     {{-- filter Group --}}
     <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
@@ -281,6 +297,7 @@
             window.location.href = "{{ route('admin.csv.upload') }}";
         }
     </script>
+    {{-- reset mail group --}}
     <script>
         function showModalReset() {
             if (validateResetMailGroupForm()) {
@@ -327,6 +344,56 @@
     
                 // Submit the form
                 $('#reset-group-form').submit();
+            });
+        });
+    </script>
+    {{-- delete maiils --}}
+    <script>
+        function showModalDelete() {
+            if (validateDeleteMailsForm()) {
+                document.getElementById('open-modal-delete').setAttribute('href', '#modal-popup-delete');
+                document.getElementById('open-modal-delete').setAttribute('data-effect', 'mfp-newspaper');
+                document.getElementById('open-modal-delete').click();
+            }
+        }
+
+        function validateDeleteMailsForm() {
+            let isValid = false;
+            const checkboxes = document.querySelectorAll('.checkItem');
+
+            document.querySelectorAll('.error').forEach(el => el.textContent = '');
+
+            checkboxes.forEach(checkbox => {
+                if (checkbox.checked) {
+                    isValid = true;
+                }
+            });
+
+            if (!isValid) {
+                document.getElementById('error-checked').textContent = '少なくとも1つチェックしてください';
+            }
+
+            return isValid;
+        }
+    </script>
+    {{-- delete csv mails form --}}
+    <script>
+        $(document).ready(function() {
+            // When the modal is triggered
+            $('#modal-popup-delete').on('click', '.btn-color', function(event) {
+                event.preventDefault(); // Prevent default action
+    
+                // Collect all checked checkboxes and their values
+                var checkedEmails = [];
+                $('.mail-row:visible .checkItem:checked').each(function() {
+                    checkedEmails.push($(this).val()); // Assuming value is the email or ID
+                });
+    
+                // Join the checked values and set to hidden input
+                $('#checkedEmails').val(checkedEmails.join(','));
+    
+                // Submit the form
+                $('#delete-csv-mails-form').submit();
             });
         });
     </script>

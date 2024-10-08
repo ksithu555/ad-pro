@@ -105,4 +105,12 @@ class AdminCsvAndMailSendingController extends Controller
         Session::flash('success', 'グループのリセットに成功しました');
         return redirect()->route('admin.csv.and.mail.sendings');
     }
+
+    public function deleteCsvMails(Request $request) {
+        $selectedMailIds = explode(',', $request->checkedEmails); // Convert the comma-separated string into an array
+        CsvMail::whereIn('id', $selectedMailIds)->delete();
+
+        Session::flash('success', 'メールは正常に削除されました');
+        return redirect()->route('admin.csv.and.mail.sendings');
+    }
 }

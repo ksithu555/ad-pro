@@ -52,7 +52,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-6 col-sm-6 col-md-offset-6 col-sm-offset-6">
+                    <div class="col-md-4 col-sm-4 col-md-offset-8 col-sm-offset-8">
                         <div class="form-group">
                             <label class="sr-only" for="groupName">グループ名</label>
                             <input type="text" name="groupName" class="md-input" id="groupName" placeholder="グループ名 *" value="{{ old('groupName') }}">
@@ -160,7 +160,7 @@
     <!-- Modal Popup Message Box -->
     <div id="modal-popup-delete" class="white-bg all-padding-60 mfp-with-anim mfp-hide centerize-col col-lg-4 col-md-6 col-sm-7 col-xs-11 text-center">
         <span class="text-uppercase font-30px font-600 mb-20 display-block dark-color">削除</span>
-        <p class="mb-20">選択されたものを削除してもよろしいですか?</p>
+        <p class="mb-20">選択されたデータを削除してもよろしいですか?</p>
         <form id="delete-csv-mails-form" action="{{ route('admin.delete.csv.mails') }}" method="POST">
             @csrf <!-- Include CSRF token for security -->
             <input type="hidden" name="checkedEmails" id="checkedEmails" value=""> <!-- Hidden input to store checked values -->

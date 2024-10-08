@@ -57,7 +57,7 @@ class AdminCsvAndMailSendingController extends Controller
                     [
                         'company_name' => $row[0],
                         'name' => $row[2],
-                        'group' => 'まだ設定されていません'
+                        'group' => CsvMail::where('email', $row[1])->exists() ? CsvMail::where('email', $row[1])->value('group') : 'まだ設定されていません'
                     ]
                 );
             }
@@ -87,14 +87,22 @@ class AdminCsvAndMailSendingController extends Controller
     }
 
     public function sendMailCsvMails(Request $request) {
-        $selectedMails = explode(',', $request->selectedMails); // Convert the comma-separated string into an array
-        $selectedEmails = CsvMail::whereIn('id', $selectedMails)->get();
+        $selectedMailIds = explode(',', $request->selectedMails); // Convert the comma-separated string into an array
+        $selectedEmails = CsvMail::whereIn('id', $selectedMailIds)->get();
 
         foreach ($selectedEmails as $selectedEmail) {
             Mail::to($selectedEmail->email)->send(new SendAdvertisementToCsvEmail($selectedEmail, $request->selectTemplate, $request->subject, $request->title, $request->body));
         }
 
         Session::flash('success', 'メールの送信に成功しました');
+        return redirect()->route('admin.csv.and.mail.sendings');
+    }
+
+    public function resetMailsGroup(Request $request) {
+        $selectedMailIds = explode(',', $request->checkedEmails); // Convert the comma-separated string into an array
+        CsvMail::whereIn('id', $selectedMailIds)->update(['group' => 'まだ設定されていません']);
+
+        Session::flash('success', 'グループのリセットに成功しました');
         return redirect()->route('admin.csv.and.mail.sendings');
     }
 }

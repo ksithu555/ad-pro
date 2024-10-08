@@ -2600,6 +2600,7 @@
                                     data-paddingright="[0,0,0,0]"
                                     data-paddingbottom="[0,0,0,0]"
                                     data-paddingleft="[0,0,0,0]"
+						            data-blendmode="overlay"
                         
                                     style="z-index: 12;border-color:#ffffff;border-style:solid;border-width:20px 20px 20px 20px;">
                                     <img id="imageFile967" src="{{ asset('assets/images/all/' . $advertisementHeaderBlock->image) }}" alt="" data-ww="['660px','660px','520px','360px']" data-hh="['560px','560px','460px','460px']" width="710" height="630" data-no-retina>
@@ -2773,6 +2774,28 @@
                                     <div class="rs-looped rs-wave"  data-speed="6" data-angle="0" data-radius="6px" data-origin="50% 50%"> </div>
                                 </div>
                         
+                                <!-- LAYER NR. 16 -->
+                                <div class="tp-caption   tp-resizeme rs-parallaxlevel-3"
+                                    id="slide-967-layer-10"
+                                    data-x="['left','left','left','left']" data-hoffset="['-294','-294','-82','-106']"
+                                    data-y="['top','top','top','top']" data-voffset="['279','279','385','258']"
+                                    data-width="none"
+                                    data-height="none"
+                                    data-whitespace="nowrap"
+        
+                                    data-type="image"
+                                    data-responsive_offset="on"
+        
+                                    data-frames='[{"delay":200,"speed":1500,"frame":"0","from":"x:center;y:middle;rZ:180deg;sX:1;sY:1;opacity:0;fb:20px;","to":"o:1;rZ:-5;fb:0;","ease":"Power4.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;fb:0;","ease":"Power3.easeInOut"}]'
+                                    data-textAlign="['inherit','inherit','inherit','inherit']"
+                                    data-paddingtop="[0,0,0,0]"
+                                    data-paddingright="[0,0,0,0]"
+                                    data-paddingbottom="[0,0,0,0]"
+                                    data-paddingleft="[0,0,0,0]"
+        
+                                    style="z-index: 22;">
+                                    <img src="{{ asset('assets/images/object/OBJ_mouse.png') }}" alt="" data-ww="['500px','550px','200px','150px']" data-hh="['400px','400px','200','200px']" width="300" height="400" data-no-retina>
+                                </div>
                                 
                                 <!-- LAYER NR. 17 -->
                                 <div class="tp-caption tp-shape tp-shapewrapper  tp-resizeme"

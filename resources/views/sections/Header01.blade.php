@@ -10,9 +10,9 @@
                             <div class="col-md-10 centerize-col">
                                 <div class="white-color text-center">
                                     <!-- Update the text dynamically with textarea -->
-                                    <span id="contentText" class="font-60px font-700 play-font wow fadeInUp font-italic" data-wow-delay="0.1s">We Design Digital Brand Experiences.</span>
+                                    <span id="contentText" class="font-40px font-700 play-font wow fadeInUp font-italic" data-wow-delay="0.1s">We Design Digital Brand Experiences.</span>
                                     <!-- Update the heading dynamically with text input -->
-                                    <h1 id="titleText" class="white-color font-700 font-120px line-height-120 xs-font-40px xs-line-height-50 sm-font-60px sm-line-height-60 play-font wow fadeInUp" data-wow-delay="0.2s">Design Studio</h1>
+                                    <h1 id="titleText" class="white-color font-700 font-100px line-height-120 xs-font-40px xs-line-height-50 sm-font-60px sm-line-height-60 play-font wow fadeInUp" data-wow-delay="0.2s">Design Studio</h1>
                                 </div>
                             </div>
                         </div>

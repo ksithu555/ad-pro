@@ -16,7 +16,7 @@ class AdminCsvAndMailSendingController extends Controller
         // $csvMails = CsvMail::paginate($limit);
         // $ttl = $csvMails->total();
         // $ttlpage = ceil($ttl / $limit);
-        $csvMails = CsvMail::all();
+        $csvMails = CsvMail::orderBy('created_at', 'desc')->get();
         $ttl = $csvMails->count();
         return view('admins.csvmails.csv-and-mail-sendings', compact('csvMails', 'ttl'));
     }
@@ -38,7 +38,7 @@ class AdminCsvAndMailSendingController extends Controller
                 // Detect and convert encoding if necessary
                 $row = array_map(function($field) {
                     // Detect encoding, fall back to Shift-JIS if detection fails
-                    $encoding = mb_detect_encoding($field, ['UTF-8', 'SJIS', 'ISO-8859-1', 'EUC-JP'], true);
+                    $encoding = mb_detect_encoding($field, ['UTF-8', 'SJIS', 'ISO-8859-1', 'EUC-JP', 'ISO-2022-JP'], true);
                     
                     if ($encoding !== 'UTF-8') {
                         return mb_convert_encoding($field, 'UTF-8', $encoding ?: 'SJIS');
@@ -47,16 +47,26 @@ class AdminCsvAndMailSendingController extends Controller
                 }, $row);
     
                 // Skip rows that don't have at least 2 fields (email must be present)
-                if (count($row) < 2 || empty($row[1])) {
+                if (count($row) < 2 || empty($row[10])) {
                     continue;
                 }
     
                 // Check if the email already exists and insert if it doesn't
                 CsvMail::updateOrCreate(
-                    ['email' => $row[1]], // Check if this email already exists
+                    ['email' => $row[10]], // Check if this email already exists
                     [
                         'company_name' => $row[0],
-                        'name' => $row[2],
+                        'postal_code' => $row[1],
+                        'address' => $row[2],
+                        'phone' => $row[3],
+                        'fax' => $row[4],
+                        'capital' => $row[5],
+                        'number_of_employees' => $row[6],
+                        'annual_turnover' => $row[7],
+                        'listed' => $row[8],
+                        'URL' => $row[9],
+                        'established_date' => $row[11],
+                        'industry' => $row[12],
                         'group' => CsvMail::where('email', $row[1])->exists() ? CsvMail::where('email', $row[1])->value('group') : 'まだ設定されていません'
                     ]
                 );
@@ -112,5 +122,11 @@ class AdminCsvAndMailSendingController extends Controller
 
         Session::flash('success', 'メールは正常に削除されました');
         return redirect()->route('admin.csv.and.mail.sendings');
+    }
+
+    public function showCsvMailDetail($id) {
+        $csvMail = CsvMail::find($id);
+
+        return view('admins.csvmails.csv-mail-detail', compact('csvMail'));
     }
 }

@@ -71,15 +71,16 @@
                                         <tr>
                                             <th>#</th>
                                             <th style="min-width: 110px;">登録日</th>
-                                            <th>会社名</th>
+                                            <th style="max-width: 110px">企業名</th>
                                             <th>メール</th>
-                                            <th>担当者名</th>
-                                            <th>グループ名</th>
+                                            <th style="min-width: 110px;">業種</th>
+                                            <th style="min-width: 110px;">グループ名</th>
                                             <th>
                                                 <div class="custom-checkbox" style="display: block;">
                                                     <input type="checkbox" id="checkAll" name="checkAll" onchange="toggleCheckboxes(this)">
                                                 </div>
                                             </th>
+                                            <th>詳細</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -91,23 +92,27 @@
                                             <td style="min-width: 110px;">
                                                 {{ $csvMail->created_at->format('Y-m-d') }}
                                             </td>
-                                            <td>
+                                            <td style="max-width: 110px;">
                                                 {{ $csvMail->company_name }}
                                             </td>
                                             <td>
                                                 {{ $csvMail->email }}
                                             </td>
-                                            <td>
-                                                {{ $csvMail->name }}
+                                            <td style="min-width: 110px;">
+                                                {{ $csvMail->industry }}
                                             </td>
-                                            <td>
+                                            <td style="min-width: 110px;">
                                                 {{ $csvMail->group }}
                                             </td>
-
                                             <td>
                                                 <div class="custom-checkbox" style="display: block;">
                                                     <input type="checkbox" class="checkItem" name="check[]" value="{{ $csvMail->id }}">
                                                 </div>
+                                            </td>
+                                            <td>
+                                                <a href="{{ route('admin.show.csv.mail.detail', $csvMail->id) }}">
+                                                    <i class="fa fa-eye" style="font-size: 1.5em;"></i>
+                                                </a>
                                             </td>
                                         </tr>
                                         @endforeach

@@ -8,8 +8,18 @@ class CsvMail extends Model
 {
     protected $fillable = [
         'company_name',
+        'postal_code',
+        'address',
+        'phone',
+        'fax',
+        'capital',
+        'number_of_employees',
+        'annual_turnover',
+        'listed',
+        'URL',
         'email',
-        'name',
+        'established_date',
+        'industry',
         'group'
     ];
 }

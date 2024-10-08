@@ -116,7 +116,7 @@
                         </div>
                     </div>
                     @if ($csvMails->isEmpty())
-                    <h1 class="mt-110 mb-70 text-center">アップロードされたメールはありません</h1>
+                    <h1 class="mt-110 mb-70 text-center">インポートされたメールはありません</h1>
                     @endif
                 </div>
                 <input type="hidden" id="confirmed" name="confirmed" value="0">

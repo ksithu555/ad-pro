@@ -1,33 +1,30 @@
 <x-section-layout>
-    <!--== Hero Scene Start ==-->
-    <section class="pt-0 pb-0" id="home">
-        <div class="parallax-overlay z-index-0"></div>
-        <div class="container relative view-height-100vh">
-            <div class="simple-content-slider text-center">
-                <div class="simple-content-slider-text">
-                    <div class="simple-content-text-inner">
-                        <div class="row">
-                            <div class="col-md-10 centerize-col">
-                                <div class="white-color text-center">
-                                    <!-- Update the text dynamically with textarea -->
-                                    <span id="contentText" class="font-60px font-700 play-font wow fadeInUp font-italic" data-wow-delay="0.1s">We Design Digital Brand Experiences.</span>
-                                    <!-- Update the heading dynamically with text input -->
-                                    <h1 id="titleText" class="white-color font-700 font-120px line-height-120 xs-font-40px xs-line-height-50 sm-font-60px sm-line-height-60 play-font wow fadeInUp" data-wow-delay="0.2s">Design Studio</h1>
-                                </div>
+    <!--== Video Start ==-->
+    <section class="pt-0 pb-0">
+        <section id="imageFile" class="parallax-bg fixed-bg" data-parallax-bg-image="{{ asset('assets/images/title-bg/ad-pro-default.jpg') }}" 
+            data-parallax-speed="0.8" data-parallax-direction="up" style="min-height: 400px;">
+            <div class="parallax-overlay"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1 text-center parallax-content">
+                        <div class="center-layout">
+                            <div class="v-align-middle">
+                                <a id="videoLink" class="popup-youtube" href="https://www.youtube.com/watch?v=xih-KwqC7q0">
+                                    <div class="play-button">
+                                        <i class="tr-icon ion-android-arrow-dropright"></i>
+                                    </div>
+                                </a>
+                                <h4 id="titleText" class="text-uppercase mt-10 font-700 roboto-font white-color">What We Do</h4>
+                                <hr class="left_line default-bg">
+                                <p id="contentText" class="font-16px roboto-font white-color mt-30">Whether you're building a simple prototype or a business-critical product, And We have Developers, designers, and happy clients.</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- Update the background image dynamically with file input -->
-        <div id="backgroundImage" class="view-height-100vh absolute z-index-minus2 top-0 width-100-percent">
-            <div class="view-height-100vh">
-                <div class="slide-img parallax-bg fixed-bg" data-parallax-bg-image="{{ asset('assets/images/title-bg/ad-pro-default.jpg') }}" data-parallax-speed="0.8" data-parallax-direction="up"></div>
-            </div>
-        </div>
+        </section>
     </section>
-    <!--== Hero Scene End ==-->
+    <!--== Video End ==-->
 
     <!-- Test Button and Dynamic Form Section -->
     <div class="container mt-40 mb-40">
@@ -46,6 +43,8 @@
                     <textarea id="contentTextInput" class="form-control md-textarea mt-10" placeholder="内容"></textarea>
                     <!-- File input for changing background image -->
                     <input type="file" id="fileInput" class="form-control mt-10" accept="image/*">
+                    <!-- Text input for Design Studio -->
+                    <input type="text" id="linkInput" class="form-control md-input mt-10" placeholder="URL">
                 </div>
             </div>
         </div>
@@ -56,12 +55,12 @@
         document.getElementById('testButton').addEventListener('click', function () {
             document.getElementById('dynamicForm').style.display = 'block';
         });
-
+    
         // Update the Design Studio heading in real-time
         document.getElementById('titleTextInput').addEventListener('input', function () {
             document.getElementById('titleText').innerText = this.value;
         });
-
+    
         // Update the Brand Experiences text in real-time
         document.getElementById('contentTextInput').addEventListener('input', function () {
             document.getElementById('contentText').innerText = this.value;
@@ -74,7 +73,7 @@
                 const reader = new FileReader();
                 reader.onload = function (e) {
                     // Get the slide-img element and update the data-parallax-bg-image attribute
-                    const slideImgElement = document.querySelector('.slide-img');
+                    const slideImgElement = document.getElementById('imageFile');
                     const parallaxInner = document.querySelector('.parallax-inner');
                     
                     // Update the parallax data attribute
@@ -87,6 +86,11 @@
                 };
                 reader.readAsDataURL(file);
             }
+        });
+    
+        // Update the Design Studio heading in real-time
+        document.getElementById('linkInput').addEventListener('input', function () {
+            document.getElementById('videoLink').setAttribute('href', this.value);
         });
     </script>
 </x-section-layout>

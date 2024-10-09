@@ -35,4 +35,16 @@ class AdminAdvertisementController extends Controller
         Session::flash('error', '広告ステータスの変更に失敗しました');
         return response()->json(['success' => false]);
     }
+
+    public function updateAdvertisementSample(Request $request) {
+        $advertisement = Advertisement::find($request->id);
+        if ($advertisement) {
+            $advertisement->sample = $request->status;
+            $advertisement->save();
+            Session::flash('success', '広告の配布ステータスが正常に更新されました');
+            return response()->json(['success' => true]);
+        }
+        Session::flash('error', '広告の配布ステータスの変更に失敗しました');
+        return response()->json(['success' => false]);
+    }
 }

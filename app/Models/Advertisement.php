@@ -15,7 +15,8 @@ class Advertisement extends Model
         'logo_color',
         'param_name',
         'menu_bar_status',
-        'status'
+        'status',
+        'sample'
     ];
 
     public function advertisementSections()

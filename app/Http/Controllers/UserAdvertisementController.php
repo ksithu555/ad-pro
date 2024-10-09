@@ -46,7 +46,7 @@ class UserAdvertisementController extends Controller
     }
 
     public function addAdvertisement() {
-        $advertisements = Advertisement::where('user_id', Auth::user()->id)->get();
+        $advertisements = Advertisement::where('user_id', Auth::user()->id)->orWhere('sample', 1)->orderBy('sample', 'desc')->get();
         return view('users.advertisements.add-advertisement', compact('advertisements'));
     }
 
@@ -78,7 +78,8 @@ class UserAdvertisementController extends Controller
             'logo_color' => $logoColorName,
             'param_name' => $request->paramName,
             'menu_bar_status' => 1,
-            'status' => 0
+            'status' => 0,
+            'sample' => 0
         ]);
 
         // Check if we are in copy mode

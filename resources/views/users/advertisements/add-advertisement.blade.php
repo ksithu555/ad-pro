@@ -67,7 +67,7 @@
                             <div class="col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2">
                                 <div class="form-group">
                                     <select name="previousAdvertisementId" class="orderby social-media md-input">
-                                        <option value="0" selected="selected">コピー元</option>
+                                        <option value="0" selected="selected">流用元</option>
                                         @foreach ($advertisements as $advertisement)
                                         <option value="{{ $advertisement->id }}">{{ $advertisement->name }}</option>
                                         @endforeach

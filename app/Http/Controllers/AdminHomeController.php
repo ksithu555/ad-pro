@@ -22,6 +22,11 @@ class AdminHomeController extends Controller
     }
 
     public function storeHeader(Request $request) {
+        $checkHeaderCount = TopHeader::count();
+        if ($checkHeaderCount >= 5)  {
+            Session::flash('error', 'このヘッダーセクションの最大ブロック数は 五つ です');
+            return redirect()->route('admin.get.home');
+        }
         if (!empty($request->image)) {
             $imageName = time() . '.' . $request->image->extension();
             $request->image->move(public_path('assets/images/all'), $imageName);

@@ -278,6 +278,7 @@ Route::group(['middleware' => ['admin']], function () {
     // advertisements
     Route::get('/admin/advertisements', [AdminAdvertisementController::class, 'getAdvertisements'])->name('admin.get.advertisements');
     Route::post('/admin/update/advertisement-status', [AdminAdvertisementController::class, 'updateAdvertisementStatus'])->name('admin.update.advertisement.status');
+    Route::post('/admin/update/advertisement-sample', [AdminAdvertisementController::class, 'updateAdvertisementSample'])->name('admin.update.advertisement.sample');
     
     // materials
     Route::get('/admin/materials', [AdminMaterialController::class, 'getMaterials'])->name('admin.get.materials');

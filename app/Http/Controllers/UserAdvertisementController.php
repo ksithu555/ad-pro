@@ -46,7 +46,8 @@ class UserAdvertisementController extends Controller
     }
 
     public function addAdvertisement() {
-        return view('users.advertisements.add-advertisement');
+        $advertisements = Advertisement::where('user_id', Auth::user()->id)->get();
+        return view('users.advertisements.add-advertisement', compact('advertisements'));
     }
 
     public function storeAdvertisement(Request $request) {
@@ -68,7 +69,8 @@ class UserAdvertisementController extends Controller
         } else {
             $logoColorName = '';
         }
-        Advertisement::create([
+
+        $advertisement = Advertisement::create([
             'user_id' => Auth::user()->id,
             'name' => $request->name,
             'main_image' => $mainImageName,
@@ -79,8 +81,150 @@ class UserAdvertisementController extends Controller
             'status' => 0
         ]);
 
+        // Check if we are in copy mode
+        if ($request->previousAdvertisementId != 0) {
+            $previousAdvertisement = Advertisement::find($request->previousAdvertisementId);
+
+            if ($previousAdvertisement) {
+                // Copy sections
+                foreach ($previousAdvertisement->advertisementSections as $section) {
+                    $newSection = $advertisement->advertisementSections()->create([
+                        'name' => $section->name,
+                        'section_id' => $section->section_id,
+                        'order' => $section->order,
+                        'status' => $section->status
+                    ]);
+
+                    // Copy blocks and their sub-blocks
+                    $this->copyAdvertisementBlocks($section, $newSection);
+                }
+            }
+        }
+
         Session::flash('success', '広告が正常に追加されました');
         return redirect()->route('user.get.advertisements');
+    }
+
+    /**
+     * Helper function to copy advertisement blocks and their sub-blocks
+     */
+    protected function copyAdvertisementBlocks($originalSection, $newSection) {
+        // Copy Header Blocks
+        foreach ($originalSection->advertisementHeaderBlocks as $headerBlock) {
+            $newSection->advertisementHeaderBlocks()->create([
+                'title' => $headerBlock->title,
+                'body' => $headerBlock->body,
+                'image' => $headerBlock->image,
+                'status' => $headerBlock->status
+            ]);
+        }
+
+        // Copy Footer Blocks
+        foreach ($originalSection->advertisementFooterBlocks as $footerBlock) {
+            $newSection->advertisementFooterBlocks()->create([
+                'type' => $footerBlock->type,
+                'name' => $footerBlock->name,
+                'url' => $footerBlock->url,
+                'text' => $footerBlock->text,
+                'status' => $footerBlock->status
+            ]);
+        }
+
+        // Copy List Blocks
+        foreach ($originalSection->advertisementListBlocks as $listBlock) {
+            $newSection->advertisementListBlocks()->create([
+                'title' => $listBlock->title,
+                'body' => $listBlock->body,
+                'image' => $listBlock->image,
+                'status' => $listBlock->status
+            ]);
+        }
+
+        // Copy Box Blocks and their sub-blocks
+        foreach ($originalSection->advertisementBoxBlocks as $boxBlock) {
+            $newBoxBlock = $newSection->advertisementBoxBlocks()->create([
+                'title' => $boxBlock->title,
+                'body' => $boxBlock->body,
+                'status' => $boxBlock->status
+            ]);
+
+            // Copy sub-box blocks
+            foreach ($boxBlock->advertisementSubBoxBlocks as $subBoxBlock) {
+                $newBoxBlock->advertisementSubBoxBlocks()->create([
+                    'title' => $subBoxBlock->title,
+                    'body' => $subBoxBlock->body,
+                    'icon' => $subBoxBlock->icon,
+                    'status' => $subBoxBlock->status
+                ]);
+            }
+        }
+
+        // Copy Accordion Blocks and their sub-blocks
+        foreach ($originalSection->advertisementAccordionBlocks as $accordionBlock) {
+            $newAccordionBlock = $newSection->advertisementAccordionBlocks()->create([
+                'title' => $accordionBlock->title,
+                'status' => $accordionBlock->status
+            ]);
+
+            // Copy sub-accordion blocks
+            foreach ($accordionBlock->advertisementSubAccordionBlocks as $subAccordionBlock) {
+                $newAccordionBlock->advertisementSubAccordionBlocks()->create([
+                    'title' => $subAccordionBlock->title,
+                    'body' => $subAccordionBlock->body,
+                    'status' => $subAccordionBlock->status
+                ]);
+            }
+        }
+
+        // Copy Image Blocks and their sub-blocks
+        foreach ($originalSection->advertisementImageBlocks as $imageBlock) {
+            $newImageBlock = $newSection->advertisementImageBlocks()->create([
+                'title' => $imageBlock->title,
+                'status' => $imageBlock->status
+            ]);
+
+            // Copy sub-image blocks
+            foreach ($imageBlock->advertisementSubImageBlocks as $subImageBlock) {
+                $newImageBlock->advertisementSubImageBlocks()->create([
+                    'title' => $subImageBlock->title,
+                    'body' => $subImageBlock->body,
+                    'image' => $subImageBlock->image,
+                    'image_hover' => $subImageBlock->image_hover,
+                    'status' => $subImageBlock->status
+                ]);
+            }
+        }
+
+        // Copy Video Blocks
+        foreach ($originalSection->advertisementVideoBlocks as $videoBlock) {
+            $newSection->advertisementVideoBlocks()->create([
+                'title' => $videoBlock->title,
+                'body' => $videoBlock->body,
+                'image' => $videoBlock->image,
+                'url' => $videoBlock->url,
+                'status' => $videoBlock->status
+            ]);
+        }
+
+        // Copy Map Blocks
+        foreach ($originalSection->advertisementMapBlocks as $mapBlock) {
+            $newSection->advertisementMapBlocks()->create([
+                'title' => $mapBlock->title,
+                'body' => $mapBlock->body,
+                'url' => $mapBlock->url,
+                'status' => $mapBlock->status
+            ]);
+        }
+
+        // Copy Countdown Blocks
+        foreach ($originalSection->advertisementCountdownBlocks as $countdownBlock) {
+            $newSection->advertisementCountdownBlocks()->create([
+                'title' => $countdownBlock->title,
+                'body' => $countdownBlock->body,
+                'target_datetime' => $countdownBlock->target_datetime,
+                'status' => $countdownBlock->status
+            ]);
+        }
     }
 
     public function editAdvertisement($id) {

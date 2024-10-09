@@ -22,6 +22,8 @@
                                     <span class="error" style="color:#BF0731" id="error-name"></span>
                                 </div>
                             </div>
+                        </div>
+                        <div class="row">
                             <div class="col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2">
                                 <div class="form-group">
                                     <label class="md-file" for="mainImage" id="mainImage-file-label">メイン画像 *</label>
@@ -30,6 +32,8 @@
                                     <span class="error" style="color:#BF0731" id="error-mainImage"></span>
                                 </div>
                             </div>
+                        </div>
+                        <div class="row">
                             <div class="col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2">
                                 <div class="form-group">
                                     <label class="md-file" for="logoWhite" id="logoWhite-file-label">白いロゴ *</label>
@@ -38,6 +42,8 @@
                                     <span class="error" style="color:#BF0731" id="error-logoWhite"></span>
                                 </div>
                             </div>
+                        </div>
+                        <div class="row">
                             <div class="col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2">
                                 <div class="form-group">
                                     <label class="md-file" for="logoColor" id="logoColor-file-label">カラーロゴ *</label>
@@ -46,6 +52,8 @@
                                     <span class="error" style="color:#BF0731" id="error-logoColor"></span>
                                 </div>
                             </div>
+                        </div>
+                        <div class="row">
                             <div class="col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2">
                                 <div class="form-group">
                                     <label class="sr-only" for="paramName">広告パラメータ</label>
@@ -53,6 +61,23 @@
                                     <span class="error" style="color:#BF0731" id="error-paramName"></span>
                                 </div>
                             </div>
+                        </div>
+                        @if ($advertisements->isNotEmpty())
+                        <div class="row">
+                            <div class="col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2">
+                                <div class="form-group">
+                                    <select name="previousAdvertisementId" class="orderby social-media md-input">
+                                        <option value="0" selected="selected">コピー元</option>
+                                        @foreach ($advertisements as $advertisement)
+                                        <option value="{{ $advertisement->id }}">{{ $advertisement->name }}</option>
+                                        @endforeach
+                                    </select>
+                                    <span class="error" style="color:#BF0731" id="error-previousAdvertisementId"></span>
+                                </div>
+                            </div>
+                        </div>
+                        @endif
+                        <div class="row">
                             <div class="col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2">
                                 <div class="text-left mt-20">
                                     <input type="hidden" id="confirmed" name="confirmed" value="0">

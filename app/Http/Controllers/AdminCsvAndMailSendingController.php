@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\SendCsvMailJob;
 use App\Models\CsvMail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -107,9 +108,15 @@ class AdminCsvAndMailSendingController extends Controller
     public function sendMailCsvMails(Request $request) {
         $selectedMailIds = explode(',', $request->selectedMails); // Convert the comma-separated string into an array
         $selectedEmails = CsvMail::whereIn('id', $selectedMailIds)->get();
-
+        
         foreach ($selectedEmails as $selectedEmail) {
-            Mail::to($selectedEmail->email)->send(new SendAdvertisementToCsvEmail($selectedEmail, $request->selectTemplate, $request->subject, $request->title, $request->body));
+            dispatch(new SendCsvMailJob(
+                $selectedEmail,
+                $request->selectTemplate,
+                $request->subject,
+                $request->title,
+                $request->body
+            ));
         }
 
         Session::flash('success', 'メールの送信に成功しました');

@@ -81,8 +81,8 @@
                                     <tr>
                                         <th>#</th>
                                         <th style="min-width: 110px;">登録日</th>
-                                        <th style="max-width: 110px">企業名</th>
-                                        <th>メール</th>
+                                        <th style="max-width: 200px">企業名</th>
+                                        <th style="max-width: 200px;">メール</th>
                                         <th style="min-width: 110px;">業種</th>
                                         <th style="min-width: 110px;">グループ名 <span id="rowCount"></span></th>
                                         <th>
@@ -102,10 +102,10 @@
                                         <td style="min-width: 110px;">
                                             {{ $csvMail->created_at->format('Y-m-d') }}
                                         </td>
-                                        <td style="max-width: 110px;">
+                                        <td style="max-width: 200px;">
                                             {{ $csvMail->company_name }}
                                         </td>
-                                        <td>
+                                        <td style="max-width: 200px;">
                                             {{ $csvMail->email }}
                                         </td>
                                         <td style="min-width: 110px;">
@@ -213,11 +213,7 @@
                 }
 
                 // Update the row count in the span next to "グループ名"
-                if (selectedGroup === "") {
-                    $('#rowCount').text('（' + visibleRowsCount + ' 行）');
-                } else {
-                    $('#rowCount').text('（' + visibleRowsCount + ' 行）');
-                }
+                $('#rowCount').text('（' + visibleRowsCount + ' 行）');
             });
             
             // Trigger the change event on page load to display the correct count initially

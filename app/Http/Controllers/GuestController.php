@@ -13,6 +13,7 @@ use App\Models\AdvertisementContact;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\AdvertisementContactMail;
+use App\Models\Admin;
 use Illuminate\Support\Facades\Session;
 
 class GuestController extends Controller
@@ -62,7 +63,11 @@ class GuestController extends Controller
             'content' => $request->content
         ]);
 
-        Mail::to(env('MAIL_FROM_ADDRESS'))->send(new ContactMail($contact));
+        $admins = Admin::all();
+        foreach ($admins as $admin) {
+            Mail::to($admin->email)->send(new ContactMail($contact));
+        }
+        // Mail::to(env('MAIL_FROM_ADDRESS'))->send(new ContactMail($contact));
 
         Session::flash('success', 'お問い合わせは正常に送信されました');
         return redirect()->route('guest.contact');
@@ -81,7 +86,7 @@ class GuestController extends Controller
         $advertisement = Advertisement::where('id', $advertisementContact->advertisement_id)->first();
         $user = User::where('id', $advertisement->user_id)->first();
 
-        Mail::to(env('MAIL_FROM_ADDRESS'))->send(new AdvertisementContactMail($advertisementContact, $advertisement, $user));
+        // Mail::to(env('MAIL_FROM_ADDRESS'))->send(new AdvertisementContactMail($advertisementContact, $advertisement, $user));
         Mail::to($user->email)->send(new AdvertisementContactMail($advertisementContact, $advertisement, $user));
 
         Session::flash('success', 'お問い合わせは正常に送信されました');

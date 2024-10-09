@@ -11,12 +11,20 @@ use App\Mail\SendAdvertisementToCsvEmail;
 
 class AdminCsvAndMailSendingController extends Controller
 {
-    public function getCsvAndMailSendings() {
+    public function getCsvAndMailSendings(Request $request) {
         // $limit = 10;
         // $csvMails = CsvMail::paginate($limit);
         // $ttl = $csvMails->total();
         // $ttlpage = ceil($ttl / $limit);
-        $csvMails = CsvMail::orderBy('created_at', 'desc')->get();
+        $search = $request->input('search');
+        $csvMailsQuery = CsvMail::query();
+        if ($search) {
+            $csvMailsQuery->where(function($query) use ($search) {
+                $query->where('company_name', 'like', "%{$search}%")
+                      ->orWhere('industry', 'like', "%{$search}%");
+            });
+        }
+        $csvMails = $csvMailsQuery->orderBy('created_at', 'desc')->get();
         $ttl = $csvMails->count();
         return view('admins.csvmails.csv-and-mail-sendings', compact('csvMails', 'ttl'));
     }
@@ -128,5 +136,29 @@ class AdminCsvAndMailSendingController extends Controller
         $csvMail = CsvMail::find($id);
 
         return view('admins.csvmails.csv-mail-detail', compact('csvMail'));
+    }
+
+    public function updateCsvMail(Request $request) {
+        $updateData = [
+            'company_name' => $request->companyName,
+            'postal_code' => $request->postalCode,
+            'address' => $request->address,
+            'phone' => $request->phone,
+            'fax' => $request->fax,
+            'capital' => $request->capital,
+            'number_of_employees' => $request->numberOfEmployees,
+            'annual_turnover' => $request->annualTurnover,
+            'url' => $request->listed,
+            'phone' => $request->url,
+            'email' => $request->email,
+            'established_date' => $request->establishedDate,
+            'industry' => $request->industry,
+            'group' => $request->group,
+        ];
+
+
+        CsvMail::where('id', $request->id)->update($updateData);
+        Session::flash('success', 'CSV内容が正常に更新されました');
+        return redirect()->route('admin.show.csv.mail.detail', $request->id);
     }
 }

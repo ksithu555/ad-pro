@@ -3,6 +3,16 @@
     <section class="white-bg pt-120" style="padding-bottom: 250px;">
         <div class="container">
             <div class="row">
+              <div class="col-sm-8 section-heading">
+                  <form id="search-form" action="{{ route('admin.csv.and.mail.sendings') }}" method="GET">
+                      <div class="search-box">
+                          <input type="text" name="search" placeholder="検索..." value="{{ request()->input('search') }}">
+                          <button type="submit"><i class="fa fa-search"></i></button>
+                      </div>
+                  </form>
+              </div>
+            </div>  
+            <div class="row">
                 <div class="col-md-8 col-md-offset-2">
                     <x-message-box></x-message-box>
                 </div>
@@ -66,58 +76,58 @@
                     </div>
                     <div class="col-md-12">
                         <div class="table-responsive">
-                                <table class="table table-bordered table-striped table-hover shop-cart">
-                                    <thead>
-                                        <tr>
-                                            <th>#</th>
-                                            <th style="min-width: 110px;">登録日</th>
-                                            <th style="max-width: 110px">企業名</th>
-                                            <th>メール</th>
-                                            <th style="min-width: 110px;">業種</th>
-                                            <th style="min-width: 110px;">グループ名</th>
-                                            <th>
-                                                <div class="custom-checkbox" style="display: block;">
-                                                    <input type="checkbox" id="checkAll" name="checkAll" onchange="toggleCheckboxes(this)">
-                                                </div>
-                                            </th>
-                                            <th>詳細</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @foreach ($csvMails as $key => $csvMail)
-                                        <tr class="mail-row" data-type="{{ $csvMail->group }}">
-                                            <td>
-                                                {{ $ttl + 1 - (1 + $key) }}
-                                            </td>
-                                            <td style="min-width: 110px;">
-                                                {{ $csvMail->created_at->format('Y-m-d') }}
-                                            </td>
-                                            <td style="max-width: 110px;">
-                                                {{ $csvMail->company_name }}
-                                            </td>
-                                            <td>
-                                                {{ $csvMail->email }}
-                                            </td>
-                                            <td style="min-width: 110px;">
-                                                {{ $csvMail->industry }}
-                                            </td>
-                                            <td style="min-width: 110px;">
-                                                {{ $csvMail->group }}
-                                            </td>
-                                            <td>
-                                                <div class="custom-checkbox" style="display: block;">
-                                                    <input type="checkbox" class="checkItem" name="check[]" value="{{ $csvMail->id }}">
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <a href="{{ route('admin.show.csv.mail.detail', $csvMail->id) }}">
-                                                    <i class="fa fa-eye" style="font-size: 1.5em;"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        @endforeach
-                                    </tbody>
-                                </table>
+                            <table class="table table-bordered table-striped table-hover shop-cart">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th style="min-width: 110px;">登録日</th>
+                                        <th style="max-width: 110px">企業名</th>
+                                        <th>メール</th>
+                                        <th style="min-width: 110px;">業種</th>
+                                        <th style="min-width: 110px;">グループ名 <span id="rowCount"></span></th>
+                                        <th>
+                                            <div class="custom-checkbox" style="display: block;">
+                                                <input type="checkbox" id="checkAll" name="checkAll" onchange="toggleCheckboxes(this)">
+                                            </div>
+                                        </th>
+                                        <th>詳細</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($csvMails as $key => $csvMail)
+                                    <tr class="mail-row" data-type="{{ $csvMail->group }}">
+                                        <td>
+                                            {{ $ttl + 1 - (1 + $key) }}
+                                        </td>
+                                        <td style="min-width: 110px;">
+                                            {{ $csvMail->created_at->format('Y-m-d') }}
+                                        </td>
+                                        <td style="max-width: 110px;">
+                                            {{ $csvMail->company_name }}
+                                        </td>
+                                        <td>
+                                            {{ $csvMail->email }}
+                                        </td>
+                                        <td style="min-width: 110px;">
+                                            {{ $csvMail->industry }}
+                                        </td>
+                                        <td style="min-width: 110px;">
+                                            {{ $csvMail->group }}
+                                        </td>
+                                        <td>
+                                            <div class="custom-checkbox" style="display: block;">
+                                                <input type="checkbox" class="checkItem" name="check[]" value="{{ $csvMail->id }}">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <a href="{{ route('admin.show.csv.mail.detail', $csvMail->id) }}">
+                                                <i class="fa fa-eye" style="font-size: 1.5em;"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                     @if ($csvMails->isEmpty())
@@ -181,22 +191,37 @@
             // When the filter dropdown changes
             $('select[name="filterGroup"]').on('change', function() {
                 var selectedGroup = $(this).val(); // Get selected type
-    
+                
+                // Variable to keep track of the row count
+                var visibleRowsCount = 0;
+                
                 // If '全て' is selected, show all rows and enable checkboxes
                 if (selectedGroup === "") {
                     $('.mail-row').show().find('.checkItem').prop('disabled', false);
+                    visibleRowsCount = $('.mail-row').length; // Count all rows
                 } else {
                     // Otherwise, show only the rows that match the selected type and enable their checkboxes
                     $('.mail-row').each(function() {
                         var mailGroup = $(this).data('type'); // Get the type of the row
                         if (mailGroup === selectedGroup) {
                             $(this).show().find('.checkItem').prop('disabled', false); // Show the row and enable the checkbox
+                            visibleRowsCount++; // Increase count for visible rows
                         } else {
                             $(this).hide().find('.checkItem').prop('disabled', true); // Hide the row and disable the checkbox
                         }
                     });
                 }
+
+                // Update the row count in the span next to "グループ名"
+                if (selectedGroup === "") {
+                    $('#rowCount').text('（' + visibleRowsCount + ' 行）');
+                } else {
+                    $('#rowCount').text('（' + visibleRowsCount + ' 行）');
+                }
             });
+            
+            // Trigger the change event on page load to display the correct count initially
+            $('select[name="filterGroup"]').trigger('change');
         });
     </script>    
     <script>

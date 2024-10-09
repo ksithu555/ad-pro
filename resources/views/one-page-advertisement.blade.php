@@ -2991,7 +2991,7 @@
                                 src="{{ asset('assets/images/all/' . $advertisementListBlock->image) }}" alt=""/>
                             </div>                
                             <div class="col-md-6 col-sm-12">
-                                <div class="col-inner text-left">
+                                <div class="col-inner text-left pl-10">
                                     <h4 class="mt-20 text-uppercase">{{ $advertisementListBlock->title }}</h4>
                                     <hr class="dark-bg left_line bold-line" style="background-color: #BF0731;">
                                     <p class="mt-30 font-14px dark-color text-left">{!! nl2br($advertisementListBlock->body) !!}</p>
@@ -3001,7 +3001,7 @@
                         @else
                         <div class="row row-flex {{ $key != 0 ? 'mt-20' : ''}}" style="align-items: flex-start;">              
                             <div class="col-md-6 col-sm-12">
-                                <div class="col-inner text-left">
+                                <div class="col-inner text-left pl-10">
                                     <h4 class="mt-20 text-uppercase">{{ $advertisementListBlock->title }}</h4>
                                     <hr class="dark-bg left_line bold-line" style="background-color: #BF0731;">
                                     <p class="mt-30 font-14px dark-color text-left">{!! nl2br($advertisementListBlock->body) !!}</p>
@@ -3027,7 +3027,7 @@
                         @if ($key % 2 == 0)
                         <div class="row row-flex {{ $key != 0 ? 'mt-20' : ''}}" style="align-items: flex-start;">              
                             <div class="col-md-6 col-sm-12">
-                                <div class="col-inner text-left">
+                                <div class="col-inner text-left pl-10">
                                     <h4 class="mt-20 text-uppercase">{{ $advertisementListBlock->title }}</h4>
                                     <hr class="dark-bg left_line bold-line" style="background-color: #BF0731;">
                                     <p class="mt-30 font-14px dark-color text-left">{!! nl2br($advertisementListBlock->body) !!}</p>
@@ -3045,7 +3045,7 @@
                                 src="{{ asset('assets/images/all/' . $advertisementListBlock->image) }}" alt=""/>
                             </div>                
                             <div class="col-md-6 col-sm-12">
-                                <div class="col-inner text-left">
+                                <div class="col-inner text-left pl-10">
                                     <h4 class="mt-20 text-uppercase">{{ $advertisementListBlock->title }}</h4>
                                     <hr class="dark-bg left_line bold-line" style="background-color: #BF0731;">
                                     <p class="mt-30 font-14px dark-color text-left">{!! nl2br($advertisementListBlock->body) !!}</p>

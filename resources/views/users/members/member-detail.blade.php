@@ -24,7 +24,13 @@
                         @endif
                     </h4>
                     <h4 class="default-color font-600">{{ $user->name_furigana }}</h4>
-                    <h4 class="mt-0 font-700">{{ $user->email }}</h4>
+                    
+                    @php
+                        $email = $user->email;
+                        $splitEmail = explode('@', $email);
+                        $maskedEmail = str_repeat('*', strlen($splitEmail[0]) - 1) . substr($splitEmail[0], -1) . '@' . $splitEmail[1];
+                    @endphp
+                    <h4 class="mt-0 font-700">{{ $maskedEmail }}</h4>
                 </div>
                 <div class="col-md-2 col-xs-12">
                     <div class="text-right">

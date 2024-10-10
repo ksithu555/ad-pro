@@ -30,7 +30,7 @@
                                     <th style="min-width: 110px;">ビュー</th>
                                     <th style="min-width: 110px;">ステータス</th>
                                     @if (Auth::guard('admin')->user()->role == 'admin')
-                                    <th style="min-width: 110px;">配布</th>
+                                    <th style="min-width: 110px;">会員に配布</th>
                                     @endif
                                 </tr>
                             </thead>

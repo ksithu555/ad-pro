@@ -289,9 +289,82 @@ class UserAdvertisementController extends Controller
     }
 
     public function deleteAdvertisement($id) {
-        Advertisement::where('id', $id)->delete();
+        // Find the advertisement
+        $advertisement = Advertisement::findOrFail($id);
+
+        // Delete all related data manually
+        $this->deleteAdvertisementRelations($advertisement);
+
+        // Delete the advertisement itself
+        $advertisement->delete();
         Session::flash('success', 'ページが正常に削除されました');
         return redirect()->route('user.get.advertisements');
+    }
+
+    /**
+     * Helper function to delete all related data (sections, blocks, and sub-blocks)
+     */
+    protected function deleteAdvertisementRelations($advertisement) {
+        // Loop through each section of the advertisement
+        foreach ($advertisement->advertisementSections as $section) {
+
+            // Delete all related header blocks of the section
+            foreach ($section->advertisementHeaderBlocks as $headerBlock) {
+                $headerBlock->delete();
+            }
+
+            // Delete all related footer blocks of the section
+            foreach ($section->advertisementFooterBlocks as $footerBlock) {
+                $footerBlock->delete();
+            }
+
+            // Delete all related list blocks of the section
+            foreach ($section->advertisementListBlocks as $listBlock) {
+                $listBlock->delete();
+            }
+
+            // Delete all related box blocks and their sub-blocks
+            foreach ($section->advertisementBoxBlocks as $boxBlock) {
+                foreach ($boxBlock->advertisementSubBoxBlocks as $subBoxBlock) {
+                    $subBoxBlock->delete(); // Delete sub-box block
+                }
+                $boxBlock->delete(); // Delete box block
+            }
+
+            // Delete all related accordion blocks and their sub-blocks
+            foreach ($section->advertisementAccordionBlocks as $accordionBlock) {
+                foreach ($accordionBlock->advertisementSubAccordionBlocks as $subAccordionBlock) {
+                    $subAccordionBlock->delete(); // Delete sub-accordion block
+                }
+                $accordionBlock->delete(); // Delete accordion block
+            }
+
+            // Delete all related image blocks and their sub-blocks
+            foreach ($section->advertisementImageBlocks as $imageBlock) {
+                foreach ($imageBlock->advertisementSubImageBlocks as $subImageBlock) {
+                    $subImageBlock->delete(); // Delete sub-image block
+                }
+                $imageBlock->delete(); // Delete image block
+            }
+
+            // Delete all related video blocks of the section
+            foreach ($section->advertisementVideoBlocks as $videoBlock) {
+                $videoBlock->delete();
+            }
+
+            // Delete all related map blocks of the section
+            foreach ($section->advertisementMapBlocks as $mapBlock) {
+                $mapBlock->delete();
+            }
+
+            // Delete all related countdown blocks of the section
+            foreach ($section->advertisementCountdownBlocks as $countdownBlock) {
+                $countdownBlock->delete();
+            }
+
+            // Finally, delete the section itself
+            $section->delete();
+        }
     }
 
     public function showSections($id) {
@@ -502,17 +575,84 @@ class UserAdvertisementController extends Controller
     }
 
     public function deleteSection($id) {
-        $advertisementSection = AdvertisementSection::find($id);
-        if ($advertisementSection) {
-            $advertisementSection->delete();
-            if ($advertisementSection->section->type == 'header') {
-                AdvertisementHeaderBlock::where('advertisement_section_id', $advertisementSection->id)->delete();
-            }
-            if ($advertisementSection->section->type == 'footer') {
-                AdvertisementFooterBlock::where('advertisement_section_id', $advertisementSection->id)->delete();
-            }
+        // Find the advertisement
+        $advertisementSection = AdvertisementSection::findOrFail($id);
+
+        // Delete all related data manually
+        $this->deleteAdvertisementSectionRelations($advertisementSection);
+
+        // Delete the advertisement itself
+        $advertisementSection->delete();
+        // $advertisementSection = AdvertisementSection::find($id);
+        // if ($advertisementSection) {
+        //     $advertisementSection->delete();
+        //     if ($advertisementSection->section->type == 'header') {
+        //         AdvertisementHeaderBlock::where('advertisement_section_id', $advertisementSection->id)->delete();
+        //     }
+        //     if ($advertisementSection->section->type == 'footer') {
+        //         AdvertisementFooterBlock::where('advertisement_section_id', $advertisementSection->id)->delete();
+        //     }
             Session::flash('success', 'セクションが正常に削除されました');
             return redirect()->route('user.show.sections', $advertisementSection->advertisement_id);
+        // }
+    }
+
+    /**
+     * Helper function to delete all related data (sections, blocks, and sub-blocks)
+     */
+    protected function deleteAdvertisementSectionRelations($advertisementSection) {
+        // Delete all related header blocks of the section
+        foreach ($advertisementSection->advertisementHeaderBlocks as $headerBlock) {
+            $headerBlock->delete();
+        }
+
+        // Delete all related footer blocks of the section
+        foreach ($advertisementSection->advertisementFooterBlocks as $footerBlock) {
+            $footerBlock->delete();
+        }
+
+        // Delete all related list blocks of the section
+        foreach ($advertisementSection->advertisementListBlocks as $listBlock) {
+            $listBlock->delete();
+        }
+
+        // Delete all related box blocks and their sub-blocks
+        foreach ($advertisementSection->advertisementBoxBlocks as $boxBlock) {
+            foreach ($boxBlock->advertisementSubBoxBlocks as $subBoxBlock) {
+                $subBoxBlock->delete(); // Delete sub-box block
+            }
+            $boxBlock->delete(); // Delete box block
+        }
+
+        // Delete all related accordion blocks and their sub-blocks
+        foreach ($advertisementSection->advertisementAccordionBlocks as $accordionBlock) {
+            foreach ($accordionBlock->advertisementSubAccordionBlocks as $subAccordionBlock) {
+                $subAccordionBlock->delete(); // Delete sub-accordion block
+            }
+            $accordionBlock->delete(); // Delete accordion block
+        }
+
+        // Delete all related image blocks and their sub-blocks
+        foreach ($advertisementSection->advertisementImageBlocks as $imageBlock) {
+            foreach ($imageBlock->advertisementSubImageBlocks as $subImageBlock) {
+                $subImageBlock->delete(); // Delete sub-image block
+            }
+            $imageBlock->delete(); // Delete image block
+        }
+
+        // Delete all related video blocks of the section
+        foreach ($advertisementSection->advertisementVideoBlocks as $videoBlock) {
+            $videoBlock->delete();
+        }
+
+        // Delete all related map blocks of the section
+        foreach ($advertisementSection->advertisementMapBlocks as $mapBlock) {
+            $mapBlock->delete();
+        }
+
+        // Delete all related countdown blocks of the section
+        foreach ($advertisementSection->advertisementCountdownBlocks as $countdownBlock) {
+            $countdownBlock->delete();
         }
     }
 
@@ -633,7 +773,7 @@ class UserAdvertisementController extends Controller
 
     public function deleteHeaderBlock($id) {
         $advertisementHeaderBlock = AdvertisementHeaderBlock::find($id);
-        AdvertisementHeaderBlock::where('id', $id)->delete();
+        $advertisementHeaderBlock->delete();
         Session::flash('success', 'ヘッダーブロックが正常に削除されました');
         return redirect()->route('user.show.section.blocks', $advertisementHeaderBlock->advertisement_section_id);
 
@@ -730,10 +870,10 @@ class UserAdvertisementController extends Controller
     }
 
     public function deleteFooterBlock($id) {
-        $advertisementHeaderBlock = AdvertisementHeaderBlock::find($id);
-        AdvertisementHeaderBlock::where('id', $id)->delete();
+        $advertisementFooterBlock = AdvertisementFooterBlock::find($id);
+        $advertisementFooterBlock->delete();
         Session::flash('success', 'フッターブロックが正常に削除されました');
-        return redirect()->route('user.show.section.blocks', $advertisementHeaderBlock->advertisement_section_id);
+        return redirect()->route('user.show.section.blocks', $advertisementFooterBlock->advertisement_section_id);
 
     }
 
@@ -798,7 +938,8 @@ class UserAdvertisementController extends Controller
 
     public function deleteListBlock($id) {
         $advertisementListBlock = AdvertisementListBlock::find($id);
-        AdvertisementListBlock::where('id', $id)->delete();
+        $advertisementListBlock->delete();
+        
         Session::flash('success', 'リストブロックが正常に削除されました');
         return redirect()->route('user.show.section.blocks', $advertisementListBlock->advertisement_section_id);
 
@@ -852,10 +993,22 @@ class UserAdvertisementController extends Controller
 
     public function deleteBoxBlock($id) {
         $advertisementBoxBlock = AdvertisementBoxBlock::find($id);
-        AdvertisementBoxBlock::where('id', $id)->delete();
+        // Delete all related data manually
+        $this->deleteAdvertisementBoxRelations($advertisementBoxBlock);
+        $advertisementBoxBlock->delete();
         Session::flash('success', 'ボックスブロックが正常に削除されました');
         return redirect()->route('user.show.section.blocks', $advertisementBoxBlock->advertisement_section_id);
 
+    }
+
+    /**
+     * Helper function to delete all related data (sections, blocks, and sub-blocks)
+     */
+    protected function deleteAdvertisementBoxRelations($advertisementBoxBlock) {
+        // Delete all related box blocks and their sub-blocks
+        foreach ($advertisementBoxBlock->advertisementSubBoxBlocks as $subBoxBlock) {
+            $subBoxBlock->delete(); // Delete sub-box block
+        }
     }
 
     public function updateBoxBlockStatus(Request $request) {
@@ -904,10 +1057,22 @@ class UserAdvertisementController extends Controller
 
     public function deleteAccordionBlock($id) {
         $advertisementAccordionBlock = AdvertisementAccordionBlock::find($id);
-        AdvertisementAccordionBlock::where('id', $id)->delete();
+        // Delete all related data manually
+        $this->deleteAdvertisementAccordionRelations($advertisementAccordionBlock);
+        $advertisementAccordionBlock->delete();
         Session::flash('success', 'アコーディオンブロックが正常に削除されました');
         return redirect()->route('user.show.section.blocks', $advertisementAccordionBlock->advertisement_section_id);
 
+    }
+
+    /**
+     * Helper function to delete all related data (sections, blocks, and sub-blocks)
+     */
+    protected function deleteAdvertisementAccordionRelations($advertisementAccordionBlock) {
+        // Delete all related box blocks and their sub-blocks
+        foreach ($advertisementAccordionBlock->advertisementSubAccordionBlocks as $subAccordionBlock) {
+            $subAccordionBlock->delete(); // Delete sub-accordion block
+        }
     }
 
     public function updateAccordionBlockStatus(Request $request) {
@@ -956,10 +1121,23 @@ class UserAdvertisementController extends Controller
 
     public function deleteImageBlock($id) {
         $advertisementImageBlock = AdvertisementImageBlock::find($id);
-        AdvertisementImageBlock::where('id', $id)->delete();
+        // Delete all related data manually
+        $this->deleteAdvertisementImageRelations($advertisementImageBlock);
+        $advertisementImageBlock->delete();
+
         Session::flash('success', '画像が正常に削除されました');
         return redirect()->route('user.show.section.blocks', $advertisementImageBlock->advertisement_section_id);
 
+    }
+
+    /**
+     * Helper function to delete all related data (sections, blocks, and sub-blocks)
+     */
+    protected function deleteAdvertisementImageRelations($advertisementImageBlock) {
+        // Delete all related box blocks and their sub-blocks
+        foreach ($advertisementImageBlock->advertisementSubImageBlocks as $subImageBlock) {
+            $subImageBlock->delete(); // Delete sub-image block
+        }
     }
 
     public function updateImageBlockStatus(Request $request) {
@@ -1029,7 +1207,7 @@ class UserAdvertisementController extends Controller
 
     public function deleteVideoBlock($id) {
         $advertisementVideoBlock = AdvertisementVideoBlock::find($id);
-        AdvertisementVideoBlock::where('id', $id)->delete();
+        $advertisementVideoBlock->delete();
         Session::flash('success', '動画ブロックが正常に削除されました');
         return redirect()->route('user.show.section.blocks', $advertisementVideoBlock->advertisement_section_id);
 
@@ -1085,7 +1263,8 @@ class UserAdvertisementController extends Controller
 
     public function deleteMapBlock($id) {
         $advertisementMapBlock = AdvertisementMapBlock::find($id);
-        AdvertisementMapBlock::where('id', $id)->delete();
+        $advertisementMapBlock->delete();
+
         Session::flash('success', 'グーグルマップブロックが正常に削除されました');
         return redirect()->route('user.show.section.blocks', $advertisementMapBlock->advertisement_section_id);
 
@@ -1141,7 +1320,8 @@ class UserAdvertisementController extends Controller
 
     public function deleteCountdownBlock($id) {
         $advertisementCountdownBlock = AdvertisementCountdownBlock::find($id);
-        AdvertisementCountdownBlock::where('id', $id)->delete();
+        $advertisementCountdownBlock->delete();
+
         Session::flash('success', 'カウントダウンブロックが正常に削除されました');
         return redirect()->route('user.show.section.blocks', $advertisementCountdownBlock->advertisement_section_id);
 
@@ -1240,7 +1420,7 @@ class UserAdvertisementController extends Controller
 
     public function deleteSubBoxBlock($id) {
         $advertisementSubBoxBlock = AdvertisementSubBoxBlock::find($id);
-        AdvertisementSubBoxBlock::where('id', $id)->delete();
+        $advertisementSubBoxBlock->delete();
         Session::flash('success', 'サブボックスブロックが正常に削除されました');
         return redirect()->route('user.show.block.sub.blocks', ['type' => 'box', 'id' => $advertisementSubBoxBlock->advertisement_box_block_id]);
     }
@@ -1297,7 +1477,7 @@ class UserAdvertisementController extends Controller
 
     public function deleteSubAccordionBlock($id) {
         $advertisementSubAccordionBlock = AdvertisementSubAccordionBlock::find($id);
-        AdvertisementSubAccordionBlock::where('id', $id)->delete();
+        $advertisementSubAccordionBlock->delete();
         Session::flash('success', 'サブアコーディオンブロックが正常に削除されました');
         return redirect()->route('user.show.block.sub.blocks', ['type' => 'accordion', 'id' => $advertisementSubAccordionBlock->advertisement_accordion_block_id]);
     }
@@ -1369,7 +1549,7 @@ class UserAdvertisementController extends Controller
 
     public function deleteSubImageBlock($id) {
         $advertisementSubImageBlock = AdvertisementSubImageBlock::find($id);
-        AdvertisementSubImageBlock::where('id', $id)->delete();
+        $advertisementSubImageBlock->delete();
         Session::flash('success', 'サブ画像ブロックが正常に削除されました');
         return redirect()->route('user.show.block.sub.blocks', ['type' => 'image', 'id' => $advertisementSubImageBlock->advertisement_image_block_id]);
     }

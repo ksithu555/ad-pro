@@ -120,6 +120,22 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="panel">
+                            <div class="panel-heading">
+                                <a data-toggle="collapse" data-parent="#accordion-style" href="#light6" aria-expanded="false" class="collapsed">
+                                    <div class="panel-title text-uppercase white-color">
+                                        WEB広告のメール配信サービスもありますか？
+                                        <span class="pull-right"><i class="ion-chevron-down"></i></span>
+                                    </div>
+                                </a> 
+                            </div>
+                            <div id="light6" class="panel-collapse collapse" aria-expanded="false" role="tablist">
+                                <div class="panel-body dark-color">
+                                    はい。希望する業種を絞ってWEB広告をメールで配信させていただきます。
+                                    メール配信サービスは別途料金がかかりますので、ご相談ください。
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

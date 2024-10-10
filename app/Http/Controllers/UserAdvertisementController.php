@@ -38,7 +38,7 @@ class UserAdvertisementController extends Controller
             });
         }
 
-        $advertisements = $advertisementsQuery->paginate($limit);
+        $advertisements = $advertisementsQuery->orderBy('created_at', 'desc')->paginate($limit);
         $ttl = $advertisements->total();
         $ttlpage = ceil($ttl / $limit);
         
@@ -501,27 +501,36 @@ class UserAdvertisementController extends Controller
                 return response()->json(['success' => true]);
             }
         }
+        if ($section->section->type == 'countdown') {
+            $advertisementCountdownBlock = AdvertisementCountdownBlock::where('advertisement_section_id', $section->id)->get();
+            if ($advertisementCountdownBlock->isEmpty()) {
+                Session::flash('warning', 'セクションのステータスはまだ変更できません');
+                return response()->json(['success' => true]);
+            }
+        }
+
         if ($section) {
             $section->status = $request->status;
             $section->save();
             $advertisementSections = AdvertisementSection::where('advertisement_id', $section->advertisement_id)->get();
-            $allInactive = true;
             
-            foreach ($advertisementSections as $advertisementSection) {
-                if ($advertisementSection->status == 1) {
-                    $allInactive = false;
-                    break;
-                }
-            }
+            // $allInactive = true;
+            // foreach ($advertisementSections as $advertisementSection) {
+            //     if ($advertisementSection->status == 1) {
+            //         $allInactive = false;
+            //         break;
+            //     }
+            // }
 
-            $advertisement = Advertisement::find($section->advertisement_id);
-            if ($allInactive) {
-                $advertisement->status = 0;
-                $advertisement->save();
-            } else {
-                $advertisement->status = 1;
-                $advertisement->save();
-            }
+            // $advertisement = Advertisement::find($section->advertisement_id);
+            // if ($allInactive) {
+            //     $advertisement->status = 0;
+            //     $advertisement->save();
+            // } else {
+            //     $advertisement->status = 1;
+            //     $advertisement->save();
+            // }
+
             Session::flash('success', 'セクションのステータスが正常に更新されました');
             return response()->json(['success' => true]);
         }
@@ -721,11 +730,29 @@ class UserAdvertisementController extends Controller
             }
         }
 
+        if ($advertisementSection->section->name == 'Header08') {
+            $advertisementHeaderBlockCounts = AdvertisementHeaderBlock::where('advertisement_section_id', $request->advertisementSectionId)
+            ->count();
+            if ($advertisementHeaderBlockCounts >= 1) {
+                Session::flash('error', 'このヘッダーセクションの最大ブロック数は 一つ です');
+                return redirect()->route('user.show.section.blocks', $request->advertisementSectionId);
+            }
+        }
+
         if ($advertisementSection->section->name == 'Header09') {
             $advertisementHeaderBlockCounts = AdvertisementHeaderBlock::where('advertisement_section_id', $request->advertisementSectionId)
             ->count();
             if ($advertisementHeaderBlockCounts >= 2) {
                 Session::flash('error', 'このヘッダーセクションの最大ブロック数は 二つ です');
+                return redirect()->route('user.show.section.blocks', $request->advertisementSectionId);
+            }
+        }
+
+        if ($advertisementSection->section->name == 'Header10') {
+            $advertisementHeaderBlockCounts = AdvertisementHeaderBlock::where('advertisement_section_id', $request->advertisementSectionId)
+            ->count();
+            if ($advertisementHeaderBlockCounts >= 1) {
+                Session::flash('error', 'このヘッダーセクションの最大ブロック数は 一つ です');
                 return redirect()->route('user.show.section.blocks', $request->advertisementSectionId);
             }
         }
@@ -939,7 +966,7 @@ class UserAdvertisementController extends Controller
     public function deleteListBlock($id) {
         $advertisementListBlock = AdvertisementListBlock::find($id);
         $advertisementListBlock->delete();
-        
+
         Session::flash('success', 'リストブロックが正常に削除されました');
         return redirect()->route('user.show.section.blocks', $advertisementListBlock->advertisement_section_id);
 

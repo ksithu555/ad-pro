@@ -131,7 +131,8 @@
                             </div>
                             <div id="light6" class="panel-collapse collapse" aria-expanded="false" role="tablist">
                                 <div class="panel-body dark-color">
-                                    はい。希望する業種を絞ってWEB広告をメールで配信させていただきます。
+                                    はい。あります。
+                                    希望する業種を絞ってWEB広告をメールで配信させていただきます。
                                     メール配信サービスは別途料金がかかりますので、ご相談ください。
                                 </div>
                             </div>

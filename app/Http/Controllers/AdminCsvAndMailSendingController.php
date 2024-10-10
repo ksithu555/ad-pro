@@ -76,7 +76,7 @@ class AdminCsvAndMailSendingController extends Controller
                         'URL' => $row[9],
                         'established_date' => $row[11],
                         'industry' => $row[12],
-                        'group' => CsvMail::where('email', $row[1])->exists() ? CsvMail::where('email', $row[1])->value('group') : 'まだ設定されていません'
+                        'group' => CsvMail::where('email', $row[10])->exists() ? CsvMail::where('email', $row[10])->value('group') : 'まだ設定されていません'
                     ]
                 );
             }

@@ -84,7 +84,7 @@
                                         <th style="max-width: 200px">企業名</th>
                                         <th style="max-width: 200px;">メール</th>
                                         <th style="min-width: 110px;">業種</th>
-                                        <th style="min-width: 110px;">グループ名 <span id="rowCount">（{{ $csvMails->count() }} 行）</span></th>
+                                        <th style="min-width: 110px;">グループ名 <span id="rowCount">（{{ $csvMails->total() }} 行）</span></th>
                                         <th>
                                             <div class="custom-checkbox" style="display: block;">
                                                 <input type="checkbox" id="checkAll" name="checkAll" onchange="toggleCheckboxes(this)">

@@ -7,6 +7,7 @@
                   <form id="search-form" action="{{ route('admin.csv.and.mail.sendings') }}" method="GET">
                       <div class="search-box">
                           <input type="text" name="search" placeholder="検索..." value="{{ request()->input('search') }}">
+                          <input type="hidden" name="group" id="groupInput" value="{{ request()->input('group') }}">
                           <button type="submit"><i class="fa fa-search"></i></button>
                       </div>
                   </form>
@@ -188,13 +189,22 @@
     <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
     <script>
         document.getElementById('filterGroup').addEventListener('change', function() {
+            var selectedGroup = this.value; // Get the selected group
+            var groupInput = document.getElementById('groupInput'); // Get the hidden input field
+            groupInput.value = selectedGroup; // Set the selected group value in the hidden input
+            document.getElementById('search-form').submit(); // Submit the form
+        });
+    </script>
+    
+    {{-- <script>
+        document.getElementById('filterGroup').addEventListener('change', function() {
             const selectedGroup = this.value;
             const url = "{{ route('admin.csv.and.mail.sendings') }}";
     
             // Redirect to the route with the selected group as a query parameter
             window.location.href = `${url}?group=${encodeURIComponent(selectedGroup)}`;
         });
-    </script>
+    </script> --}}
     
     {{-- <script>
         $(document).ready(function() {

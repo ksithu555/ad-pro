@@ -34,7 +34,10 @@ class GuestController extends Controller
 
         if ($search) {
             $advertisementsQuery->where(function($query) use ($search) {
-                $query->where('name', 'like', "%{$search}%");
+                $query->where('name', 'like', "%{$search}%")
+                    ->orWherehas('user', function($query) use ($search) {
+                        $query->where('company_name', 'like', "%{$search}%");
+                    });
             });
         }
 

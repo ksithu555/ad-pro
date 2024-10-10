@@ -22,13 +22,12 @@
                 <div class="row">
                     <div class="col-md-3">
                         <div class="form-group">
-                            @php
-                                $groups = $csvMails->sortBy('group')->pluck('group')->unique();
-                            @endphp
-                            <select name="filterGroup" class="orderby social-media">
+                            <select name="filterGroup" id="filterGroup" class="orderby social-media">
                                 <option value="" selected="selected">全て</option>
                                 @foreach ($groups as $group)
-                                <option value="{{ $group }}">{{ $group }}</option>
+                                <option value="{{ $group }}" @if(request()->input('group') == $group) selected="selected" @endif>
+                                    {{ $group }}
+                                </option>                                
                                 @endforeach
                             </select>
                             <span class="error" style="color:#BF0731" id="error-filterGroup"></span>
@@ -129,6 +128,7 @@
                                 </tbody>
                             </table>
                         </div>
+                        @include('components.pagination')
                     </div>
                     @if ($csvMails->isEmpty())
                     <h1 class="mt-110 mb-70 text-center">インポートされたメールはありません</h1>
@@ -187,6 +187,16 @@
     {{-- filter Group --}}
     <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
     <script>
+        document.getElementById('filterGroup').addEventListener('change', function() {
+            const selectedGroup = this.value;
+            const url = "{{ route('admin.csv.and.mail.sendings') }}";
+    
+            // Redirect to the route with the selected group as a query parameter
+            window.location.href = `${url}?group=${encodeURIComponent(selectedGroup)}`;
+        });
+    </script>
+    
+    {{-- <script>
         $(document).ready(function() {
             // When the filter dropdown changes
             $('select[name="filterGroup"]').on('change', function() {
@@ -219,7 +229,8 @@
             // Trigger the change event on page load to display the correct count initially
             $('select[name="filterGroup"]').trigger('change');
         });
-    </script>    
+    </script>     --}}
+    
     <script>
         function toggleCheckboxes(source) {
             // Select all checkboxes within visible mail-row elements

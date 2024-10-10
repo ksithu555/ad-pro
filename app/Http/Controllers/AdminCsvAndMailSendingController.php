@@ -13,21 +13,30 @@ use App\Mail\SendAdvertisementToCsvEmail;
 class AdminCsvAndMailSendingController extends Controller
 {
     public function getCsvAndMailSendings(Request $request) {
-        // $limit = 10;
-        // $csvMails = CsvMail::paginate($limit);
-        // $ttl = $csvMails->total();
-        // $ttlpage = ceil($ttl / $limit);
+        $limit = 100;
         $search = $request->input('search');
+        $selectedGroup = $request->input('group');
+
         $csvMailsQuery = CsvMail::query();
+
         if ($search) {
             $csvMailsQuery->where(function($query) use ($search) {
                 $query->where('company_name', 'like', "%{$search}%")
                       ->orWhere('industry', 'like', "%{$search}%");
             });
         }
-        $csvMails = $csvMailsQuery->orderBy('created_at', 'desc')->get();
+
+        if ($selectedGroup) {
+            $csvMailsQuery->where(function($query) use ($selectedGroup) {
+                $query->where('group', 'like', "%{$selectedGroup}%");
+            });
+        }
+
+        $csvMails = $csvMailsQuery->orderBy('created_at', 'desc')->paginate($limit);
+        $groups = CsvMail::select('group')->distinct()->orderBy('group')->pluck('group');
         $ttl = $csvMails->count();
-        return view('admins.csvmails.csv-and-mail-sendings', compact('csvMails', 'ttl'));
+        $ttlpage = ceil($ttl / $limit);
+        return view('admins.csvmails.csv-and-mail-sendings', compact('csvMails', 'groups', 'ttl', 'ttlpage'));
     }
 
     public function csvUpload() {

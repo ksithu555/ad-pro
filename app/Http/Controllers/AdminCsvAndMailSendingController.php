@@ -100,14 +100,21 @@ class AdminCsvAndMailSendingController extends Controller
 
     public function sendCsvMails(Request $request) {
         $checkedEmails = explode(',', $request->checkedEmails); // Convert the comma-separated string into an array
-        $selectedMails = CsvMail::whereIn('id', $checkedEmails)->get();
+        $selectedMails = CsvMail::whereIn('id', $checkedEmails)->orderBy('created_at', 'desc')->get();
+
+        foreach ($selectedMails as $mail) {
+            if (!filter_var($mail->email, FILTER_VALIDATE_EMAIL)) {
+                Session::flash('error', '無効なメールアドレスがあります: ' . $mail->email); // Flash the error message in Japanese
+                return redirect()->back(); // Redirect back if an invalid email is found
+            }
+        }
 
         return view('admins.csvmails.mail-sendings', compact('selectedMails'));
     }
 
     public function sendMailCsvMails(Request $request) {
         $selectedMailIds = explode(',', $request->selectedMails); // Convert the comma-separated string into an array
-        $selectedEmails = CsvMail::whereIn('id', $selectedMailIds)->get();
+        $selectedEmails = CsvMail::whereIn('id', $selectedMailIds)->orderBy('created_at', 'desc')->get();
         
         foreach ($selectedEmails as $selectedEmail) {
             dispatch(new SendCsvMailJob(

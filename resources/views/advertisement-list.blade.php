@@ -38,6 +38,16 @@
     <!--== Portfolio Start ==-->
     <section class="white-bg dark-block">
         <div class="container">
+            <div class="row">
+              <div class="col-sm-8 section-heading">
+                  <form id="search-form" action="{{ route('guest.advertisement.list') }}" method="GET">
+                      <div class="search-box">
+                          <input type="text" name="search" placeholder="検索..." value="{{ request()->input('search') }}">
+                          <button type="submit"><i class="fa fa-search"></i></button>
+                      </div>
+                  </form>
+              </div>
+            </div>
             <div class="row mt-25">
                 <div class="col-md-12">
                     <div id="portfolio-gallery" class="cbp">
@@ -75,6 +85,7 @@
                 <h1 class="mt-20 mb-20 text-center">広告がありません</h1>
                 @endif
             </div>
+            @include('components.pagination')
         </div>
     </section>
 

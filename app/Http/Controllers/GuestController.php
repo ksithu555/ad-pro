@@ -27,9 +27,21 @@ class GuestController extends Controller
         return view('home-one-page');
     }
 
-    public function advertisements() {
-        $advertisements = Advertisement::with('user')->where('status', 1)->orderBy('created_at', 'desc')->get();
-        return view('advertisement-list', compact('advertisements'));
+    public function advertisements(Request $request) {
+        $limit = 12;
+        $search = $request->input('search');
+        $advertisementsQuery = Advertisement::with('user')->where('status', 1);
+
+        if ($search) {
+            $advertisementsQuery->where(function($query) use ($search) {
+                $query->where('name', 'like', "%{$search}%");
+            });
+        }
+
+        $advertisements = $advertisementsQuery->orderBy('created_at', 'desc')->paginate($limit);
+        $ttl = $advertisements->total();
+        $ttlpage = ceil($ttl / $limit);
+        return view('advertisement-list', compact('advertisements', 'ttl', 'ttlpage'));
     }
 
     public function news() {

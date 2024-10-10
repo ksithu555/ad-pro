@@ -34,7 +34,7 @@ class AdminCsvAndMailSendingController extends Controller
 
         $csvMails = $csvMailsQuery->orderBy('created_at', 'desc')->paginate($limit);
         $groups = CsvMail::select('group')->distinct()->orderBy('group')->pluck('group');
-        $ttl = $csvMails->count();
+        $ttl = $csvMails->total();
         $ttlpage = ceil($ttl / $limit);
         return view('admins.csvmails.csv-and-mail-sendings', compact('csvMails', 'groups', 'ttl', 'ttlpage'));
     }

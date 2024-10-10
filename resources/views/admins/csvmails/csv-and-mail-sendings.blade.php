@@ -1,6 +1,6 @@
 <x-admin-layout>
     <!--== Who We Are Start ==-->
-    <section class="white-bg pt-120" style="padding-bottom: 250px;">
+    <section class="white-bg pt-120 pb-120">
         <div class="container">
             <div class="row">
               <div class="col-sm-8 section-heading">

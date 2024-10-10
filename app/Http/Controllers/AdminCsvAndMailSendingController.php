@@ -13,7 +13,7 @@ use App\Mail\SendAdvertisementToCsvEmail;
 class AdminCsvAndMailSendingController extends Controller
 {
     public function getCsvAndMailSendings(Request $request) {
-        $limit = 100;
+        $limit = 500;
         $search = $request->input('search');
         $selectedGroup = $request->input('group');
 
